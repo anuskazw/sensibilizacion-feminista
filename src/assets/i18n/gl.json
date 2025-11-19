@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Web de Sensibilización Feminista",
+    "subtitle": "Accesible para Persoas Xordas"
+  },
+  "header": {
+    "home": "Inicio",
+    "history": "Historia",
+    "concepts": "Conceptos",
+    "violence": "Violencia",
+    "resources": "Recursos",
+    "help": "Axuda"
+  },
+  "language": {
+    "selector": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "ca": "Català",
+    "val": "Valencià",
+    "gl": "Galego",
+    "eu": "Euskara"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Erro",
+    "close": "Pechar",
+    "accept": "Aceptar",
+    "cancel": "Cancelar"
+  }
+}
+

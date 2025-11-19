@@ -1,0 +1,84 @@
+<header class="header" role="banner">
+  <div class="header-container">
+    <!-- Logo y título -->
+    <div class="header-brand">
+      <a routerLink="/" class="brand-link" [attr.aria-label]="'app.title' | translate">
+        <h1 class="brand-title">{{ 'app.title' | translate }}</h1>
+        <p class="brand-subtitle">{{ 'app.subtitle' | translate }}</p>
+      </a>
+    </div>
+
+    <!-- Navegación principal -->
+    <nav class="header-nav" role="navigation" [attr.aria-label]="'header.home' | translate">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+            {{ 'header.home' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/historia" routerLinkActive="active" class="nav-link">
+            {{ 'header.history' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/conceptos" routerLinkActive="active" class="nav-link">
+            {{ 'header.concepts' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/violencia" routerLinkActive="active" class="nav-link">
+            {{ 'header.violence' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/recursos" routerLinkActive="active" class="nav-link">
+            {{ 'header.resources' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/ayuda" routerLinkActive="active" class="nav-link">
+            {{ 'header.help' | translate }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Selector de idioma -->
+    <div class="language-selector" role="region" [attr.aria-label]="'language.selector' | translate">
+      <button 
+        class="language-button" 
+        (click)="toggleLanguageMenu()"
+        [attr.aria-expanded]="isLanguageMenuOpen"
+        [attr.aria-label]="'language.selector' | translate"
+        type="button">
+        <span class="language-icon">🌐</span>
+        <span class="language-text">{{ getCurrentLanguageName() }}</span>
+        <span class="language-arrow" [class.open]="isLanguageMenuOpen">▼</span>
+      </button>
+
+      <ul 
+        class="language-menu" 
+        [class.show]="isLanguageMenuOpen"
+        role="menu"
+        [attr.aria-hidden]="!isLanguageMenuOpen">
+        <li 
+          *ngFor="let lang of availableLanguages" 
+          class="language-item"
+          role="none">
+          <button
+            class="language-option"
+            [class.active]="lang.code === currentLanguage"
+            (click)="changeLanguage(lang.code)"
+            [attr.aria-current]="lang.code === currentLanguage ? 'true' : null"
+            role="menuitem"
+            type="button">
+            {{ lang.name }}
+            <span *ngIf="lang.code === currentLanguage" class="check-icon">✓</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+

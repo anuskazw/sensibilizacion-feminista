@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Feminist Awareness Website",
+    "subtitle": "Accessible for Deaf People"
+  },
+  "header": {
+    "home": "Home",
+    "history": "History",
+    "concepts": "Concepts",
+    "violence": "Violence",
+    "resources": "Resources",
+    "help": "Help"
+  },
+  "language": {
+    "selector": "Language",
+    "es": "Español",
+    "en": "English",
+    "ca": "Català",
+    "val": "Valencià",
+    "gl": "Galego",
+    "eu": "Euskara"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "close": "Close",
+    "accept": "Accept",
+    "cancel": "Cancel"
+  }
+}
+

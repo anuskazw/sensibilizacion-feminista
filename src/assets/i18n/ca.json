@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Web de Sensibilització Feminista",
+    "subtitle": "Accessible per a Persones Sordes"
+  },
+  "header": {
+    "home": "Inici",
+    "history": "Història",
+    "concepts": "Conceptes",
+    "violence": "Violència",
+    "resources": "Recursos",
+    "help": "Ajuda"
+  },
+  "language": {
+    "selector": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "ca": "Català",
+    "val": "Valencià",
+    "gl": "Galego",
+    "eu": "Euskara"
+  },
+  "common": {
+    "loading": "Carregant...",
+    "error": "Error",
+    "close": "Tancar",
+    "accept": "Acceptar",
+    "cancel": "Cancel·lar"
+  }
+}
+

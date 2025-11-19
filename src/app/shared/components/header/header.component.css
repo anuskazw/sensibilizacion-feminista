@@ -1,0 +1,265 @@
+/* Cabecera fija - Requisito US-012 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  gap: 2rem;
+}
+
+/* Logo y marca */
+.header-brand {
+  flex-shrink: 0;
+}
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.brand-link:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 4px;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5c2d91;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0.25rem 0 0;
+}
+
+/* Navegación principal */
+.header-nav {
+  flex: 1;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #f0f0f0;
+  color: #5c2d91;
+}
+
+.nav-link:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.nav-link.active {
+  background-color: #5c2d91;
+  color: #fff;
+}
+
+/* Selector de idioma - Requisito US-001 */
+.language-selector {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.language-button:hover,
+.language-button:focus {
+  background-color: #e8e8e8;
+  border-color: #999;
+}
+
+.language-button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.language-icon {
+  font-size: 1.2rem;
+}
+
+.language-text {
+  font-weight: 500;
+}
+
+.language-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+}
+
+.language-arrow.open {
+  transform: rotate(180deg);
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  min-width: 150px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.language-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-item {
+  margin: 0;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.language-option:hover,
+.language-option:focus {
+  background-color: #f0f0f0;
+}
+
+.language-option:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: -2px;
+}
+
+.language-option.active {
+  background-color: #e8f4ff;
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.check-icon {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+/* Responsive - Requisito US-014 (Accesibilidad) */
+@media (max-width: 1024px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .header-nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .nav-list {
+    justify-content: center;
+  }
+
+  .brand-title {
+    font-size: 1.25rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-list {
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+}
+
+/* Mejoras de accesibilidad - Contraste mínimo AA (Requisito US-014) */
+@media (prefers-contrast: high) {
+  .nav-link,
+  .language-button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reducción de movimiento para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+

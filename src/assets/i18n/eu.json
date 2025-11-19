@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Feminismoaren Sentsibilizazio Webgunea",
+    "subtitle": "Gor Pertsonentzat Eskuragarria"
+  },
+  "header": {
+    "home": "Hasiera",
+    "history": "Historia",
+    "concepts": "Kontzeptuak",
+    "violence": "Indarkeria",
+    "resources": "Baliabideak",
+    "help": "Laguntza"
+  },
+  "language": {
+    "selector": "Hizkuntza",
+    "es": "Español",
+    "en": "English",
+    "ca": "Català",
+    "val": "Valencià",
+    "gl": "Galego",
+    "eu": "Euskara"
+  },
+  "common": {
+    "loading": "Kargatzen...",
+    "error": "Errorea",
+    "close": "Itxi",
+    "accept": "Onartu",
+    "cancel": "Ezeztatu"
+  }
+}
+
