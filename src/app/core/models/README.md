@@ -139,8 +139,64 @@ Todos los modelos son interfaces TypeScript que:
 - Se autocompletan en IDEs
 - Documentan la estructura de datos esperada
 
+## Servicios Relacionados
+
+### ResourceService (US-005)
+
+El `ResourceService` proporciona funcionalidad completa para gestionar recursos y ayudas:
+
+#### Características principales:
+- **Gestión de estado reactiva**: Utiliza Angular signals para actualizaciones eficientes
+- **Filtrado avanzado**: Permite filtrar recursos por subtipo, autor, año, hashtags y búsqueda de texto
+- **Computed signals**: Acceso rápido a libros, películas/series y documentales
+- **Ordenamiento flexible**: Ordena por título, año o autor en orden ascendente o descendente
+- **Búsqueda multiidioma**: Búsqueda en el idioma especificado
+- **Estadísticas**: Obtiene estadísticas de recursos por subtipo, autores únicos y años
+
+#### Uso básico:
+
+```typescript
+import { ResourceService } from '@core/services/resource.service';
+
+// Cargar recursos
+resourceService.loadRecursos(recursos);
+
+// Filtrar libros
+const libros = resourceService.libros();
+
+// Filtrar por criterios
+const filtered = resourceService.filterRecursos({
+  subtipo: 'libro',
+  anioDesde: 2000,
+  hashtags: ['feminismo']
+});
+
+// Ordenar resultados
+const sorted = resourceService.sortRecursos(filtered, 'anio', 'desc');
+
+// Buscar por slug
+const recurso = resourceService.getRecursoBySlug('el-segundo-sexo');
+```
+
+#### Filtros disponibles:
+
+**Para recursos:**
+- `subtipo`: Filtrar por tipo (libro | pelicula_serie | documental)
+- `autor`: Buscar por autor
+- `anio`: Año específico
+- `anioDesde` / `anioHasta`: Rango de años
+- `hashtags`: Lista de IDs de hashtags
+- `busqueda`: Búsqueda de texto en título, descripción y autor
+
+**Para instituciones:**
+- `ambito`: Filtrar por ámbito (nacional | autonomico | local)
+- `hashtags`: Lista de IDs de hashtags
+- `busqueda`: Búsqueda de texto en título, descripción, teléfono y email
+
 ## Referencias
 
 - Historia de Usuario: US-004 - Modelo de datos común y gestión de hashtags
 - Tickets: US-004-01, US-004-02, US-004-03
+- Historia de Usuario: US-005 - Modelos de recursos y ayudas
+- Tickets: US-005-01, US-005-02, US-005-03
 

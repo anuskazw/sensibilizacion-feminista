@@ -308,6 +308,273 @@ describe('Content Models', () => {
         expect(['libro', 'pelicula_serie', 'documental']).toContain(subtipo);
       });
     });
+
+    // Pruebas específicas US-005
+    describe('US-005: Libros', () => {
+      it('debería tener todos los campos específicos de libros', () => {
+        const libro: RecursoContent = {
+          id: 'rec-libro-001',
+          slug: 'el-segundo-sexo',
+          tipo: 'recurso',
+          subtipo: 'libro',
+          titulo: { 
+            es: 'El segundo sexo',
+            en: 'The Second Sex'
+          },
+          descripcion: { es: 'Descripción del libro' },
+          descripcion_lectura_facil: { es: 'Un libro importante sobre feminismo' },
+          autor: 'Simone de Beauvoir',
+          anio: 1949,
+          isbn: '978-0307277787',
+          enlace_catalogo: 'https://catalogo.ejemplo.com/libro',
+          num_ediciones: 15,
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        expect(libro.subtipo).toBe('libro');
+        expect(libro.autor).toBe('Simone de Beauvoir');
+        expect(libro.anio).toBe(1949);
+        expect(libro.isbn).toBeDefined();
+        expect(libro.enlace_catalogo).toBeDefined();
+        expect(libro.num_ediciones).toBe(15);
+      });
+
+      it('debería permitir libro sin ISBN (campo opcional)', () => {
+        const libro: RecursoContent = {
+          id: 'rec-libro-002',
+          slug: 'libro-sin-isbn',
+          tipo: 'recurso',
+          subtipo: 'libro',
+          titulo: { es: 'Libro antiguo' },
+          descripcion: { es: 'Descripción' },
+          descripcion_lectura_facil: { es: 'Descripción fácil' },
+          autor: 'Autora Clásica',
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        expect(libro.subtipo).toBe('libro');
+        expect(libro.isbn).toBeUndefined();
+      });
+
+      it('debería heredar campos comunes del modelo base', () => {
+        const libro: RecursoContent = {
+          id: 'rec-libro-003',
+          slug: 'libro-completo',
+          tipo: 'recurso',
+          subtipo: 'libro',
+          titulo: { 
+            es: 'Título español',
+            en: 'English title',
+            ca: 'Títol català'
+          },
+          descripcion: { es: 'Descripción' },
+          descripcion_lectura_facil: { 
+            es: 'Lectura fácil en español',
+            en: 'Easy reading in English'
+          },
+          video_lse_url: 'https://example.com/video-lse.mp4',
+          video_lsc_url: 'https://example.com/video-lsc.mp4',
+          hashtags: [
+            { id: 'ht-1', nombre: 'Feminismo', slug: 'feminismo' }
+          ],
+          referencias: [
+            { titulo: 'Referencia 1', url: 'https://ref1.com' }
+          ],
+          autor: 'Autora',
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        // Campos comunes
+        expect(libro.titulo.es).toBeDefined();
+        expect(libro.descripcion_lectura_facil.es).toBeDefined();
+        expect(libro.video_lse_url).toBeDefined();
+        expect(libro.video_lsc_url).toBeDefined();
+        expect(libro.hashtags.length).toBe(1);
+        expect(libro.referencias?.length).toBe(1);
+      });
+    });
+
+    describe('US-005: Películas y Series', () => {
+      it('debería tener todos los campos específicos de películas/series', () => {
+        const pelicula: RecursoContent = {
+          id: 'rec-peli-001',
+          slug: 'the-handmaids-tale',
+          tipo: 'recurso',
+          subtipo: 'pelicula_serie',
+          titulo: { 
+            es: 'El cuento de la criada',
+            en: 'The Handmaid\'s Tale'
+          },
+          descripcion: { es: 'Serie sobre distopía feminista' },
+          descripcion_lectura_facil: { es: 'Una serie sobre mujeres en un mundo difícil' },
+          direccion: 'Bruce Miller (creador)',
+          anio: 2017,
+          duracion: 50,
+          num_temporadas: 5,
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        expect(pelicula.subtipo).toBe('pelicula_serie');
+        expect(pelicula.direccion).toBe('Bruce Miller (creador)');
+        expect(pelicula.anio).toBe(2017);
+        expect(pelicula.duracion).toBe(50);
+        expect(pelicula.num_temporadas).toBe(5);
+      });
+
+      it('debería permitir película sin temporadas', () => {
+        const pelicula: RecursoContent = {
+          id: 'rec-peli-002',
+          slug: 'pelicula-individual',
+          tipo: 'recurso',
+          subtipo: 'pelicula_serie',
+          titulo: { es: 'Película individual' },
+          descripcion: { es: 'Descripción' },
+          descripcion_lectura_facil: { es: 'Una película' },
+          direccion: 'Directora',
+          duracion: 120,
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        expect(pelicula.subtipo).toBe('pelicula_serie');
+        expect(pelicula.num_temporadas).toBeUndefined();
+      });
+    });
+
+    describe('US-005: Documentales', () => {
+      it('debería tener todos los campos específicos de documentales', () => {
+        const documental: RecursoContent = {
+          id: 'rec-doc-001',
+          slug: 'she-is-beautiful',
+          tipo: 'recurso',
+          subtipo: 'documental',
+          titulo: { es: 'She is Beautiful When She is Angry' },
+          descripcion: { es: 'Documental sobre el movimiento feminista' },
+          descripcion_lectura_facil: { es: 'Un documental sobre mujeres que lucharon por sus derechos' },
+          direccion: 'Mary Dore',
+          anio: 2014,
+          duracion: 92,
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        expect(documental.subtipo).toBe('documental');
+        expect(documental.direccion).toBe('Mary Dore');
+        expect(documental.anio).toBe(2014);
+        expect(documental.duracion).toBe(92);
+      });
+
+      it('debería distinguirse de películas por subtipo', () => {
+        const documental: RecursoContent = {
+          id: 'rec-doc-002',
+          slug: 'documental',
+          tipo: 'recurso',
+          subtipo: 'documental',
+          titulo: { es: 'Documental' },
+          descripcion: { es: 'Desc' },
+          descripcion_lectura_facil: { es: 'Desc fácil' },
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        const pelicula: RecursoContent = {
+          id: 'rec-peli-003',
+          slug: 'pelicula',
+          tipo: 'recurso',
+          subtipo: 'pelicula_serie',
+          titulo: { es: 'Película' },
+          descripcion: { es: 'Desc' },
+          descripcion_lectura_facil: { es: 'Desc fácil' },
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        expect(documental.subtipo).not.toBe(pelicula.subtipo);
+      });
+    });
+
+    describe('US-005: Sinopsis en lectura fácil multiidioma', () => {
+      it('todos los recursos deben incluir descripción en lectura fácil', () => {
+        const recursos: RecursoContent[] = [
+          {
+            id: 'rec-1',
+            slug: 'libro',
+            tipo: 'recurso',
+            subtipo: 'libro',
+            titulo: { es: 'Libro' },
+            descripcion: { es: 'Descripción completa' },
+            descripcion_lectura_facil: { es: 'Descripción fácil de leer' },
+            hashtags: [],
+            activo: true,
+            fecha_publicacion: new Date()
+          },
+          {
+            id: 'rec-2',
+            slug: 'pelicula',
+            tipo: 'recurso',
+            subtipo: 'pelicula_serie',
+            titulo: { es: 'Película' },
+            descripcion: { es: 'Descripción completa' },
+            descripcion_lectura_facil: { es: 'Descripción fácil de leer' },
+            hashtags: [],
+            activo: true,
+            fecha_publicacion: new Date()
+          }
+        ];
+
+        recursos.forEach(recurso => {
+          expect(recurso.descripcion_lectura_facil).toBeDefined();
+          expect(recurso.descripcion_lectura_facil.es).toBeDefined();
+        });
+      });
+
+      it('debería soportar sinopsis multiidioma', () => {
+        const recurso: RecursoContent = {
+          id: 'rec-multi',
+          slug: 'recurso-multiidioma',
+          tipo: 'recurso',
+          subtipo: 'libro',
+          titulo: { 
+            es: 'Título',
+            en: 'Title',
+            ca: 'Títol',
+            val: 'Títol',
+            gl: 'Título',
+            eu: 'Izenburua'
+          },
+          descripcion: { es: 'Descripción' },
+          descripcion_lectura_facil: { 
+            es: 'Lectura fácil en español',
+            en: 'Easy reading in English',
+            ca: 'Lectura fàcil en català',
+            val: 'Lectura fàcil en valencià',
+            gl: 'Lectura fácil en galego',
+            eu: 'Irakurketa erraza euskaraz'
+          },
+          hashtags: [],
+          activo: true,
+          fecha_publicacion: new Date()
+        };
+
+        expect(recurso.descripcion_lectura_facil.es).toBeDefined();
+        expect(recurso.descripcion_lectura_facil.en).toBeDefined();
+        expect(recurso.descripcion_lectura_facil.ca).toBeDefined();
+        expect(recurso.descripcion_lectura_facil.val).toBeDefined();
+        expect(recurso.descripcion_lectura_facil.gl).toBeDefined();
+        expect(recurso.descripcion_lectura_facil.eu).toBeDefined();
+      });
+    });
   });
 
   describe('TestimonioContent', () => {
