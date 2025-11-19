@@ -54,6 +54,33 @@
     "showTranscription": "Mostrar transcripció",
     "hideTranscription": "Amagar transcripció",
     "transcriptionContent": "Contingut de la transcripció"
+  },
+  "search": {
+    "placeholder": "Cercar contingut...",
+    "clear": "Netejar cerca",
+    "noResults": "No s'han trobat resultats",
+    "resultsCount": "{{ count }} resultat(s) trobat(s)"
+  },
+  "sidebar": {
+    "title": "Filtres de cerca",
+    "search": "Cercar",
+    "hashtags": "Etiquetes",
+    "year": "Filtrar per any",
+    "yearFrom": "Des de",
+    "yearTo": "Fins a",
+    "clearFilters": "Netejar filtres",
+    "open": "Obrir filtres",
+    "close": "Tancar filtres"
+  },
+  "content": {
+    "sortBy": "Ordenar per",
+    "sort": {
+      "titulo_asc": "Títol (A-Z)",
+      "titulo_desc": "Títol (Z-A)",
+      "anio_asc": "Any (més antic)",
+      "anio_desc": "Any (més recent)",
+      "fecha_publicacion": "Data de publicació"
+    }
   }
 }
 

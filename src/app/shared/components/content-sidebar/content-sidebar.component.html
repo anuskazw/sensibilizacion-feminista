@@ -1,0 +1,129 @@
+<aside 
+  class="content-sidebar" 
+  [class.sidebar-open]="isOpen"
+  [class.sidebar-closed]="!isOpen"
+  role="complementary"
+  [attr.aria-label]="'sidebar.title' | translate">
+  
+  <!-- Botón para toggle en móvil -->
+  <button 
+    class="sidebar-toggle"
+    (click)="onToggleSidebar()"
+    [attr.aria-label]="isOpen ? ('sidebar.close' | translate) : ('sidebar.open' | translate)"
+    [attr.aria-expanded]="isOpen">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2"
+      aria-hidden="true">
+      @if (isOpen) {
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      } @else {
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      }
+    </svg>
+  </button>
+
+  <div class="sidebar-content" [hidden]="!isOpen">
+    <!-- Título de sección -->
+    @if (sectionTitle) {
+      <h2 class="section-title">{{ sectionTitle | translate }}</h2>
+    }
+
+    <!-- Barra de búsqueda -->
+    <div class="filter-section">
+      <h3 class="filter-title">{{ 'sidebar.search' | translate }}</h3>
+      <app-search-bar
+        [placeholder]="'search.placeholder'"
+        (searchChange)="onSearchChange($event)">
+      </app-search-bar>
+    </div>
+
+    <!-- Filtro por hashtags -->
+    @if (hashtags.length > 0) {
+      <div class="filter-section">
+        <h3 class="filter-title">{{ 'sidebar.hashtags' | translate }}</h3>
+        <div class="hashtags-list">
+          @for (group of groupedHashtags(); track group.letter) {
+            <div class="hashtag-group">
+              <div class="hashtag-letter">{{ group.letter }}</div>
+              @for (tag of group.tags; track tag.id) {
+                <label class="hashtag-item">
+                  <input
+                    type="checkbox"
+                    [checked]="isHashtagSelected(tag.id)"
+                    (change)="toggleHashtag(tag.id)"
+                    [attr.aria-label]="tag.nombre"
+                  />
+                  <span class="hashtag-label">
+                    #{{ tag.nombre }}
+                  </span>
+                  @if (tag.descripcion) {
+                    <span class="hashtag-description">{{ tag.descripcion }}</span>
+                  }
+                </label>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Filtro por año -->
+    @if (showYearFilter && yearRange) {
+      <div class="filter-section">
+        <h3 class="filter-title">{{ 'sidebar.year' | translate }}</h3>
+        <div class="year-filter">
+          <div class="year-input-group">
+            <label for="year-from" class="year-label">
+              {{ 'sidebar.yearFrom' | translate }}
+            </label>
+            <input
+              id="year-from"
+              type="number"
+              class="year-input"
+              [min]="yearRange.min"
+              [max]="yearRange.max"
+              [value]="yearFrom() || ''"
+              (input)="onYearFromChange($any($event.target).value)"
+              [placeholder]="yearRange.min.toString()"
+            />
+          </div>
+          <div class="year-input-group">
+            <label for="year-to" class="year-label">
+              {{ 'sidebar.yearTo' | translate }}
+            </label>
+            <input
+              id="year-to"
+              type="number"
+              class="year-input"
+              [min]="yearRange.min"
+              [max]="yearRange.max"
+              [value]="yearTo() || ''"
+              (input)="onYearToChange($any($event.target).value)"
+              [placeholder]="yearRange.max.toString()"
+            />
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Botón para limpiar filtros -->
+    @if (hasActiveFilters()) {
+      <div class="filter-actions">
+        <button 
+          class="clear-filters-button"
+          (click)="clearAllFilters()"
+          type="button">
+          {{ 'sidebar.clearFilters' | translate }}
+        </button>
+      </div>
+    }
+  </div>
+</aside>
+

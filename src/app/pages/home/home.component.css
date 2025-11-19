@@ -123,3 +123,38 @@ h1 {
   }
 }
 
+.demo-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #f5f3ff;
+  border-radius: 0.75rem;
+  border: 2px solid #8b5cf6;
+  text-align: left;
+}
+
+.demo-section h2 {
+  margin-top: 0;
+  color: #6d28d9;
+}
+
+.demo-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #8b5cf6;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.demo-link:hover {
+  background-color: #7c3aed;
+}
+
+.demo-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+

@@ -54,6 +54,33 @@
     "showTranscription": "Transkripzioa erakutsi",
     "hideTranscription": "Transkripzioa ezkutatu",
     "transcriptionContent": "Transkripzioaren edukia"
+  },
+  "search": {
+    "placeholder": "Edukia bilatu...",
+    "clear": "Bilaketa garbitu",
+    "noResults": "Ez da emaitzarik aurkitu",
+    "resultsCount": "{{ count }} emaitza aurkitu d(ir)a"
+  },
+  "sidebar": {
+    "title": "Bilaketa filtroak",
+    "search": "Bilatu",
+    "hashtags": "Etiketak",
+    "year": "Urtez iragazi",
+    "yearFrom": "Nondik",
+    "yearTo": "Nora",
+    "clearFilters": "Filtroak garbitu",
+    "open": "Filtroak ireki",
+    "close": "Filtroak itxi"
+  },
+  "content": {
+    "sortBy": "Ordenatu",
+    "sort": {
+      "titulo_asc": "Izenburua (A-Z)",
+      "titulo_desc": "Izenburua (Z-A)",
+      "anio_asc": "Urtea (zaharrena)",
+      "anio_desc": "Urtea (berriena)",
+      "fecha_publicacion": "Argitalpen data"
+    }
   }
 }
 

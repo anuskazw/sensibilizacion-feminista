@@ -54,6 +54,33 @@
     "showTranscription": "Mostrar transcripción",
     "hideTranscription": "Ocultar transcripción",
     "transcriptionContent": "Contenido de la transcripción"
+  },
+  "search": {
+    "placeholder": "Buscar contenido...",
+    "clear": "Limpiar búsqueda",
+    "noResults": "No se encontraron resultados",
+    "resultsCount": "{{ count }} resultado(s) encontrado(s)"
+  },
+  "sidebar": {
+    "title": "Filtros de búsqueda",
+    "search": "Buscar",
+    "hashtags": "Etiquetas",
+    "year": "Filtrar por año",
+    "yearFrom": "Desde",
+    "yearTo": "Hasta",
+    "clearFilters": "Limpiar filtros",
+    "open": "Abrir filtros",
+    "close": "Cerrar filtros"
+  },
+  "content": {
+    "sortBy": "Ordenar por",
+    "sort": {
+      "titulo_asc": "Título (A-Z)",
+      "titulo_desc": "Título (Z-A)",
+      "anio_asc": "Año (más antiguo)",
+      "anio_desc": "Año (más reciente)",
+      "fecha_publicacion": "Fecha de publicación"
+    }
   }
 }
 

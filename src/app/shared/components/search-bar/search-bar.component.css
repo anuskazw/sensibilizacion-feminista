@@ -1,0 +1,108 @@
+.search-bar {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  background-color: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #5c2d91;
+  box-shadow: 0 0 0 3px rgba(92, 45, 145, 0.1);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.clear-button {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6b7280;
+}
+
+.clear-button:hover {
+  background-color: #f3f4f6;
+}
+
+.clear-button:hover svg {
+  color: #374151;
+}
+
+.clear-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 45, 145, 0.3);
+}
+
+/* Accesibilidad - Alto contraste */
+@media (prefers-contrast: high) {
+  .search-input {
+    border-width: 3px;
+  }
+  
+  .search-input:focus {
+    border-color: #000000;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-input {
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+}
+

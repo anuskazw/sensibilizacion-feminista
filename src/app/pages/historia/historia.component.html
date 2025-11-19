@@ -1,0 +1,89 @@
+<div class="historia-page">
+  <!-- Sidebar con filtros -->
+  <app-content-sidebar
+    [sectionTitle]="'header.history'"
+    [hashtags]="hashtags()"
+    [yearRange]="yearRange()"
+    [showYearFilter]="true"
+    (filtersChange)="onFiltersChange($event)">
+  </app-content-sidebar>
+
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'header.history' | translate }}</h1>
+      <p class="content-description">
+        Descubre eventos, personas y movimientos históricos del feminismo.
+      </p>
+    </div>
+
+    <!-- Resultados -->
+    <div class="results-info">
+      @if (filteredContents().length > 0) {
+        <p class="results-count">
+          {{ 'search.resultsCount' | translate: { count: filteredContents().length } }}
+        </p>
+      }
+    </div>
+
+    <!-- Lista de contenidos -->
+    <div class="contents-grid">
+      @if (filteredContents().length > 0) {
+        @for (content of filteredContents(); track content.id) {
+          <article class="content-card">
+            <div class="card-header">
+              <span class="card-year">{{ content.anio }}</span>
+              <h2 class="card-title">{{ getTitle(content) }}</h2>
+            </div>
+            
+            <div class="card-body">
+              <p class="card-description">{{ getDescription(content) }}</p>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-hashtags">
+                @for (hashtag of content.hashtags; track hashtag.id) {
+                  <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                }
+              </div>
+            </div>
+
+            @if (content.video_lse_url) {
+              <div class="card-actions">
+                <button class="video-button" type="button">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  Ver vídeo en LSE
+                </button>
+              </div>
+            }
+          </article>
+        }
+      } @else {
+        <div class="no-results">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2"
+            class="no-results-icon"
+            aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <h2>{{ 'search.noResults' | translate }}</h2>
+          <p>Intenta cambiar los filtros o buscar con otros términos.</p>
+        </div>
+      }
+    </div>
+  </main>
+</div>
+

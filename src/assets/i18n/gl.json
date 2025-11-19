@@ -54,6 +54,33 @@
     "showTranscription": "Mostrar transcrición",
     "hideTranscription": "Ocultar transcrición",
     "transcriptionContent": "Contido da transcrición"
+  },
+  "search": {
+    "placeholder": "Buscar contido...",
+    "clear": "Limpar busca",
+    "noResults": "Non se atoparon resultados",
+    "resultsCount": "{{ count }} resultado(s) atopado(s)"
+  },
+  "sidebar": {
+    "title": "Filtros de busca",
+    "search": "Buscar",
+    "hashtags": "Etiquetas",
+    "year": "Filtrar por ano",
+    "yearFrom": "Dende",
+    "yearTo": "Ata",
+    "clearFilters": "Limpar filtros",
+    "open": "Abrir filtros",
+    "close": "Pechar filtros"
+  },
+  "content": {
+    "sortBy": "Ordenar por",
+    "sort": {
+      "titulo_asc": "Título (A-Z)",
+      "titulo_desc": "Título (Z-A)",
+      "anio_asc": "Ano (máis antigo)",
+      "anio_desc": "Ano (máis recente)",
+      "fecha_publicacion": "Data de publicación"
+    }
   }
 }
 
