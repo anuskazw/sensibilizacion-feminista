@@ -26,6 +26,34 @@
     "close": "Itxi",
     "accept": "Onartu",
     "cancel": "Ezeztatu"
+  },
+  "video": {
+    "expand": "Bideoa zabaldu",
+    "collapse": "Bideoa ezkutatu",
+    "selectSignLanguage": "Zeinu hizkuntza hautatu",
+    "language": {
+      "lse": "LSE (Espainiako Zeinu Hizkuntza)",
+      "lsc": "LSC (Kataluniako Zeinu Hizkuntza)"
+    },
+    "loading": "Bideoa kargatzen...",
+    "retry": "Berriro saiatu",
+    "notSupported": "Zure nabigatzaileak ez du bideo elementua onartzen.",
+    "controls": "Bideo erreproduzigailuaren kontrolak",
+    "progress": "Bideoaren aurrerapen barra",
+    "play": "Bideoa erreproduzitu",
+    "pause": "Bideoa pausatu",
+    "mute": "Bideoa mututu",
+    "unmute": "Bideoaren soinua aktibatu",
+    "volume": "Bolumen kontrola",
+    "speed": "Abiadura",
+    "playbackSpeed": "Erreprodukzio abiadura",
+    "subtitles": "Azpitituluak aktibatu/desaktibatu",
+    "fullscreen": "Pantaila osoa",
+    "exitFullscreen": "Pantaila osotik irten",
+    "transcription": "Transkripzioa",
+    "showTranscription": "Transkripzioa erakutsi",
+    "hideTranscription": "Transkripzioa ezkutatu",
+    "transcriptionContent": "Transkripzioaren edukia"
   }
 }
 

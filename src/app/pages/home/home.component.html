@@ -4,8 +4,42 @@
     <p class="subtitle">{{ 'app.subtitle' | translate }}</p>
     
     <div class="info-box">
-      <p>Bienvenido a la aplicación base. El sistema multiidioma está configurado y funcionando.</p>
+      <h2>Bienvenida</h2>
+      <p>Esta web está dedicada a la sensibilización feminista.</p>
+      <p>Todo el contenido es accesible para personas sordas.</p>
       <p>Puedes cambiar el idioma usando el selector en la cabecera.</p>
+    </div>
+
+    <!-- Ejemplo de vídeo en lengua de signos con LSE y LSC -->
+    <div class="video-demo-section">
+      <h2>Vídeo de introducción</h2>
+      <p>Este vídeo está disponible en LSE y LSC:</p>
+      <app-sign-language-video-player 
+        [video]="exampleVideo"
+        [inline]="true">
+      </app-sign-language-video-player>
+    </div>
+
+    <!-- Ejemplo de vídeo plegable -->
+    <div class="video-demo-section">
+      <h2>Vídeo plegable (solo LSE)</h2>
+      <app-sign-language-video-player 
+        [video]="exampleVideoLseOnly"
+        [inline]="false">
+      </app-sign-language-video-player>
+    </div>
+
+    <div class="features-info">
+      <h2>Características de accesibilidad</h2>
+      <ul>
+        <li>✓ Vídeos en Lengua de Signos Española (LSE) y Catalana (LSC)</li>
+        <li>✓ Controles de reproducción accesibles</li>
+        <li>✓ Transcripciones textuales</li>
+        <li>✓ Subtítulos opcionales</li>
+        <li>✓ Control de velocidad de reproducción</li>
+        <li>✓ Navegación completa por teclado</li>
+        <li>✓ Cumplimiento de WCAG 2.2 AA</li>
+      </ul>
     </div>
   </section>
 </div>

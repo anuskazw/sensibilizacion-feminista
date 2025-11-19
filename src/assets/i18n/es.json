@@ -26,6 +26,34 @@
     "close": "Cerrar",
     "accept": "Aceptar",
     "cancel": "Cancelar"
+  },
+  "video": {
+    "expand": "Expandir vídeo",
+    "collapse": "Ocultar vídeo",
+    "selectSignLanguage": "Seleccionar idioma de signos",
+    "language": {
+      "lse": "LSE (Lengua de Signos Española)",
+      "lsc": "LSC (Lengua de Signos Catalana)"
+    },
+    "loading": "Cargando vídeo...",
+    "retry": "Reintentar",
+    "notSupported": "Tu navegador no soporta el elemento de vídeo.",
+    "controls": "Controles del reproductor de vídeo",
+    "progress": "Barra de progreso del vídeo",
+    "play": "Reproducir vídeo",
+    "pause": "Pausar vídeo",
+    "mute": "Silenciar vídeo",
+    "unmute": "Activar sonido del vídeo",
+    "volume": "Control de volumen",
+    "speed": "Velocidad",
+    "playbackSpeed": "Velocidad de reproducción",
+    "subtitles": "Activar/Desactivar subtítulos",
+    "fullscreen": "Pantalla completa",
+    "exitFullscreen": "Salir de pantalla completa",
+    "transcription": "Transcripción",
+    "showTranscription": "Mostrar transcripción",
+    "hideTranscription": "Ocultar transcripción",
+    "transcriptionContent": "Contenido de la transcripción"
   }
 }
 

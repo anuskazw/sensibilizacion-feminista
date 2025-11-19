@@ -1,0 +1,194 @@
+<div class="video-player-container" [class.collapsed]="isCollapsed && !inline">
+  <!-- Botón de colapsar/expandir (solo si no es inline) -->
+  <button 
+    *ngIf="!inline"
+    class="collapse-toggle"
+    (click)="toggleCollapse()"
+    [attr.aria-expanded]="!isCollapsed"
+    [attr.aria-label]="(isCollapsed ? 'video.expand' : 'video.collapse') | translate"
+  >
+    <span class="collapse-icon" [class.collapsed]="isCollapsed">{{ isCollapsed ? '▶' : '▼' }}</span>
+    <span class="video-title">{{ video.title }}</span>
+  </button>
+
+  <!-- Contenedor del reproductor -->
+  <div class="video-wrapper" *ngIf="!isCollapsed || inline" [class.inline]="inline">
+    
+    <!-- Selector de idioma de signos (LSE/LSC) -->
+    <div class="language-selector" *ngIf="availableLanguages.length > 1" role="group" [attr.aria-label]="'video.selectSignLanguage' | translate">
+      <button
+        *ngFor="let lang of availableLanguages"
+        class="language-btn"
+        [class.active]="currentLanguage === lang"
+        (click)="switchLanguage(lang)"
+        [attr.aria-pressed]="currentLanguage === lang"
+        [attr.aria-label]="'video.language.' + lang | translate"
+      >
+        {{ ('video.language.' + lang) | translate }}
+      </button>
+    </div>
+
+    <!-- Estado de carga -->
+    <div class="loading-state" *ngIf="isLoading" role="status" [attr.aria-label]="'video.loading' | translate">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>{{ 'video.loading' | translate }}</p>
+    </div>
+
+    <!-- Estado de error -->
+    <div class="error-state" *ngIf="hasError && !isLoading" role="alert">
+      <p class="error-message">{{ errorMessage }}</p>
+      <button class="retry-btn" (click)="retry()">
+        {{ 'video.retry' | translate }}
+      </button>
+    </div>
+
+    <!-- Elemento de vídeo -->
+    <div class="video-container" *ngIf="!hasError">
+      <video
+        #videoElement
+        class="video-element"
+        [src]="currentVideoUrl"
+        [attr.aria-label]="video.title"
+        (play)="onPlayPause()"
+        (pause)="onPlayPause()"
+        (timeupdate)="onTimeUpdate()"
+        (loadedmetadata)="onLoadedMetadata()"
+        (error)="onError($event)"
+        [muted]="isMuted"
+        preload="metadata"
+        crossorigin="anonymous"
+      >
+        <track *ngIf="video.subtitlesUrl" kind="subtitles" [src]="video.subtitlesUrl" srclang="es" label="Español" [default]="showSubtitles">
+        {{ 'video.notSupported' | translate }}
+      </video>
+
+      <!-- Controles personalizados accesibles -->
+      <div class="video-controls" role="group" [attr.aria-label]="'video.controls' | translate">
+        
+        <!-- Barra de progreso -->
+        <div class="progress-container">
+          <label for="progress-bar" class="visually-hidden">{{ 'video.progress' | translate }}</label>
+          <input
+            id="progress-bar"
+            type="range"
+            class="progress-bar"
+            min="0"
+            [max]="duration"
+            [value]="currentTime"
+            (input)="seek($event)"
+            [attr.aria-valuemin]="0"
+            [attr.aria-valuemax]="duration"
+            [attr.aria-valuenow]="currentTime"
+            [attr.aria-valuetext]="formatTime(currentTime) + ' / ' + formatTime(duration)"
+          >
+          <div class="time-display" aria-live="polite">
+            <span>{{ formatTime(currentTime) }}</span>
+            <span>/</span>
+            <span>{{ formatTime(duration) }}</span>
+          </div>
+        </div>
+
+        <!-- Controles principales -->
+        <div class="controls-row">
+          
+          <!-- Play/Pause -->
+          <button
+            class="control-btn play-pause-btn"
+            (click)="togglePlay()"
+            [attr.aria-label]="(isPlaying ? 'video.pause' : 'video.play') | translate"
+          >
+            <span aria-hidden="true">{{ isPlaying ? '⏸' : '▶' }}</span>
+          </button>
+
+          <!-- Volumen -->
+          <div class="volume-control">
+            <button
+              class="control-btn volume-btn"
+              (click)="toggleMute()"
+              [attr.aria-label]="(isMuted ? 'video.unmute' : 'video.mute') | translate"
+            >
+              <span aria-hidden="true">{{ isMuted ? '🔇' : (volume > 0.5 ? '🔊' : '🔉') }}</span>
+            </button>
+            <label for="volume-slider" class="visually-hidden">{{ 'video.volume' | translate }}</label>
+            <input
+              id="volume-slider"
+              type="range"
+              class="volume-slider"
+              min="0"
+              max="1"
+              step="0.1"
+              [value]="volume"
+              (input)="changeVolume($event)"
+              [attr.aria-valuemin]="0"
+              [attr.aria-valuemax]="1"
+              [attr.aria-valuenow]="volume"
+              [attr.aria-valuetext]="(volume * 100) + '%'"
+            >
+          </div>
+
+          <!-- Velocidad de reproducción -->
+          <div class="playback-speed-control">
+            <label for="playback-speed" class="control-label">{{ 'video.speed' | translate }}:</label>
+            <select
+              id="playback-speed"
+              class="playback-speed-select"
+              [value]="playbackRate"
+              (change)="changePlaybackRate(+($any($event.target).value))"
+              [attr.aria-label]="'video.playbackSpeed' | translate"
+            >
+              <option *ngFor="let rate of playbackRates" [value]="rate">
+                {{ rate }}x
+              </option>
+            </select>
+          </div>
+
+          <!-- Subtítulos -->
+          <button
+            *ngIf="video.subtitlesUrl"
+            class="control-btn subtitles-btn"
+            (click)="toggleSubtitles()"
+            [class.active]="showSubtitles"
+            [attr.aria-pressed]="showSubtitles"
+            [attr.aria-label]="'video.subtitles' | translate"
+          >
+            <span aria-hidden="true">CC</span>
+          </button>
+
+          <!-- Pantalla completa -->
+          <button
+            class="control-btn fullscreen-btn"
+            (click)="toggleFullscreen()"
+            [attr.aria-label]="(isFullscreen ? 'video.exitFullscreen' : 'video.fullscreen') | translate"
+          >
+            <span aria-hidden="true">{{ isFullscreen ? '⤓' : '⤢' }}</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de transcripción -->
+    <button
+      *ngIf="video.transcription"
+      class="transcription-toggle"
+      (click)="toggleTranscription()"
+      [attr.aria-expanded]="showTranscription"
+      [attr.aria-label]="'video.transcription' | translate"
+    >
+      {{ (showTranscription ? 'video.hideTranscription' : 'video.showTranscription') | translate }}
+    </button>
+
+    <!-- Transcripción textual -->
+    <div
+      *ngIf="video.transcription && showTranscription"
+      class="transcription-container"
+      role="region"
+      [attr.aria-label]="'video.transcriptionContent' | translate"
+    >
+      <h3>{{ 'video.transcription' | translate }}</h3>
+      <p class="transcription-text">{{ video.transcription }}</p>
+    </div>
+
+  </div>
+</div>
+

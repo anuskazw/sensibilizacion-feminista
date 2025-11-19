@@ -26,6 +26,34 @@
     "close": "Close",
     "accept": "Accept",
     "cancel": "Cancel"
+  },
+  "video": {
+    "expand": "Expand video",
+    "collapse": "Hide video",
+    "selectSignLanguage": "Select sign language",
+    "language": {
+      "lse": "LSE (Spanish Sign Language)",
+      "lsc": "LSC (Catalan Sign Language)"
+    },
+    "loading": "Loading video...",
+    "retry": "Retry",
+    "notSupported": "Your browser does not support the video element.",
+    "controls": "Video player controls",
+    "progress": "Video progress bar",
+    "play": "Play video",
+    "pause": "Pause video",
+    "mute": "Mute video",
+    "unmute": "Unmute video",
+    "volume": "Volume control",
+    "speed": "Speed",
+    "playbackSpeed": "Playback speed",
+    "subtitles": "Toggle subtitles",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit fullscreen",
+    "transcription": "Transcription",
+    "showTranscription": "Show transcription",
+    "hideTranscription": "Hide transcription",
+    "transcriptionContent": "Transcription content"
   }
 }
 
