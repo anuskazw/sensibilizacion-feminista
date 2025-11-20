@@ -193,6 +193,25 @@
         "description": "Access institutions, organizations and applications that offer specialized help and support"
       }
     }
+  },
+  "footer": {
+    "licenses": {
+      "title": "Content Licenses",
+      "description": "The content of this website is available under a Creative Commons license.",
+      "ccLicense": "CC BY-SA 4.0",
+      "ccLink": "View Creative Commons license details"
+    },
+    "legal": {
+      "title": "Legal Information",
+      "privacy": "Privacy Policy",
+      "legalNotice": "Legal Notice",
+      "cookies": "Cookie Policy"
+    },
+    "about": {
+      "title": "About this Website",
+      "description": "Feminist awareness website accessible for deaf people."
+    },
+    "copyright": "All rights reserved"
   }
 }
 

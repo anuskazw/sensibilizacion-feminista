@@ -193,6 +193,25 @@
         "description": "Accede a institucións, organizacións e aplicacións que ofrecen axuda e apoio especializado"
       }
     }
+  },
+  "footer": {
+    "licenses": {
+      "title": "Licenzas de Contido",
+      "description": "O contido desta web está dispoñible baixo licenza Creative Commons.",
+      "ccLicense": "CC BY-SA 4.0",
+      "ccLink": "Ver detalles da licenza Creative Commons"
+    },
+    "legal": {
+      "title": "Información Legal",
+      "privacy": "Política de Privacidade",
+      "legalNotice": "Aviso Legal",
+      "cookies": "Política de Cookies"
+    },
+    "about": {
+      "title": "Sobre esta Web",
+      "description": "Web de sensibilización feminista accesible para persoas xordas."
+    },
+    "copyright": "Todos os dereitos reservados"
   }
 }
 

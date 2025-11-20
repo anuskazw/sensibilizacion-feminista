@@ -193,6 +193,25 @@
         "description": "Sartu laguntza eta laguntza espezializatua eskaintzen duten erakunde, erakunde eta aplikazioetara"
       }
     }
+  },
+  "footer": {
+    "licenses": {
+      "title": "Eduki Lizentziak",
+      "description": "Webgune honen edukia Creative Commons lizentziapean dago eskuragarri.",
+      "ccLicense": "CC BY-SA 4.0",
+      "ccLink": "Ikusi Creative Commons lizentziaren xehetasunak"
+    },
+    "legal": {
+      "title": "Lege Informazioa",
+      "privacy": "Pribatutasun Politika",
+      "legalNotice": "Lege Oharra",
+      "cookies": "Cookie Politika"
+    },
+    "about": {
+      "title": "Webgune honi buruz",
+      "description": "Gor pertsonentzat eskuragarri dagoen feminismoaren sentsibilizazio webgunea."
+    },
+    "copyright": "Eskubide guztiak erreserbatuak"
   }
 }
 

@@ -193,6 +193,25 @@
         "description": "Accedeix a institucions, organitzacions i aplicacions que ofereixen ajuda i suport especialitzat"
       }
     }
+  },
+  "footer": {
+    "licenses": {
+      "title": "Llicències de Contingut",
+      "description": "El contingut d'aquesta web està disponible sota llicència Creative Commons.",
+      "ccLicense": "CC BY-SA 4.0",
+      "ccLink": "Veure detalls de la llicència Creative Commons"
+    },
+    "legal": {
+      "title": "Informació Legal",
+      "privacy": "Política de Privacitat",
+      "legalNotice": "Avís Legal",
+      "cookies": "Política de Cookies"
+    },
+    "about": {
+      "title": "Sobre aquesta Web",
+      "description": "Web de sensibilització feminista accessible per a persones sordes."
+    },
+    "copyright": "Tots els drets reservats"
   }
 }
 

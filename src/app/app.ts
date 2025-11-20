@@ -2,12 +2,13 @@ import { Component, OnInit, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { NavigationSidebarComponent } from './shared/components/navigation-sidebar/navigation-sidebar.component';
+import { FooterComponent } from './shared/components/footer/footer';
 import { LanguageService } from './core/services/language.service';
 import { SidebarService } from './core/services/sidebar.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, NavigationSidebarComponent],
+  imports: [RouterOutlet, HeaderComponent, NavigationSidebarComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

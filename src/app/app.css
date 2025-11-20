@@ -17,8 +17,9 @@
 .main-content {
   margin-top: 80px; /* Espacio para la cabecera fija */
   margin-left: 280px; /* Espacio para el sidebar de navegación expandido */
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px - 200px); /* Altura mínima menos header y footer */
   padding: 2rem;
+  padding-bottom: 2rem; /* Espacio antes del footer */
   transition: margin-left 0.3s ease;
 }
 

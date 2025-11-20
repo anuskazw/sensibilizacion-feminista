@@ -1,0 +1,57 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer-container">
+    <!-- Información de licencias -->
+    <div class="footer-section">
+      <h3 class="footer-title">{{ 'footer.licenses.title' | translate }}</h3>
+      <div class="license-info">
+        <p class="license-text">
+          {{ 'footer.licenses.description' | translate }}
+        </p>
+        <div class="license-badge">
+          <a 
+            href="https://creativecommons.org/licenses/by-sa/4.0/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            [attr.aria-label]="'footer.licenses.ccLink' | translate"
+            class="cc-link">
+            <span class="cc-icon">CC</span>
+            <span class="cc-text">{{ 'footer.licenses.ccLicense' | translate }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información legal -->
+    <div class="footer-section">
+      <h3 class="footer-title">{{ 'footer.legal.title' | translate }}</h3>
+      <ul class="footer-links">
+        <li>
+          <a routerLink="/politica-privacidad" class="footer-link">
+            {{ 'footer.legal.privacy' | translate }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/aviso-legal" class="footer-link">
+            {{ 'footer.legal.legalNotice' | translate }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/cookies" class="footer-link">
+            {{ 'footer.legal.cookies' | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Información de contacto y derechos -->
+    <div class="footer-section">
+      <h3 class="footer-title">{{ 'footer.about.title' | translate }}</h3>
+      <p class="footer-text">
+        {{ 'footer.about.description' | translate }}
+      </p>
+      <p class="footer-copyright">
+        © {{ currentYear }} {{ 'footer.copyright' | translate }}
+      </p>
+    </div>
+  </div>
+</footer>
