@@ -153,6 +153,25 @@
     "phone112": "Emerxencias",
     "phone017": "Liña de atención a menores sobre acoso en internet",
     "noResultsMessage": "Tenta cambiar os filtros ou buscar con outros termos."
+  },
+  "recursos": {
+    "title": "Recursos",
+    "description": "Explora a nosa colección de libros, películas e documentais recomendados sobre feminismo",
+    "gridLabel": "Navegación de recursos",
+    "cards": {
+      "libros": {
+        "title": "Libros",
+        "description": "Descobre libros recomendados sobre feminismo, historia e teoría feminista"
+      },
+      "peliculas-series": {
+        "title": "Películas e series",
+        "description": "Explora películas e series que abordan temas feministas e de igualdade"
+      },
+      "documentales": {
+        "title": "Documentais",
+        "description": "Accede a documentais sobre movementos feministas e loitas pola igualdade"
+      }
+    }
   }
 }
 

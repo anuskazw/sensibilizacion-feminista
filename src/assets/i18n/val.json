@@ -153,6 +153,25 @@
     "phone112": "Emergències",
     "phone017": "Línia d'atenció a menors sobre assetjament a internet",
     "noResultsMessage": "Intenta canviar els filtres o cercar amb altres termes."
+  },
+  "recursos": {
+    "title": "Recursos",
+    "description": "Explora la nostra col·lecció de llibres, pel·lícules i documentals recomanats sobre feminisme",
+    "gridLabel": "Navegació de recursos",
+    "cards": {
+      "libros": {
+        "title": "Llibres",
+        "description": "Descobreix llibres recomanats sobre feminisme, història i teoria feminista"
+      },
+      "peliculas-series": {
+        "title": "Pel·lícules i sèries",
+        "description": "Explora pel·lícules i sèries que aborden temes feministes i d'igualtat"
+      },
+      "documentales": {
+        "title": "Documentals",
+        "description": "Accedeix a documentals sobre moviments feministes i lluites per la igualtat"
+      }
+    }
   }
 }
 

@@ -153,6 +153,25 @@
     "phone112": "Larrialdiak",
     "phone017": "Adingabeentzako interneteko jazarpenari buruzko arreta lerroa",
     "noResultsMessage": "Saiatu iragazkiak aldatzen edo beste terminoekin bilatzen."
+  },
+  "recursos": {
+    "title": "Baliabideak",
+    "description": "Esploratu gure liburu, film eta dokumental gomendatuen bilduma feminismoari buruz",
+    "gridLabel": "Baliabideen nabigazioa",
+    "cards": {
+      "libros": {
+        "title": "Liburuak",
+        "description": "Ezagutu feminismoari, historiari eta teoria feministari buruzko liburu gomendatuak"
+      },
+      "peliculas-series": {
+        "title": "Filmak eta serieak",
+        "description": "Esploratu gai feministak eta berdintasunari buruzko filmak eta serieak"
+      },
+      "documentales": {
+        "title": "Dokumentalak",
+        "description": "Sartu mugimendu feministei eta berdintasunaren aldeko borrokei buruzko dokumentaletara"
+      }
+    }
   }
 }
 

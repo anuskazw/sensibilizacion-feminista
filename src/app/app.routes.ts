@@ -18,6 +18,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/violencia/violencia.component').then(m => m.ViolenciaComponent)
   },
   {
+    path: 'recursos',
+    loadComponent: () => import('./pages/recursos/recursos.component').then(m => m.RecursosComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }
