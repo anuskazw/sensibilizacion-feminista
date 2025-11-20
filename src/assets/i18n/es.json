@@ -172,6 +172,21 @@
         "description": "Accede a documentales sobre movimientos feministas y luchas por la igualdad"
       }
     }
+  },
+  "recursosAyuda": {
+    "title": "Recursos de Ayuda",
+    "description": "Encuentra apoyo, testimonios e instituciones que pueden ayudarte",
+    "gridLabel": "Navegación de recursos de ayuda",
+    "cards": {
+      "testimonios": {
+        "title": "Testimonios de mujeres sordas",
+        "description": "Conoce las experiencias y testimonios de mujeres sordas que comparten sus historias de forma anónima y respetuosa"
+      },
+      "instituciones": {
+        "title": "Instituciones y aplicaciones de ayuda",
+        "description": "Accede a instituciones, organizaciones y aplicaciones que ofrecen ayuda y apoyo especializado"
+      }
+    }
   }
 }
 

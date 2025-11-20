@@ -1,0 +1,18 @@
+<div class="recursos-ayuda-container" role="main">
+  <div class="recursos-ayuda-content">
+    <h1 class="recursos-ayuda-title">{{ 'recursosAyuda.title' | translate }}</h1>
+    <p class="recursos-ayuda-description">{{ 'recursosAyuda.description' | translate }}</p>
+
+    <nav class="recursos-ayuda-grid" aria-label="{{ 'recursosAyuda.gridLabel' | translate }}">
+      <a *ngFor="let card of helpCards"
+         [routerLink]="card.route"
+         class="recursos-ayuda-card"
+         [attr.aria-label]="card.ariaLabel">
+        <span class="card-icon" aria-hidden="true">{{ card.icon }}</span>
+        <h2 class="card-title">{{ 'recursosAyuda.cards.' + card.id + '.title' | translate }}</h2>
+        <p class="card-description">{{ 'recursosAyuda.cards.' + card.id + '.description' | translate }}</p>
+      </a>
+    </nav>
+  </div>
+</div>
+

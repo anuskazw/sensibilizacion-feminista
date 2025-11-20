@@ -172,6 +172,21 @@
         "description": "Sartu mugimendu feministei eta berdintasunaren aldeko borrokei buruzko dokumentaletara"
       }
     }
+  },
+  "recursosAyuda": {
+    "title": "Laguntza Baliabideak",
+    "description": "Aurkitu laguntza, testigantzak eta erakundeak zuretzat",
+    "gridLabel": "Laguntza baliabideen nabigazioa",
+    "cards": {
+      "testimonios": {
+        "title": "Gor emakumeen testigantzak",
+        "description": "Ezagutu gor emakumeen esperientziak eta testigantzak, euren istorioak modu anonimo eta errespetuz partekatzen dituztenak"
+      },
+      "instituciones": {
+        "title": "Erakundeak eta laguntza aplikazioak",
+        "description": "Sartu laguntza eta laguntza espezializatua eskaintzen duten erakunde, erakunde eta aplikazioetara"
+      }
+    }
   }
 }
 

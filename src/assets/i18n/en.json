@@ -172,6 +172,21 @@
         "description": "Access documentaries about feminist movements and struggles for equality"
       }
     }
+  },
+  "recursosAyuda": {
+    "title": "Help Resources",
+    "description": "Find support, testimonials and institutions that can help you",
+    "gridLabel": "Help resources navigation",
+    "cards": {
+      "testimonios": {
+        "title": "Testimonials from deaf women",
+        "description": "Learn about the experiences and testimonials of deaf women who share their stories anonymously and respectfully"
+      },
+      "instituciones": {
+        "title": "Institutions and help applications",
+        "description": "Access institutions, organizations and applications that offer specialized help and support"
+      }
+    }
   }
 }
 

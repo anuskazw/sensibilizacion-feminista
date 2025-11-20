@@ -172,6 +172,21 @@
         "description": "Accede a documentais sobre movementos feministas e loitas pola igualdade"
       }
     }
+  },
+  "recursosAyuda": {
+    "title": "Recursos de Axuda",
+    "description": "Atopa apoio, testemuños e institucións que poden axudarte",
+    "gridLabel": "Navegación de recursos de axuda",
+    "cards": {
+      "testimonios": {
+        "title": "Testemuños de mulleres xordas",
+        "description": "Coñece as experiencias e testemuños de mulleres xordas que comparten as súas historias de forma anónima e respectuosa"
+      },
+      "instituciones": {
+        "title": "Institucións e aplicacións de axuda",
+        "description": "Accede a institucións, organizacións e aplicacións que ofrecen axuda e apoio especializado"
+      }
+    }
   }
 }
 

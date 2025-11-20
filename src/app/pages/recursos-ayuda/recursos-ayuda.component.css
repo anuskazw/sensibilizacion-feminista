@@ -1,0 +1,177 @@
+/* Contenedor principal */
+.recursos-ayuda-container {
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0e7f8 0%, #e9d5f5 100%);
+}
+
+.recursos-ayuda-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Título y descripción */
+.recursos-ayuda-title {
+  font-size: 3rem;
+  color: #5c2d91;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.recursos-ayuda-description {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Grid de tarjetas - 2 columnas en desktop */
+.recursos-ayuda-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.recursos-ayuda-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.recursos-ayuda-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: #5c2d91;
+}
+
+.recursos-ayuda-card:focus {
+  outline: 3px solid #5c2d91;
+  outline-offset: 2px;
+}
+
+.recursos-ayuda-card:focus-visible {
+  outline: 3px solid #5c2d91;
+  outline-offset: 2px;
+}
+
+.card-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  color: #5c2d91;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.card-description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive: Desktop (>1024px) - 2 columnas */
+@media (min-width: 1025px) {
+  .recursos-ayuda-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: Tablet y móvil (<1024px) - 1-2 columnas */
+@media (max-width: 1024px) {
+  .recursos-ayuda-title {
+    font-size: 2.5rem;
+  }
+
+  .recursos-ayuda-description {
+    font-size: 1.1rem;
+  }
+
+  .recursos-ayuda-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .recursos-ayuda-content {
+    padding: 1rem;
+  }
+}
+
+/* Responsive: Móvil pequeño (<768px) - 1 columna */
+@media (max-width: 768px) {
+  .recursos-ayuda-container {
+    padding: 1rem;
+  }
+
+  .recursos-ayuda-title {
+    font-size: 2rem;
+  }
+
+  .recursos-ayuda-description {
+    font-size: 1rem;
+  }
+
+  .recursos-ayuda-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .recursos-ayuda-card {
+    padding: 2rem;
+  }
+
+  .card-icon {
+    font-size: 3.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-description {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive: Móvil muy pequeño (<480px) */
+@media (max-width: 480px) {
+  .recursos-ayuda-title {
+    font-size: 1.75rem;
+  }
+
+  .recursos-ayuda-card {
+    padding: 1.5rem;
+  }
+
+  .card-icon {
+    font-size: 3rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+}
+
