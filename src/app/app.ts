@@ -5,6 +5,7 @@ import { NavigationSidebarComponent } from './shared/components/navigation-sideb
 import { FooterComponent } from './shared/components/footer/footer';
 import { LanguageService } from './core/services/language.service';
 import { SidebarService } from './core/services/sidebar.service';
+import { SeoService } from './core/services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { SidebarService } from './core/services/sidebar.service';
 export class App implements OnInit {
   constructor(
     private languageService: LanguageService,
-    public sidebarService: SidebarService
+    public sidebarService: SidebarService,
+    private seoService: SeoService
   ) {
     // Efecto para añadir/quitar clase en el body cuando el sidebar cambia de estado
     effect(() => {
