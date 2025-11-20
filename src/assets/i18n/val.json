@@ -143,6 +143,16 @@
       "scrollDown": "Desplaça't cap avall per veure més",
       "section": "Secció {{number}} de 4"
     }
+  },
+  "violence": {
+    "termsIndex": "Índex de termes",
+    "scrollToTerm": "Anar a {{term}}",
+    "alertSigns": "Senyals d'alerta",
+    "helpResources": "Recursos d'ajuda",
+    "phone016": "Telèfon d'atenció a víctimes de violència de gènere",
+    "phone112": "Emergències",
+    "phone017": "Línia d'atenció a menors sobre assetjament a internet",
+    "noResultsMessage": "Intenta canviar els filtres o cercar amb altres termes."
   }
 }
 

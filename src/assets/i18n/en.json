@@ -143,6 +143,16 @@
       "scrollDown": "Scroll down to see more",
       "section": "Section {{number}} of 4"
     }
+  },
+  "violence": {
+    "termsIndex": "Terms index",
+    "scrollToTerm": "Go to {{term}}",
+    "alertSigns": "Warning signs",
+    "helpResources": "Help resources",
+    "phone016": "Phone number for victims of gender violence",
+    "phone112": "Emergency services",
+    "phone017": "Helpline for minors about online harassment",
+    "noResultsMessage": "Try changing the filters or searching with other terms."
   }
 }
 

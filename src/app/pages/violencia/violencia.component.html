@@ -1,0 +1,135 @@
+<div class="violencia-page">
+  <!-- Sidebar con filtros e índice de términos -->
+  <app-content-sidebar
+    [sectionTitle]="'header.violence'"
+    [hashtags]="hashtags()"
+    [showYearFilter]="false"
+    [showAlphabeticalIndex]="false"
+    (filtersChange)="onFiltersChange($event)">
+  </app-content-sidebar>
+
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'header.violence' | translate }}</h1>
+      <p class="content-description">
+        Información sobre tipos de violencia, señales de alerta y recursos de ayuda.
+      </p>
+    </div>
+
+    <!-- Índice de términos -->
+    @if (termsIndex().length > 0) {
+      <div class="terms-index">
+        <h2 class="index-title">{{ 'violence.termsIndex' | translate }}</h2>
+        <div class="terms-list">
+          @for (term of termsIndex(); track term) {
+            <button 
+              type="button"
+              class="term-link"
+              (click)="scrollToTerm(term)"
+              [attr.aria-label]="'violence.scrollToTerm' | translate: { term: term }">
+              {{ term }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Resultados -->
+    <div class="results-info">
+      @if (filteredContents().length > 0) {
+        <p class="results-count">
+          {{ 'search.resultsCount' | translate: { count: filteredContents().length } }}
+        </p>
+      }
+    </div>
+
+    <!-- Listado de contenidos -->
+    <div class="contents-list">
+      @if (filteredContents().length > 0) {
+        @for (content of filteredContents(); track content.id) {
+          <article class="content-card" [id]="'content-' + content.id">
+            <div class="card-header">
+              <h2 class="card-title">{{ getTitle(content) }}</h2>
+            </div>
+            
+            <div class="card-body">
+              <p class="card-description">{{ getDescription(content) }}</p>
+              
+              @if (getAlertSigns(content)) {
+                <div class="alert-signs">
+                  <h3 class="alert-signs-title">{{ 'violence.alertSigns' | translate }}</h3>
+                  <p class="alert-signs-content">{{ getAlertSigns(content) }}</p>
+                </div>
+              }
+            </div>
+
+            <div class="card-footer">
+              <div class="card-hashtags">
+                @for (hashtag of content.hashtags; track hashtag.id) {
+                  <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                }
+              </div>
+            </div>
+
+            @if (content.recursos_ayuda && content.recursos_ayuda.length > 0) {
+              <div class="card-help-resources">
+                <h3 class="help-resources-title">{{ 'violence.helpResources' | translate }}</h3>
+                <div class="help-resources-list">
+                  @for (resource of content.recursos_ayuda; track resource) {
+                    <div class="help-resource-item">
+                      <strong>{{ resource }}</strong>
+                      @if (resource === '016') {
+                        <span class="resource-description">{{ 'violence.phone016' | translate }}</span>
+                      }
+                      @if (resource === '112') {
+                        <span class="resource-description">{{ 'violence.phone112' | translate }}</span>
+                      }
+                      @if (resource === '017') {
+                        <span class="resource-description">{{ 'violence.phone017' | translate }}</span>
+                      }
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+
+            @if (content.video_lse_url) {
+              <div class="card-actions">
+                <button class="video-button" type="button">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  {{ 'video.selectSignLanguage' | translate }}
+                </button>
+              </div>
+            }
+          </article>
+        }
+      } @else {
+        <div class="no-results">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2"
+            class="no-results-icon"
+            aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <h2>{{ 'search.noResults' | translate }}</h2>
+          <p>{{ 'violence.noResultsMessage' | translate }}</p>
+        </div>
+      }
+    </div>
+  </main>
+</div>
+

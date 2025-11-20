@@ -143,6 +143,16 @@
       "scrollDown": "Desprázate cara abaixo para ver máis",
       "section": "Sección {{number}} de 4"
     }
+  },
+  "violence": {
+    "termsIndex": "Índice de termos",
+    "scrollToTerm": "Ir a {{term}}",
+    "alertSigns": "Sinais de alerta",
+    "helpResources": "Recursos de axuda",
+    "phone016": "Teléfono de atención a vítimas de violencia de xénero",
+    "phone112": "Emerxencias",
+    "phone017": "Liña de atención a menores sobre acoso en internet",
+    "noResultsMessage": "Tenta cambiar os filtros ou buscar con outros termos."
   }
 }
 

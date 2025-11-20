@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/conceptos/conceptos.component').then(m => m.ConceptosComponent)
   },
   {
+    path: 'violencia',
+    loadComponent: () => import('./pages/violencia/violencia.component').then(m => m.ViolenciaComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

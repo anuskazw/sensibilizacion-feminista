@@ -143,6 +143,16 @@
       "scrollDown": "Joan behera gehiago ikusteko",
       "section": "{{number}} atala 4tik"
     }
+  },
+  "violence": {
+    "termsIndex": "Terminoen indizea",
+    "scrollToTerm": "Joan {{term}}-(e)ra",
+    "alertSigns": "Alerta seinaleak",
+    "helpResources": "Laguntza baliabideak",
+    "phone016": "Genero indarkeriaren biktimen arreta telefonoa",
+    "phone112": "Larrialdiak",
+    "phone017": "Adingabeentzako interneteko jazarpenari buruzko arreta lerroa",
+    "noResultsMessage": "Saiatu iragazkiak aldatzen edo beste terminoekin bilatzen."
   }
 }
 
