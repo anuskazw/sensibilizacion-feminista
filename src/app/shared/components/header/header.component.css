@@ -45,8 +45,9 @@
 
 .brand-subtitle {
   font-size: 0.875rem;
-  color: #666;
+  color: #666666;
   margin: 0.25rem 0 0;
+  /* Contraste AA: #666 sobre blanco = 5.7:1 (cumple AA para texto normal) */
 }
 
 /* Navegación principal */
@@ -71,10 +72,11 @@
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: #333;
+  color: #333333;
   font-weight: 500;
   border-radius: 4px;
   transition: background-color 0.2s, color 0.2s;
+  /* Contraste AA: #333 sobre blanco = 12.6:1 (cumple AA) */
 }
 
 .nav-link:hover,
@@ -83,14 +85,22 @@
   color: #5c2d91;
 }
 
-.nav-link:focus {
-  outline: 2px solid #0066cc;
+.nav-link:focus-visible {
+  outline: 3px solid #0066cc;
   outline-offset: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 .nav-link.active {
   background-color: #5c2d91;
-  color: #fff;
+  color: #ffffff;
+  /* Contraste AA: blanco sobre #5c2d91 = 8.6:1 (cumple AA) */
+}
+
+.nav-link.active:focus-visible {
+  outline-color: #ffffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px #5c2d91;
 }
 
 /* Selector de idioma - Requisito US-001 */
@@ -118,9 +128,10 @@
   border-color: #999;
 }
 
-.language-button:focus {
-  outline: 2px solid #0066cc;
+.language-button:focus-visible {
+  outline: 3px solid #0066cc;
   outline-offset: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 .language-icon {
@@ -187,9 +198,10 @@
   background-color: #f0f0f0;
 }
 
-.language-option:focus {
-  outline: 2px solid #0066cc;
+.language-option:focus-visible {
+  outline: 3px solid #0066cc;
   outline-offset: -2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 .language-option.active {

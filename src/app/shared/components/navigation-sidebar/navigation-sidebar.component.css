@@ -42,9 +42,10 @@
   border-color: #9ca3af;
 }
 
-.sidebar-toggle:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(92, 45, 145, 0.3);
+.sidebar-toggle:focus-visible {
+  outline: 3px solid #5c2d91;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 .sidebar-toggle svg {
@@ -118,14 +119,22 @@
   color: #5c2d91;
 }
 
-.nav-link:focus {
-  outline: 2px solid #0066cc;
+.nav-link:focus-visible {
+  outline: 3px solid #0066cc;
   outline-offset: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 .nav-link.active {
   background-color: #5c2d91;
   color: #ffffff;
+  /* Contraste AA: blanco sobre #5c2d91 = 8.6:1 (cumple AA) */
+}
+
+.nav-link.active:focus-visible {
+  outline-color: #ffffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px #5c2d91;
 }
 
 .nav-link.active:hover {

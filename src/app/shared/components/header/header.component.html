@@ -63,18 +63,21 @@
         role="menu"
         [attr.aria-hidden]="!isLanguageMenuOpen">
         <li 
-          *ngFor="let lang of availableLanguages" 
+          *ngFor="let lang of availableLanguages; let i = index" 
           class="language-item"
           role="none">
           <button
+            #languageOption
             class="language-option"
             [class.active]="lang.code === currentLanguage"
             (click)="changeLanguage(lang.code)"
+            (keydown.enter)="changeLanguage(lang.code)"
+            (keydown.space)="changeLanguage(lang.code); $event.preventDefault()"
             [attr.aria-current]="lang.code === currentLanguage ? 'true' : null"
             role="menuitem"
             type="button">
             {{ lang.name }}
-            <span *ngIf="lang.code === currentLanguage" class="check-icon">✓</span>
+            <span *ngIf="lang.code === currentLanguage" class="check-icon" aria-hidden="true">✓</span>
           </button>
         </li>
       </ul>

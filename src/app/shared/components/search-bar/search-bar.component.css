@@ -43,10 +43,11 @@
   transition: all 0.2s ease;
 }
 
-.search-input:focus {
-  outline: none;
+.search-input:focus-visible {
+  outline: 3px solid #5c2d91;
+  outline-offset: 2px;
   border-color: #5c2d91;
-  box-shadow: 0 0 0 3px rgba(92, 45, 145, 0.1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8), 0 0 0 4px rgba(92, 45, 145, 0.2);
 }
 
 .search-input::placeholder {
@@ -83,9 +84,10 @@
   color: #374151;
 }
 
-.clear-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(92, 45, 145, 0.3);
+.clear-button:focus-visible {
+  outline: 3px solid #5c2d91;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 /* Accesibilidad - Alto contraste */
