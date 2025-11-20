@@ -62,6 +62,7 @@
     "resultsCount": "{{ count }} emaitza aurkitu d(ir)a"
   },
   "sidebar": {
+    "alphabeticalIndex": "Indize alfabetikoa",
     "title": "Bilaketa filtroak",
     "search": "Bilatu",
     "hashtags": "Etiketak",

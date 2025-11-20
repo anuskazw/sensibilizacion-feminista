@@ -1,0 +1,98 @@
+<div class="conceptos-page">
+  <!-- Sidebar con filtros e índice alfabético -->
+  <app-content-sidebar
+    [sectionTitle]="'header.concepts'"
+    [hashtags]="hashtags()"
+    [showYearFilter]="false"
+    [showAlphabeticalIndex]="true"
+    [alphabeticalLetters]="alphabeticalLetters()"
+    (filtersChange)="onFiltersChange($event)"
+    (letterClick)="scrollToLetter($event)">
+  </app-content-sidebar>
+
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'header.concepts' | translate }}</h1>
+      <p class="content-description">
+        Explora conceptos feministas explicados en lectura fácil.
+      </p>
+    </div>
+
+    <!-- Resultados -->
+    <div class="results-info">
+      @if (filteredContents().length > 0) {
+        <p class="results-count">
+          {{ 'search.resultsCount' | translate: { count: filteredContents().length } }}
+        </p>
+      }
+    </div>
+
+    <!-- Índice alfabético con contenidos -->
+    <div class="contents-alphabetical">
+      @if (alphabeticalIndex().length > 0) {
+        @for (group of alphabeticalIndex(); track group.letter) {
+          <section class="letter-section" [id]="'letter-' + group.letter">
+            <h2 class="letter-heading">{{ group.letter }}</h2>
+            
+            <div class="contents-grid">
+              @for (content of group.items; track content.id) {
+                <article class="content-card">
+                  <div class="card-header">
+                    <h3 class="card-title">{{ getTitle(content) }}</h3>
+                  </div>
+                  
+                  <div class="card-body">
+                    <p class="card-description">{{ getDescription(content) }}</p>
+                  </div>
+
+                  <div class="card-footer">
+                    <div class="card-hashtags">
+                      @for (hashtag of content.hashtags; track hashtag.id) {
+                        <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                      }
+                    </div>
+                  </div>
+
+                  @if (content.video_lse_url) {
+                    <div class="card-actions">
+                      <button class="video-button" type="button">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          stroke-width="2"
+                          aria-hidden="true">
+                          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        Ver vídeo en LSE
+                      </button>
+                    </div>
+                  }
+                </article>
+              }
+            </div>
+          </section>
+        }
+      } @else {
+        <div class="no-results">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2"
+            class="no-results-icon"
+            aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <h2>{{ 'search.noResults' | translate }}</h2>
+          <p>Intenta cambiar los filtros o buscar con otros términos.</p>
+        </div>
+      }
+    </div>
+  </main>
+</div>
+

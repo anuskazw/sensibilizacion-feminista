@@ -1,0 +1,208 @@
+.conceptos-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background-color, #f8f9fa);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-header {
+  margin-bottom: 2rem;
+}
+
+.content-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color, #6b2d5c);
+  margin-bottom: 0.5rem;
+}
+
+.content-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary, #6c757d);
+  line-height: 1.6;
+}
+
+.results-info {
+  margin-bottom: 1.5rem;
+}
+
+.results-count {
+  color: var(--text-secondary, #6c757d);
+  font-size: 0.95rem;
+}
+
+/* Secciones alfabéticas */
+.contents-alphabetical {
+  margin-top: 2rem;
+}
+
+.letter-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 2rem;
+}
+
+.letter-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color, #6b2d5c);
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary-color, #6b2d5c);
+  margin-bottom: 1.5rem;
+}
+
+/* Grid de contenidos */
+.contents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Tarjetas de concepto */
+.content-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color, #6b2d5c);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.card-body {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.card-description {
+  color: var(--text-primary, #212529);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-footer {
+  margin-top: auto;
+}
+
+.card-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hashtag-badge {
+  background-color: var(--accent-color, #e9ecef);
+  color: var(--primary-color, #6b2d5c);
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.card-actions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color, #dee2e6);
+}
+
+.video-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color, #6b2d5c);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.video-button:hover {
+  background-color: var(--primary-hover, #532348);
+}
+
+.video-button:focus {
+  outline: 2px solid var(--primary-color, #6b2d5c);
+  outline-offset: 2px;
+}
+
+.video-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Estado sin resultados */
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary, #6c757d);
+}
+
+.no-results-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.no-results h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary, #212529);
+}
+
+.no-results p {
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .conceptos-page {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-header h1 {
+    font-size: 2rem;
+  }
+
+  .contents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .letter-heading {
+    font-size: 1.5rem;
+  }
+}
+

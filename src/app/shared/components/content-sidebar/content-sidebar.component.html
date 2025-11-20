@@ -74,6 +74,24 @@
       </div>
     }
 
+    <!-- Índice alfabético -->
+    @if (showAlphabeticalIndex && alphabeticalLetters.length > 0) {
+      <div class="filter-section">
+        <h3 class="filter-title">{{ 'sidebar.alphabeticalIndex' | translate }}</h3>
+        <div class="alphabetical-index">
+          @for (letter of alphabeticalLetters; track letter) {
+            <button 
+              class="alphabet-button"
+              type="button"
+              (click)="onLetterClick(letter)"
+              [attr.aria-label]="'Ir a letra ' + letter">
+              {{ letter }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
     <!-- Filtro por año -->
     @if (showYearFilter && yearRange) {
       <div class="filter-section">

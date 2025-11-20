@@ -22,10 +22,13 @@ export class ContentSidebarComponent {
   @Input() hashtags: Hashtag[] = [];
   @Input() yearRange: { min: number; max: number } | null = null;
   @Input() showYearFilter: boolean = true;
+  @Input() showAlphabeticalIndex: boolean = false;
+  @Input() alphabeticalLetters: string[] = [];
   @Input() isOpen: boolean = true;
   
   @Output() filtersChange = new EventEmitter<ContentFilters>();
   @Output() toggleSidebar = new EventEmitter<boolean>();
+  @Output() letterClick = new EventEmitter<string>();
 
   // Estado de los filtros
   searchText = signal('');
@@ -104,6 +107,10 @@ export class ContentSidebarComponent {
   onToggleSidebar(): void {
     this.isOpen = !this.isOpen;
     this.toggleSidebar.emit(this.isOpen);
+  }
+
+  onLetterClick(letter: string): void {
+    this.letterClick.emit(letter);
   }
 
   private emitFilters(): void {

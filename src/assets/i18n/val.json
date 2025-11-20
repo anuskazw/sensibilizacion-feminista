@@ -62,6 +62,7 @@
     "resultsCount": "{{ count }} resultat(s) trobat(s)"
   },
   "sidebar": {
+    "alphabeticalIndex": "Índex alfabètic",
     "title": "Filtres de cerca",
     "search": "Cercar",
     "hashtags": "Etiquetes",
