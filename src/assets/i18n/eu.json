@@ -73,6 +73,12 @@
     "open": "Filtroak ireki",
     "close": "Filtroak itxi"
   },
+  "navigationSidebar": {
+    "title": "Nabigazio nagusia",
+    "navigation": "Nabigazio menua",
+    "expand": "Alboko menua zabaldu",
+    "collapse": "Alboko menua tolestu"
+  },
   "content": {
     "sortBy": "Ordenatu",
     "sort": {

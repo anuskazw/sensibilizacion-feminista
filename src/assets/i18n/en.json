@@ -73,6 +73,12 @@
     "open": "Open filters",
     "close": "Close filters"
   },
+  "navigationSidebar": {
+    "title": "Main navigation",
+    "navigation": "Navigation menu",
+    "expand": "Expand side menu",
+    "collapse": "Collapse side menu"
+  },
   "content": {
     "sortBy": "Sort by",
     "sort": {

@@ -13,16 +13,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Contenido principal con margen para la cabecera fija */
+/* Contenido principal con margen para la cabecera fija y el sidebar */
 .main-content {
   margin-top: 80px; /* Espacio para la cabecera fija */
+  margin-left: 280px; /* Espacio para el sidebar de navegación expandido */
   min-height: calc(100vh - 80px);
   padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+/* Cuando el sidebar está colapsado */
+body.sidebar-collapsed .main-content {
+  margin-left: 80px;
 }
 
 @media (max-width: 1024px) {
   .main-content {
     margin-top: 120px; /* Más espacio cuando la navegación se envuelve */
+    margin-left: 0 !important; /* El sidebar se oculta en móviles */
   }
 }
 

@@ -73,6 +73,12 @@
     "open": "Abrir filtros",
     "close": "Cerrar filtros"
   },
+  "navigationSidebar": {
+    "title": "Navegación principal",
+    "navigation": "Menú de navegación",
+    "expand": "Expandir menú lateral",
+    "collapse": "Colapsar menú lateral"
+  },
   "content": {
     "sortBy": "Ordenar por",
     "sort": {

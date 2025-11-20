@@ -1,0 +1,58 @@
+<aside 
+  class="navigation-sidebar"
+  [class.sidebar-collapsed]="sidebarService.isCollapsed()"
+  [class.sidebar-open]="isOpen"
+  role="navigation"
+  [attr.aria-label]="'navigationSidebar.title' | translate">
+  
+  <!-- Botón para colapsar/expandir -->
+  <button 
+    class="sidebar-toggle"
+    (click)="toggleCollapse()"
+    [attr.aria-label]="sidebarService.isCollapsed() ? ('navigationSidebar.expand' | translate) : ('navigationSidebar.collapse' | translate)"
+    [attr.aria-expanded]="!sidebarService.isCollapsed()"
+    type="button">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2"
+      [class.rotated]="sidebarService.isCollapsed()"
+      aria-hidden="true">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <!-- Logo y título (solo visible cuando no está colapsado) -->
+  @if (!sidebarService.isCollapsed()) {
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <span class="logo-icon" aria-hidden="true">🌐</span>
+      </div>
+      <h2 class="sidebar-title">{{ 'app.title' | translate }}</h2>
+    </div>
+  }
+
+  <!-- Lista de navegación -->
+  <nav class="sidebar-nav" [attr.aria-label]="'navigationSidebar.navigation' | translate">
+    <ul class="nav-list">
+      @for (link of navigationLinks; track link.id) {
+        <li class="nav-item">
+          <a 
+            [routerLink]="link.route" 
+            [routerLinkActive]="'active'"
+            [routerLinkActiveOptions]="link.exact ? {exact: true} : {exact: false}"
+            class="nav-link"
+            [attr.aria-label]="'header.' + link.id | translate">
+            <span class="nav-icon" aria-hidden="true">{{ link.icon }}</span>
+            @if (!sidebarService.isCollapsed()) {
+              <span class="nav-text">{{ 'header.' + link.id | translate }}</span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</aside>
+
