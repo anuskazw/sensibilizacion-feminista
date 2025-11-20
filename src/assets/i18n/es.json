@@ -81,6 +81,67 @@
       "anio_desc": "Año (más reciente)",
       "fecha_publicacion": "Fecha de publicación"
     }
+  },
+  "home": {
+    "section1": {
+      "title": "Bienvenida",
+      "description": "Esta web está dedicada a la sensibilización feminista y es completamente accesible para personas sordas.",
+      "purpose": "Nuestro objetivo es proporcionar información sobre historia, conceptos y recursos del feminismo en un formato accesible con vídeos en lengua de signos.",
+      "readInSign": "Leer en lengua de signos"
+    },
+    "section2": {
+      "title": "¿Cómo navegar?",
+      "description": "Navega fácilmente por nuestra web usando las siguientes opciones:",
+      "menu": "Usa el menú superior para acceder a las secciones principales",
+      "search": "Busca contenidos específicos con el buscador",
+      "filters": "Filtra por etiquetas y años",
+      "videos": "Todos los contenidos incluyen vídeos en lengua de signos",
+      "keyboard": "Puedes navegar completamente usando el teclado"
+    },
+    "section3": {
+      "title": "Multiidioma y Accesibilidad",
+      "languageTitle": "Idiomas disponibles",
+      "languageDescription": "Cambia el idioma en cualquier momento usando el selector en la cabecera. Soportamos 6 idiomas.",
+      "accessibilityTitle": "Accesibilidad WCAG 2.2 AA",
+      "accessibilityDescription": "Esta web cumple con los estándares de accesibilidad WCAG 2.2 nivel AA:",
+      "features": {
+        "signLanguage": "Vídeos en LSE y LSC",
+        "keyboard": "Navegación por teclado",
+        "contrast": "Alto contraste",
+        "screenReader": "Compatible con lectores de pantalla",
+        "easyRead": "Textos en lectura fácil"
+      }
+    },
+    "section4": {
+      "title": "Explora nuestros contenidos",
+      "description": "Selecciona una sección para comenzar",
+      "cards": {
+        "historia": {
+          "title": "Historia",
+          "description": "Descubre hechos, personas y grupos históricos del feminismo"
+        },
+        "conceptos": {
+          "title": "Conceptos",
+          "description": "Aprende sobre los conceptos clave del feminismo"
+        },
+        "violencia": {
+          "title": "Violencia",
+          "description": "Información sobre tipos de violencia y señales de alerta"
+        },
+        "recursos": {
+          "title": "Recursos",
+          "description": "Libros, películas y documentales recomendados"
+        },
+        "ayuda": {
+          "title": "Ayuda",
+          "description": "Testimonios e instituciones de apoyo"
+        }
+      }
+    },
+    "navigation": {
+      "scrollDown": "Desplázate hacia abajo para ver más",
+      "section": "Sección {{number}} de 4"
+    }
   }
 }
 

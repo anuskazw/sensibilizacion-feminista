@@ -81,6 +81,67 @@
       "anio_desc": "Year (newest)",
       "fecha_publicacion": "Publication date"
     }
+  },
+  "home": {
+    "section1": {
+      "title": "Welcome",
+      "description": "This website is dedicated to feminist awareness and is fully accessible for deaf people.",
+      "purpose": "Our goal is to provide information about feminist history, concepts, and resources in an accessible format with sign language videos.",
+      "readInSign": "Read in sign language"
+    },
+    "section2": {
+      "title": "How to navigate?",
+      "description": "Navigate easily through our website using the following options:",
+      "menu": "Use the top menu to access the main sections",
+      "search": "Search for specific content with the search bar",
+      "filters": "Filter by tags and years",
+      "videos": "All content includes sign language videos",
+      "keyboard": "You can navigate completely using the keyboard"
+    },
+    "section3": {
+      "title": "Multilanguage and Accessibility",
+      "languageTitle": "Available languages",
+      "languageDescription": "Change the language at any time using the selector in the header. We support 6 languages.",
+      "accessibilityTitle": "WCAG 2.2 AA Accessibility",
+      "accessibilityDescription": "This website complies with WCAG 2.2 level AA accessibility standards:",
+      "features": {
+        "signLanguage": "Videos in LSE and LSC",
+        "keyboard": "Keyboard navigation",
+        "contrast": "High contrast",
+        "screenReader": "Screen reader compatible",
+        "easyRead": "Easy-to-read texts"
+      }
+    },
+    "section4": {
+      "title": "Explore our content",
+      "description": "Select a section to begin",
+      "cards": {
+        "historia": {
+          "title": "History",
+          "description": "Discover historical facts, people and groups of feminism"
+        },
+        "conceptos": {
+          "title": "Concepts",
+          "description": "Learn about key feminist concepts"
+        },
+        "violencia": {
+          "title": "Violence",
+          "description": "Information about types of violence and warning signs"
+        },
+        "recursos": {
+          "title": "Resources",
+          "description": "Recommended books, movies and documentaries"
+        },
+        "ayuda": {
+          "title": "Help",
+          "description": "Testimonials and support institutions"
+        }
+      }
+    },
+    "navigation": {
+      "scrollDown": "Scroll down to see more",
+      "section": "Section {{number}} of 4"
+    }
   }
 }
 

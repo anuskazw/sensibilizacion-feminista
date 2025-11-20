@@ -81,6 +81,67 @@
       "anio_desc": "Urtea (berriena)",
       "fecha_publicacion": "Argitalpen data"
     }
+  },
+  "home": {
+    "section1": {
+      "title": "Ongi etorri",
+      "description": "Webgune hau feminismoaren sentsibilizaziora dedikatuta dago eta erabat eskuragarria da gor pertsonentzat.",
+      "purpose": "Gure helburua feminismoaren historiari, kontzeptuei eta baliabideei buruzko informazioa eskuragarri egitea da, zeinu hizkuntzako bideoekin.",
+      "readInSign": "Zeinu hizkuntzan irakurri"
+    },
+    "section2": {
+      "title": "Nola nabigatu?",
+      "description": "Nabigatu erraz gure webgunean aukera hauek erabiliz:",
+      "menu": "Erabili goiko menua atal nagusietara sartzeko",
+      "search": "Bilatu eduki zehatzak bilatzailearekin",
+      "filters": "Iragazi etiketa eta urtearen arabera",
+      "videos": "Eduki guztiek zeinu hizkuntzako bideoak dituzte",
+      "keyboard": "Teklatua erabiliz erabat nabigatu dezakezu"
+    },
+    "section3": {
+      "title": "Hizkuntza anitza eta Eskuragarritasuna",
+      "languageTitle": "Hizkuntza erabilgarriak",
+      "languageDescription": "Aldatu hizkuntza edozein unetan goiburuko hautatzailea erabiliz. 6 hizkuntza onartzen ditugu.",
+      "accessibilityTitle": "WCAG 2.2 AA Eskuragarritasuna",
+      "accessibilityDescription": "Webgune honek WCAG 2.2 AA maila eskuragarritasun estandarrak betetzen ditu:",
+      "features": {
+        "signLanguage": "LSE eta LSC bideoak",
+        "keyboard": "Teklatu nabigazioa",
+        "contrast": "Kontraste altua",
+        "screenReader": "Pantaila-irakurlearekin bateragarria",
+        "easyRead": "Irakurketa erraza testuak"
+      }
+    },
+    "section4": {
+      "title": "Esploratu gure edukiak",
+      "description": "Hautatu atal bat hasteko",
+      "cards": {
+        "historia": {
+          "title": "Historia",
+          "description": "Ezagutu feminismoaren gertaera, pertsona eta talde historikoak"
+        },
+        "conceptos": {
+          "title": "Kontzeptuak",
+          "description": "Ikasi feminismoaren funtsezko kontzeptuak"
+        },
+        "violencia": {
+          "title": "Indarkeria",
+          "description": "Indarkeria mota eta alerta-seinaleen inguruko informazioa"
+        },
+        "recursos": {
+          "title": "Baliabideak",
+          "description": "Gomendatutako liburuak, filmak eta dokumentalak"
+        },
+        "ayuda": {
+          "title": "Laguntza",
+          "description": "Testigantzak eta laguntza erakundeak"
+        }
+      }
+    },
+    "navigation": {
+      "scrollDown": "Joan behera gehiago ikusteko",
+      "section": "{{number}} atala 4tik"
+    }
   }
 }
 

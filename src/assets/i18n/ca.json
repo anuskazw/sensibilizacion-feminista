@@ -81,6 +81,67 @@
       "anio_desc": "Any (més recent)",
       "fecha_publicacion": "Data de publicació"
     }
+  },
+  "home": {
+    "section1": {
+      "title": "Benvinguda",
+      "description": "Aquesta web està dedicada a la sensibilització feminista i és completament accessible per a persones sordes.",
+      "purpose": "El nostre objectiu és proporcionar informació sobre història, conceptes i recursos del feminisme en un format accessible amb vídeos en llengua de signes.",
+      "readInSign": "Llegir en llengua de signes"
+    },
+    "section2": {
+      "title": "Com navegar?",
+      "description": "Navega fàcilment per la nostra web utilitzant les següents opcions:",
+      "menu": "Utilitza el menú superior per accedir a les seccions principals",
+      "search": "Cerca continguts específics amb el cercador",
+      "filters": "Filtra per etiquetes i anys",
+      "videos": "Tots els continguts inclouen vídeos en llengua de signes",
+      "keyboard": "Pots navegar completament utilitzant el teclat"
+    },
+    "section3": {
+      "title": "Multiidioma i Accessibilitat",
+      "languageTitle": "Idiomes disponibles",
+      "languageDescription": "Canvia l'idioma en qualsevol moment utilitzant el selector a la capçalera. Suportem 6 idiomes.",
+      "accessibilityTitle": "Accessibilitat WCAG 2.2 AA",
+      "accessibilityDescription": "Aquesta web compleix amb els estàndards d'accessibilitat WCAG 2.2 nivell AA:",
+      "features": {
+        "signLanguage": "Vídeos en LSE i LSC",
+        "keyboard": "Navegació per teclat",
+        "contrast": "Alt contrast",
+        "screenReader": "Compatible amb lectors de pantalla",
+        "easyRead": "Textos en lectura fàcil"
+      }
+    },
+    "section4": {
+      "title": "Explora els nostres continguts",
+      "description": "Selecciona una secció per començar",
+      "cards": {
+        "historia": {
+          "title": "Història",
+          "description": "Descobreix fets, persones i grups històrics del feminisme"
+        },
+        "conceptos": {
+          "title": "Conceptes",
+          "description": "Aprèn sobre els conceptes clau del feminisme"
+        },
+        "violencia": {
+          "title": "Violència",
+          "description": "Informació sobre tipus de violència i senyals d'alerta"
+        },
+        "recursos": {
+          "title": "Recursos",
+          "description": "Llibres, pel·lícules i documentals recomanats"
+        },
+        "ayuda": {
+          "title": "Ajuda",
+          "description": "Testimonis i institucions de suport"
+        }
+      }
+    },
+    "navigation": {
+      "scrollDown": "Desplaça't cap avall per veure més",
+      "section": "Secció {{number}} de 4"
+    }
   }
 }
 

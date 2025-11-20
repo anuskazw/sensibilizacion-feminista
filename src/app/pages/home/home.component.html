@@ -1,54 +1,124 @@
-<div class="home-container">
-  <section class="welcome-section">
-    <h1>{{ 'app.title' | translate }}</h1>
-    <p class="subtitle">{{ 'app.subtitle' | translate }}</p>
-    
-    <div class="info-box">
-      <h2>Bienvenida</h2>
-      <p>Esta web está dedicada a la sensibilización feminista.</p>
-      <p>Todo el contenido es accesible para personas sordas.</p>
-      <p>Puedes cambiar el idioma usando el selector en la cabecera.</p>
-    </div>
+<div class="home-container" role="main">
+  
+  <!-- Sección 1: Objetivo de la web -->
+  <section class="home-section section-welcome" id="section-1" 
+           [attr.aria-label]="'home.section1.title' | translate">
+    <div class="section-content">
+      <h1 class="section-title">{{ 'home.section1.title' | translate }}</h1>
+      <p class="section-description">{{ 'home.section1.description' | translate }}</p>
+      <p class="section-purpose">{{ 'home.section1.purpose' | translate }}</p>
+      
+      <div class="video-buttons">
+        <button class="btn-primary" 
+                (click)="scrollToSection(1)"
+                [attr.aria-label]="'home.section1.readInSign' | translate">
+          {{ 'home.section1.readInSign' | translate }} (LSE/LSC)
+        </button>
+      </div>
 
-    <!-- Ejemplo de vídeo en lengua de signos con LSE y LSC -->
-    <div class="video-demo-section">
-      <h2>Vídeo de introducción</h2>
-      <p>Este vídeo está disponible en LSE y LSC:</p>
-      <app-sign-language-video-player 
-        [video]="exampleVideo"
-        [inline]="true">
-      </app-sign-language-video-player>
-    </div>
-
-    <!-- Ejemplo de vídeo plegable -->
-    <div class="video-demo-section">
-      <h2>Vídeo plegable (solo LSE)</h2>
-      <app-sign-language-video-player 
-        [video]="exampleVideoLseOnly"
-        [inline]="false">
-      </app-sign-language-video-player>
-    </div>
-
-    <div class="features-info">
-      <h2>Características de accesibilidad</h2>
-      <ul>
-        <li>✓ Vídeos en Lengua de Signos Española (LSE) y Catalana (LSC)</li>
-        <li>✓ Controles de reproducción accesibles</li>
-        <li>✓ Transcripciones textuales</li>
-        <li>✓ Subtítulos opcionales</li>
-        <li>✓ Control de velocidad de reproducción</li>
-        <li>✓ Navegación completa por teclado</li>
-        <li>✓ Cumplimiento de WCAG 2.2 AA</li>
-      </ul>
-    </div>
-
-    <div class="demo-section">
-      <h2>Funcionalidad de búsqueda y filtrado (US-003)</h2>
-      <p>Prueba la nueva funcionalidad de búsqueda y filtrado de contenidos:</p>
-      <a href="/historia" class="demo-link">
-        Ver página de Historia con búsqueda y filtros
-      </a>
+      <div class="scroll-indicator" [attr.aria-label]="'home.navigation.scrollDown' | translate">
+        <span class="arrow-down">↓</span>
+        <p>{{ 'home.navigation.scrollDown' | translate }}</p>
+      </div>
     </div>
   </section>
+
+  <!-- Sección 2: ¿Cómo navegar? -->
+  <section class="home-section section-navigation" id="section-2"
+           [attr.aria-label]="'home.section2.title' | translate">
+    <div class="section-content">
+      <h2 class="section-title">{{ 'home.section2.title' | translate }}</h2>
+      <p class="section-description">{{ 'home.section2.description' | translate }}</p>
+      
+      <div class="navigation-features">
+        <div class="feature-item">
+          <span class="feature-icon" aria-hidden="true">🗂️</span>
+          <p>{{ 'home.section2.menu' | translate }}</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" aria-hidden="true">🔍</span>
+          <p>{{ 'home.section2.search' | translate }}</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" aria-hidden="true">🏷️</span>
+          <p>{{ 'home.section2.filters' | translate }}</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" aria-hidden="true">🎥</span>
+          <p>{{ 'home.section2.videos' | translate }}</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" aria-hidden="true">⌨️</span>
+          <p>{{ 'home.section2.keyboard' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Multiidioma y Accesibilidad -->
+  <section class="home-section section-accessibility" id="section-3"
+           [attr.aria-label]="'home.section3.title' | translate">
+    <div class="section-content">
+      <h2 class="section-title">{{ 'home.section3.title' | translate }}</h2>
+      
+      <div class="accessibility-grid">
+        <div class="accessibility-card">
+          <h3>{{ 'home.section3.languageTitle' | translate }}</h3>
+          <p>{{ 'home.section3.languageDescription' | translate }}</p>
+          <ul class="language-list">
+            <li>🇪🇸 {{ 'language.es' | translate }}</li>
+            <li>🇬🇧 {{ 'language.en' | translate }}</li>
+            <li>🇪🇸 {{ 'language.ca' | translate }}</li>
+            <li>🇪🇸 {{ 'language.val' | translate }}</li>
+            <li>🇪🇸 {{ 'language.gl' | translate }}</li>
+            <li>🇪🇸 {{ 'language.eu' | translate }}</li>
+          </ul>
+        </div>
+
+        <div class="accessibility-card">
+          <h3>{{ 'home.section3.accessibilityTitle' | translate }}</h3>
+          <p>{{ 'home.section3.accessibilityDescription' | translate }}</p>
+          <ul class="features-list">
+            <li>✓ {{ 'home.section3.features.signLanguage' | translate }}</li>
+            <li>✓ {{ 'home.section3.features.keyboard' | translate }}</li>
+            <li>✓ {{ 'home.section3.features.contrast' | translate }}</li>
+            <li>✓ {{ 'home.section3.features.screenReader' | translate }}</li>
+            <li>✓ {{ 'home.section3.features.easyRead' | translate }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4: Grid de enlaces -->
+  <section class="home-section section-grid" id="section-4"
+           [attr.aria-label]="'home.section4.title' | translate">
+    <div class="section-content">
+      <h2 class="section-title">{{ 'home.section4.title' | translate }}</h2>
+      <p class="section-description">{{ 'home.section4.description' | translate }}</p>
+      
+      <nav class="navigation-grid" aria-label="Navegación principal de contenidos">
+        <a *ngFor="let card of navigationCards" 
+           [routerLink]="card.route"
+           class="navigation-card"
+           [attr.aria-label]="card.ariaLabel">
+          <span class="card-icon" aria-hidden="true">{{ card.icon }}</span>
+          <h3 class="card-title">{{ 'home.section4.cards.' + card.id + '.title' | translate }}</h3>
+          <p class="card-description">{{ 'home.section4.cards.' + card.id + '.description' | translate }}</p>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Indicadores de sección (dots) -->
+  <nav class="section-indicators" aria-label="Navegación entre secciones">
+    <button *ngFor="let i of [0, 1, 2, 3]"
+            class="indicator-dot"
+            [class.active]="activeSection() === i"
+            (click)="scrollToSection(i)"
+            [attr.aria-label]="'home.navigation.section' | translate: {number: i + 1}"
+            [attr.aria-current]="activeSection() === i ? 'true' : 'false'">
+    </button>
+  </nav>
 </div>
 
