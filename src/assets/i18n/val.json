@@ -337,6 +337,23 @@
         "username": "Usuari",
         "password": "Contrasenya"
       }
+    },
+    "metrics": {
+      "title": "Mètriques d'Analytics",
+      "videoEvents": "Esdeveniments de Vídeo",
+      "contentViews": "Visualitzacions de Contingut",
+      "searches": "Cerques",
+      "videoLanguages": "Idiomes de Vídeo",
+      "videoAvailability": "Disponibilitat de Vídeos",
+      "mostFrequentSearches": "Cerques Més Frequents",
+      "withLSE": "Amb LSE",
+      "withLSC": "Amb LSC",
+      "withBoth": "Amb Ambdós",
+      "plays": "Reproduccions",
+      "pauses": "Pauses",
+      "completed": "Completats",
+      "total": "Total",
+      "noSearches": "Encara no hi ha cerques registrades"
     }
   }
 }

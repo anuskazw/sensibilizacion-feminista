@@ -337,6 +337,23 @@
         "username": "Erabiltzailea",
         "password": "Pasahitza"
       }
+    },
+    "metrics": {
+      "title": "Analytics Metrikak",
+      "videoEvents": "Bideo Gertaerak",
+      "contentViews": "Eduki Ikuspegiak",
+      "searches": "Bilaketak",
+      "videoLanguages": "Bideo Hizkuntzak",
+      "videoAvailability": "Bideo Eskuragarritasuna",
+      "mostFrequentSearches": "Bilaketa Maizenen",
+      "withLSE": "LSErekin",
+      "withLSC": "LSCrekin",
+      "withBoth": "Biak",
+      "plays": "Erreprodukzioak",
+      "pauses": "Pausak",
+      "completed": "Osatuak",
+      "total": "Guztira",
+      "noSearches": "Oraindik ez da bilaketarik erregistratu"
     }
   }
 }

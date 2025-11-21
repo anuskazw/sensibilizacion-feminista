@@ -6,6 +6,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../core/services/auth.service';
 import { Content, ContentStatus, ContentType } from '../../core/models/content.model';
 import { LanguageService } from '../../core/services/language.service';
+import { AnalyticsService } from '../../core/services/analytics.service';
 
 /**
  * Panel de administración de contenidos
@@ -23,6 +24,7 @@ export class AdminComponent implements OnInit {
   private router = inject(Router);
   private languageService = inject(LanguageService);
   private translateService = inject(TranslateService);
+  private analyticsService = inject(AnalyticsService);
 
   // Filtros
   selectedStatus = signal<ContentStatus | 'todos'>('todos');
@@ -69,6 +71,43 @@ export class AdminComponent implements OnInit {
       publicado: contents.filter(c => c.estado === 'publicado').length
     };
   });
+
+  // Métricas de analytics
+  analyticsStats = computed(() => {
+    return this.analyticsService.getGeneralStats();
+  });
+
+  videoLanguageStats = computed(() => {
+    return this.analyticsService.getVideoLanguageStats();
+  });
+
+  contentViewStats = computed(() => {
+    return this.analyticsService.getContentViewStatsByCategory();
+  });
+
+  hashtagStats = computed(() => {
+    return this.analyticsService.getContentViewStatsByHashtag();
+  });
+
+  mostFrequentSearches = computed(() => {
+    return this.analyticsService.getMostFrequentSearches(10);
+  });
+
+  videoAvailabilityStats = computed(() => {
+    const contents = this.contents();
+    return this.analyticsService.calculateVideoAvailabilityStats(contents);
+  });
+
+  // Helper para obtener las claves de contentViewStats
+  getContentViewCategories(): ContentType[] {
+    const stats = this.contentViewStats();
+    return Object.keys(stats) as ContentType[];
+  }
+
+  getContentViewCount(category: ContentType): number {
+    const stats = this.contentViewStats();
+    return (stats[category as keyof typeof stats] ?? 0);
+  }
 
   // Opciones de estados y tipos
   statusOptions: Array<{ value: ContentStatus | 'todos'; label: string }> = [

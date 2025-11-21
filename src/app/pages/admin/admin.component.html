@@ -34,6 +34,89 @@
       </div>
     </section>
 
+    <!-- Métricas de Analytics -->
+    <section class="metrics-section">
+      <h2>{{ 'admin.metrics.title' | translate }}</h2>
+      
+      <!-- Métricas generales -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3>{{ 'admin.metrics.videoEvents' | translate }}</h3>
+          <div class="metric-value">{{ analyticsStats().totalVideoEvents }}</div>
+          <div class="metric-details">
+            <span>{{ 'admin.metrics.plays' | translate }}: {{ analyticsStats().videoPlayCount }}</span>
+            <span>{{ 'admin.metrics.pauses' | translate }}: {{ analyticsStats().videoPauseCount }}</span>
+            <span>{{ 'admin.metrics.completed' | translate }}: {{ analyticsStats().videoCompletedCount }}</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <h3>{{ 'admin.metrics.contentViews' | translate }}</h3>
+          <div class="metric-value">{{ analyticsStats().totalContentViews }}</div>
+          <div class="metric-details">
+            @for (category of getContentViewCategories(); track category) {
+              <span>{{ 'admin.type.' + category | translate }}: {{ getContentViewCount(category) }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <h3>{{ 'admin.metrics.searches' | translate }}</h3>
+          <div class="metric-value">{{ analyticsStats().totalSearches }}</div>
+        </div>
+
+        <div class="metric-card">
+          <h3>{{ 'admin.metrics.videoLanguages' | translate }}</h3>
+          <div class="metric-details">
+            <span>LSE: {{ videoLanguageStats().lse }}</span>
+            <span>LSC: {{ videoLanguageStats().lsc }}</span>
+            <span>{{ 'admin.metrics.total' | translate }}: {{ videoLanguageStats().total }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disponibilidad de vídeos -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3>{{ 'admin.metrics.videoAvailability' | translate }}</h3>
+          <div class="metric-details">
+            <div class="availability-item">
+              <span>{{ 'admin.metrics.withLSE' | translate }}:</span>
+              <span class="percentage">{{ videoAvailabilityStats().percentageLSE.toFixed(1) }}%</span>
+              <span>({{ videoAvailabilityStats().withLSE }}/{{ videoAvailabilityStats().total }})</span>
+            </div>
+            <div class="availability-item">
+              <span>{{ 'admin.metrics.withLSC' | translate }}:</span>
+              <span class="percentage">{{ videoAvailabilityStats().percentageLSC.toFixed(1) }}%</span>
+              <span>({{ videoAvailabilityStats().withLSC }}/{{ videoAvailabilityStats().total }})</span>
+            </div>
+            <div class="availability-item">
+              <span>{{ 'admin.metrics.withBoth' | translate }}:</span>
+              <span class="percentage">{{ videoAvailabilityStats().percentageBoth.toFixed(1) }}%</span>
+              <span>({{ videoAvailabilityStats().withBoth }}/{{ videoAvailabilityStats().total }})</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Búsquedas más frecuentes -->
+        <div class="metric-card">
+          <h3>{{ 'admin.metrics.mostFrequentSearches' | translate }}</h3>
+          @if (mostFrequentSearches().length === 0) {
+            <p class="no-data">{{ 'admin.metrics.noSearches' | translate }}</p>
+          } @else {
+            <ul class="search-list">
+              @for (search of mostFrequentSearches(); track search.query) {
+                <li>
+                  <span class="search-query">{{ search.query }}</span>
+                  <span class="search-count">{{ search.count }}</span>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    </section>
+
     <!-- Filtros -->
     <section class="filters-section">
       <div class="filters-grid">

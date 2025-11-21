@@ -337,6 +337,23 @@
         "username": "Usuario",
         "password": "Contrasinal"
       }
+    },
+    "metrics": {
+      "title": "Métricas de Analytics",
+      "videoEvents": "Eventos de Vídeo",
+      "contentViews": "Visualizacións de Contido",
+      "searches": "Búsquedas",
+      "videoLanguages": "Idiomas de Vídeo",
+      "videoAvailability": "Disponibilidade de Vídeos",
+      "mostFrequentSearches": "Búsquedas Máis Frecuentes",
+      "withLSE": "Con LSE",
+      "withLSC": "Con LSC",
+      "withBoth": "Con Ambos",
+      "plays": "Reproducións",
+      "pauses": "Pausas",
+      "completed": "Completados",
+      "total": "Total",
+      "noSearches": "Aínda non hai búsquedas rexistradas"
     }
   }
 }

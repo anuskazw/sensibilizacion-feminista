@@ -7,6 +7,7 @@ import { LanguageService } from '../../core/services/language.service';
 import { SkeletonScreenComponent } from '../../shared/components/skeleton-screen/skeleton-screen.component';
 import { ErrorStateComponent } from '../../shared/components/error-state/error-state.component';
 import { OfflineService } from '../../core/services/offline.service';
+import { AnalyticsService } from '../../core/services/analytics.service';
 import { 
   ConceptoContent, 
   Hashtag, 
@@ -30,6 +31,7 @@ export class ConceptosComponent implements OnInit {
   private languageService = inject(LanguageService);
   private translateService = inject(TranslateService);
   private offlineService = inject(OfflineService);
+  private analyticsService = inject(AnalyticsService);
 
   // Estados de carga y error
   isLoading = signal(true);
@@ -256,6 +258,8 @@ export class ConceptosComponent implements OnInit {
         }
         // Inicializar el servicio con datos de ejemplo
         this.searchFilterService.setContents(this.sampleContents);
+        // Trackear vista de página de conceptos
+        this.analyticsService.trackContentView('conceptos-page', 'concepto', []);
         this.isLoading.set(false);
       } catch (error: any) {
         this.hasError.set(true);

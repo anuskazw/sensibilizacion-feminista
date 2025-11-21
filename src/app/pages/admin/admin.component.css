@@ -138,6 +138,142 @@
   border-color: #667eea;
 }
 
+/* Métricas de Analytics */
+.metrics-section {
+  margin-bottom: 2rem;
+}
+
+.metrics-section h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.metric-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.metric-card h3 {
+  margin: 0 0 1rem 0;
+  color: #667eea;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.metric-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.metric-details span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.availability-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+
+.availability-item span:first-child {
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.percentage {
+  font-weight: bold;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.search-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.search-list li:hover {
+  background-color: #e9ecef;
+}
+
+.search-query {
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-count {
+  background-color: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 2rem;
+}
+
 /* Contenidos */
 .contents-section h2 {
   margin-bottom: 1rem;
@@ -292,6 +428,14 @@
 
   .filters-grid {
     grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-value {
+    font-size: 2rem;
   }
 }
 

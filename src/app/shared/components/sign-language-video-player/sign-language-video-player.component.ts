@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, PLATFORM_ID, Inject, OnDestroy } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { LazyVideoDirective } from '../../directives/lazy-video.directive';
 import { ErrorStateComponent } from '../error-state/error-state.component';
+import { AnalyticsService, ContentType } from '../../../core/services/analytics.service';
 
 export interface SignLanguageVideo {
   lseUrl?: string;  // Lengua de Signos Española
@@ -19,10 +20,12 @@ export interface SignLanguageVideo {
   templateUrl: './sign-language-video-player.component.html',
   styleUrl: './sign-language-video-player.component.css'
 })
-export class SignLanguageVideoPlayerComponent implements OnInit {
+export class SignLanguageVideoPlayerComponent implements OnInit, OnDestroy {
   @Input() video!: SignLanguageVideo;
   @Input() autoplay: boolean = false; // Por defecto sin autoplay para accesibilidad
   @Input() inline: boolean = true; // true = inline, false = plegable
+  @Input() contentId?: string; // ID del contenido para tracking
+  @Input() contentType?: ContentType; // Tipo de contenido para tracking
   
   @ViewChild('videoElement', { static: false }) videoElement!: ElementRef<HTMLVideoElement>;
   
@@ -52,7 +55,10 @@ export class SignLanguageVideoPlayerComponent implements OnInit {
   
   private isBrowser: boolean;
   
-  constructor(@Inject(PLATFORM_ID) platformId: object) {
+  constructor(
+    @Inject(PLATFORM_ID) platformId: object,
+    private analyticsService: AnalyticsService
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
   
@@ -96,12 +102,64 @@ export class SignLanguageVideoPlayerComponent implements OnInit {
   }
   
   onPlayPause(): void {
+    const wasPlaying = this.isPlaying;
     this.isPlaying = !this.isPlaying;
+    
+    if (this.isBrowser && this.videoElement) {
+      const video = this.videoElement.nativeElement;
+      
+      if (this.isPlaying) {
+        // Vídeo empezó a reproducirse
+        this.analyticsService.trackVideoPlay(
+          this.currentLanguage,
+          this.video.title,
+          this.contentId,
+          this.contentType
+        );
+      } else {
+        // Vídeo se pausó
+        this.analyticsService.trackVideoPause(
+          this.currentLanguage,
+          this.video.title,
+          video.currentTime,
+          this.duration,
+          this.contentId,
+          this.contentType
+        );
+      }
+    }
   }
   
   onTimeUpdate(): void {
     if (!this.isBrowser || !this.videoElement) return;
-    this.currentTime = this.videoElement.nativeElement.currentTime;
+    
+    const video = this.videoElement.nativeElement;
+    this.currentTime = video.currentTime;
+    
+    // Trackear actualización de tiempo para calcular porcentaje visualizado
+    if (this.duration > 0) {
+      this.analyticsService.trackVideoTimeUpdate(
+        this.currentLanguage,
+        this.video.title,
+        this.currentTime,
+        this.duration,
+        this.contentId,
+        this.contentType
+      );
+      
+      // Verificar si el vídeo se completó (con un pequeño margen para evitar problemas de precisión)
+      if (this.currentTime >= this.duration - 0.5 && this.isPlaying) {
+        // El vídeo se completó
+        this.analyticsService.trackVideoCompleted(
+          this.currentLanguage,
+          this.video.title,
+          this.duration,
+          this.contentId,
+          this.contentType
+        );
+        this.isPlaying = false;
+      }
+    }
   }
   
   onLoadedMetadata(): void {
@@ -166,6 +224,19 @@ export class SignLanguageVideoPlayerComponent implements OnInit {
       const wasPlaying = this.isPlaying;
       const currentTimeStamp = this.currentTime;
       
+      // Si estaba reproduciéndose, pausar y trackear antes de cambiar
+      if (wasPlaying && this.isBrowser && this.videoElement) {
+        const video = this.videoElement.nativeElement;
+        this.analyticsService.trackVideoPause(
+          this.currentLanguage,
+          this.video.title,
+          video.currentTime,
+          this.duration,
+          this.contentId,
+          this.contentType
+        );
+      }
+      
       this.currentLanguage = language;
       
       // Esperar a que se cargue el nuevo vídeo y restaurar posición
@@ -175,6 +246,13 @@ export class SignLanguageVideoPlayerComponent implements OnInit {
           video.currentTime = currentTimeStamp;
           if (wasPlaying) {
             video.play().catch(err => console.error('Error al reanudar:', err));
+            // Trackear el play del nuevo idioma
+            this.analyticsService.trackVideoPlay(
+              this.currentLanguage,
+              this.video.title,
+              this.contentId,
+              this.contentType
+            );
           }
         }
       }, 100);
@@ -215,6 +293,22 @@ export class SignLanguageVideoPlayerComponent implements OnInit {
     this.isLoading = true;
     if (this.isBrowser && this.videoElement) {
       this.videoElement.nativeElement.load();
+    }
+  }
+  
+  ngOnDestroy(): void {
+    // Si el vídeo estaba reproduciéndose cuando se destruye el componente,
+    // trackear la pausa final
+    if (this.isBrowser && this.isPlaying && this.videoElement) {
+      const video = this.videoElement.nativeElement;
+      this.analyticsService.trackVideoPause(
+        this.currentLanguage,
+        this.video.title,
+        video.currentTime,
+        this.duration,
+        this.contentId,
+        this.contentType
+      );
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
 import { 
   Content, 
   BaseContent, 
@@ -10,6 +10,7 @@ import {
   SearchResult, 
   SortOption 
 } from '../models/filter.model';
+import { AnalyticsService } from './analytics.service';
 
 /**
  * Servicio de búsqueda y filtrado de contenidos
@@ -19,6 +20,8 @@ import {
   providedIn: 'root'
 })
 export class SearchFilterService {
+  private analyticsService = inject(AnalyticsService);
+  
   // Señales reactivas para el estado del filtro
   private currentFilters = signal<ContentFilters>({});
   private allContents = signal<Content[]>([]);
@@ -124,6 +127,22 @@ export class SearchFilterService {
     // Ordenar resultados
     if (appliedFilters.sortBy) {
       filtered = this.sortContents(filtered, appliedFilters.sortBy, appliedFilters.currentLanguage || 'es');
+    }
+
+    // Trackear búsqueda si hay texto de búsqueda o filtros aplicados
+    if (appliedFilters.searchText || appliedFilters['hashtagIds']?.length || 
+        appliedFilters['anioDesde'] !== undefined || appliedFilters['anioHasta'] !== undefined) {
+      const filters: Record<string, any> = {};
+      if (appliedFilters['hashtagIds']?.length) filters['hashtagIds'] = appliedFilters['hashtagIds'];
+      if (appliedFilters['anioDesde'] !== undefined) filters['anioDesde'] = appliedFilters['anioDesde'];
+      if (appliedFilters['anioHasta'] !== undefined) filters['anioHasta'] = appliedFilters['anioHasta'];
+      if (appliedFilters['tipos']?.length) filters['tipos'] = appliedFilters['tipos'];
+      
+      this.analyticsService.trackSearch(
+        appliedFilters.searchText || '',
+        filtered.length,
+        Object.keys(filters).length > 0 ? filters : undefined
+      );
     }
 
     return {

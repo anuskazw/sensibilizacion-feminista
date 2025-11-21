@@ -4,6 +4,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContentSidebarComponent } from '../../shared/components/content-sidebar/content-sidebar.component';
 import { SearchFilterService } from '../../core/services/search-filter.service';
 import { LanguageService } from '../../core/services/language.service';
+import { AnalyticsService } from '../../core/services/analytics.service';
 import { 
   HistoriaContent, 
   Hashtag, 
@@ -26,6 +27,7 @@ export class HistoriaComponent implements OnInit {
   private searchFilterService = inject(SearchFilterService);
   private languageService = inject(LanguageService);
   private translateService = inject(TranslateService);
+  private analyticsService = inject(AnalyticsService);
 
   // Datos de ejemplo
   private sampleHashtags: Hashtag[] = [
@@ -141,6 +143,9 @@ export class HistoriaComponent implements OnInit {
   ngOnInit(): void {
     // Inicializar el servicio con datos de ejemplo
     this.searchFilterService.setContents(this.sampleContents);
+    
+    // Trackear vista de página de historia
+    this.analyticsService.trackContentView('historia-page', 'historia', []);
   }
 
   onFiltersChange(filters: ContentFilters): void {

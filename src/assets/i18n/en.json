@@ -337,6 +337,23 @@
         "username": "Username",
         "password": "Password"
       }
+    },
+    "metrics": {
+      "title": "Analytics Metrics",
+      "videoEvents": "Video Events",
+      "contentViews": "Content Views",
+      "searches": "Searches",
+      "videoLanguages": "Video Languages",
+      "videoAvailability": "Video Availability",
+      "mostFrequentSearches": "Most Frequent Searches",
+      "withLSE": "With LSE",
+      "withLSC": "With LSC",
+      "withBoth": "With Both",
+      "plays": "Plays",
+      "pauses": "Pauses",
+      "completed": "Completed",
+      "total": "Total",
+      "noSearches": "No searches recorded yet"
     }
   }
 }
