@@ -25,7 +25,31 @@
     "error": "Error",
     "close": "Close",
     "accept": "Accept",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "retry": "Retry"
+  },
+  "error": {
+    "generic": "An error occurred while loading content. Please try again.",
+    "network": "Could not connect to the server. Check your internet connection.",
+    "offline": "No internet connection. Some features may not be available.",
+    "notFound": "The requested content was not found.",
+    "server": "Server error. Please try again later.",
+    "suggestions": "Suggestions:",
+    "suggestionsNetwork": [
+      "Check your internet connection",
+      "Try reloading the page",
+      "Check if other websites work"
+    ],
+    "suggestionsOffline": [
+      "Check your internet connection",
+      "Some features may continue to work offline",
+      "Locally saved data will remain available"
+    ],
+    "suggestionsServer": [
+      "The server may be temporarily unavailable",
+      "Try again in a few moments",
+      "If the problem persists, contact support"
+    ]
   },
   "video": {
     "expand": "Expand video",

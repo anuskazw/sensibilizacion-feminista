@@ -1,0 +1,44 @@
+<div class="error-state" role="alert">
+  <div class="error-icon" aria-hidden="true">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+  </div>
+  
+  <h2 class="error-title">{{ 'common.error' | translate }}</h2>
+  
+  <p class="error-message">
+    {{ message || ('error.generic' | translate) }}
+  </p>
+
+  @if (suggestions.length > 0) {
+    <div class="error-suggestions">
+      <h3 class="suggestions-title">{{ 'error.suggestions' | translate }}</h3>
+      <ul class="suggestions-list">
+        @for (suggestion of suggestions; track suggestion) {
+          <li>{{ suggestion }}</li>
+        }
+      </ul>
+    </div>
+  }
+
+  @if (showRetry) {
+    <button 
+      type="button"
+      class="retry-button"
+      (click)="onRetry()"
+      [attr.aria-label]="retryLabel | translate">
+      {{ retryLabel | translate }}
+    </button>
+  }
+</div>
+

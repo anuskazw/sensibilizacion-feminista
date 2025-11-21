@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { SkeletonScreenComponent } from '../../shared/components/skeleton-screen/skeleton-screen.component';
+import { ErrorStateComponent } from '../../shared/components/error-state/error-state.component';
+import { OfflineService } from '../../core/services/offline.service';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Página de recursos con grid de tarjetas principales
@@ -10,11 +14,61 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-recursos',
   standalone: true,
-  imports: [CommonModule, TranslateModule, RouterLink],
+  imports: [CommonModule, TranslateModule, RouterLink, SkeletonScreenComponent, ErrorStateComponent],
   templateUrl: './recursos.component.html',
   styleUrl: './recursos.component.css'
 })
-export class RecursosComponent {
+export class RecursosComponent implements OnInit {
+  private offlineService = inject(OfflineService);
+  private translateService = inject(TranslateService);
+
+  // Estados de carga y error
+  isLoading = signal(true);
+  hasError = signal(false);
+  errorMessage = signal<string>('');
+  ngOnInit(): void {
+    // Simular carga de datos
+    this.isLoading.set(true);
+    this.hasError.set(false);
+    
+    // Simular carga asíncrona
+    setTimeout(() => {
+      try {
+        if (this.offlineService.isOffline()) {
+          throw new Error('offline');
+        }
+        this.isLoading.set(false);
+      } catch (error: any) {
+        this.hasError.set(true);
+        this.isLoading.set(false);
+        if (error.message === 'offline') {
+          this.errorMessage.set('error.offline');
+        } else {
+          this.errorMessage.set('error.generic');
+        }
+      }
+    }, 600);
+  }
+
+  retryLoad(): void {
+    this.ngOnInit();
+  }
+
+  getErrorSuggestions(): string[] {
+    if (this.offlineService.isOffline()) {
+      return [
+        this.translateService.instant('error.suggestionsOffline.0'),
+        this.translateService.instant('error.suggestionsOffline.1'),
+        this.translateService.instant('error.suggestionsOffline.2')
+      ];
+    }
+    return [
+      this.translateService.instant('error.suggestionsNetwork.0'),
+      this.translateService.instant('error.suggestionsNetwork.1'),
+      this.translateService.instant('error.suggestionsNetwork.2')
+    ];
+  }
+
   // Tarjetas principales de recursos
   resourceCards = [
     {

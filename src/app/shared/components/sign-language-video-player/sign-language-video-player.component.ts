@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild, ElementRef, PLATFORM_ID, Inject } 
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { LazyVideoDirective } from '../../directives/lazy-video.directive';
+import { ErrorStateComponent } from '../error-state/error-state.component';
 
 export interface SignLanguageVideo {
   lseUrl?: string;  // Lengua de Signos Española
@@ -14,7 +15,7 @@ export interface SignLanguageVideo {
 @Component({
   selector: 'app-sign-language-video-player',
   standalone: true,
-  imports: [CommonModule, TranslateModule, LazyVideoDirective],
+  imports: [CommonModule, TranslateModule, LazyVideoDirective, ErrorStateComponent],
   templateUrl: './sign-language-video-player.component.html',
   styleUrl: './sign-language-video-player.component.css'
 })

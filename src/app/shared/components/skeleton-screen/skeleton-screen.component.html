@@ -1,0 +1,88 @@
+@switch (type) {
+  @case ('card-grid') {
+    <div class="skeleton-grid">
+      @for (item of items; track item) {
+        <div class="skeleton-card">
+          @if (showTitle) {
+            <div class="skeleton-line skeleton-title"></div>
+          }
+          @if (showDescription) {
+            <div class="skeleton-line skeleton-description"></div>
+            <div class="skeleton-line skeleton-description-short"></div>
+          }
+          @if (showHashtags) {
+            <div class="skeleton-hashtags">
+              <div class="skeleton-badge"></div>
+              <div class="skeleton-badge"></div>
+              <div class="skeleton-badge"></div>
+            </div>
+          }
+          @if (showButton) {
+            <div class="skeleton-button"></div>
+          }
+        </div>
+      }
+    </div>
+  }
+  @case ('list') {
+    <div class="skeleton-list">
+      @for (item of items; track item) {
+        <div class="skeleton-list-item">
+          @if (showTitle) {
+            <div class="skeleton-line skeleton-title"></div>
+          }
+          @if (showDescription) {
+            <div class="skeleton-line skeleton-description"></div>
+            <div class="skeleton-line skeleton-description-short"></div>
+          }
+          @if (showHashtags) {
+            <div class="skeleton-hashtags">
+              <div class="skeleton-badge"></div>
+              <div class="skeleton-badge"></div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+  @case ('content-card') {
+    <div class="skeleton-content-card">
+      @if (showTitle) {
+        <div class="skeleton-line skeleton-title"></div>
+      }
+      @if (showDescription) {
+        <div class="skeleton-line skeleton-description"></div>
+        <div class="skeleton-line skeleton-description"></div>
+        <div class="skeleton-line skeleton-description-short"></div>
+      }
+      @if (showHashtags) {
+        <div class="skeleton-hashtags">
+          <div class="skeleton-badge"></div>
+          <div class="skeleton-badge"></div>
+          <div class="skeleton-badge"></div>
+        </div>
+      }
+      @if (showButton) {
+        <div class="skeleton-button"></div>
+      }
+    </div>
+  }
+  @default {
+    <div class="skeleton-card">
+      @if (showTitle) {
+        <div class="skeleton-line skeleton-title"></div>
+      }
+      @if (showDescription) {
+        <div class="skeleton-line skeleton-description"></div>
+        <div class="skeleton-line skeleton-description-short"></div>
+      }
+      @if (showHashtags) {
+        <div class="skeleton-hashtags">
+          <div class="skeleton-badge"></div>
+          <div class="skeleton-badge"></div>
+        </div>
+      }
+    </div>
+  }
+}
+

@@ -25,7 +25,31 @@
     "error": "Error",
     "close": "Tancar",
     "accept": "Acceptar",
-    "cancel": "Cancel·lar"
+    "cancel": "Cancel·lar",
+    "retry": "Tornar a intentar"
+  },
+  "error": {
+    "generic": "S'ha produït un error en carregar el contingut. Si us plau, torna-ho a intentar.",
+    "network": "No s'ha pogut connectar amb el servidor. Verifica la teva connexió a internet.",
+    "offline": "No hi ha connexió a internet. Algunes funcions poden no estar disponibles.",
+    "notFound": "No s'ha trobat el contingut sol·licitat.",
+    "server": "Error del servidor. Si us plau, torna-ho a intentar més tard.",
+    "suggestions": "Suggeriments:",
+    "suggestionsNetwork": [
+      "Verifica la teva connexió a internet",
+      "Intenta recarregar la pàgina",
+      "Comprova si altres llocs web funcionen"
+    ],
+    "suggestionsOffline": [
+      "Verifica la teva connexió a internet",
+      "Algunes funcions poden continuar funcionant sense connexió",
+      "Les dades guardades localment continuaran disponibles"
+    ],
+    "suggestionsServer": [
+      "El servidor pot estar temporalment no disponible",
+      "Torna-ho a intentar en uns moments",
+      "Si el problema persisteix, contacta amb el suport"
+    ]
   },
   "video": {
     "expand": "Expandir vídeo",

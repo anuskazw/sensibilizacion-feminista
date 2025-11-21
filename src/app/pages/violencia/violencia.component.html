@@ -35,18 +35,36 @@
       </div>
     }
 
-    <!-- Resultados -->
-    <div class="results-info">
-      @if (filteredContents().length > 0) {
-        <p class="results-count">
-          {{ 'search.resultsCount' | translate: { count: filteredContents().length } }}
-        </p>
-      }
-    </div>
+    <!-- Estados de carga y error -->
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="list"
+        [count]="4"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showHashtags]="true"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <!-- Resultados -->
+      <div class="results-info">
+        @if (filteredContents().length > 0) {
+          <p class="results-count">
+            {{ 'search.resultsCount' | translate: { count: filteredContents().length } }}
+          </p>
+        }
+      </div>
 
-    <!-- Listado de contenidos -->
-    <div class="contents-list">
-      @if (filteredContents().length > 0) {
+      <!-- Listado de contenidos -->
+      <div class="contents-list">
+        @if (filteredContents().length > 0) {
         @for (content of filteredContents(); track content.id) {
           <article class="content-card" [id]="'content-' + content.id">
             <div class="card-header">
@@ -129,7 +147,8 @@
           <p>{{ 'violence.noResultsMessage' | translate }}</p>
         </div>
       }
-    </div>
+      </div>
+    }
   </main>
 </div>
 

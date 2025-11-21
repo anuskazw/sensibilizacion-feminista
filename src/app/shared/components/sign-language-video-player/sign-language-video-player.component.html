@@ -28,19 +28,38 @@
       </button>
     </div>
 
-    <!-- Estado de carga -->
-    <div class="loading-state" *ngIf="isLoading" role="status" [attr.aria-label]="'video.loading' | translate">
-      <div class="spinner" aria-hidden="true"></div>
-      <p>{{ 'video.loading' | translate }}</p>
-    </div>
+    <!-- Estado de carga con skeleton screen -->
+    @if (isLoading && !hasError) {
+      <div class="video-skeleton" role="status" [attr.aria-label]="'video.loading' | translate">
+        <div class="skeleton-video-container">
+          <div class="skeleton-video"></div>
+        </div>
+        @if (availableLanguages.length > 1) {
+          <div class="skeleton-language-selector">
+            <div class="skeleton-button"></div>
+            <div class="skeleton-button"></div>
+          </div>
+        }
+        <div class="skeleton-controls">
+          <div class="skeleton-progress-bar"></div>
+          <div class="skeleton-controls-row">
+            <div class="skeleton-control-btn"></div>
+            <div class="skeleton-control-btn"></div>
+            <div class="skeleton-control-btn"></div>
+          </div>
+        </div>
+      </div>
+    }
 
     <!-- Estado de error -->
-    <div class="error-state" *ngIf="hasError && !isLoading" role="alert">
-      <p class="error-message">{{ errorMessage }}</p>
-      <button class="retry-btn" (click)="retry()">
-        {{ 'video.retry' | translate }}
-      </button>
-    </div>
+    @if (hasError && !isLoading) {
+      <app-error-state
+        [message]="errorMessage || ('error.generic' | translate)"
+        [showRetry]="true"
+        retryLabel="video.retry"
+        (retry)="retry()">
+      </app-error-state>
+    }
 
     <!-- Elemento de vídeo -->
     <div class="video-container" *ngIf="!hasError">

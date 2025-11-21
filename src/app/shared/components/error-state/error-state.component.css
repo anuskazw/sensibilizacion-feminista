@@ -1,0 +1,97 @@
+.error-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.error-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.5rem;
+  color: var(--error-color, #dc3545);
+}
+
+.error-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.error-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #212529);
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 1rem;
+  color: var(--text-secondary, #6c757d);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.error-suggestions {
+  text-align: left;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--accent-color, #f8f9fa);
+  border-radius: 8px;
+}
+
+.suggestions-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #212529);
+  margin-bottom: 0.75rem;
+}
+
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions-list li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary, #6c757d);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.suggestions-list li::before {
+  content: "• ";
+  color: var(--primary-color, #6b2d5c);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.retry-button {
+  padding: 0.75rem 2rem;
+  background-color: var(--primary-color, #6b2d5c);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem;
+}
+
+.retry-button:hover {
+  background-color: var(--primary-hover, #532348);
+}
+
+.retry-button:focus {
+  outline: 2px solid var(--primary-color, #6b2d5c);
+  outline-offset: 2px;
+}
+
+.retry-button:active {
+  transform: translateY(1px);
+}
+

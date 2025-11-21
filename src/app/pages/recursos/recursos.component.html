@@ -3,16 +3,34 @@
     <h1 class="recursos-title">{{ 'recursos.title' | translate }}</h1>
     <p class="recursos-description">{{ 'recursos.description' | translate }}</p>
 
-    <nav class="recursos-grid" aria-label="{{ 'recursos.gridLabel' | translate }}">
-      <a *ngFor="let card of resourceCards"
-         [routerLink]="card.route"
-         class="recursos-card"
-         [attr.aria-label]="card.ariaLabel">
-        <span class="card-icon" aria-hidden="true">{{ card.icon }}</span>
-        <h2 class="card-title">{{ 'recursos.cards.' + card.id + '.title' | translate }}</h2>
-        <p class="card-description">{{ 'recursos.cards.' + card.id + '.description' | translate }}</p>
-      </a>
-    </nav>
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="card-grid"
+        [count]="3"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showHashtags]="false"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <nav class="recursos-grid" aria-label="{{ 'recursos.gridLabel' | translate }}">
+        <a *ngFor="let card of resourceCards"
+           [routerLink]="card.route"
+           class="recursos-card"
+           [attr.aria-label]="card.ariaLabel">
+          <span class="card-icon" aria-hidden="true">{{ card.icon }}</span>
+          <h2 class="card-title">{{ 'recursos.cards.' + card.id + '.title' | translate }}</h2>
+          <p class="card-description">{{ 'recursos.cards.' + card.id + '.description' | translate }}</p>
+        </a>
+      </nav>
+    }
   </div>
 </div>
 

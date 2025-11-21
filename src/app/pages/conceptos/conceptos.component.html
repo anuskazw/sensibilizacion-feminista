@@ -19,18 +19,36 @@
       </p>
     </div>
 
-    <!-- Resultados -->
-    <div class="results-info">
-      @if (filteredContents().length > 0) {
-        <p class="results-count">
-          {{ 'search.resultsCount' | translate: { count: filteredContents().length } }}
-        </p>
-      }
-    </div>
+    <!-- Estados de carga y error -->
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="card-grid"
+        [count]="6"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showHashtags]="true"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <!-- Resultados -->
+      <div class="results-info">
+        @if (filteredContents().length > 0) {
+          <p class="results-count">
+            {{ 'search.resultsCount' | translate: { count: filteredContents().length } }}
+          </p>
+        }
+      </div>
 
-    <!-- Índice alfabético con contenidos -->
-    <div class="contents-alphabetical">
-      @if (alphabeticalIndex().length > 0) {
+      <!-- Índice alfabético con contenidos -->
+      <div class="contents-alphabetical">
+        @if (alphabeticalIndex().length > 0) {
         @for (group of alphabeticalIndex(); track group.letter) {
           <section class="letter-section" [id]="'letter-' + group.letter">
             <h2 class="letter-heading">{{ group.letter }}</h2>
@@ -92,7 +110,8 @@
           <p>Intenta cambiar los filtros o buscar con otros términos.</p>
         </div>
       }
-    </div>
+      </div>
+    }
   </main>
 </div>
 

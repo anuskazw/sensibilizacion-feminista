@@ -4,6 +4,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContentSidebarComponent } from '../../shared/components/content-sidebar/content-sidebar.component';
 import { SearchFilterService } from '../../core/services/search-filter.service';
 import { LanguageService } from '../../core/services/language.service';
+import { SkeletonScreenComponent } from '../../shared/components/skeleton-screen/skeleton-screen.component';
+import { ErrorStateComponent } from '../../shared/components/error-state/error-state.component';
+import { OfflineService } from '../../core/services/offline.service';
 import { 
   ViolenciaContent, 
   Hashtag, 
@@ -18,7 +21,7 @@ import { ContentFilters } from '../../core/models/filter.model';
 @Component({
   selector: 'app-violencia',
   standalone: true,
-  imports: [CommonModule, TranslateModule, ContentSidebarComponent],
+  imports: [CommonModule, TranslateModule, ContentSidebarComponent, SkeletonScreenComponent, ErrorStateComponent],
   templateUrl: './violencia.component.html',
   styleUrl: './violencia.component.css'
 })
@@ -26,6 +29,12 @@ export class ViolenciaComponent implements OnInit {
   private searchFilterService = inject(SearchFilterService);
   private languageService = inject(LanguageService);
   private translateService = inject(TranslateService);
+  private offlineService = inject(OfflineService);
+
+  // Estados de carga y error
+  isLoading = signal(true);
+  hasError = signal(false);
+  errorMessage = signal<string>('');
 
   // Datos de ejemplo de términos relacionados con violencia
   private sampleHashtags: Hashtag[] = [
@@ -174,8 +183,48 @@ export class ViolenciaComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    // Inicializar el servicio con datos de ejemplo
-    this.searchFilterService.setContents(this.sampleContents);
+    // Simular carga de datos
+    this.isLoading.set(true);
+    this.hasError.set(false);
+    
+    // Simular carga asíncrona
+    setTimeout(() => {
+      try {
+        if (this.offlineService.isOffline()) {
+          throw new Error('offline');
+        }
+        // Inicializar el servicio con datos de ejemplo
+        this.searchFilterService.setContents(this.sampleContents);
+        this.isLoading.set(false);
+      } catch (error: any) {
+        this.hasError.set(true);
+        this.isLoading.set(false);
+        if (error.message === 'offline') {
+          this.errorMessage.set('error.offline');
+        } else {
+          this.errorMessage.set('error.generic');
+        }
+      }
+    }, 800); // Simular delay de carga
+  }
+
+  retryLoad(): void {
+    this.ngOnInit();
+  }
+
+  getErrorSuggestions(): string[] {
+    if (this.offlineService.isOffline()) {
+      return [
+        this.translateService.instant('error.suggestionsOffline.0'),
+        this.translateService.instant('error.suggestionsOffline.1'),
+        this.translateService.instant('error.suggestionsOffline.2')
+      ];
+    }
+    return [
+      this.translateService.instant('error.suggestionsNetwork.0'),
+      this.translateService.instant('error.suggestionsNetwork.1'),
+      this.translateService.instant('error.suggestionsNetwork.2')
+    ];
   }
 
   onFiltersChange(filters: ContentFilters): void {

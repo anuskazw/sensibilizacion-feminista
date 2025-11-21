@@ -25,7 +25,31 @@
     "error": "Errorea",
     "close": "Itxi",
     "accept": "Onartu",
-    "cancel": "Ezeztatu"
+    "cancel": "Ezeztatu",
+    "retry": "Berriro saiatu"
+  },
+  "error": {
+    "generic": "Errore bat gertatu da edukia kargatzean. Mesedez, saiatu berriro.",
+    "network": "Ezin izan da zerbitzariarekin konektatu. Egiaztatu zure internet konexioa.",
+    "offline": "Ez dago internet konexiorik. Funtzio batzuk ez daude erabilgarri.",
+    "notFound": "Eskatutako edukia ez da aurkitu.",
+    "server": "Zerbitzari errorea. Mesedez, saiatu berriro geroago.",
+    "suggestions": "Iradokizunak:",
+    "suggestionsNetwork": [
+      "Egiaztatu zure internet konexioa",
+      "Saiatu orria berriro kargatzen",
+      "Egiaztatu beste webgune batzuk funtzionatzen duten"
+    ],
+    "suggestionsOffline": [
+      "Egiaztatu zure internet konexioa",
+      "Funtzio batzuk konexiorik gabe jarraitu dezakete funtzionatzen",
+      "Lokal gordetako datuak erabilgarri jarraituko dute"
+    ],
+    "suggestionsServer": [
+      "Zerbitzaria aldi baterako erabilgarri ez egon daiteke",
+      "Saiatu berriro une batzuk barru",
+      "Arazoa jarraitzen badu, jarri harremanetan laguntzarekin"
+    ]
   },
   "video": {
     "expand": "Bideoa zabaldu",

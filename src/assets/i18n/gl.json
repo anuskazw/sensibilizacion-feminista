@@ -25,7 +25,31 @@
     "error": "Erro",
     "close": "Pechar",
     "accept": "Aceptar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "retry": "Reintentar"
+  },
+  "error": {
+    "generic": "Produciuse un erro ao cargar o contido. Por favor, tenta de novo.",
+    "network": "Non foi posíbel conectar co servidor. Verifica a túa conexión a internet.",
+    "offline": "Non hai conexión a internet. Algunhas funcións poden non estar dispoñíbeis.",
+    "notFound": "Non se atopou o contido solicitado.",
+    "server": "Erro do servidor. Por favor, tenta de novo máis tarde.",
+    "suggestions": "Suxestións:",
+    "suggestionsNetwork": [
+      "Verifica a túa conexión a internet",
+      "Intenta recargar a páxina",
+      "Comproba se outros sitios web funcionan"
+    ],
+    "suggestionsOffline": [
+      "Verifica a túa conexión a internet",
+      "Algunhas funcións poden continuar funcionando sen conexión",
+      "Os datos gardados localmente continuarán dispoñíbeis"
+    ],
+    "suggestionsServer": [
+      "O servidor pode estar temporalmente non dispoñíbel",
+      "Tenta de novo nuns momentos",
+      "Se o problema persiste, contacta co soporte"
+    ]
   },
   "video": {
     "expand": "Expandir vídeo",

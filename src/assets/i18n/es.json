@@ -25,7 +25,31 @@
     "error": "Error",
     "close": "Cerrar",
     "accept": "Aceptar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "retry": "Reintentar"
+  },
+  "error": {
+    "generic": "Ha ocurrido un error al cargar el contenido. Por favor, intenta de nuevo.",
+    "network": "No se pudo conectar con el servidor. Verifica tu conexión a internet.",
+    "offline": "No hay conexión a internet. Algunas funciones pueden no estar disponibles.",
+    "notFound": "No se encontró el contenido solicitado.",
+    "server": "Error del servidor. Por favor, intenta más tarde.",
+    "suggestions": "Sugerencias:",
+    "suggestionsNetwork": [
+      "Verifica tu conexión a internet",
+      "Intenta recargar la página",
+      "Comprueba si otros sitios web funcionan"
+    ],
+    "suggestionsOffline": [
+      "Verifica tu conexión a internet",
+      "Algunas funciones pueden seguir funcionando sin conexión",
+      "Los datos guardados localmente seguirán disponibles"
+    ],
+    "suggestionsServer": [
+      "El servidor puede estar temporalmente no disponible",
+      "Intenta de nuevo en unos momentos",
+      "Si el problema persiste, contacta con el soporte"
+    ]
   },
   "video": {
     "expand": "Expandir vídeo",
