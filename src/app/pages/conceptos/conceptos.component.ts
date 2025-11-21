@@ -50,6 +50,9 @@ export class ConceptosComponent implements OnInit {
       hashtags: [this.sampleHashtags[4], this.sampleHashtags[7], this.sampleHashtags[1]],
       activo: true,
       fecha_publicacion: new Date('2024-01-15'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-10'),
+      fecha_modificacion: new Date('2024-01-15'),
       referencias: [
         { titulo: 'El patriarcado', autor: 'Kate Millet', anio: 1970 }
       ]
@@ -63,7 +66,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('El feminismo lucha por la igualdad entre mujeres y hombres. Quiere que todas las personas tengan los mismos derechos.'),
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[1], this.sampleHashtags[2]],
       activo: true,
-      fecha_publicacion: new Date('2024-01-20')
+      fecha_publicacion: new Date('2024-01-20'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-15'),
+      fecha_modificacion: new Date('2024-01-20')
     },
     {
       id: '3',
@@ -74,7 +80,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('El género son las ideas que la sociedad tiene sobre cómo deben ser las mujeres y los hombres. No es lo mismo que el sexo biológico.'),
       hashtags: [this.sampleHashtags[3], this.sampleHashtags[4], this.sampleHashtags[7]],
       activo: true,
-      fecha_publicacion: new Date('2024-02-01')
+      fecha_publicacion: new Date('2024-02-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-25'),
+      fecha_modificacion: new Date('2024-02-01')
     },
     {
       id: '4',
@@ -85,7 +94,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('La brecha salarial es cuando las mujeres cobran menos dinero que los hombres por hacer el mismo trabajo.'),
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[6], this.sampleHashtags[2]],
       activo: true,
-      fecha_publicacion: new Date('2024-02-10')
+      fecha_publicacion: new Date('2024-02-10'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-02-05'),
+      fecha_modificacion: new Date('2024-02-10')
     },
     {
       id: '5',
@@ -96,7 +108,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('Empoderamiento significa que las mujeres pueden tomar sus propias decisiones. Tienen poder sobre su vida.'),
       hashtags: [this.sampleHashtags[2], this.sampleHashtags[1], this.sampleHashtags[4]],
       activo: true,
-      fecha_publicacion: new Date('2024-03-01')
+      fecha_publicacion: new Date('2024-03-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-02-25'),
+      fecha_modificacion: new Date('2024-03-01')
     },
     {
       id: '6',
@@ -107,7 +122,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('La sororidad es la ayuda entre mujeres. Significa que las mujeres se apoyan unas a otras.'),
       hashtags: [this.sampleHashtags[1], this.sampleHashtags[4], this.sampleHashtags[0]],
       activo: true,
-      fecha_publicacion: new Date('2024-03-15')
+      fecha_publicacion: new Date('2024-03-15'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-03-10'),
+      fecha_modificacion: new Date('2024-03-15')
     },
     {
       id: '7',
@@ -118,7 +136,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('La interseccionalidad dice que una persona puede sufrir discriminación por varios motivos. Por ejemplo, por ser mujer y por su color de piel.'),
       hashtags: [this.sampleHashtags[7], this.sampleHashtags[1], this.sampleHashtags[2]],
       activo: true,
-      fecha_publicacion: new Date('2024-04-01')
+      fecha_publicacion: new Date('2024-04-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-03-25'),
+      fecha_modificacion: new Date('2024-04-01')
     },
     {
       id: '8',
@@ -129,7 +150,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('Las cuotas de género dicen que debe haber un número mínimo de mujeres en puestos importantes. Por ejemplo, en el gobierno o las empresas.'),
       hashtags: [this.sampleHashtags[5], this.sampleHashtags[0], this.sampleHashtags[2]],
       activo: true,
-      fecha_publicacion: new Date('2024-04-15')
+      fecha_publicacion: new Date('2024-04-15'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-04-10'),
+      fecha_modificacion: new Date('2024-04-15')
     },
     {
       id: '9',
@@ -140,7 +164,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('El androcentrismo es ver el mundo solo desde el punto de vista de los hombres. Es como si solo los hombres fueran importantes.'),
       hashtags: [this.sampleHashtags[7], this.sampleHashtags[4], this.sampleHashtags[1]],
       activo: true,
-      fecha_publicacion: new Date('2024-05-01')
+      fecha_publicacion: new Date('2024-05-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-04-25'),
+      fecha_modificacion: new Date('2024-05-01')
     },
     {
       id: '10',
@@ -151,7 +178,10 @@ export class ConceptosComponent implements OnInit {
       descripcion_lectura_facil: this.createMultilingualText('La coeducación es enseñar la igualdad en las escuelas. Niñas y niños aprenden que pueden hacer las mismas cosas.'),
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[4], this.sampleHashtags[1]],
       activo: true,
-      fecha_publicacion: new Date('2024-05-15')
+      fecha_publicacion: new Date('2024-05-15'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-05-10'),
+      fecha_modificacion: new Date('2024-05-15')
     }
   ];
 

@@ -5,6 +5,11 @@
 
 export type ContentType = 'historia' | 'concepto' | 'violencia' | 'recurso' | 'testimonio' | 'institucion';
 
+/**
+ * Estados del flujo de publicación de contenidos
+ */
+export type ContentStatus = 'borrador' | 'revisado' | 'publicado';
+
 export interface MultilingualText {
   es: string;
   en?: string;
@@ -60,6 +65,11 @@ export interface BaseContent {
   activo: boolean;
   fecha_publicacion: Date;
   orden?: number;
+  estado: ContentStatus;  // Estado del flujo de publicación
+  fecha_creacion: Date;
+  fecha_modificacion: Date;
+  creado_por?: string;  // ID del usuario que creó el contenido
+  modificado_por?: string;  // ID del usuario que modificó el contenido
 }
 
 /**

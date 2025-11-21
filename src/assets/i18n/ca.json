@@ -246,6 +246,66 @@
         "toggle": "Activar/desactivar cookies de màrqueting"
       }
     }
+  },
+  "admin": {
+    "title": "Panell d'Administració",
+    "welcome": "Benvingut",
+    "logout": "Tancar sessió",
+    "search": "Cercar",
+    "searchPlaceholder": "Cercar per títol...",
+    "stats": {
+      "total": "Total",
+      "draft": "Esborranys",
+      "reviewed": "Revisats",
+      "published": "Publicats"
+    },
+    "filter": {
+      "status": "Filtrar per estat",
+      "type": "Filtrar per tipus"
+    },
+    "status": {
+      "all": "Tots els estats",
+      "draft": "Esborrany",
+      "reviewed": "Revisat",
+      "published": "Publicat"
+    },
+    "type": {
+      "all": "Tots els tipus",
+      "historia": "Història",
+      "concepto": "Concepte",
+      "violencia": "Violència",
+      "recurso": "Recurs",
+      "testimonio": "Testimoni",
+      "institucion": "Institució"
+    },
+    "contents": {
+      "title": "Continguts",
+      "empty": "No s'han trobat continguts amb els filtres seleccionats"
+    },
+    "created": "Creat",
+    "changeStatus": "Canviar estat",
+    "noTransitions": "Aquest contingut ja està publicat i no pot canviar d'estat",
+    "error": {
+      "invalidTransition": "No es pot passar directament d'esborrany a publicat. Primer ha de ser revisat.",
+      "cannotGoBack": "No es pot tornar de revisat a esborrany.",
+      "cannotChangePublished": "No es pot canviar l'estat d'un contingut publicat."
+    },
+    "login": {
+      "title": "Iniciar sessió",
+      "subtitle": "Accedeix al panell d'administració",
+      "username": "Usuari",
+      "password": "Contrasenya",
+      "submit": "Iniciar sessió",
+      "error": {
+        "required": "L'usuari i la contrasenya són obligatoris",
+        "invalid": "Usuari o contrasenya incorrectes"
+      },
+      "demo": {
+        "title": "Credencials de demostració",
+        "username": "Usuari",
+        "password": "Contrasenya"
+      }
+    }
   }
 }
 

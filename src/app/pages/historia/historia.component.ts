@@ -51,6 +51,9 @@ export class HistoriaComponent implements OnInit {
       anio: 1931,
       activo: true,
       fecha_publicacion: new Date('2024-01-15'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-10'),
+      fecha_modificacion: new Date('2024-01-15'),
       referencias: [
         { titulo: 'Historia del sufragismo en España', autor: 'María Martínez', anio: 2010 }
       ]
@@ -65,7 +68,10 @@ export class HistoriaComponent implements OnInit {
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[6], this.sampleHashtags[4]],
       anio: 1931,
       activo: true,
-      fecha_publicacion: new Date('2024-01-20')
+      fecha_publicacion: new Date('2024-01-20'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-15'),
+      fecha_modificacion: new Date('2024-01-20')
     },
     {
       id: '3',
@@ -77,7 +83,10 @@ export class HistoriaComponent implements OnInit {
       hashtags: [this.sampleHashtags[3], this.sampleHashtags[6], this.sampleHashtags[5]],
       anio: 1791,
       activo: true,
-      fecha_publicacion: new Date('2024-02-01')
+      fecha_publicacion: new Date('2024-02-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-25'),
+      fecha_modificacion: new Date('2024-02-01')
     },
     {
       id: '4',
@@ -89,7 +98,10 @@ export class HistoriaComponent implements OnInit {
       hashtags: [this.sampleHashtags[2], this.sampleHashtags[1], this.sampleHashtags[7]],
       anio: 1975,
       activo: true,
-      fecha_publicacion: new Date('2024-02-10')
+      fecha_publicacion: new Date('2024-02-10'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-02-05'),
+      fecha_modificacion: new Date('2024-02-10')
     },
     {
       id: '5',
@@ -101,7 +113,10 @@ export class HistoriaComponent implements OnInit {
       hashtags: [this.sampleHashtags[4], this.sampleHashtags[7], this.sampleHashtags[2]],
       anio: 2017,
       activo: true,
-      fecha_publicacion: new Date('2024-03-01')
+      fecha_publicacion: new Date('2024-03-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-02-25'),
+      fecha_modificacion: new Date('2024-03-01')
     }
   ];
 

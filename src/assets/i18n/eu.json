@@ -246,6 +246,66 @@
         "toggle": "Gaitu/desgaitu marketin cookieak"
       }
     }
+  },
+  "admin": {
+    "title": "Administrazio Panela",
+    "welcome": "Ongi etorri",
+    "logout": "Saioa itxi",
+    "search": "Bilatu",
+    "searchPlaceholder": "Bilatu izenburuaren arabera...",
+    "stats": {
+      "total": "Guztira",
+      "draft": "Zirriborroak",
+      "reviewed": "Berrikusiak",
+      "published": "Argitaratuak"
+    },
+    "filter": {
+      "status": "Filtratu egoeraren arabera",
+      "type": "Filtratu motaren arabera"
+    },
+    "status": {
+      "all": "Egoera guztiak",
+      "draft": "Zirriborroa",
+      "reviewed": "Berrikusia",
+      "published": "Argitaratua"
+    },
+    "type": {
+      "all": "Mota guztiak",
+      "historia": "Historia",
+      "concepto": "Kontzeptua",
+      "violencia": "Bortxakeria",
+      "recurso": "Baliabidea",
+      "testimonio": "Testigantza",
+      "institucion": "Erakundea"
+    },
+    "contents": {
+      "title": "Edukiak",
+      "empty": "Ez da aukeratutako iragazkiekin bat datorren edukurik aurkitu"
+    },
+    "created": "Sortua",
+    "changeStatus": "Egoera aldatu",
+    "noTransitions": "Eduki hau dagoeneko argitaratuta dago eta ezin du egoera aldatu",
+    "error": {
+      "invalidTransition": "Ezin da zuzenean zirriborrotik argitaratura pasa. Lehenik berrikusia izan behar du.",
+      "cannotGoBack": "Ezin da berrikusitik zirriborrora itzuli.",
+      "cannotChangePublished": "Ezin da argitaratutako eduki baten egoera aldatu."
+    },
+    "login": {
+      "title": "Saioa hasi",
+      "subtitle": "Sartu administrazio panelean",
+      "username": "Erabiltzailea",
+      "password": "Pasahitza",
+      "submit": "Saioa hasi",
+      "error": {
+        "required": "Erabiltzailea eta pasahitza beharrezkoak dira",
+        "invalid": "Erabiltzaile edo pasahitz okerra"
+      },
+      "demo": {
+        "title": "Froga kredentzialak",
+        "username": "Erabiltzailea",
+        "password": "Pasahitza"
+      }
+    }
   }
 }
 

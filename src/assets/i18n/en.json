@@ -246,6 +246,66 @@
         "toggle": "Enable/disable marketing cookies"
       }
     }
+  },
+  "admin": {
+    "title": "Administration Panel",
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "search": "Search",
+    "searchPlaceholder": "Search by title...",
+    "stats": {
+      "total": "Total",
+      "draft": "Drafts",
+      "reviewed": "Reviewed",
+      "published": "Published"
+    },
+    "filter": {
+      "status": "Filter by status",
+      "type": "Filter by type"
+    },
+    "status": {
+      "all": "All statuses",
+      "draft": "Draft",
+      "reviewed": "Reviewed",
+      "published": "Published"
+    },
+    "type": {
+      "all": "All types",
+      "historia": "History",
+      "concepto": "Concept",
+      "violencia": "Violence",
+      "recurso": "Resource",
+      "testimonio": "Testimony",
+      "institucion": "Institution"
+    },
+    "contents": {
+      "title": "Contents",
+      "empty": "No contents found with the selected filters"
+    },
+    "created": "Created",
+    "changeStatus": "Change status",
+    "noTransitions": "This content is already published and cannot change status",
+    "error": {
+      "invalidTransition": "Cannot go directly from draft to published. It must be reviewed first.",
+      "cannotGoBack": "Cannot go back from reviewed to draft.",
+      "cannotChangePublished": "Cannot change the status of a published content."
+    },
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Access the administration panel",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Sign in",
+      "error": {
+        "required": "Username and password are required",
+        "invalid": "Invalid username or password"
+      },
+      "demo": {
+        "title": "Demo credentials",
+        "username": "Username",
+        "password": "Password"
+      }
+    }
   }
 }
 

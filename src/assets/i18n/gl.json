@@ -246,6 +246,66 @@
         "toggle": "Activar/desactivar cookies de marketing"
       }
     }
+  },
+  "admin": {
+    "title": "Panel de Administración",
+    "welcome": "Benvido",
+    "logout": "Pechar sesión",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar por título...",
+    "stats": {
+      "total": "Total",
+      "draft": "Borradores",
+      "reviewed": "Revisados",
+      "published": "Publicados"
+    },
+    "filter": {
+      "status": "Filtrar por estado",
+      "type": "Filtrar por tipo"
+    },
+    "status": {
+      "all": "Todos os estados",
+      "draft": "Borrador",
+      "reviewed": "Revisado",
+      "published": "Publicado"
+    },
+    "type": {
+      "all": "Todos os tipos",
+      "historia": "Historia",
+      "concepto": "Concepto",
+      "violencia": "Violencia",
+      "recurso": "Recurso",
+      "testimonio": "Testemuño",
+      "institucion": "Institución"
+    },
+    "contents": {
+      "title": "Contidos",
+      "empty": "Non se atoparon contidos cos filtros seleccionados"
+    },
+    "created": "Creado",
+    "changeStatus": "Cambiar estado",
+    "noTransitions": "Este contido xa está publicado e non pode cambiar de estado",
+    "error": {
+      "invalidTransition": "Non se pode pasar directamente de borrador a publicado. Primeiro debe ser revisado.",
+      "cannotGoBack": "Non se pode volver de revisado a borrador.",
+      "cannotChangePublished": "Non se pode cambiar o estado dun contido publicado."
+    },
+    "login": {
+      "title": "Iniciar sesión",
+      "subtitle": "Accede ao panel de administración",
+      "username": "Usuario",
+      "password": "Contrasinal",
+      "submit": "Iniciar sesión",
+      "error": {
+        "required": "O usuario e o contrasinal son obrigatorios",
+        "invalid": "Usuario ou contrasinal incorrectos"
+      },
+      "demo": {
+        "title": "Credenciais de demostración",
+        "username": "Usuario",
+        "password": "Contrasinal"
+      }
+    }
   }
 }
 

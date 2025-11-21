@@ -52,6 +52,9 @@ export class ViolenciaComponent implements OnInit {
       recursos_ayuda: ['016', '112'],
       activo: true,
       fecha_publicacion: new Date('2024-01-15'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-10'),
+      fecha_modificacion: new Date('2024-01-15'),
       referencias: [
         { titulo: 'Ley Orgánica 1/2004', url: 'https://www.boe.es', anio: 2004 }
       ]
@@ -67,7 +70,10 @@ export class ViolenciaComponent implements OnInit {
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[2], this.sampleHashtags[6]],
       recursos_ayuda: ['016', '112'],
       activo: true,
-      fecha_publicacion: new Date('2024-01-20')
+      fecha_publicacion: new Date('2024-01-20'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-15'),
+      fecha_modificacion: new Date('2024-01-20')
     },
     {
       id: '3',
@@ -80,7 +86,10 @@ export class ViolenciaComponent implements OnInit {
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[3], this.sampleHashtags[6]],
       recursos_ayuda: ['016', '112'],
       activo: true,
-      fecha_publicacion: new Date('2024-02-01')
+      fecha_publicacion: new Date('2024-02-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-01-25'),
+      fecha_modificacion: new Date('2024-02-01')
     },
     {
       id: '4',
@@ -93,7 +102,10 @@ export class ViolenciaComponent implements OnInit {
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[4], this.sampleHashtags[6]],
       recursos_ayuda: ['016'],
       activo: true,
-      fecha_publicacion: new Date('2024-02-10')
+      fecha_publicacion: new Date('2024-02-10'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-02-05'),
+      fecha_modificacion: new Date('2024-02-10')
     },
     {
       id: '5',
@@ -106,7 +118,10 @@ export class ViolenciaComponent implements OnInit {
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[5], this.sampleHashtags[6]],
       recursos_ayuda: ['016', '017'],
       activo: true,
-      fecha_publicacion: new Date('2024-03-01')
+      fecha_publicacion: new Date('2024-03-01'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-02-25'),
+      fecha_modificacion: new Date('2024-03-01')
     },
     {
       id: '6',
@@ -119,7 +134,10 @@ export class ViolenciaComponent implements OnInit {
       hashtags: [this.sampleHashtags[0], this.sampleHashtags[7], this.sampleHashtags[6]],
       recursos_ayuda: ['016'],
       activo: true,
-      fecha_publicacion: new Date('2024-03-15')
+      fecha_publicacion: new Date('2024-03-15'),
+      estado: 'publicado',
+      fecha_creacion: new Date('2024-03-10'),
+      fecha_modificacion: new Date('2024-03-15')
     }
   ];
 

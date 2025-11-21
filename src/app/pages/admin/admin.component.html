@@ -1,0 +1,123 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div class="header-content">
+      <h1>{{ 'admin.title' | translate }}</h1>
+      <div class="header-actions">
+        <span class="user-info">{{ 'admin.welcome' | translate }}, {{ authService.getCurrentUser() }}</span>
+        <button type="button" class="btn-secondary" (click)="logout()">
+          {{ 'admin.logout' | translate }}
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Estadísticas -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">{{ stats().total }}</div>
+          <div class="stat-label">{{ 'admin.stats.total' | translate }}</div>
+        </div>
+        <div class="stat-card status-borrador">
+          <div class="stat-value">{{ stats().borrador }}</div>
+          <div class="stat-label">{{ 'admin.stats.draft' | translate }}</div>
+        </div>
+        <div class="stat-card status-revisado">
+          <div class="stat-value">{{ stats().revisado }}</div>
+          <div class="stat-label">{{ 'admin.stats.reviewed' | translate }}</div>
+        </div>
+        <div class="stat-card status-publicado">
+          <div class="stat-value">{{ stats().publicado }}</div>
+          <div class="stat-label">{{ 'admin.stats.published' | translate }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filters-section">
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label for="search">{{ 'admin.search' | translate }}</label>
+          <input
+            type="text"
+            id="search"
+            [(ngModel)]="searchQuery"
+            [placeholder]="'admin.searchPlaceholder' | translate"
+          />
+        </div>
+
+        <div class="filter-group">
+          <label for="status">{{ 'admin.filter.status' | translate }}</label>
+          <select id="status" [(ngModel)]="selectedStatus">
+            @for (option of statusOptions; track option.value) {
+              <option [value]="option.value">{{ option.label | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="type">{{ 'admin.filter.type' | translate }}</label>
+          <select id="type" [(ngModel)]="selectedType">
+            @for (option of typeOptions; track option.value) {
+              <option [value]="option.value">{{ option.label | translate }}</option>
+            }
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de contenidos -->
+    <section class="contents-section">
+      <h2>{{ 'admin.contents.title' | translate }}</h2>
+      
+      @if (filteredContents().length === 0) {
+        <div class="empty-state">
+          <p>{{ 'admin.contents.empty' | translate }}</p>
+        </div>
+      } @else {
+        <div class="contents-list">
+          @for (content of filteredContents(); track content.id) {
+            <article class="content-card">
+              <div class="content-header">
+                <div class="content-info">
+                  <h3>{{ getContentTitle(content) }}</h3>
+                  <div class="content-meta">
+                    <span class="content-type">{{ 'admin.type.' + content.tipo | translate }}</span>
+                    <span class="content-date">{{ 'admin.created' | translate }}: {{ formatDate(content.fecha_creacion) }}</span>
+                  </div>
+                </div>
+                <div class="content-status">
+                  <span [class]="'status-badge ' + getStatusClass(content.estado)">
+                    {{ getStatusLabel(content.estado) | translate }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="content-actions">
+                @if (getAvailableTransitions(content.estado).length > 0) {
+                  <div class="status-transitions">
+                    <span class="transition-label">{{ 'admin.changeStatus' | translate }}:</span>
+                    @for (newStatus of getAvailableTransitions(content.estado); track newStatus) {
+                      <button
+                        type="button"
+                        class="btn-status"
+                        [class]="'btn-' + newStatus"
+                        (click)="changeStatus(content, newStatus)"
+                      >
+                        {{ getStatusLabel(newStatus) | translate }}
+                      </button>
+                    }
+                  </div>
+                } @else {
+                  <span class="no-transitions">{{ 'admin.noTransitions' | translate }}</span>
+                }
+              </div>
+            </article>
+          }
+        </div>
+      }
+    </section>
+  </main>
+</div>
+
