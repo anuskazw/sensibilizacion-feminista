@@ -1,0 +1,12 @@
+<button
+  *ngIf="isVisible()"
+  type="button"
+  class="scroll-to-top-button"
+  [attr.aria-label]="'scrollToTop.ariaLabel' | translate"
+  [attr.aria-hidden]="!isVisible()"
+  (click)="scrollToTop()"
+  title="{{ 'scrollToTop.title' | translate }}">
+  <span class="scroll-to-top-icon" aria-hidden="true">↑</span>
+  <span class="visually-hidden">{{ 'scrollToTop.label' | translate }}</span>
+</button>
+

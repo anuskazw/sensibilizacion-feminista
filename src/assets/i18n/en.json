@@ -28,6 +28,14 @@
     "cancel": "Cancel",
     "retry": "Retry"
   },
+  "skipToContent": {
+    "label": "Skip to main content"
+  },
+  "scrollToTop": {
+    "label": "Back to top",
+    "title": "Back to top of page",
+    "ariaLabel": "Back to top of page"
+  },
   "error": {
     "generic": "An error occurred while loading content. Please try again.",
     "network": "Could not connect to the server. Check your internet connection.",

@@ -28,6 +28,14 @@
     "cancel": "Ezeztatu",
     "retry": "Berriro saiatu"
   },
+  "skipToContent": {
+    "label": "Eduki nagusira joan"
+  },
+  "scrollToTop": {
+    "label": "Gora itzuli",
+    "title": "Orrialdearen goialdera itzuli",
+    "ariaLabel": "Orrialdearen goialdera itzuli"
+  },
   "error": {
     "generic": "Errore bat gertatu da edukia kargatzean. Mesedez, saiatu berriro.",
     "network": "Ezin izan da zerbitzariarekin konektatu. Egiaztatu zure internet konexioa.",

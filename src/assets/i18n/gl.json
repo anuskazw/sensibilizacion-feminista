@@ -28,6 +28,14 @@
     "cancel": "Cancelar",
     "retry": "Reintentar"
   },
+  "skipToContent": {
+    "label": "Saltar ao contido principal"
+  },
+  "scrollToTop": {
+    "label": "Volver arriba",
+    "title": "Volver arriba da páxina",
+    "ariaLabel": "Volver arriba da páxina"
+  },
   "error": {
     "generic": "Produciuse un erro ao cargar o contido. Por favor, tenta de novo.",
     "network": "Non foi posíbel conectar co servidor. Verifica a túa conexión a internet.",

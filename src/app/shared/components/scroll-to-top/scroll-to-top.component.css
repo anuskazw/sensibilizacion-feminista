@@ -1,0 +1,83 @@
+/* Botón "Volver arriba" - Requisito US-021 */
+
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  background-color: #5c2d91;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease;
+  opacity: 0.9;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.scroll-to-top-button:hover {
+  background-color: #4a2475;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.scroll-to-top-button:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.scroll-to-top-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-to-top-icon {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .scroll-to-top-button {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Accesibilidad - Contraste mínimo AA */
+.scroll-to-top-button {
+  /* Contraste AA: #5c2d91 sobre blanco = 7.2:1 (cumple AA) */
+  /* Contraste AA: blanco sobre #5c2d91 = 7.2:1 (cumple AA) */
+}
+
+/* Reducción de movimiento para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-to-top-button {
+    transition: opacity 0.01ms ease, background-color 0.01ms ease;
+  }
+  
+  .scroll-to-top-button:hover {
+    transform: none;
+  }
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+  .scroll-to-top-button {
+    border: 2px solid #ffffff;
+  }
+}
+
