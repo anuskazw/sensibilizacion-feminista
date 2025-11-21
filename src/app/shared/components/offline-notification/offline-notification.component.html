@@ -1,0 +1,19 @@
+@if (shouldShow()) {
+  <div class="offline-notification" role="alert" aria-live="polite" aria-atomic="true">
+    <div class="offline-notification__content">
+      <span class="offline-notification__icon" aria-hidden="true">📡</span>
+      <span class="offline-notification__message">
+        {{ 'error.offline' | translate }}
+      </span>
+      <button 
+        type="button"
+        class="offline-notification__close"
+        (click)="dismiss()"
+        [attr.aria-label]="'common.close' | translate"
+        title="{{ 'common.close' | translate }}">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+}
+

@@ -5,6 +5,7 @@ import { NavigationSidebarComponent } from './shared/components/navigation-sideb
 import { FooterComponent } from './shared/components/footer/footer';
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
 import { ScrollToTopComponent } from './shared/components/scroll-to-top/scroll-to-top.component';
+import { OfflineNotificationComponent } from './shared/components/offline-notification/offline-notification.component';
 import { LanguageService } from './core/services/language.service';
 import { SidebarService } from './core/services/sidebar.service';
 import { SeoService } from './core/services/seo.service';
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, NavigationSidebarComponent, FooterComponent, CookieBannerComponent, ScrollToTopComponent, TranslateModule, CommonModule],
+  imports: [RouterOutlet, HeaderComponent, NavigationSidebarComponent, FooterComponent, CookieBannerComponent, ScrollToTopComponent, OfflineNotificationComponent, TranslateModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

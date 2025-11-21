@@ -1,0 +1,95 @@
+.offline-notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ff6b6b;
+  color: #ffffff;
+  padding: 12px 16px;
+  z-index: 10001;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease-out;
+}
+
+.offline-notification__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.offline-notification__icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.offline-notification__message {
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+  flex: 1;
+}
+
+.offline-notification__close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+  margin-left: 8px;
+}
+
+.offline-notification__close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.offline-notification__close:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.offline-notification__close:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Animación de entrada */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Reducción de movimiento para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+  .offline-notification {
+    animation: none;
+  }
+}
+
+/* Contraste alto */
+@media (prefers-contrast: high) {
+  .offline-notification {
+    background-color: #000000;
+    border-bottom: 3px solid #ffffff;
+  }
+}
+
