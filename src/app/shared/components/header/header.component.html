@@ -8,36 +8,56 @@
       </a>
     </div>
 
+    <!-- Botón menú móvil -->
+    <button
+      class="mobile-menu-button"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen"
+      [attr.aria-label]="'header.menu' | translate"
+      [attr.aria-controls]="'mobile-nav-menu'"
+      type="button">
+      <span class="hamburger-icon" [class.open]="isMobileMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
     <!-- Navegación principal -->
-    <nav class="header-nav" role="navigation" [attr.aria-label]="'header.home' | translate">
+    <nav
+      class="header-nav"
+      id="mobile-nav-menu"
+      role="navigation"
+      [attr.aria-label]="'header.home' | translate"
+      [class.mobile-menu-open]="isMobileMenuOpen">
       <ul class="nav-list">
         <li class="nav-item">
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" (click)="closeMobileMenu()">
             {{ 'header.home' | translate }}
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/historia" routerLinkActive="active" class="nav-link">
+          <a routerLink="/historia" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             {{ 'header.history' | translate }}
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/conceptos" routerLinkActive="active" class="nav-link">
+          <a routerLink="/conceptos" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             {{ 'header.concepts' | translate }}
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/violencia" routerLinkActive="active" class="nav-link">
+          <a routerLink="/violencia" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             {{ 'header.violence' | translate }}
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/recursos" routerLinkActive="active" class="nav-link">
+          <a routerLink="/recursos" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             {{ 'header.resources' | translate }}
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/ayuda" routerLinkActive="active" class="nav-link">
+          <a routerLink="/ayuda" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
             {{ 'header.help' | translate }}
           </a>
         </li>

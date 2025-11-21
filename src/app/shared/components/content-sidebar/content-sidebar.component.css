@@ -257,7 +257,7 @@
 /* Móvil pequeño */
 @media (max-width: 480px) {
   .filter-button-mobile {
-    top: 105px; /* Ajustar según altura del header */
+    top: 65px; /* Ajustar según altura del header */
     right: 0.75rem;
     width: 2.75rem;
     height: 2.75rem;

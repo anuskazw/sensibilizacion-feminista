@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   currentLanguage: string = '';
   isLanguageMenuOpen: boolean = false;
   focusedLanguageIndex: number = -1;
+  isMobileMenuOpen: boolean = false;
 
   @ViewChildren('languageOption') languageOptions!: QueryList<ElementRef<HTMLButtonElement>>;
 
@@ -71,10 +72,44 @@ export class HeaderComponent implements OnInit {
   }
 
   /**
-   * Maneja eventos de teclado para navegación accesible en el menú de idiomas
+   * Abre/cierra el menú móvil
+   */
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  /**
+   * Cierra el menú móvil
+   */
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+  }
+
+  /**
+   * Maneja eventos de teclado para navegación accesible en el menú de idiomas y menú móvil
    */
   @HostListener('keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent): void {
+    // Manejar Escape para cerrar menús
+    if (event.key === 'Escape') {
+      if (this.isLanguageMenuOpen) {
+        event.preventDefault();
+        this.closeLanguageMenu();
+        const languageButton = event.target as HTMLElement;
+        const button = languageButton.closest('.language-selector')?.querySelector('.language-button') as HTMLElement;
+        if (button) {
+          button.focus();
+        }
+        return;
+      }
+      if (this.isMobileMenuOpen) {
+        event.preventDefault();
+        this.closeMobileMenu();
+        return;
+      }
+    }
+
+    // Manejar navegación en menú de idiomas
     if (!this.isLanguageMenuOpen) {
       return;
     }
@@ -82,17 +117,6 @@ export class HeaderComponent implements OnInit {
     const languageOptionsArray = this.languageOptions?.toArray() || [];
 
     switch (event.key) {
-      case 'Escape':
-        event.preventDefault();
-        this.closeLanguageMenu();
-        // Devolver el foco al botón que abrió el menú
-        const languageButton = event.target as HTMLElement;
-        const button = languageButton.closest('.language-selector')?.querySelector('.language-button') as HTMLElement;
-        if (button) {
-          button.focus();
-        }
-        break;
-
       case 'ArrowDown':
         event.preventDefault();
         this.focusedLanguageIndex = Math.min(
@@ -119,6 +143,20 @@ export class HeaderComponent implements OnInit {
         this.focusedLanguageIndex = languageOptionsArray.length - 1;
         languageOptionsArray[this.focusedLanguageIndex]?.nativeElement.focus();
         break;
+    }
+  }
+
+  /**
+   * Cierra el menú móvil cuando se hace clic fuera
+   */
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    const headerElement = target.closest('.header');
+    const mobileMenuButton = target.closest('.mobile-menu-button');
+    
+    if (this.isMobileMenuOpen && headerElement && !mobileMenuButton && !target.closest('.header-nav')) {
+      this.closeMobileMenu();
     }
   }
 }
