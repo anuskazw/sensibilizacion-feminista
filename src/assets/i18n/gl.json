@@ -226,6 +226,34 @@
       }
     }
   },
+  "blog": {
+    "title": "Blog",
+    "description": "Artigos e reflexións sobre feminismo, igualdade e dereitos das mulleres",
+    "articlesCount": "{{ count }} artigo(s) atopado(s)",
+    "noArticles": "Non hai artigos dispoñibles",
+    "noArticlesDescription": "Próximamente publicaremos novos artigos sobre feminismo e dereitos das mulleres.",
+    "by": "Por",
+    "views": "visualizacións",
+    "comments": "comentarios",
+    "readMore": "Ler máis",
+    "backToList": "Volver ao listado",
+    "easyRead": "Versión en lectura fácil",
+    "signLanguageVideo": "Vídeo en lingua de signos",
+    "videoNotSupported": "O teu navegador non soporta o elemento de vídeo.",
+    "comment": {
+      "submitted": "O teu comentario foi enviado e está pendente de moderación. Grazas pola túa participación.",
+      "title": "Comentarios",
+      "noComments": "Aínda non hai comentarios. Sé o primeiro en comentar!",
+      "addComment": "Engadir comentario",
+      "name": "Nome",
+      "email": "Correo electrónico",
+      "optional": "opcional",
+      "content": "Comentario",
+      "submit": "Enviar comentario",
+      "submitting": "Enviando...",
+      "moderationNotice": "Os comentarios están moderados. O teu comentario será revisado antes de ser publicado."
+    }
+  },
   "footer": {
     "licenses": {
       "title": "Licenzas de Contido",

@@ -226,6 +226,34 @@
       }
     }
   },
+  "blog": {
+    "title": "Blog",
+    "description": "Articles and reflections on feminism, equality and women's rights",
+    "articlesCount": "{{ count }} article(s) found",
+    "noArticles": "No articles available",
+    "noArticlesDescription": "We will soon publish new articles on feminism and women's rights.",
+    "by": "By",
+    "views": "views",
+    "comments": "comments",
+    "readMore": "Read more",
+    "backToList": "Back to list",
+    "easyRead": "Easy read version",
+    "signLanguageVideo": "Sign language video",
+    "videoNotSupported": "Your browser does not support the video element.",
+    "comment": {
+      "submitted": "Your comment has been submitted and is pending moderation. Thank you for your participation.",
+      "title": "Comments",
+      "noComments": "No comments yet. Be the first to comment!",
+      "addComment": "Add comment",
+      "name": "Name",
+      "email": "Email",
+      "optional": "optional",
+      "content": "Comment",
+      "submit": "Submit comment",
+      "submitting": "Submitting...",
+      "moderationNotice": "Comments are moderated. Your comment will be reviewed before being published."
+    }
+  },
   "footer": {
     "licenses": {
       "title": "Content Licenses",

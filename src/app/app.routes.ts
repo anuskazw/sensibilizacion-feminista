@@ -27,6 +27,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/recursos-ayuda/recursos-ayuda.component').then(m => m.RecursosAyudaComponent)
   },
   {
+    path: 'blog',
+    loadComponent: () => import('./pages/blog/blog.component').then(m => m.BlogComponent)
+  },
+  {
+    path: 'blog/:slug',
+    loadComponent: () => import('./pages/blog/blog.component').then(m => m.BlogComponent)
+  },
+  {
     path: 'admin',
     children: [
       {

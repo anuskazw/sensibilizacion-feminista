@@ -226,6 +226,34 @@
       }
     }
   },
+  "blog": {
+    "title": "Blog",
+    "description": "Artículos y reflexiones sobre feminismo, igualdad y derechos de las mujeres",
+    "articlesCount": "{{ count }} artículo(s) encontrado(s)",
+    "noArticles": "No hay artículos disponibles",
+    "noArticlesDescription": "Próximamente publicaremos nuevos artículos sobre feminismo y derechos de las mujeres.",
+    "by": "Por",
+    "views": "vistas",
+    "comments": "comentarios",
+    "readMore": "Leer más",
+    "backToList": "Volver al listado",
+    "easyRead": "Versión en lectura fácil",
+    "signLanguageVideo": "Vídeo en lengua de signos",
+    "videoNotSupported": "Tu navegador no soporta el elemento de vídeo.",
+    "comment": {
+      "submitted": "Tu comentario ha sido enviado y está pendiente de moderación. Gracias por tu participación.",
+      "title": "Comentarios",
+      "noComments": "Aún no hay comentarios. ¡Sé el primero en comentar!",
+      "addComment": "Añadir comentario",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "optional": "opcional",
+      "content": "Comentario",
+      "submit": "Enviar comentario",
+      "submitting": "Enviando...",
+      "moderationNotice": "Los comentarios están moderados. Tu comentario será revisado antes de ser publicado."
+    }
+  },
   "footer": {
     "licenses": {
       "title": "Licencias de Contenido",

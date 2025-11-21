@@ -1,0 +1,313 @@
+<div class="blog-page">
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'blog.title' | translate }}</h1>
+      <p class="content-description">
+        {{ 'blog.description' | translate }}
+      </p>
+    </div>
+
+    <!-- Estados de carga y error -->
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="card-grid"
+        [count]="3"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <!-- Vista de listado de artículos -->
+      @if (!showArticleDetail()) {
+        <div class="results-info">
+          @if (filteredArticles().length > 0) {
+            <p class="results-count">
+              {{ 'blog.articlesCount' | translate: { count: filteredArticles().length } }}
+            </p>
+          }
+        </div>
+
+        <!-- Grid de artículos -->
+        <div class="articles-grid">
+          @for (article of filteredArticles(); track article.id) {
+            <article class="article-card">
+              @if (article.imagen_destacada) {
+                <div class="article-image">
+                  <img 
+                    [src]="article.imagen_destacada" 
+                    [alt]="article.imagen_alt?.es || getTitle(article)"
+                    loading="lazy">
+                </div>
+              }
+              
+              <div class="article-content">
+                <div class="article-header">
+                  <div class="article-categories">
+                    @for (categoria of article.categorias; track categoria.id) {
+                      <span class="category-badge">{{ categoria.nombre }}</span>
+                    }
+                  </div>
+                  <time class="article-date" [attr.datetime]="article.fecha_publicacion.toISOString()">
+                    {{ formatDate(article.fecha_publicacion) }}
+                  </time>
+                </div>
+
+                <h2 class="article-title">
+                  <a [routerLink]="['/blog', article.slug]" (click)="selectArticle(article)">
+                    {{ getTitle(article) }}
+                  </a>
+                </h2>
+
+                <p class="article-summary">{{ getSummary(article) }}</p>
+
+                <div class="article-footer">
+                  <div class="article-meta">
+                    <span class="article-author">{{ 'blog.by' | translate }} {{ article.autor }}</span>
+                    @if (article.vistas) {
+                      <span class="article-views">{{ article.vistas }} {{ 'blog.views' | translate }}</span>
+                    }
+                    @if (article.comentarios_habilitados && article.num_comentarios_aprobados !== undefined) {
+                      <span class="article-comments">
+                        {{ article.num_comentarios_aprobados }} {{ 'blog.comments' | translate }}
+                      </span>
+                    }
+                  </div>
+                  
+                  <div class="article-tags">
+                    @for (etiqueta of article.etiquetas; track etiqueta.id) {
+                      <span class="tag-badge">#{{ etiqueta.nombre }}</span>
+                    }
+                  </div>
+                </div>
+
+                <div class="article-actions">
+                  <a 
+                    [routerLink]="['/blog', article.slug]" 
+                    (click)="selectArticle(article)"
+                    class="read-more-button">
+                    {{ 'blog.readMore' | translate }}
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      stroke-width="2"
+                      aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+
+        @if (filteredArticles().length === 0) {
+          <div class="no-results">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+              class="no-results-icon"
+              aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <h2>{{ 'blog.noArticles' | translate }}</h2>
+            <p>{{ 'blog.noArticlesDescription' | translate }}</p>
+          </div>
+        }
+      }
+
+      <!-- Vista de detalle del artículo -->
+      @if (showArticleDetail() && selectedArticle()) {
+        <div class="article-detail">
+          <button 
+            type="button" 
+            class="back-button"
+            (click)="closeArticleDetail()"
+            [attr.aria-label]="'blog.backToList' | translate">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+              aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            {{ 'blog.backToList' | translate }}
+          </button>
+
+          @if (selectedArticle()) {
+            @let article = selectedArticle()!;
+            
+            <article class="article-full">
+              @if (article.imagen_destacada) {
+                <div class="article-image-full">
+                  <img 
+                    [src]="article.imagen_destacada" 
+                    [alt]="article.imagen_alt?.es || getTitle(article)"
+                    loading="lazy">
+                </div>
+              }
+
+              <div class="article-content-full">
+                <div class="article-header-full">
+                  <div class="article-categories">
+                    @for (categoria of article.categorias; track categoria.id) {
+                      <span class="category-badge">{{ categoria.nombre }}</span>
+                    }
+                  </div>
+                  <time class="article-date" [attr.datetime]="article.fecha_publicacion.toISOString()">
+                    {{ formatDate(article.fecha_publicacion) }}
+                  </time>
+                </div>
+
+                <h1 class="article-title-full">{{ getTitle(article) }}</h1>
+
+                <div class="article-author-info">
+                  <span class="article-author">{{ 'blog.by' | translate }} {{ article.autor }}</span>
+                  @if (article.autor_bio) {
+                    <p class="author-bio">{{ article.autor_bio.es }}</p>
+                  }
+                </div>
+
+                <div class="article-body">
+                  <div class="article-content-text">
+                    {{ getContent(article) }}
+                  </div>
+
+                  @if (article.contenido_lectura_facil) {
+                    <details class="easy-read-section">
+                      <summary>{{ 'blog.easyRead' | translate }}</summary>
+                      <div class="easy-read-content">
+                        {{ getEasyReadContent(article) }}
+                      </div>
+                    </details>
+                  }
+
+                  @if (article.video_lse_url) {
+                    <div class="article-video">
+                      <h3>{{ 'blog.signLanguageVideo' | translate }}</h3>
+                      <video 
+                        [src]="article.video_lse_url" 
+                        controls
+                        [attr.aria-label]="'blog.signLanguageVideo' | translate">
+                        {{ 'blog.videoNotSupported' | translate }}
+                      </video>
+                    </div>
+                  }
+                </div>
+
+                <div class="article-tags-full">
+                  @for (etiqueta of article.etiquetas; track etiqueta.id) {
+                    <span class="tag-badge">#{{ etiqueta.nombre }}</span>
+                  }
+                </div>
+
+                <!-- Sección de comentarios -->
+                @if (article.comentarios_habilitados) {
+                  <section class="comments-section">
+                    <h2 class="comments-title">
+                      {{ 'blog.comments.title' | translate }}
+                      @if (articleComments().length > 0) {
+                        <span class="comments-count">({{ articleComments().length }})</span>
+                      }
+                    </h2>
+
+                    <!-- Lista de comentarios -->
+                    @if (articleComments().length > 0) {
+                      <div class="comments-list">
+                        @for (comment of articleComments(); track comment.id) {
+                          <div class="comment-item">
+                            <div class="comment-header">
+                              <strong class="comment-author">{{ comment.autor_nombre }}</strong>
+                              <time class="comment-date" [attr.datetime]="comment.fecha_creacion.toISOString()">
+                                {{ formatDate(comment.fecha_creacion) }}
+                              </time>
+                            </div>
+                            <div class="comment-content">
+                              {{ comment.contenido }}
+                            </div>
+                          </div>
+                        }
+                      </div>
+                    } @else {
+                      <p class="no-comments">{{ 'blog.comments.noComments' | translate }}</p>
+                    }
+
+                    <!-- Formulario de comentario -->
+                    <div class="comment-form">
+                      <h3>{{ 'blog.comments.addComment' | translate }}</h3>
+                      <form (ngSubmit)="submitComment()" [attr.aria-label]="'blog.comments.addComment' | translate">
+                        <div class="form-group">
+                          <label for="comment-name">{{ 'blog.comments.name' | translate }}</label>
+                          <input 
+                            type="text" 
+                            id="comment-name"
+                            [(ngModel)]="newComment().nombre"
+                            [ngModelOptions]="{standalone: true}"
+                            required
+                            [attr.aria-required]="true">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="comment-email">{{ 'blog.comments.email' | translate }} ({{ 'blog.comments.optional' | translate }})</label>
+                          <input 
+                            type="email" 
+                            id="comment-email"
+                            [(ngModel)]="newComment().email"
+                            [ngModelOptions]="{standalone: true}">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="comment-content">{{ 'blog.comments.content' | translate }}</label>
+                          <textarea 
+                            id="comment-content"
+                            [(ngModel)]="newComment().contenido"
+                            [ngModelOptions]="{standalone: true}"
+                            rows="5"
+                            required
+                            [attr.aria-required]="true"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                          <button 
+                            type="submit" 
+                            class="submit-comment-button"
+                            [disabled]="isSubmittingComment()">
+                            @if (isSubmittingComment()) {
+                              {{ 'blog.comments.submitting' | translate }}
+                            } @else {
+                              {{ 'blog.comments.submit' | translate }}
+                            }
+                          </button>
+                        </div>
+                        
+                        <p class="comment-moderation-notice">
+                          {{ 'blog.comments.moderationNotice' | translate }}
+                        </p>
+                      </form>
+                    </div>
+                  </section>
+                }
+              </div>
+            </article>
+          }
+        </div>
+      }
+    }
+  </main>
+</div>
+

@@ -15,7 +15,7 @@ export type SignLanguageType = 'lse' | 'lsc';
 /**
  * Tipo de contenido
  */
-export type ContentType = 'historia' | 'concepto' | 'violencia' | 'recurso';
+export type ContentType = 'historia' | 'concepto' | 'violencia' | 'recurso' | 'blog' | 'blog-article';
 
 /**
  * Evento de métrica de vídeo

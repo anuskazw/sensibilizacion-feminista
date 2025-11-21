@@ -226,6 +226,34 @@
       }
     }
   },
+  "blog": {
+    "title": "Blog",
+    "description": "Articles i reflexions sobre feminisme, igualtat i drets de les dones",
+    "articlesCount": "{{ count }} article(s) trobat(s)",
+    "noArticles": "No hi ha articles disponibles",
+    "noArticlesDescription": "Aviat publicarem nous articles sobre feminisme i drets de les dones.",
+    "by": "Per",
+    "views": "visualitzacions",
+    "comments": "comentaris",
+    "readMore": "Llegir més",
+    "backToList": "Tornar al llistat",
+    "easyRead": "Versió en lectura fàcil",
+    "signLanguageVideo": "Vídeo en llengua de signes",
+    "videoNotSupported": "El teu navegador no suporta l'element de vídeo.",
+    "comment": {
+      "submitted": "El teu comentari ha estat enviat i està pendent de moderació. Gràcies per la teva participació.",
+      "title": "Comentaris",
+      "noComments": "Encara no hi ha comentaris. Sigues el primer a comentar!",
+      "addComment": "Afegir comentari",
+      "name": "Nom",
+      "email": "Correu electrònic",
+      "optional": "opcional",
+      "content": "Comentari",
+      "submit": "Enviar comentari",
+      "submitting": "Enviant...",
+      "moderationNotice": "Els comentaris estan moderats. El teu comentari serà revisat abans de ser publicat."
+    }
+  },
   "footer": {
     "licenses": {
       "title": "Llicències de Contingut",

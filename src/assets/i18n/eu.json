@@ -226,6 +226,34 @@
       }
     }
   },
+  "blog": {
+    "title": "Bloga",
+    "description": "Feminismoari, berdintasunari eta emakumeen eskubideei buruzko artikuluak eta hausnarketak",
+    "articlesCount": "{{ count }} artikulu aurkitu dira",
+    "noArticles": "Ez dago artikulurik eskuragarri",
+    "noArticlesDescription": "Laster feminismoari eta emakumeen eskubideei buruzko artikulu berriak argitaratuko ditugu.",
+    "by": "Egilea",
+    "views": "ikustaldiak",
+    "comments": "iruzkinak",
+    "readMore": "Irakurri gehiago",
+    "backToList": "Zerrendara itzuli",
+    "easyRead": "Irakurketa errazeko bertsioa",
+    "signLanguageVideo": "Zeinu hizkuntzako bideoa",
+    "videoNotSupported": "Zure nabigatzaileak ez du bideo elementua onartzen.",
+    "comment": {
+      "submitted": "Zure iruzkina bidali da eta moderazioaren zain dago. Parte hartzeagatik eskerrik asko.",
+      "title": "Iruzkinak",
+      "noComments": "Oraindik ez dago iruzkinik. Izan lehena iruzkintzen!",
+      "addComment": "Iruzkin bat gehitu",
+      "name": "Izena",
+      "email": "Posta elektronikoa",
+      "optional": "aukerakoa",
+      "content": "Iruzkina",
+      "submit": "Iruzkina bidali",
+      "submitting": "Bidaltzen...",
+      "moderationNotice": "Iruzkinak moderatuak dira. Zure iruzkina argitaratu aurretik berrikusiko da."
+    }
+  },
   "footer": {
     "licenses": {
       "title": "Eduki Lizentziak",
