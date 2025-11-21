@@ -103,7 +103,10 @@
     "yearTo": "Fins a",
     "clearFilters": "Netejar filtres",
     "open": "Obrir filtres",
-    "close": "Tancar filtres"
+    "close": "Tancar filtres",
+    "filters": "Filtres",
+    "applyFilters": "Aplicar filtres",
+    "openFilters": "Obrir filtres"
   },
   "navigationSidebar": {
     "title": "Navegació principal",

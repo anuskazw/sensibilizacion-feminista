@@ -23,20 +23,20 @@
 
 @media (max-width: 1024px) {
   .main-content {
-    margin-top: 85px; /* Altura ajustada cuando la navegación se envuelve */
+    margin-top: 105px; /* Altura ajustada cuando la navegación se envuelve */
     padding: 0; /* Sin padding */
   }
 }
 
 @media (max-width: 640px) {
   .main-content {
-    margin-top: 75px; /* Altura ajustada para móviles */
+    margin-top: 85px; /* Altura ajustada para móviles */
   }
 }
 
 @media (max-width: 480px) {
   .main-content {
-    margin-top: 65px; /* Altura ajustada para móviles pequeños */
+    margin-top: 85px; /* Altura ajustada para móviles pequeños */
   }
 }
 

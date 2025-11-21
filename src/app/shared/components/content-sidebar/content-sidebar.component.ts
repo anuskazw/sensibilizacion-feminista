@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, signal, computed } from '@angular/core';
+import { Component, Input, Output, EventEmitter, signal, computed, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -17,18 +17,22 @@ import { ContentFilters } from '../../../core/models/filter.model';
   templateUrl: './content-sidebar.component.html',
   styleUrl: './content-sidebar.component.css'
 })
-export class ContentSidebarComponent {
+export class ContentSidebarComponent implements AfterViewInit, OnDestroy {
   @Input() sectionTitle: string = '';
   @Input() hashtags: Hashtag[] = [];
   @Input() yearRange: { min: number; max: number } | null = null;
   @Input() showYearFilter: boolean = true;
   @Input() showAlphabeticalIndex: boolean = false;
   @Input() alphabeticalLetters: string[] = [];
-  @Input() isOpen: boolean = true;
+  
+  @ViewChild('filterModal') filterModal!: ElementRef<HTMLDialogElement>;
   
   @Output() filtersChange = new EventEmitter<ContentFilters>();
-  @Output() toggleSidebar = new EventEmitter<boolean>();
   @Output() letterClick = new EventEmitter<string>();
+
+  // Referencias a los event listeners para poder eliminarlos
+  private modalClickHandler?: (event: MouseEvent) => void;
+  private modalCancelHandler?: () => void;
 
   // Estado de los filtros
   searchText = signal('');
@@ -104,13 +108,50 @@ export class ContentSidebarComponent {
            this.yearTo() !== undefined;
   }
 
-  onToggleSidebar(): void {
-    this.isOpen = !this.isOpen;
-    this.toggleSidebar.emit(this.isOpen);
-  }
-
   onLetterClick(letter: string): void {
     this.letterClick.emit(letter);
+  }
+
+  ngAfterViewInit(): void {
+    // Manejar el cierre del modal al hacer clic fuera de él
+    if (this.filterModal?.nativeElement) {
+      this.modalClickHandler = (event: MouseEvent) => {
+        const target = event.target as HTMLElement;
+        if (target === this.filterModal?.nativeElement) {
+          this.closeFilterModal();
+        }
+      };
+      this.modalCancelHandler = () => {
+        this.closeFilterModal();
+      };
+      
+      this.filterModal.nativeElement.addEventListener('click', this.modalClickHandler);
+      this.filterModal.nativeElement.addEventListener('cancel', this.modalCancelHandler);
+    }
+  }
+
+  ngOnDestroy(): void {
+    // Limpiar event listeners
+    if (this.filterModal?.nativeElement) {
+      if (this.modalClickHandler) {
+        this.filterModal.nativeElement.removeEventListener('click', this.modalClickHandler);
+      }
+      if (this.modalCancelHandler) {
+        this.filterModal.nativeElement.removeEventListener('cancel', this.modalCancelHandler);
+      }
+    }
+  }
+
+  openFilterModal(): void {
+    if (this.filterModal?.nativeElement) {
+      this.filterModal.nativeElement.showModal();
+    }
+  }
+
+  closeFilterModal(): void {
+    if (this.filterModal?.nativeElement) {
+      this.filterModal.nativeElement.close();
+    }
   }
 
   private emitFilters(): void {

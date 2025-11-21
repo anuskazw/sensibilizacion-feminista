@@ -103,7 +103,10 @@
     "yearTo": "Nora",
     "clearFilters": "Filtroak garbitu",
     "open": "Filtroak ireki",
-    "close": "Filtroak itxi"
+    "close": "Filtroak itxi",
+    "filters": "Filtroak",
+    "applyFilters": "Filtroak aplikatu",
+    "openFilters": "Filtroak ireki"
   },
   "navigationSidebar": {
     "title": "Nabigazio nagusia",

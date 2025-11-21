@@ -103,7 +103,10 @@
     "yearTo": "Ata",
     "clearFilters": "Limpar filtros",
     "open": "Abrir filtros",
-    "close": "Pechar filtros"
+    "close": "Pechar filtros",
+    "filters": "Filtros",
+    "applyFilters": "Aplicar filtros",
+    "openFilters": "Abrir filtros"
   },
   "navigationSidebar": {
     "title": "Navegación principal",

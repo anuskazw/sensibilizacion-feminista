@@ -1,35 +1,27 @@
-<aside 
-  class="content-sidebar" 
-  [class.sidebar-open]="isOpen"
-  [class.sidebar-closed]="!isOpen"
+<!-- Botón de embudo para móvil - solo visible en móvil -->
+<button
+  class="filter-button-mobile"
+  (click)="openFilterModal()"
+  type="button"
+  [attr.aria-label]="'sidebar.openFilters' | translate">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    aria-hidden="true">
+    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+  </svg>
+</button>
+
+<!-- Sidebar normal para desktop y tablet -->
+<aside
+  class="content-sidebar"
   role="complementary"
   [attr.aria-label]="'sidebar.title' | translate">
-  
-  <!-- Botón para toggle en móvil -->
-  <button 
-    class="sidebar-toggle"
-    (click)="onToggleSidebar()"
-    [attr.aria-label]="isOpen ? ('sidebar.close' | translate) : ('sidebar.open' | translate)"
-    [attr.aria-expanded]="isOpen">
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      stroke-width="2"
-      aria-hidden="true">
-      @if (isOpen) {
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      } @else {
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      }
-    </svg>
-  </button>
 
-  <div class="sidebar-content" [hidden]="!isOpen">
+  <div class="sidebar-content">
     <!-- Título de sección -->
     @if (sectionTitle) {
       <h2 class="section-title">{{ sectionTitle | translate }}</h2>
@@ -80,7 +72,7 @@
         <h3 class="filter-title">{{ 'sidebar.alphabeticalIndex' | translate }}</h3>
         <div class="alphabetical-index">
           @for (letter of alphabeticalLetters; track letter) {
-            <button 
+            <button
               class="alphabet-button"
               type="button"
               (click)="onLetterClick(letter)"
@@ -134,7 +126,7 @@
     <!-- Botón para limpiar filtros -->
     @if (hasActiveFilters()) {
       <div class="filter-actions">
-        <button 
+        <button
           class="clear-filters-button"
           (click)="clearAllFilters()"
           type="button">
@@ -144,4 +136,156 @@
     }
   </div>
 </aside>
+
+<!-- Modal para móvil -->
+<dialog
+  #filterModal
+  class="filter-modal"
+  [attr.aria-label]="'sidebar.filters' | translate">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">{{ 'sidebar.filters' | translate }}</h2>
+      <button
+        class="modal-close"
+        (click)="closeFilterModal()"
+        type="button"
+        [attr.aria-label]="'sidebar.close' | translate">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Título de sección -->
+      @if (sectionTitle) {
+        <h3 class="section-title">{{ sectionTitle | translate }}</h3>
+      }
+
+      <!-- Barra de búsqueda -->
+      <div class="filter-section">
+        <h3 class="filter-title">{{ 'sidebar.search' | translate }}</h3>
+        <app-search-bar
+          [placeholder]="'search.placeholder'"
+          (searchChange)="onSearchChange($event)">
+        </app-search-bar>
+      </div>
+
+      <!-- Filtro por hashtags -->
+      @if (hashtags.length > 0) {
+        <div class="filter-section">
+          <h3 class="filter-title">{{ 'sidebar.hashtags' | translate }}</h3>
+          <div class="hashtags-list">
+            @for (group of groupedHashtags(); track group.letter) {
+              <div class="hashtag-group">
+                <div class="hashtag-letter">{{ group.letter }}</div>
+                @for (tag of group.tags; track tag.id) {
+                  <label class="hashtag-item">
+                    <input
+                      type="checkbox"
+                      [checked]="isHashtagSelected(tag.id)"
+                      (change)="toggleHashtag(tag.id)"
+                      [attr.aria-label]="tag.nombre"
+                    />
+                    <span class="hashtag-label">
+                      #{{ tag.nombre }}
+                    </span>
+                    @if (tag.descripcion) {
+                      <span class="hashtag-description">{{ tag.descripcion }}</span>
+                    }
+                  </label>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Índice alfabético -->
+      @if (showAlphabeticalIndex && alphabeticalLetters.length > 0) {
+        <div class="filter-section">
+          <h3 class="filter-title">{{ 'sidebar.alphabeticalIndex' | translate }}</h3>
+          <div class="alphabetical-index">
+            @for (letter of alphabeticalLetters; track letter) {
+              <button
+                class="alphabet-button"
+                type="button"
+                (click)="onLetterClick(letter); closeFilterModal()"
+                [attr.aria-label]="'Ir a letra ' + letter">
+                {{ letter }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Filtro por año -->
+      @if (showYearFilter && yearRange) {
+        <div class="filter-section">
+          <h3 class="filter-title">{{ 'sidebar.year' | translate }}</h3>
+          <div class="year-filter">
+            <div class="year-input-group">
+              <label for="modal-year-from" class="year-label">
+                {{ 'sidebar.yearFrom' | translate }}
+              </label>
+              <input
+                id="modal-year-from"
+                type="number"
+                class="year-input"
+                [min]="yearRange.min"
+                [max]="yearRange.max"
+                [value]="yearFrom() || ''"
+                (input)="onYearFromChange($any($event.target).value)"
+                [placeholder]="yearRange.min.toString()"
+              />
+            </div>
+            <div class="year-input-group">
+              <label for="modal-year-to" class="year-label">
+                {{ 'sidebar.yearTo' | translate }}
+              </label>
+              <input
+                id="modal-year-to"
+                type="number"
+                class="year-input"
+                [min]="yearRange.min"
+                [max]="yearRange.max"
+                [value]="yearTo() || ''"
+                (input)="onYearToChange($any($event.target).value)"
+                [placeholder]="yearRange.max.toString()"
+              />
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Botón para limpiar filtros -->
+      @if (hasActiveFilters()) {
+        <div class="filter-actions">
+          <button
+            class="clear-filters-button"
+            (click)="clearAllFilters()"
+            type="button">
+            {{ 'sidebar.clearFilters' | translate }}
+          </button>
+        </div>
+      }
+    </div>
+
+    <div class="modal-footer">
+      <button
+        class="apply-filters-button"
+        (click)="closeFilterModal()"
+        type="button">
+        {{ 'sidebar.applyFilters' | translate }}
+      </button>
+    </div>
+  </div>
+</dialog>
 

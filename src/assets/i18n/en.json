@@ -103,7 +103,10 @@
     "yearTo": "To",
     "clearFilters": "Clear filters",
     "open": "Open filters",
-    "close": "Close filters"
+    "close": "Close filters",
+    "filters": "Filters",
+    "applyFilters": "Apply filters",
+    "openFilters": "Open filters"
   },
   "navigationSidebar": {
     "title": "Main navigation",
