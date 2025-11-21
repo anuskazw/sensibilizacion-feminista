@@ -72,6 +72,10 @@
                     </div>
                   </div>
 
+                  <div class="card-share">
+                    <app-social-share [content]="content"></app-social-share>
+                  </div>
+
                   @if (content.video_lse_url) {
                     <div class="card-actions">
                       <button class="video-button" type="button">

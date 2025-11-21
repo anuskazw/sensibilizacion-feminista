@@ -1,0 +1,141 @@
+/* Componente de compartir en redes sociales - US-028 */
+
+.social-share {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+}
+
+.social-share-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.social-share-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.social-share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+}
+
+.social-share-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-share-button:focus {
+  outline: 3px solid rgba(92, 45, 145, 0.5);
+  outline-offset: 2px;
+}
+
+.social-share-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.social-share-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Colores específicos por red social */
+.social-share-button-twitter:hover {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+.social-share-button-facebook:hover {
+  background-color: #1877f2;
+  border-color: #1877f2;
+  color: #ffffff;
+}
+
+.social-share-button-whatsapp:hover {
+  background-color: #25d366;
+  border-color: #25d366;
+  color: #ffffff;
+}
+
+.social-share-button-telegram:hover {
+  background-color: #0088cc;
+  border-color: #0088cc;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .social-share {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .social-share-label {
+    font-size: 0.813rem;
+  }
+
+  .social-share-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .social-share-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Accesibilidad - Contraste mínimo AA */
+.social-share-button {
+  /* Contraste AA: #6b7280 sobre blanco = 4.5:1 (cumple AA) */
+  /* Contraste AA: blanco sobre colores hover = cumple AA */
+}
+
+/* Reducción de movimiento para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+  .social-share-button {
+    transition: background-color 0.01ms ease, border-color 0.01ms ease, color 0.01ms ease;
+  }
+  
+  .social-share-button:hover {
+    transform: none;
+  }
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+  .social-share-button {
+    border-width: 2px;
+  }
+}
+
+/* Clase para ocultar visualmente pero mantener accesible */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+

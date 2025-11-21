@@ -90,6 +90,10 @@
               </div>
             </div>
 
+            <div class="card-share">
+              <app-social-share [content]="content"></app-social-share>
+            </div>
+
             @if (content.recursos_ayuda && content.recursos_ayuda.length > 0) {
               <div class="card-help-resources">
                 <h3 class="help-resources-title">{{ 'violence.helpResources' | translate }}</h3>

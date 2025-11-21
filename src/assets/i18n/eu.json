@@ -410,6 +410,13 @@
         "otro": "Bestea"
       }
     }
+  },
+  "socialShare": {
+    "share": "Partekatu",
+    "shareOnTwitter": "Twitter/X-en partekatu",
+    "shareOnFacebook": "Facebook-en partekatu",
+    "shareOnWhatsApp": "WhatsApp-en partekatu",
+    "shareOnTelegram": "Telegram-en partekatu"
   }
 }
 

@@ -410,6 +410,13 @@
         "otro": "Altres"
       }
     }
+  },
+  "socialShare": {
+    "share": "Compartir",
+    "shareOnTwitter": "Compartir a Twitter/X",
+    "shareOnFacebook": "Compartir a Facebook",
+    "shareOnWhatsApp": "Compartir a WhatsApp",
+    "shareOnTelegram": "Compartir a Telegram"
   }
 }
 

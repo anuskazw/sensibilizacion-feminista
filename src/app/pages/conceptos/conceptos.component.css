@@ -107,6 +107,12 @@
   margin-top: auto;
 }
 
+.card-share {
+  padding: 0.75rem 0;
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--border-color, #dee2e6);
+}
+
 .card-hashtags {
   display: flex;
   flex-wrap: wrap;

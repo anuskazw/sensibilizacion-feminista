@@ -2,6 +2,7 @@ import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContentSidebarComponent } from '../../shared/components/content-sidebar/content-sidebar.component';
+import { SocialShareComponent } from '../../shared/components/social-share/social-share.component';
 import { SearchFilterService } from '../../core/services/search-filter.service';
 import { LanguageService } from '../../core/services/language.service';
 import { AnalyticsService } from '../../core/services/analytics.service';
@@ -19,7 +20,7 @@ import { ContentFilters } from '../../core/models/filter.model';
 @Component({
   selector: 'app-historia',
   standalone: true,
-  imports: [CommonModule, TranslateModule, ContentSidebarComponent],
+  imports: [CommonModule, TranslateModule, ContentSidebarComponent, SocialShareComponent],
   templateUrl: './historia.component.html',
   styleUrl: './historia.component.css'
 })
