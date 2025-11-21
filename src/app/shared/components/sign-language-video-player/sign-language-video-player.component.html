@@ -47,7 +47,8 @@
       <video
         #videoElement
         class="video-element"
-        [src]="currentVideoUrl"
+        [appLazyVideo]="currentVideoUrl"
+        [preload]="inline ? 'metadata' : 'none'"
         [attr.aria-label]="video.title"
         (play)="onPlayPause()"
         (pause)="onPlayPause()"
@@ -55,7 +56,6 @@
         (loadedmetadata)="onLoadedMetadata()"
         (error)="onError($event)"
         [muted]="isMuted"
-        preload="metadata"
         crossorigin="anonymous"
       >
         <track *ngIf="video.subtitlesUrl" kind="subtitles" [src]="video.subtitlesUrl" srclang="es" label="Español" [default]="showSubtitles">
