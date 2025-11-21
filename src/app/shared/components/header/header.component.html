@@ -46,8 +46,8 @@
 
     <!-- Selector de idioma -->
     <div class="language-selector" role="region" [attr.aria-label]="'language.selector' | translate">
-      <button 
-        class="language-button" 
+      <button
+        class="language-button"
         (click)="toggleLanguageMenu()"
         [attr.aria-expanded]="isLanguageMenuOpen"
         [attr.aria-label]="'language.selector' | translate"
@@ -57,13 +57,13 @@
         <span class="language-arrow" [class.open]="isLanguageMenuOpen">▼</span>
       </button>
 
-      <ul 
-        class="language-menu" 
+      <ul
+        class="language-menu"
         [class.show]="isLanguageMenuOpen"
         role="menu"
         [attr.aria-hidden]="!isLanguageMenuOpen">
-        <li 
-          *ngFor="let lang of availableLanguages; let i = index" 
+        <li
+          *ngFor="let lang of availableLanguages; let i = index"
           class="language-item"
           role="none">
           <button

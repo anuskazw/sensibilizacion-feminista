@@ -459,6 +459,28 @@
     "shareOnFacebook": "Compartir en Facebook",
     "shareOnWhatsApp": "Compartir en WhatsApp",
     "shareOnTelegram": "Compartir en Telegram"
+  },
+  "ayuda": {
+    "title": "Ayuda y Referencias",
+    "description": "Encuentra teléfonos de ayuda y entidades que pueden apoyarte en temas de accesibilidad y feminismo",
+    "free": "Gratis",
+    "call": "Llamar a {{number}}",
+    "available": "Disponible",
+    "website": "Sitio web",
+    "visitWebsite": "Visitar sitio web de {{name}}",
+    "sendEmail": "Enviar correo a {{name}}",
+    "telephones": {
+      "title": "Teléfonos de Ayuda",
+      "description": "Teléfonos gratuitos disponibles las 24 horas para situaciones de emergencia o necesidad de ayuda"
+    },
+    "accessibility": {
+      "title": "Entidades de Ayuda en Accesibilidad",
+      "description": "Organizaciones que ofrecen apoyo y recursos para personas con discapacidad auditiva y otras necesidades de accesibilidad"
+    },
+    "feminism": {
+      "title": "Entidades de Ayuda en Feminismo",
+      "description": "Organizaciones que trabajan por la igualdad de género y los derechos de las mujeres"
+    }
   }
 }
 

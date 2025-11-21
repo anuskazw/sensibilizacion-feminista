@@ -459,6 +459,28 @@
     "shareOnFacebook": "Share on Facebook",
     "shareOnWhatsApp": "Share on WhatsApp",
     "shareOnTelegram": "Share on Telegram"
+  },
+  "ayuda": {
+    "title": "Help and References",
+    "description": "Find help phone numbers and organizations that can support you with accessibility and feminism issues",
+    "free": "Free",
+    "call": "Call {{number}}",
+    "available": "Available",
+    "website": "Website",
+    "visitWebsite": "Visit {{name}} website",
+    "sendEmail": "Send email to {{name}}",
+    "telephones": {
+      "title": "Help Phone Numbers",
+      "description": "Free phone numbers available 24 hours for emergency situations or when you need help"
+    },
+    "accessibility": {
+      "title": "Accessibility Support Organizations",
+      "description": "Organizations that offer support and resources for people with hearing disabilities and other accessibility needs"
+    },
+    "feminism": {
+      "title": "Feminism Support Organizations",
+      "description": "Organizations working for gender equality and women's rights"
+    }
   }
 }
 

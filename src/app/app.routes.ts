@@ -51,6 +51,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/agenda/agenda.component').then(m => m.AgendaComponent)
   },
   {
+    path: 'ayuda',
+    loadComponent: () => import('./pages/ayuda/ayuda.component').then(m => m.AyudaComponent)
+  },
+  {
     path: 'admin',
     children: [
       {

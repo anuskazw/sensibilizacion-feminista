@@ -459,6 +459,28 @@
     "shareOnFacebook": "Compartir en Facebook",
     "shareOnWhatsApp": "Compartir en WhatsApp",
     "shareOnTelegram": "Compartir en Telegram"
+  },
+  "ayuda": {
+    "title": "Axuda e Referencias",
+    "description": "Atopa teléfonos de axuda e entidades que poden darte apoio en temas de accesibilidade e feminismo",
+    "free": "Gratis",
+    "call": "Chamar a {{number}}",
+    "available": "Dispoñible",
+    "website": "Sitio web",
+    "visitWebsite": "Visitar sitio web de {{name}}",
+    "sendEmail": "Enviar correo a {{name}}",
+    "telephones": {
+      "title": "Teléfonos de Axuda",
+      "description": "Teléfonos gratuítos dispoñibles as 24 horas para situacións de emerxencia ou necesidade de axuda"
+    },
+    "accessibility": {
+      "title": "Entidades de Axuda en Accesibilidade",
+      "description": "Organizacións que ofrecen apoio e recursos para persoas con discapacidade auditiva e outras necesidades de accesibilidade"
+    },
+    "feminism": {
+      "title": "Entidades de Axuda en Feminismo",
+      "description": "Organizacións que traballan pola igualdade de xénero e os dereitos das mulleres"
+    }
   }
 }
 

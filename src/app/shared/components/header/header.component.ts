@@ -80,7 +80,7 @@ export class HeaderComponent implements OnInit {
     }
 
     const languageOptionsArray = this.languageOptions?.toArray() || [];
-    
+
     switch (event.key) {
       case 'Escape':
         event.preventDefault();

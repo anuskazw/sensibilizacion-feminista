@@ -459,6 +459,28 @@
     "shareOnFacebook": "Facebook-en partekatu",
     "shareOnWhatsApp": "WhatsApp-en partekatu",
     "shareOnTelegram": "Telegram-en partekatu"
+  },
+  "ayuda": {
+    "title": "Laguntza eta Erreferentziak",
+    "description": "Aurkitu laguntza telefonoak eta entitateak, eta gaiak eskuragarritasuna eta feminismoa dituzten gaietan laguntza ditzakete",
+    "free": "Doan",
+    "call": "Deitu {{number}}",
+    "available": "Eskuragarri",
+    "website": "Webgunea",
+    "visitWebsite": "Bisitatu {{name}} webgunea",
+    "sendEmail": "Bidali posta elektronikoa {{name}}",
+    "telephones": {
+      "title": "Laguntza Telefonoak",
+      "description": "Doako telefonoak 24 orduz eskuragarri larrialdi egoeretarako edo laguntza behar duzunean"
+    },
+    "accessibility": {
+      "title": "Eskuragarritasun Laguntza Entitateak",
+      "description": "Entzumen desgaitasuna duten pertsonei eta beste eskuragarritasun behar batzuei laguntza eta baliabideak eskaintzen dizkieten erakundeak"
+    },
+    "feminism": {
+      "title": "Feminismo Laguntza Entitateak",
+      "description": "Genero berdintasuna eta emakumeen eskubideen alde lan egiten duten erakundeak"
+    }
   }
 }
 

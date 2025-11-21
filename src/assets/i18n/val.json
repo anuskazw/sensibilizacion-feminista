@@ -459,6 +459,28 @@
     "shareOnFacebook": "Compartir a Facebook",
     "shareOnWhatsApp": "Compartir a WhatsApp",
     "shareOnTelegram": "Compartir a Telegram"
+  },
+  "ayuda": {
+    "title": "Ajuda i Referències",
+    "description": "Troba telèfons d'ajuda i entitats que et poden donar suport en temes d'accessibilitat i feminisme",
+    "free": "Gratuït",
+    "call": "Trucar a {{number}}",
+    "available": "Disponible",
+    "website": "Lloc web",
+    "visitWebsite": "Visitar lloc web de {{name}}",
+    "sendEmail": "Enviar correu a {{name}}",
+    "telephones": {
+      "title": "Telèfons d'Ajuda",
+      "description": "Telèfons gratuïts disponibles les 24 hores per situacions d'emergència o necessitat d'ajuda"
+    },
+    "accessibility": {
+      "title": "Entitats d'Ajuda en Accessibilitat",
+      "description": "Organitzacions que ofereixen suport i recursos per a persones amb discapacitat auditiva i altres necessitats d'accessibilitat"
+    },
+    "feminism": {
+      "title": "Entitats d'Ajuda en Feminisme",
+      "description": "Organitzacions que treballen per la igualtat de gènere i els drets de les dones"
+    }
   }
 }
 

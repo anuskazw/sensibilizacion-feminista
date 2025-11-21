@@ -1,0 +1,137 @@
+<div class="ayuda-container" role="main">
+  <div class="ayuda-content">
+    <header class="ayuda-header">
+      <h1 class="ayuda-title">{{ 'ayuda.title' | translate }}</h1>
+      <p class="ayuda-description">{{ 'ayuda.description' | translate }}</p>
+    </header>
+
+    <!-- Sección de Teléfonos de Ayuda -->
+    <section class="ayuda-section" aria-labelledby="telefonos-title">
+      <h2 id="telefonos-title" class="section-title">
+        <span class="section-icon" aria-hidden="true">📞</span>
+        {{ 'ayuda.telephones.title' | translate }}
+      </h2>
+      <p class="section-description">{{ 'ayuda.telephones.description' | translate }}</p>
+      
+      <div class="items-grid">
+        <article *ngFor="let tel of telephones" class="help-item-card">
+          <div class="card-header">
+            <h3 class="item-title">{{ tel.name }}</h3>
+            @if (tel.free) {
+              <span class="free-badge" aria-label="{{ 'ayuda.free' | translate }}">
+                {{ 'ayuda.free' | translate }}
+              </span>
+            }
+          </div>
+          
+          <div class="card-body">
+            <p class="item-description">{{ tel.description }}</p>
+            
+            <div class="item-contact">
+              <a [href]="'tel:' + tel.number" class="phone-link" [attr.aria-label]="'ayuda.call' | translate: {number: tel.number}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span class="phone-number">{{ tel.number }}</span>
+              </a>
+            </div>
+            
+            <div class="item-info">
+              <span class="info-label">{{ 'ayuda.available' | translate }}:</span>
+              <span class="info-value">{{ tel.available }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección de Entidades de Accesibilidad -->
+    <section class="ayuda-section" aria-labelledby="accesibilidad-title">
+      <h2 id="accesibilidad-title" class="section-title">
+        <span class="section-icon" aria-hidden="true">♿</span>
+        {{ 'ayuda.accessibility.title' | translate }}
+      </h2>
+      <p class="section-description">{{ 'ayuda.accessibility.description' | translate }}</p>
+      
+      <div class="items-grid">
+        <article *ngFor="let entity of accessibilityEntities" class="help-item-card">
+          <div class="card-header">
+            <h3 class="item-title">{{ entity.name }}</h3>
+          </div>
+          
+          <div class="card-body">
+            <p class="item-full-name">{{ entity.fullName }}</p>
+            <p class="item-description">{{ entity.description }}</p>
+            
+            <div class="item-contact">
+              @if (entity.website) {
+                <a [href]="entity.website" target="_blank" rel="noopener noreferrer" class="contact-link" [attr.aria-label]="'ayuda.visitWebsite' | translate: {name: entity.name}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  <span>{{ 'ayuda.website' | translate }}</span>
+                </a>
+              }
+              @if (entity.contact) {
+                <a [href]="'mailto:' + entity.contact" class="contact-link" [attr.aria-label]="'ayuda.sendEmail' | translate: {name: entity.name}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>{{ entity.contact }}</span>
+                </a>
+              }
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección de Entidades de Feminismo -->
+    <section class="ayuda-section" aria-labelledby="feminismo-title">
+      <h2 id="feminismo-title" class="section-title">
+        <span class="section-icon" aria-hidden="true">🤝</span>
+        {{ 'ayuda.feminism.title' | translate }}
+      </h2>
+      <p class="section-description">{{ 'ayuda.feminism.description' | translate }}</p>
+      
+      <div class="items-grid">
+        <article *ngFor="let entity of feminismEntities" class="help-item-card">
+          <div class="card-header">
+            <h3 class="item-title">{{ entity.name }}</h3>
+          </div>
+          
+          <div class="card-body">
+            <p class="item-full-name">{{ entity.fullName }}</p>
+            <p class="item-description">{{ entity.description }}</p>
+            
+            <div class="item-contact">
+              @if (entity.website) {
+                <a [href]="entity.website" target="_blank" rel="noopener noreferrer" class="contact-link" [attr.aria-label]="'ayuda.visitWebsite' | translate: {name: entity.name}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  <span>{{ 'ayuda.website' | translate }}</span>
+                </a>
+              }
+              @if (entity.contact) {
+                <a [href]="'mailto:' + entity.contact" class="contact-link" [attr.aria-label]="'ayuda.sendEmail' | translate: {name: entity.name}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>{{ entity.contact }}</span>
+                </a>
+              }
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</div>
+
