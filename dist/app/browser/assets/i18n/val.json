@@ -1,0 +1,489 @@
+{
+  "app": {
+    "title": "Web de Sensibilització Feminista",
+    "subtitle": "Accessible per a Persones Sordes"
+  },
+  "header": {
+    "home": "Inici",
+    "history": "Història",
+    "concepts": "Conceptes",
+    "violence": "Violència",
+    "resources": "Recursos",
+    "help": "Ajuda"
+  },
+  "language": {
+    "selector": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "ca": "Català",
+    "val": "Valencià",
+    "gl": "Galego",
+    "eu": "Euskara"
+  },
+  "common": {
+    "loading": "Carregant...",
+    "error": "Error",
+    "close": "Tancar",
+    "accept": "Acceptar",
+    "cancel": "Cancel·lar",
+    "retry": "Tornar a intentar"
+  },
+  "skipToContent": {
+    "label": "Saltar al contingut principal"
+  },
+  "scrollToTop": {
+    "label": "Tornar amunt",
+    "title": "Tornar amunt de la pàgina",
+    "ariaLabel": "Tornar amunt de la pàgina"
+  },
+  "error": {
+    "generic": "S'ha produït un error en carregar el contingut. Si us plau, torna-ho a intentar.",
+    "network": "No s'ha pogut connectar amb el servidor. Verifica la teva connexió a internet.",
+    "offline": "No hi ha connexió a internet. Algunes funcions poden no estar disponibles.",
+    "notFound": "No s'ha trobat el contingut sol·licitat.",
+    "server": "Error del servidor. Si us plau, torna-ho a intentar més tard.",
+    "suggestions": "Suggeriments:",
+    "suggestionsNetwork": [
+      "Verifica la teva connexió a internet",
+      "Intenta recarregar la pàgina",
+      "Comprova si altres llocs web funcionen"
+    ],
+    "suggestionsOffline": [
+      "Verifica la teva connexió a internet",
+      "Algunes funcions poden continuar funcionant sense connexió",
+      "Les dades guardades localment continuaran disponibles"
+    ],
+    "suggestionsServer": [
+      "El servidor pot estar temporalment no disponible",
+      "Torna-ho a intentar en uns moments",
+      "Si el problema persisteix, contacta amb el suport"
+    ]
+  },
+  "video": {
+    "expand": "Expandir vídeo",
+    "collapse": "Amagar vídeo",
+    "selectSignLanguage": "Seleccionar idioma de signes",
+    "language": {
+      "lse": "LSE (Llengua de Signes Espanyola)",
+      "lsc": "LSC (Llengua de Signes Catalana)"
+    },
+    "loading": "Carregant vídeo...",
+    "retry": "Tornar a intentar",
+    "notSupported": "El teu navegador no suporta l'element de vídeo.",
+    "controls": "Controls del reproductor de vídeo",
+    "progress": "Barra de progrés del vídeo",
+    "play": "Reproduir vídeo",
+    "pause": "Pausar vídeo",
+    "mute": "Silenciar vídeo",
+    "unmute": "Activar so del vídeo",
+    "volume": "Control de volum",
+    "speed": "Velocitat",
+    "playbackSpeed": "Velocitat de reproducció",
+    "subtitles": "Activar/Desactivar subtítols",
+    "fullscreen": "Pantalla completa",
+    "exitFullscreen": "Eixir de pantalla completa",
+    "transcription": "Transcripció",
+    "showTranscription": "Mostrar transcripció",
+    "hideTranscription": "Amagar transcripció",
+    "transcriptionContent": "Contingut de la transcripció"
+  },
+  "search": {
+    "placeholder": "Cercar contingut...",
+    "clear": "Netejar cerca",
+    "noResults": "No s'han trobat resultats",
+    "resultsCount": "{{ count }} resultat(s) trobat(s)"
+  },
+  "sidebar": {
+    "alphabeticalIndex": "Índex alfabètic",
+    "title": "Filtres de cerca",
+    "search": "Cercar",
+    "hashtags": "Etiquetes",
+    "year": "Filtrar per any",
+    "yearFrom": "Des de",
+    "yearTo": "Fins a",
+    "clearFilters": "Netejar filtres",
+    "open": "Obrir filtres",
+    "close": "Tancar filtres",
+    "filters": "Filtres",
+    "applyFilters": "Aplicar filtres",
+    "openFilters": "Obrir filtres"
+  },
+  "navigationSidebar": {
+    "title": "Navegació principal",
+    "navigation": "Menú de navegació",
+    "expand": "Expandir menú lateral",
+    "collapse": "Col·lapsar menú lateral"
+  },
+  "content": {
+    "sortBy": "Ordenar per",
+    "sort": {
+      "titulo_asc": "Títol (A-Z)",
+      "titulo_desc": "Títol (Z-A)",
+      "anio_asc": "Any (més antic)",
+      "anio_desc": "Any (més recent)",
+      "fecha_publicacion": "Data de publicació"
+    }
+  },
+  "home": {
+    "section1": {
+      "title": "Benvinguda",
+      "description": "Aquesta web està dedicada a la sensibilització feminista i és completament accessible per a persones sordes.",
+      "purpose": "El nostre objectiu és proporcionar informació sobre història, conceptes i recursos del feminisme en un format accessible amb vídeos en llengua de signes.",
+      "readInSign": "Llegir en llengua de signes"
+    },
+    "section2": {
+      "title": "Com navegar?",
+      "description": "Navega fàcilment per la nostra web utilitzant les següents opcions:",
+      "menu": "Utilitza el menú superior per accedir a les seccions principals",
+      "search": "Cerca continguts específics amb el cercador",
+      "filters": "Filtra per etiquetes i anys",
+      "videos": "Tots els continguts inclouen vídeos en llengua de signes",
+      "keyboard": "Pots navegar completament utilitzant el teclat"
+    },
+    "section3": {
+      "title": "Multiidioma i Accessibilitat",
+      "languageTitle": "Idiomes disponibles",
+      "languageDescription": "Canvia l'idioma en qualsevol moment utilitzant el selector a la capçalera. Suportem 6 idiomes.",
+      "accessibilityTitle": "Accessibilitat WCAG 2.2 AA",
+      "accessibilityDescription": "Aquesta web compleix amb els estàndards d'accessibilitat WCAG 2.2 nivell AA:",
+      "features": {
+        "signLanguage": "Vídeos en LSE i LSC",
+        "keyboard": "Navegació per teclat",
+        "contrast": "Alt contrast",
+        "screenReader": "Compatible amb lectors de pantalla",
+        "easyRead": "Textos en lectura fàcil"
+      }
+    },
+    "section4": {
+      "title": "Explora els nostres continguts",
+      "description": "Selecciona una secció per començar",
+      "cards": {
+        "historia": {
+          "title": "Història",
+          "description": "Descobreix fets, persones i grups històrics del feminisme"
+        },
+        "conceptos": {
+          "title": "Conceptes",
+          "description": "Aprèn sobre els conceptes clau del feminisme"
+        },
+        "violencia": {
+          "title": "Violència",
+          "description": "Informació sobre tipus de violència i senyals d'alerta"
+        },
+        "recursos": {
+          "title": "Recursos",
+          "description": "Llibres, pel·lícules i documentals recomanats"
+        },
+        "ayuda": {
+          "title": "Ajuda",
+          "description": "Testimonis i institucions de suport"
+        }
+      }
+    },
+    "navigation": {
+      "scrollDown": "Desplaça't cap avall per veure més",
+      "section": "Secció {{number}} de 4"
+    }
+  },
+  "violence": {
+    "termsIndex": "Índex de termes",
+    "scrollToTerm": "Anar a {{term}}",
+    "alertSigns": "Senyals d'alerta",
+    "helpResources": "Recursos d'ajuda",
+    "phone016": "Telèfon d'atenció a víctimes de violència de gènere",
+    "phone112": "Emergències",
+    "phone017": "Línia d'atenció a menors sobre assetjament a internet",
+    "noResultsMessage": "Intenta canviar els filtres o cercar amb altres termes."
+  },
+  "recursos": {
+    "title": "Recursos",
+    "description": "Explora la nostra col·lecció de llibres, pel·lícules i documentals recomanats sobre feminisme",
+    "gridLabel": "Navegació de recursos",
+    "cards": {
+      "libros": {
+        "title": "Llibres",
+        "description": "Descobreix llibres recomanats sobre feminisme, història i teoria feminista"
+      },
+      "peliculas-series": {
+        "title": "Pel·lícules i sèries",
+        "description": "Explora pel·lícules i sèries que aborden temes feministes i d'igualtat"
+      },
+      "documentales": {
+        "title": "Documentals",
+        "description": "Accedeix a documentals sobre moviments feministes i lluites per la igualtat"
+      }
+    }
+  },
+  "recursosAyuda": {
+    "title": "Recursos d'Ajuda",
+    "description": "Troba suport, testimonis i institucions que et poden ajudar",
+    "gridLabel": "Navegació de recursos d'ajuda",
+    "cards": {
+      "testimonios": {
+        "title": "Testimonis de dones sordes",
+        "description": "Coneix les experiències i testimonis de dones sordes que comparteixen les seves històries de forma anònima i respectuosa"
+      },
+      "instituciones": {
+        "title": "Institucions i aplicacions d'ajuda",
+        "description": "Accedeix a institucions, organitzacions i aplicacions que ofereixen ajuda i suport especialitzat"
+      }
+    }
+  },
+  "libros": {
+    "title": "Llibres",
+    "description": "Descobreix llibres recomanats sobre feminisme, història i teoria feminista",
+    "searchPlaceholder": "Cercar per títol o autor...",
+    "booksCount": "{{ count }} llibre(s) trobat(s)",
+    "noBooks": "No hi ha llibres disponibles",
+    "noBooksDescription": "Pròximament afegirem més llibres recomanats sobre feminisme.",
+    "noResults": "No s'han trobat llibres amb aquest criteri de cerca.",
+    "author": "Autor",
+    "year": "Any",
+    "editions": "Edicions",
+    "easyRead": "Lectura fàcil"
+  },
+  "peliculasYSeries": {
+    "title": "Pel·lícules i sèries",
+    "description": "Explora pel·lícules i sèries que aborden temes feministes i d'igualtat",
+    "searchPlaceholder": "Cercar per títol o director...",
+    "itemsCount": "{{ count }} pel·lícula(s)/sèrie(s) trobada(s)",
+    "noItems": "No hi ha pel·lícules ni sèries disponibles",
+    "noItemsDescription": "Pròximament afegirem més pel·lícules i sèries recomanades sobre feminisme.",
+    "noResults": "No s'han trobat pel·lícules o sèries amb aquest criteri de cerca.",
+    "director": "Director",
+    "year": "Any",
+    "seasons": "Temporades",
+    "duration": "Durada",
+    "minutes": "minuts",
+    "easyRead": "Lectura fàcil"
+  },
+  "documentales": {
+    "title": "Documentals",
+    "description": "Accedeix a documentals sobre moviments feministes i lluites per la igualtat",
+    "searchPlaceholder": "Cercar per títol o director...",
+    "documentariesCount": "{{ count }} documental(s) trobat(s)",
+    "noDocumentaries": "No hi ha documentals disponibles",
+    "noDocumentariesDescription": "Pròximament afegirem més documentals recomanats sobre feminisme.",
+    "noResults": "No s'han trobat documentals amb aquest criteri de cerca.",
+    "director": "Director",
+    "year": "Any",
+    "duration": "Durada",
+    "minutes": "minuts",
+    "easyRead": "Lectura fàcil"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Articles i reflexions sobre feminisme, igualtat i drets de les dones",
+    "articlesCount": "{{ count }} article(s) trobat(s)",
+    "noArticles": "No hi ha articles disponibles",
+    "noArticlesDescription": "Aviat publicarem nous articles sobre feminisme i drets de les dones.",
+    "by": "Per",
+    "views": "visualitzacions",
+    "comments": "comentaris",
+    "readMore": "Llegir més",
+    "backToList": "Tornar al llistat",
+    "easyRead": "Versió en lectura fàcil",
+    "signLanguageVideo": "Vídeo en llengua de signes",
+    "videoNotSupported": "El teu navegador no suporta l'element de vídeo.",
+    "comment": {
+      "submitted": "El teu comentari ha estat enviat i està pendent de moderació. Gràcies per la teva participació.",
+      "title": "Comentaris",
+      "noComments": "Encara no hi ha comentaris. Sigues el primer a comentar!",
+      "addComment": "Afegir comentari",
+      "name": "Nom",
+      "email": "Correu electrònic",
+      "optional": "opcional",
+      "content": "Comentari",
+      "submit": "Enviar comentari",
+      "submitting": "Enviant...",
+      "moderationNotice": "Els comentaris estan moderats. El teu comentari serà revisat abans de ser publicat."
+    }
+  },
+  "footer": {
+    "licenses": {
+      "title": "Llicències de Contingut",
+      "description": "El contingut d'aquesta web està disponible sota llicència Creative Commons.",
+      "ccLicense": "CC BY-SA 4.0",
+      "ccLink": "Veure detalls de la llicència Creative Commons"
+    },
+    "legal": {
+      "title": "Informació Legal",
+      "privacy": "Política de Privacitat",
+      "legalNotice": "Avís Legal",
+      "cookies": "Política de Cookies"
+    },
+    "about": {
+      "title": "Sobre aquesta Web",
+      "description": "Web de sensibilització feminista accessible per a persones sordes."
+    },
+    "copyright": "Tots els drets reservats"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Ús de cookies",
+      "description": "Utilitzem cookies per millorar la teva experiència. Algunes són essencials per al funcionament del lloc. Pots acceptar totes, rebutjar les no essencials o configurar les teves preferències.",
+      "policyLink": "Més informació sobre la nostra política de cookies",
+      "accept": "Acceptar totes",
+      "reject": "Rebutjar",
+      "settings": "Configurar"
+    },
+    "modal": {
+      "title": "Configuració de cookies",
+      "intro": "Pots triar quins tipus de cookies vols acceptar. Les cookies essencials són necessàries per al funcionament del lloc i no es poden desactivar.",
+      "save": "Desar preferències",
+      "policyLink": "Veure política de cookies completa"
+    },
+    "categories": {
+      "required": "Obligatòria",
+      "essential": {
+        "title": "Cookies essencials",
+        "description": "Aquestes cookies són necessàries per al funcionament bàsic del lloc web. Inclouen preferències d'idioma i sessió d'usuari.",
+        "toggle": "Activar/desactivar cookies essencials"
+      },
+      "analytics": {
+        "title": "Cookies analítiques",
+        "description": "Aquestes cookies ens ajuden a entendre com els visitants interactuen amb el lloc web recopilant informació de forma anònima.",
+        "toggle": "Activar/desactivar cookies analítiques"
+      },
+      "marketing": {
+        "title": "Cookies de màrqueting",
+        "description": "Aquestes cookies s'utilitzen per mostrar anuncis rellevants i mesurar l'efectivitat de les campanyes publicitàries.",
+        "toggle": "Activar/desactivar cookies de màrqueting"
+      }
+    }
+  },
+  "admin": {
+    "title": "Panell d'Administració",
+    "welcome": "Benvingut",
+    "logout": "Tancar sessió",
+    "search": "Cercar",
+    "searchPlaceholder": "Cercar per títol...",
+    "stats": {
+      "total": "Total",
+      "draft": "Esborranys",
+      "reviewed": "Revisats",
+      "published": "Publicats"
+    },
+    "filter": {
+      "status": "Filtrar per estat",
+      "type": "Filtrar per tipus"
+    },
+    "status": {
+      "all": "Tots els estats",
+      "draft": "Esborrany",
+      "reviewed": "Revisat",
+      "published": "Publicat"
+    },
+    "type": {
+      "all": "Tots els tipus",
+      "historia": "Història",
+      "concepto": "Concepte",
+      "violencia": "Violència",
+      "recurso": "Recurs",
+      "testimonio": "Testimoni",
+      "institucion": "Institució"
+    },
+    "contents": {
+      "title": "Continguts",
+      "empty": "No s'han trobat continguts amb els filtres seleccionats"
+    },
+    "created": "Creat",
+    "changeStatus": "Canviar estat",
+    "noTransitions": "Aquest contingut ja està publicat i no pot canviar d'estat",
+    "error": {
+      "invalidTransition": "No es pot passar directament d'esborrany a publicat. Primer ha de ser revisat.",
+      "cannotGoBack": "No es pot tornar de revisat a esborrany.",
+      "cannotChangePublished": "No es pot canviar l'estat d'un contingut publicat."
+    },
+    "login": {
+      "title": "Iniciar sessió",
+      "subtitle": "Accedeix al panell d'administració",
+      "username": "Usuari",
+      "password": "Contrasenya",
+      "submit": "Iniciar sessió",
+      "error": {
+        "required": "L'usuari i la contrasenya són obligatoris",
+        "invalid": "Usuari o contrasenya incorrectes"
+      },
+      "demo": {
+        "title": "Credencials de demostració",
+        "username": "Usuari",
+        "password": "Contrasenya"
+      }
+    },
+    "metrics": {
+      "title": "Mètriques d'Analytics",
+      "videoEvents": "Esdeveniments de Vídeo",
+      "contentViews": "Visualitzacions de Contingut",
+      "searches": "Cerques",
+      "videoLanguages": "Idiomes de Vídeo",
+      "videoAvailability": "Disponibilitat de Vídeos",
+      "mostFrequentSearches": "Cerques Més Frequents",
+      "withLSE": "Amb LSE",
+      "withLSC": "Amb LSC",
+      "withBoth": "Amb Ambdós",
+      "plays": "Reproduccions",
+      "pauses": "Pauses",
+      "completed": "Completats",
+      "total": "Total",
+      "noSearches": "Encara no hi ha cerques registrades"
+    }
+  },
+  "agenda": {
+    "title": "Agenda d'Esdeveniments",
+    "description": "Consulta el nostre calendari d'esdeveniments, tallers, manifestacions i activitats relacionades amb el feminisme",
+    "calendar": {
+      "title": "Calendari d'esdeveniments",
+      "previousMonth": "Mes anterior",
+      "nextMonth": "Mes següent",
+      "today": "Avui",
+      "day": "Dia {{ day }} de {{ month }}",
+      "eventsCount": "{{ count }} esdeveniment(s)"
+    },
+    "events": {
+      "title": "Pròxims Esdeveniments",
+      "noEvents": "No hi ha esdeveniments programats",
+      "noEventsDescription": "Pròximament publicarem nous esdeveniments relacionats amb el feminisme i la igualtat de gènere."
+    },
+    "event": {
+      "signLanguageVideo": "Vídeo en llengua de signes",
+      "types": {
+        "taller": "Taller",
+        "manifestacion": "Manifestació",
+        "conferencia": "Conferència",
+        "actividad": "Activitat",
+        "otro": "Altres"
+      }
+    }
+  },
+  "socialShare": {
+    "share": "Compartir",
+    "shareOnTwitter": "Compartir a Twitter/X",
+    "shareOnFacebook": "Compartir a Facebook",
+    "shareOnWhatsApp": "Compartir a WhatsApp",
+    "shareOnTelegram": "Compartir a Telegram"
+  },
+  "ayuda": {
+    "title": "Ajuda i Referències",
+    "description": "Troba telèfons d'ajuda i entitats que et poden donar suport en temes d'accessibilitat i feminisme",
+    "free": "Gratuït",
+    "call": "Trucar a {{number}}",
+    "available": "Disponible",
+    "website": "Lloc web",
+    "visitWebsite": "Visitar lloc web de {{name}}",
+    "sendEmail": "Enviar correu a {{name}}",
+    "telephones": {
+      "title": "Telèfons d'Ajuda",
+      "description": "Telèfons gratuïts disponibles les 24 hores per situacions d'emergència o necessitat d'ajuda"
+    },
+    "accessibility": {
+      "title": "Entitats d'Ajuda en Accessibilitat",
+      "description": "Organitzacions que ofereixen suport i recursos per a persones amb discapacitat auditiva i altres necessitats d'accessibilitat"
+    },
+    "feminism": {
+      "title": "Entitats d'Ajuda en Feminisme",
+      "description": "Organitzacions que treballen per la igualtat de gènere i els drets de les dones"
+    }
+  }
+}
+

@@ -1,0 +1,489 @@
+{
+  "app": {
+    "title": "Feminist Awareness Website",
+    "subtitle": "Accessible for Deaf People"
+  },
+  "header": {
+    "home": "Home",
+    "history": "History",
+    "concepts": "Concepts",
+    "violence": "Violence",
+    "resources": "Resources",
+    "help": "Help"
+  },
+  "language": {
+    "selector": "Language",
+    "es": "Español",
+    "en": "English",
+    "ca": "Català",
+    "val": "Valencià",
+    "gl": "Galego",
+    "eu": "Euskara"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "close": "Close",
+    "accept": "Accept",
+    "cancel": "Cancel",
+    "retry": "Retry"
+  },
+  "skipToContent": {
+    "label": "Skip to main content"
+  },
+  "scrollToTop": {
+    "label": "Back to top",
+    "title": "Back to top of page",
+    "ariaLabel": "Back to top of page"
+  },
+  "error": {
+    "generic": "An error occurred while loading content. Please try again.",
+    "network": "Could not connect to the server. Check your internet connection.",
+    "offline": "No internet connection. Some features may not be available.",
+    "notFound": "The requested content was not found.",
+    "server": "Server error. Please try again later.",
+    "suggestions": "Suggestions:",
+    "suggestionsNetwork": [
+      "Check your internet connection",
+      "Try reloading the page",
+      "Check if other websites work"
+    ],
+    "suggestionsOffline": [
+      "Check your internet connection",
+      "Some features may continue to work offline",
+      "Locally saved data will remain available"
+    ],
+    "suggestionsServer": [
+      "The server may be temporarily unavailable",
+      "Try again in a few moments",
+      "If the problem persists, contact support"
+    ]
+  },
+  "video": {
+    "expand": "Expand video",
+    "collapse": "Hide video",
+    "selectSignLanguage": "Select sign language",
+    "language": {
+      "lse": "LSE (Spanish Sign Language)",
+      "lsc": "LSC (Catalan Sign Language)"
+    },
+    "loading": "Loading video...",
+    "retry": "Retry",
+    "notSupported": "Your browser does not support the video element.",
+    "controls": "Video player controls",
+    "progress": "Video progress bar",
+    "play": "Play video",
+    "pause": "Pause video",
+    "mute": "Mute video",
+    "unmute": "Unmute video",
+    "volume": "Volume control",
+    "speed": "Speed",
+    "playbackSpeed": "Playback speed",
+    "subtitles": "Toggle subtitles",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit fullscreen",
+    "transcription": "Transcription",
+    "showTranscription": "Show transcription",
+    "hideTranscription": "Hide transcription",
+    "transcriptionContent": "Transcription content"
+  },
+  "search": {
+    "placeholder": "Search content...",
+    "clear": "Clear search",
+    "noResults": "No results found",
+    "resultsCount": "{{ count }} result(s) found"
+  },
+  "sidebar": {
+    "title": "Search filters",
+    "search": "Search",
+    "hashtags": "Tags",
+    "alphabeticalIndex": "Alphabetical index",
+    "year": "Filter by year",
+    "yearFrom": "From",
+    "yearTo": "To",
+    "clearFilters": "Clear filters",
+    "open": "Open filters",
+    "close": "Close filters",
+    "filters": "Filters",
+    "applyFilters": "Apply filters",
+    "openFilters": "Open filters"
+  },
+  "navigationSidebar": {
+    "title": "Main navigation",
+    "navigation": "Navigation menu",
+    "expand": "Expand side menu",
+    "collapse": "Collapse side menu"
+  },
+  "content": {
+    "sortBy": "Sort by",
+    "sort": {
+      "titulo_asc": "Title (A-Z)",
+      "titulo_desc": "Title (Z-A)",
+      "anio_asc": "Year (oldest)",
+      "anio_desc": "Year (newest)",
+      "fecha_publicacion": "Publication date"
+    }
+  },
+  "home": {
+    "section1": {
+      "title": "Welcome",
+      "description": "This website is dedicated to feminist awareness and is fully accessible for deaf people.",
+      "purpose": "Our goal is to provide information about feminist history, concepts, and resources in an accessible format with sign language videos.",
+      "readInSign": "Read in sign language"
+    },
+    "section2": {
+      "title": "How to navigate?",
+      "description": "Navigate easily through our website using the following options:",
+      "menu": "Use the top menu to access the main sections",
+      "search": "Search for specific content with the search bar",
+      "filters": "Filter by tags and years",
+      "videos": "All content includes sign language videos",
+      "keyboard": "You can navigate completely using the keyboard"
+    },
+    "section3": {
+      "title": "Multilanguage and Accessibility",
+      "languageTitle": "Available languages",
+      "languageDescription": "Change the language at any time using the selector in the header. We support 6 languages.",
+      "accessibilityTitle": "WCAG 2.2 AA Accessibility",
+      "accessibilityDescription": "This website complies with WCAG 2.2 level AA accessibility standards:",
+      "features": {
+        "signLanguage": "Videos in LSE and LSC",
+        "keyboard": "Keyboard navigation",
+        "contrast": "High contrast",
+        "screenReader": "Screen reader compatible",
+        "easyRead": "Easy-to-read texts"
+      }
+    },
+    "section4": {
+      "title": "Explore our content",
+      "description": "Select a section to begin",
+      "cards": {
+        "historia": {
+          "title": "History",
+          "description": "Discover historical facts, people and groups of feminism"
+        },
+        "conceptos": {
+          "title": "Concepts",
+          "description": "Learn about key feminist concepts"
+        },
+        "violencia": {
+          "title": "Violence",
+          "description": "Information about types of violence and warning signs"
+        },
+        "recursos": {
+          "title": "Resources",
+          "description": "Recommended books, movies and documentaries"
+        },
+        "ayuda": {
+          "title": "Help",
+          "description": "Testimonials and support institutions"
+        }
+      }
+    },
+    "navigation": {
+      "scrollDown": "Scroll down to see more",
+      "section": "Section {{number}} of 4"
+    }
+  },
+  "violence": {
+    "termsIndex": "Terms index",
+    "scrollToTerm": "Go to {{term}}",
+    "alertSigns": "Warning signs",
+    "helpResources": "Help resources",
+    "phone016": "Phone number for victims of gender violence",
+    "phone112": "Emergency services",
+    "phone017": "Helpline for minors about online harassment",
+    "noResultsMessage": "Try changing the filters or searching with other terms."
+  },
+  "recursos": {
+    "title": "Resources",
+    "description": "Explore our collection of recommended books, movies and documentaries about feminism",
+    "gridLabel": "Resources navigation",
+    "cards": {
+      "libros": {
+        "title": "Books",
+        "description": "Discover recommended books about feminism, history and feminist theory"
+      },
+      "peliculas-series": {
+        "title": "Movies and series",
+        "description": "Explore movies and series that address feminist and equality themes"
+      },
+      "documentales": {
+        "title": "Documentaries",
+        "description": "Access documentaries about feminist movements and struggles for equality"
+      }
+    }
+  },
+  "recursosAyuda": {
+    "title": "Help Resources",
+    "description": "Find support, testimonials and institutions that can help you",
+    "gridLabel": "Help resources navigation",
+    "cards": {
+      "testimonios": {
+        "title": "Testimonials from deaf women",
+        "description": "Learn about the experiences and testimonials of deaf women who share their stories anonymously and respectfully"
+      },
+      "instituciones": {
+        "title": "Institutions and help applications",
+        "description": "Access institutions, organizations and applications that offer specialized help and support"
+      }
+    }
+  },
+  "libros": {
+    "title": "Books",
+    "description": "Discover recommended books on feminism, history and feminist theory",
+    "searchPlaceholder": "Search by title or author...",
+    "booksCount": "{{ count }} book(s) found",
+    "noBooks": "No books available",
+    "noBooksDescription": "We will add more recommended books on feminism soon.",
+    "noResults": "No books found matching your search criteria.",
+    "author": "Author",
+    "year": "Year",
+    "editions": "Editions",
+    "easyRead": "Easy read"
+  },
+  "peliculasYSeries": {
+    "title": "Movies and series",
+    "description": "Explore movies and series that address feminist and equality themes",
+    "searchPlaceholder": "Search by title or director...",
+    "itemsCount": "{{ count }} movie(s)/series found",
+    "noItems": "No movies or series available",
+    "noItemsDescription": "We will add more recommended movies and series on feminism soon.",
+    "noResults": "No movies or series found matching your search criteria.",
+    "director": "Director",
+    "year": "Year",
+    "seasons": "Seasons",
+    "duration": "Duration",
+    "minutes": "minutes",
+    "easyRead": "Easy read"
+  },
+  "documentales": {
+    "title": "Documentaries",
+    "description": "Access documentaries about feminist movements and struggles for equality",
+    "searchPlaceholder": "Search by title or director...",
+    "documentariesCount": "{{ count }} documentary(ies) found",
+    "noDocumentaries": "No documentaries available",
+    "noDocumentariesDescription": "We will add more recommended documentaries on feminism soon.",
+    "noResults": "No documentaries found matching your search criteria.",
+    "director": "Director",
+    "year": "Year",
+    "duration": "Duration",
+    "minutes": "minutes",
+    "easyRead": "Easy read"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Articles and reflections on feminism, equality and women's rights",
+    "articlesCount": "{{ count }} article(s) found",
+    "noArticles": "No articles available",
+    "noArticlesDescription": "We will soon publish new articles on feminism and women's rights.",
+    "by": "By",
+    "views": "views",
+    "comments": "comments",
+    "readMore": "Read more",
+    "backToList": "Back to list",
+    "easyRead": "Easy read version",
+    "signLanguageVideo": "Sign language video",
+    "videoNotSupported": "Your browser does not support the video element.",
+    "comment": {
+      "submitted": "Your comment has been submitted and is pending moderation. Thank you for your participation.",
+      "title": "Comments",
+      "noComments": "No comments yet. Be the first to comment!",
+      "addComment": "Add comment",
+      "name": "Name",
+      "email": "Email",
+      "optional": "optional",
+      "content": "Comment",
+      "submit": "Submit comment",
+      "submitting": "Submitting...",
+      "moderationNotice": "Comments are moderated. Your comment will be reviewed before being published."
+    }
+  },
+  "footer": {
+    "licenses": {
+      "title": "Content Licenses",
+      "description": "The content of this website is available under a Creative Commons license.",
+      "ccLicense": "CC BY-SA 4.0",
+      "ccLink": "View Creative Commons license details"
+    },
+    "legal": {
+      "title": "Legal Information",
+      "privacy": "Privacy Policy",
+      "legalNotice": "Legal Notice",
+      "cookies": "Cookie Policy"
+    },
+    "about": {
+      "title": "About this Website",
+      "description": "Feminist awareness website accessible for deaf people."
+    },
+    "copyright": "All rights reserved"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Cookie usage",
+      "description": "We use cookies to improve your experience. Some are essential for the site to function. You can accept all, reject non-essential ones, or configure your preferences.",
+      "policyLink": "Learn more about our cookie policy",
+      "accept": "Accept all",
+      "reject": "Reject",
+      "settings": "Configure"
+    },
+    "modal": {
+      "title": "Cookie settings",
+      "intro": "You can choose which types of cookies you want to accept. Essential cookies are necessary for the site to function and cannot be disabled.",
+      "save": "Save preferences",
+      "policyLink": "View full cookie policy"
+    },
+    "categories": {
+      "required": "Required",
+      "essential": {
+        "title": "Essential cookies",
+        "description": "These cookies are necessary for the basic functioning of the website. They include language preferences and user session.",
+        "toggle": "Enable/disable essential cookies"
+      },
+      "analytics": {
+        "title": "Analytics cookies",
+        "description": "These cookies help us understand how visitors interact with the website by collecting information anonymously.",
+        "toggle": "Enable/disable analytics cookies"
+      },
+      "marketing": {
+        "title": "Marketing cookies",
+        "description": "These cookies are used to show relevant ads and measure the effectiveness of advertising campaigns.",
+        "toggle": "Enable/disable marketing cookies"
+      }
+    }
+  },
+  "admin": {
+    "title": "Administration Panel",
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "search": "Search",
+    "searchPlaceholder": "Search by title...",
+    "stats": {
+      "total": "Total",
+      "draft": "Drafts",
+      "reviewed": "Reviewed",
+      "published": "Published"
+    },
+    "filter": {
+      "status": "Filter by status",
+      "type": "Filter by type"
+    },
+    "status": {
+      "all": "All statuses",
+      "draft": "Draft",
+      "reviewed": "Reviewed",
+      "published": "Published"
+    },
+    "type": {
+      "all": "All types",
+      "historia": "History",
+      "concepto": "Concept",
+      "violencia": "Violence",
+      "recurso": "Resource",
+      "testimonio": "Testimony",
+      "institucion": "Institution"
+    },
+    "contents": {
+      "title": "Contents",
+      "empty": "No contents found with the selected filters"
+    },
+    "created": "Created",
+    "changeStatus": "Change status",
+    "noTransitions": "This content is already published and cannot change status",
+    "error": {
+      "invalidTransition": "Cannot go directly from draft to published. It must be reviewed first.",
+      "cannotGoBack": "Cannot go back from reviewed to draft.",
+      "cannotChangePublished": "Cannot change the status of a published content."
+    },
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Access the administration panel",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Sign in",
+      "error": {
+        "required": "Username and password are required",
+        "invalid": "Invalid username or password"
+      },
+      "demo": {
+        "title": "Demo credentials",
+        "username": "Username",
+        "password": "Password"
+      }
+    },
+    "metrics": {
+      "title": "Analytics Metrics",
+      "videoEvents": "Video Events",
+      "contentViews": "Content Views",
+      "searches": "Searches",
+      "videoLanguages": "Video Languages",
+      "videoAvailability": "Video Availability",
+      "mostFrequentSearches": "Most Frequent Searches",
+      "withLSE": "With LSE",
+      "withLSC": "With LSC",
+      "withBoth": "With Both",
+      "plays": "Plays",
+      "pauses": "Pauses",
+      "completed": "Completed",
+      "total": "Total",
+      "noSearches": "No searches recorded yet"
+    }
+  },
+  "agenda": {
+    "title": "Events Calendar",
+    "description": "Check our calendar of events, workshops, demonstrations and activities related to feminism",
+    "calendar": {
+      "title": "Events calendar",
+      "previousMonth": "Previous month",
+      "nextMonth": "Next month",
+      "today": "Today",
+      "day": "Day {{ day }} of {{ month }}",
+      "eventsCount": "{{ count }} event(s)"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "noEvents": "No events scheduled",
+      "noEventsDescription": "We will publish new events related to feminism and gender equality soon."
+    },
+    "event": {
+      "signLanguageVideo": "Sign language video",
+      "types": {
+        "taller": "Workshop",
+        "manifestacion": "Demonstration",
+        "conferencia": "Conference",
+        "actividad": "Activity",
+        "otro": "Other"
+      }
+    }
+  },
+  "socialShare": {
+    "share": "Share",
+    "shareOnTwitter": "Share on Twitter/X",
+    "shareOnFacebook": "Share on Facebook",
+    "shareOnWhatsApp": "Share on WhatsApp",
+    "shareOnTelegram": "Share on Telegram"
+  },
+  "ayuda": {
+    "title": "Help and References",
+    "description": "Find help phone numbers and organizations that can support you with accessibility and feminism issues",
+    "free": "Free",
+    "call": "Call {{number}}",
+    "available": "Available",
+    "website": "Website",
+    "visitWebsite": "Visit {{name}} website",
+    "sendEmail": "Send email to {{name}}",
+    "telephones": {
+      "title": "Help Phone Numbers",
+      "description": "Free phone numbers available 24 hours for emergency situations or when you need help"
+    },
+    "accessibility": {
+      "title": "Accessibility Support Organizations",
+      "description": "Organizations that offer support and resources for people with hearing disabilities and other accessibility needs"
+    },
+    "feminism": {
+      "title": "Feminism Support Organizations",
+      "description": "Organizations working for gender equality and women's rights"
+    }
+  }
+}
+
