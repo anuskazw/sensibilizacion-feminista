@@ -41,3 +41,15 @@ body.sidebar-collapsed .main-content {
   }
 }
 
+/* Estilos para rutas de administración - pantalla completa */
+.admin-fullscreen {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh !important;
+}
+
+body.admin-route {
+  overflow-x: hidden;
+}
+

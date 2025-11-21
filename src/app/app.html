@@ -1,19 +1,27 @@
 <!-- Skip to main content link - Requisito US-021 -->
-<a href="#main-content" class="skip-link">{{ 'skipToContent.label' | translate }}</a>
+@if (!isAdminRoute) {
+  <a href="#main-content" class="skip-link">{{ 'skipToContent.label' | translate }}</a>
+}
 
 <!-- Cabecera fija con navegación y selector de idioma -->
-<app-header></app-header>
+@if (!isAdminRoute) {
+  <app-header></app-header>
+}
 
 <!-- Sidebar de navegación lateral izquierdo reutilizable -->
-<app-navigation-sidebar></app-navigation-sidebar>
+@if (!isAdminRoute) {
+  <app-navigation-sidebar></app-navigation-sidebar>
+}
 
 <!-- Contenido principal - con margen para la cabecera fija y el sidebar -->
-<main id="main-content" class="main-content" role="main" tabindex="-1">
+<main id="main-content" [class.main-content]="!isAdminRoute" [class.admin-fullscreen]="isAdminRoute" role="main" tabindex="-1">
   <router-outlet></router-outlet>
 </main>
 
 <!-- Pie de página con información legal y licencias -->
-<app-footer></app-footer>
+@if (!isAdminRoute) {
+  <app-footer></app-footer>
+}
 
 <!-- Banner de cookies -->
 <app-cookie-banner></app-cookie-banner>
