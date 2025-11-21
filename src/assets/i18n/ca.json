@@ -212,6 +212,40 @@
       "description": "Web de sensibilització feminista accessible per a persones sordes."
     },
     "copyright": "Tots els drets reservats"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Ús de cookies",
+      "description": "Utilitzem cookies per millorar la teva experiència. Algunes són essencials per al funcionament del lloc. Pots acceptar totes, rebutjar les no essencials o configurar les teves preferències.",
+      "policyLink": "Més informació sobre la nostra política de cookies",
+      "accept": "Acceptar totes",
+      "reject": "Rebutjar",
+      "settings": "Configurar"
+    },
+    "modal": {
+      "title": "Configuració de cookies",
+      "intro": "Pots triar quins tipus de cookies vols acceptar. Les cookies essencials són necessàries per al funcionament del lloc i no es poden desactivar.",
+      "save": "Desar preferències",
+      "policyLink": "Veure política de cookies completa"
+    },
+    "categories": {
+      "required": "Obligatòria",
+      "essential": {
+        "title": "Cookies essencials",
+        "description": "Aquestes cookies són necessàries per al funcionament bàsic del lloc web. Inclouen preferències d'idioma i sessió d'usuari.",
+        "toggle": "Activar/desactivar cookies essencials"
+      },
+      "analytics": {
+        "title": "Cookies analítiques",
+        "description": "Aquestes cookies ens ajuden a entendre com els visitants interactuen amb el lloc web recopilant informació de forma anònima.",
+        "toggle": "Activar/desactivar cookies analítiques"
+      },
+      "marketing": {
+        "title": "Cookies de màrqueting",
+        "description": "Aquestes cookies s'utilitzen per mostrar anuncis rellevants i mesurar l'efectivitat de les campanyes publicitàries.",
+        "toggle": "Activar/desactivar cookies de màrqueting"
+      }
+    }
   }
 }
 

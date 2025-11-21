@@ -212,6 +212,40 @@
       "description": "Gor pertsonentzat eskuragarri dagoen feminismoaren sentsibilizazio webgunea."
     },
     "copyright": "Eskubide guztiak erreserbatuak"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Cookie erabilera",
+      "description": "Cookieak erabiltzen ditugu zure esperientzia hobetzeko. Batzuk funtsezkoak dira gunearen funtzionamendurako. Denak onartu ditzakezu, funtsezkoak ez direnak ukatzea edo zure hobespenak konfiguratzea.",
+      "policyLink": "Gehiago jakiteko gure cookie politika",
+      "accept": "Denak onartu",
+      "reject": "Ukatu",
+      "settings": "Konfiguratu"
+    },
+    "modal": {
+      "title": "Cookie ezarpenak",
+      "intro": "Zein cookie mota onartu nahi dituzun aukeratu dezakezu. Funtsezko cookieak beharrezkoak dira gunearen funtzionamendurako eta ezin dira desgaitu.",
+      "save": "Hobespenak gorde",
+      "policyLink": "Ikusi cookie politika osoa"
+    },
+    "categories": {
+      "required": "Beharrezkoa",
+      "essential": {
+        "title": "Funtsezko cookieak",
+        "description": "Cookie hauek beharrezkoak dira webgunearen oinarrizko funtzionamendurako. Hizkuntza hobespenak eta erabiltzaile saioa barne hartzen dute.",
+        "toggle": "Gaitu/desgaitu funtsezko cookieak"
+      },
+      "analytics": {
+        "title": "Analitika cookieak",
+        "description": "Cookie hauek bisitariek webgunearekin nola elkarreragiten duten ulertzen laguntzen digute informazioa modu anonimoan biltzen.",
+        "toggle": "Gaitu/desgaitu analitika cookieak"
+      },
+      "marketing": {
+        "title": "Marketin cookieak",
+        "description": "Cookie hauek iragarki garrantzitsuak erakusteko eta iragarki kanpainen eraginkortasuna neurtzeko erabiltzen dira.",
+        "toggle": "Gaitu/desgaitu marketin cookieak"
+      }
+    }
   }
 }
 

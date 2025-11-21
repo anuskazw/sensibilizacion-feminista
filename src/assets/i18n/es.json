@@ -212,6 +212,40 @@
       "description": "Web de sensibilización feminista accesible para personas sordas."
     },
     "copyright": "Todos los derechos reservados"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Uso de cookies",
+      "description": "Utilizamos cookies para mejorar tu experiencia. Algunas son esenciales para el funcionamiento del sitio. Puedes aceptar todas, rechazar las no esenciales o configurar tus preferencias.",
+      "policyLink": "Más información sobre nuestra política de cookies",
+      "accept": "Aceptar todas",
+      "reject": "Rechazar",
+      "settings": "Configurar"
+    },
+    "modal": {
+      "title": "Configuración de cookies",
+      "intro": "Puedes elegir qué tipos de cookies quieres aceptar. Las cookies esenciales son necesarias para el funcionamiento del sitio y no se pueden desactivar.",
+      "save": "Guardar preferencias",
+      "policyLink": "Ver política de cookies completa"
+    },
+    "categories": {
+      "required": "Obligatoria",
+      "essential": {
+        "title": "Cookies esenciales",
+        "description": "Estas cookies son necesarias para el funcionamiento básico del sitio web. Incluyen preferencias de idioma y sesión de usuario.",
+        "toggle": "Activar/desactivar cookies esenciales"
+      },
+      "analytics": {
+        "title": "Cookies analíticas",
+        "description": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con el sitio web recopilando información de forma anónima.",
+        "toggle": "Activar/desactivar cookies analíticas"
+      },
+      "marketing": {
+        "title": "Cookies de marketing",
+        "description": "Estas cookies se utilizan para mostrar anuncios relevantes y medir la efectividad de las campañas publicitarias.",
+        "toggle": "Activar/desactivar cookies de marketing"
+      }
+    }
   }
 }
 

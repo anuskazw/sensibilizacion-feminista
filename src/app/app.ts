@@ -3,13 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { NavigationSidebarComponent } from './shared/components/navigation-sidebar/navigation-sidebar.component';
 import { FooterComponent } from './shared/components/footer/footer';
+import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
 import { LanguageService } from './core/services/language.service';
 import { SidebarService } from './core/services/sidebar.service';
 import { SeoService } from './core/services/seo.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, NavigationSidebarComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, NavigationSidebarComponent, FooterComponent, CookieBannerComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

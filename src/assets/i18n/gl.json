@@ -212,6 +212,40 @@
       "description": "Web de sensibilización feminista accesible para persoas xordas."
     },
     "copyright": "Todos os dereitos reservados"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Uso de cookies",
+      "description": "Utilizamos cookies para mellorar a túa experiencia. Algunhas son esenciais para o funcionamento do sitio. Podes aceptar todas, rexeitar as non esenciais ou configurar as túas preferencias.",
+      "policyLink": "Máis información sobre a nosa política de cookies",
+      "accept": "Aceptar todas",
+      "reject": "Rexeitar",
+      "settings": "Configurar"
+    },
+    "modal": {
+      "title": "Configuración de cookies",
+      "intro": "Podes elixir que tipos de cookies queres aceptar. As cookies esenciais son necesarias para o funcionamento do sitio e non se poden desactivar.",
+      "save": "Gardar preferencias",
+      "policyLink": "Ver política de cookies completa"
+    },
+    "categories": {
+      "required": "Obrigatoria",
+      "essential": {
+        "title": "Cookies esenciais",
+        "description": "Estas cookies son necesarias para o funcionamento básico do sitio web. Inclúen preferencias de idioma e sesión de usuario.",
+        "toggle": "Activar/desactivar cookies esenciais"
+      },
+      "analytics": {
+        "title": "Cookies analíticas",
+        "description": "Estas cookies axúdannos a entender como os visitantes interactúan co sitio web recollendo información de forma anónima.",
+        "toggle": "Activar/desactivar cookies analíticas"
+      },
+      "marketing": {
+        "title": "Cookies de marketing",
+        "description": "Estas cookies utilízanse para mostrar anuncios relevantes e medir a efectividade das campañas publicitarias.",
+        "toggle": "Activar/desactivar cookies de marketing"
+      }
+    }
   }
 }
 

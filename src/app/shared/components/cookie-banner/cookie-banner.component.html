@@ -1,0 +1,156 @@
+@if (cookieService.showBanner()) {
+  <!-- Banner de cookies -->
+  <div 
+    class="cookie-banner" 
+    role="dialog" 
+    aria-labelledby="cookie-banner-title"
+    aria-describedby="cookie-banner-description"
+    aria-modal="false">
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-text">
+        <h2 id="cookie-banner-title" class="cookie-banner-title">
+          {{ 'cookies.banner.title' | translate }}
+        </h2>
+        <p id="cookie-banner-description" class="cookie-banner-description">
+          {{ 'cookies.banner.description' | translate }}
+          <a routerLink="/cookies" class="cookie-link">
+            {{ 'cookies.banner.policyLink' | translate }}
+          </a>
+        </p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button 
+          type="button"
+          class="cookie-button cookie-button-secondary"
+          (click)="rejectNonEssential()"
+          [attr.aria-label]="'cookies.banner.reject' | translate">
+          {{ 'cookies.banner.reject' | translate }}
+        </button>
+        <button 
+          type="button"
+          class="cookie-button cookie-button-secondary"
+          (click)="openSettings()"
+          [attr.aria-label]="'cookies.banner.settings' | translate">
+          {{ 'cookies.banner.settings' | translate }}
+        </button>
+        <button 
+          type="button"
+          class="cookie-button cookie-button-primary"
+          (click)="acceptAll()"
+          [attr.aria-label]="'cookies.banner.accept' | translate">
+          {{ 'cookies.banner.accept' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Modal de configuración de cookies -->
+@if (showSettingsModal()) {
+  <div 
+    class="cookie-modal-overlay"
+    (click)="closeSettings()"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cookie-modal-title">
+    <div 
+      class="cookie-modal"
+      (click)="$event.stopPropagation()"
+      role="document">
+      <div class="cookie-modal-header">
+        <h2 id="cookie-modal-title" class="cookie-modal-title">
+          {{ 'cookies.modal.title' | translate }}
+        </h2>
+        <button 
+          type="button"
+          class="cookie-modal-close"
+          (click)="closeSettings()"
+          [attr.aria-label]="'common.close' | translate">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="cookie-modal-content">
+        <p class="cookie-modal-intro">
+          {{ 'cookies.modal.intro' | translate }}
+        </p>
+
+        <!-- Cookies esenciales (siempre activas) -->
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h3 class="cookie-category-title">
+              {{ 'cookies.categories.essential.title' | translate }}
+            </h3>
+            <span class="cookie-category-badge cookie-category-required">
+              {{ 'cookies.categories.required' | translate }}
+            </span>
+          </div>
+          <p class="cookie-category-description">
+            {{ 'cookies.categories.essential.description' | translate }}
+          </p>
+        </div>
+
+        <!-- Cookies analíticas -->
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h3 class="cookie-category-title">
+              {{ 'cookies.categories.analytics.title' | translate }}
+            </h3>
+            <label class="cookie-toggle">
+              <input 
+                type="checkbox"
+                [checked]="tempPreferences().analytics"
+                (change)="togglePreference('analytics')"
+                [attr.aria-label]="'cookies.categories.analytics.toggle' | translate">
+              <span class="cookie-toggle-slider"></span>
+            </label>
+          </div>
+          <p class="cookie-category-description">
+            {{ 'cookies.categories.analytics.description' | translate }}
+          </p>
+        </div>
+
+        <!-- Cookies de marketing -->
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h3 class="cookie-category-title">
+              {{ 'cookies.categories.marketing.title' | translate }}
+            </h3>
+            <label class="cookie-toggle">
+              <input 
+                type="checkbox"
+                [checked]="tempPreferences().marketing"
+                (change)="togglePreference('marketing')"
+                [attr.aria-label]="'cookies.categories.marketing.toggle' | translate">
+              <span class="cookie-toggle-slider"></span>
+            </label>
+          </div>
+          <p class="cookie-category-description">
+            {{ 'cookies.categories.marketing.description' | translate }}
+          </p>
+        </div>
+
+        <div class="cookie-modal-footer">
+          <a routerLink="/cookies" class="cookie-policy-link">
+            {{ 'cookies.modal.policyLink' | translate }}
+          </a>
+          <div class="cookie-modal-actions">
+            <button 
+              type="button"
+              class="cookie-button cookie-button-secondary"
+              (click)="closeSettings()">
+              {{ 'common.cancel' | translate }}
+            </button>
+            <button 
+              type="button"
+              class="cookie-button cookie-button-primary"
+              (click)="saveCustomPreferences()">
+              {{ 'cookies.modal.save' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
