@@ -383,6 +383,33 @@
       "total": "Total",
       "noSearches": "Aínda non hai búsquedas rexistradas"
     }
+  },
+  "agenda": {
+    "title": "Axenda de Eventos",
+    "description": "Consulta o noso calendario de eventos, obradoiros, manifestacións e actividades relacionadas co feminismo",
+    "calendar": {
+      "title": "Calendario de eventos",
+      "previousMonth": "Mes anterior",
+      "nextMonth": "Mes seguinte",
+      "today": "Hoxe",
+      "day": "Día {{ day }} de {{ month }}",
+      "eventsCount": "{{ count }} evento(s)"
+    },
+    "events": {
+      "title": "Próximos Eventos",
+      "noEvents": "Non hai eventos programados",
+      "noEventsDescription": "Próximamente publicaremos novos eventos relacionados co feminismo e a igualdade de xénero."
+    },
+    "event": {
+      "signLanguageVideo": "Vídeo en lingua de signos",
+      "types": {
+        "taller": "Obradoiro",
+        "manifestacion": "Manifestación",
+        "conferencia": "Conferencia",
+        "actividad": "Actividade",
+        "otro": "Outro"
+      }
+    }
   }
 }
 

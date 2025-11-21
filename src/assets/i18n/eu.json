@@ -383,6 +383,33 @@
       "total": "Guztira",
       "noSearches": "Oraindik ez da bilaketarik erregistratu"
     }
+  },
+  "agenda": {
+    "title": "Ekitaldi Agenda",
+    "description": "Ikusi gure ekitaldi, tailer, manifestazio eta feminismoari lotutako jardueren egutegia",
+    "calendar": {
+      "title": "Ekitaldi egutegia",
+      "previousMonth": "Aurreko hilabetea",
+      "nextMonth": "Hurrengo hilabetea",
+      "today": "Gaur",
+      "day": "{{ month }}ko {{ day }} eguna",
+      "eventsCount": "{{ count }} ekitaldi"
+    },
+    "events": {
+      "title": "Etorkizuneko Ekitaldiak",
+      "noEvents": "Ez da ekitaldirik programatu",
+      "noEventsDescription": "Laster feminismoari eta genero berdintasunari lotutako ekitaldi berriak argitaratuko ditugu."
+    },
+    "event": {
+      "signLanguageVideo": "Keinu hizkuntzako bideoa",
+      "types": {
+        "taller": "Tailerra",
+        "manifestacion": "Manifestazioa",
+        "conferencia": "Hitzaldia",
+        "actividad": "Jarduera",
+        "otro": "Bestea"
+      }
+    }
   }
 }
 

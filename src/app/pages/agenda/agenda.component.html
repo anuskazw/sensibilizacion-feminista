@@ -1,0 +1,203 @@
+<div class="agenda-page">
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'agenda.title' | translate }}</h1>
+      <p class="content-description">
+        {{ 'agenda.description' | translate }}
+      </p>
+    </div>
+
+    <!-- Estados de carga y error -->
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="card-grid"
+        [count]="3"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <!-- Calendario y eventos -->
+      <div class="agenda-container">
+        <!-- Calendario -->
+        <div class="calendar-section">
+          <div class="calendar-header">
+            <button 
+              type="button"
+              class="calendar-nav-button"
+              (click)="previousMonth()"
+              [attr.aria-label]="'agenda.calendar.previousMonth' | translate">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            
+            <h2 class="calendar-month">{{ getMonthName() }}</h2>
+            
+            <button 
+              type="button"
+              class="calendar-nav-button"
+              (click)="nextMonth()"
+              [attr.aria-label]="'agenda.calendar.nextMonth' | translate">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <button 
+            type="button"
+            class="today-button"
+            (click)="goToToday()">
+            {{ 'agenda.calendar.today' | translate }}
+          </button>
+
+          <!-- Calendario mensual -->
+          <div class="calendar-grid" role="grid" [attr.aria-label]="'agenda.calendar.title' | translate">
+            <!-- Días de la semana -->
+            <div class="calendar-weekdays">
+              @for (dayIndex of [0, 1, 2, 3, 4, 5, 6]; track dayIndex) {
+                <div class="calendar-weekday" role="columnheader">
+                  {{ getDayName(dayIndex) }}
+                </div>
+              }
+            </div>
+
+            <!-- Días del mes -->
+            <div class="calendar-days">
+              @for (emptyDay of [].constructor(getFirstDayOfWeek()); track $index) {
+                <div class="calendar-day-empty"></div>
+              }
+              
+              @for (day of getDaysInMonth(); track day) {
+                @let dayEvents = getEventsForDay(day);
+                @let hasEvents = daysWithEvents().has(day);
+                
+                <div 
+                  class="calendar-day"
+                  [class.has-events]="hasEvents"
+                  [class.today]="isToday(day)"
+                  role="gridcell"
+                  [attr.aria-label]="'agenda.calendar.day' | translate: { day: day, month: getMonthName() }">
+                  <span class="day-number">{{ day }}</span>
+                  @if (hasEvents) {
+                    <div class="day-events-indicator" [attr.aria-label]="'agenda.calendar.eventsCount' | translate: { count: dayEvents.length }">
+                      <span class="events-dot"></span>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de eventos -->
+        <div class="events-section">
+          <h2 class="events-title">{{ 'agenda.events.title' | translate }}</h2>
+          
+          @if (eventsByDate().size === 0) {
+            <div class="no-events">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                class="no-events-icon"
+                aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <h3>{{ 'agenda.events.noEvents' | translate }}</h3>
+              <p>{{ 'agenda.events.noEventsDescription' | translate }}</p>
+            </div>
+          } @else {
+            <div class="events-list">
+              @for (dateGroup of getSortedEventDates(); track dateGroup.dateKey) {
+                @let dateEvents = dateGroup.events;
+                
+                <div class="event-date-group">
+                  <h3 class="event-date-header">
+                    <time [attr.datetime]="getDateFromKey(dateGroup.dateKey).toISOString()">
+                      {{ formatDate(getDateFromKey(dateGroup.dateKey)) }}
+                    </time>
+                  </h3>
+                  
+                  <div class="events-for-date">
+                    @for (event of dateEvents; track event.id) {
+                      <article class="event-card">
+                        <div class="event-header">
+                          <h4 class="event-title">{{ getTitle(event) }}</h4>
+                          @if (event.tipo) {
+                            <span class="event-type-badge">{{ 'agenda.event.types.' + event.tipo | translate }}</span>
+                          }
+                        </div>
+                        
+                        <div class="event-details">
+                          @if (event.hora) {
+                            <div class="event-detail">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                              </svg>
+                              <span>{{ event.hora }}</span>
+                            </div>
+                          }
+                          
+                          <div class="event-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                              <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>{{ getLugar(event) }}</span>
+                          </div>
+                          
+                          @if (getDireccion(event)) {
+                            <div class="event-detail">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                              </svg>
+                              <span>{{ getDireccion(event) }}</span>
+                            </div>
+                          }
+                        </div>
+                        
+                        @if (getDescription(event)) {
+                          <p class="event-description">{{ getDescription(event) }}</p>
+                        }
+                        
+                        @if (event.video_signado) {
+                          <div class="event-video">
+                            <h5>{{ 'agenda.event.signLanguageVideo' | translate }}</h5>
+                            <video 
+                              [src]="event.video_signado" 
+                              controls
+                              [attr.aria-label]="'agenda.event.signLanguageVideo' | translate">
+                              {{ 'video.notSupported' | translate }}
+                            </video>
+                          </div>
+                        }
+                      </article>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </main>
+</div>
+

@@ -383,6 +383,33 @@
       "total": "Total",
       "noSearches": "No searches recorded yet"
     }
+  },
+  "agenda": {
+    "title": "Events Calendar",
+    "description": "Check our calendar of events, workshops, demonstrations and activities related to feminism",
+    "calendar": {
+      "title": "Events calendar",
+      "previousMonth": "Previous month",
+      "nextMonth": "Next month",
+      "today": "Today",
+      "day": "Day {{ day }} of {{ month }}",
+      "eventsCount": "{{ count }} event(s)"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "noEvents": "No events scheduled",
+      "noEventsDescription": "We will publish new events related to feminism and gender equality soon."
+    },
+    "event": {
+      "signLanguageVideo": "Sign language video",
+      "types": {
+        "taller": "Workshop",
+        "manifestacion": "Demonstration",
+        "conferencia": "Conference",
+        "actividad": "Activity",
+        "otro": "Other"
+      }
+    }
   }
 }
 

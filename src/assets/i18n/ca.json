@@ -383,6 +383,33 @@
       "total": "Total",
       "noSearches": "Encara no hi ha cerques registrades"
     }
+  },
+  "agenda": {
+    "title": "Agenda d'Esdeveniments",
+    "description": "Consulta el nostre calendari d'esdeveniments, tallers, manifestacions i activitats relacionades amb el feminisme",
+    "calendar": {
+      "title": "Calendari d'esdeveniments",
+      "previousMonth": "Mes anterior",
+      "nextMonth": "Mes següent",
+      "today": "Avui",
+      "day": "Dia {{ day }} de {{ month }}",
+      "eventsCount": "{{ count }} esdeveniment(s)"
+    },
+    "events": {
+      "title": "Pròxims Esdeveniments",
+      "noEvents": "No hi ha esdeveniments programats",
+      "noEventsDescription": "Pròximament publicarem nous esdeveniments relacionats amb el feminisme i la igualtat de gènere."
+    },
+    "event": {
+      "signLanguageVideo": "Vídeo en llengua de signes",
+      "types": {
+        "taller": "Taller",
+        "manifestacion": "Manifestació",
+        "conferencia": "Conferència",
+        "actividad": "Activitat",
+        "otro": "Altres"
+      }
+    }
   }
 }
 
