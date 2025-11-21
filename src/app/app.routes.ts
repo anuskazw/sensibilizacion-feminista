@@ -23,6 +23,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/recursos/recursos.component').then(m => m.RecursosComponent)
   },
   {
+    path: 'recursos/libros',
+    loadComponent: () => import('./pages/recursos/libros/libros.component').then(m => m.LibrosComponent)
+  },
+  {
     path: 'recursos-ayuda',
     loadComponent: () => import('./pages/recursos-ayuda/recursos-ayuda.component').then(m => m.RecursosAyudaComponent)
   },

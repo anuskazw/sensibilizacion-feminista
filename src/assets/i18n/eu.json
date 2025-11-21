@@ -226,6 +226,19 @@
       }
     }
   },
+  "libros": {
+    "title": "Liburuak",
+    "description": "Aurkitu feminismoari, historiari eta teoria feministari buruzko liburu gomendatuak",
+    "searchPlaceholder": "Bilatu titulu edo egilearen arabera...",
+    "booksCount": "{{ count }} liburu aurkitu dira",
+    "noBooks": "Ez daude libururik eskuragarri",
+    "noBooksDescription": "Laster feminismoari buruzko liburu gomendatu gehiago gehituko ditugu.",
+    "noResults": "Ez da libururik aurkitu bilaketa irizpide horrekin.",
+    "author": "Egilea",
+    "year": "Urtea",
+    "editions": "Edizioak",
+    "easyRead": "Irakurketa erraza"
+  },
   "blog": {
     "title": "Bloga",
     "description": "Feminismoari, berdintasunari eta emakumeen eskubideei buruzko artikuluak eta hausnarketak",

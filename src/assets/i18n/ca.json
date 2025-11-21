@@ -226,6 +226,19 @@
       }
     }
   },
+  "libros": {
+    "title": "Llibres",
+    "description": "Descobreix llibres recomanats sobre feminisme, història i teoria feminista",
+    "searchPlaceholder": "Cercar per títol o autor...",
+    "booksCount": "{{ count }} llibre(s) trobat(s)",
+    "noBooks": "No hi ha llibres disponibles",
+    "noBooksDescription": "Pròximament afegirem més llibres recomanats sobre feminisme.",
+    "noResults": "No s'han trobat llibres amb aquest criteri de cerca.",
+    "author": "Autor",
+    "year": "Any",
+    "editions": "Edicions",
+    "easyRead": "Lectura fàcil"
+  },
   "blog": {
     "title": "Blog",
     "description": "Articles i reflexions sobre feminisme, igualtat i drets de les dones",

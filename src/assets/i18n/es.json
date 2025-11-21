@@ -226,6 +226,19 @@
       }
     }
   },
+  "libros": {
+    "title": "Libros",
+    "description": "Descubre libros recomendados sobre feminismo, historia y teoría feminista",
+    "searchPlaceholder": "Buscar por título o autor...",
+    "booksCount": "{{ count }} libro(s) encontrado(s)",
+    "noBooks": "No hay libros disponibles",
+    "noBooksDescription": "Próximamente añadiremos más libros recomendados sobre feminismo.",
+    "noResults": "No se encontraron libros con ese criterio de búsqueda.",
+    "author": "Autor",
+    "year": "Año",
+    "editions": "Ediciones",
+    "easyRead": "Lectura fácil"
+  },
   "blog": {
     "title": "Blog",
     "description": "Artículos y reflexiones sobre feminismo, igualdad y derechos de las mujeres",

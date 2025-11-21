@@ -1,0 +1,144 @@
+<div class="libros-page">
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'libros.title' | translate }}</h1>
+      <p class="content-description">
+        {{ 'libros.description' | translate }}
+      </p>
+    </div>
+
+    <!-- Estados de carga y error -->
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="card-grid"
+        [count]="3"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showHashtags]="true"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <!-- Barra de búsqueda -->
+      <div class="search-section">
+        <app-search-bar
+          [placeholder]="'libros.searchPlaceholder'"
+          (searchChange)="onSearchChange($event)">
+        </app-search-bar>
+      </div>
+
+      <!-- Vista de listado de libros -->
+      <div class="results-info">
+        @if (filteredLibros().length > 0) {
+          <p class="results-count">
+            {{ 'libros.booksCount' | translate: { count: filteredLibros().length } }}
+          </p>
+        } @else if (searchText().trim()) {
+          <p class="no-results-message">
+            {{ 'libros.noResults' | translate }}
+          </p>
+        }
+      </div>
+
+      <!-- Grid de libros -->
+      <div class="libros-grid">
+        @for (libro of filteredLibros(); track libro.id) {
+          <article class="libro-card">
+            <!-- Imagen del libro (placeholder) -->
+            <div class="libro-image-placeholder">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            
+            <div class="libro-content">
+              <!-- Título -->
+              <h2 class="libro-title">{{ getTitle(libro) }}</h2>
+
+              <!-- Información del libro -->
+              <div class="libro-meta">
+                @if (libro.autor) {
+                  <div class="libro-author">
+                    <span class="meta-label">{{ 'libros.author' | translate }}:</span>
+                    <span class="meta-value">{{ libro.autor }}</span>
+                  </div>
+                }
+                
+                @if (libro.anio) {
+                  <div class="libro-year">
+                    <span class="meta-label">{{ 'libros.year' | translate }}:</span>
+                    <span class="meta-value">{{ libro.anio }}</span>
+                  </div>
+                }
+                
+                @if (libro.num_ediciones) {
+                  <div class="libro-editions">
+                    <span class="meta-label">{{ 'libros.editions' | translate }}:</span>
+                    <span class="meta-value">{{ libro.num_ediciones }}</span>
+                  </div>
+                }
+              </div>
+
+              <!-- Sinopsis -->
+              <div class="libro-description">
+                <p class="libro-synopsis">{{ getDescription(libro) }}</p>
+              </div>
+
+              <!-- Temática (Hashtags) -->
+              @if (libro.hashtags && libro.hashtags.length > 0) {
+                <div class="libro-hashtags">
+                  @for (hashtag of libro.hashtags; track hashtag.id) {
+                    <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                  }
+                </div>
+              }
+
+              <!-- Descripción en lectura fácil (expandible) -->
+              @if (libro.descripcion_lectura_facil) {
+                <details class="easy-read-section">
+                  <summary>{{ 'libros.easyRead' | translate }}</summary>
+                  <div class="easy-read-content">
+                    {{ getEasyReadDescription(libro) }}
+                  </div>
+                </details>
+              }
+            </div>
+          </article>
+        }
+      </div>
+
+      @if (filteredLibros().length === 0 && !searchText().trim()) {
+        <div class="no-results">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2"
+            class="no-results-icon"
+            aria-hidden="true">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <h2>{{ 'libros.noBooks' | translate }}</h2>
+          <p>{{ 'libros.noBooksDescription' | translate }}</p>
+        </div>
+      }
+    }
+  </main>
+</div>
+

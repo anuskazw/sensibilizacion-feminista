@@ -226,6 +226,19 @@
       }
     }
   },
+  "libros": {
+    "title": "Books",
+    "description": "Discover recommended books on feminism, history and feminist theory",
+    "searchPlaceholder": "Search by title or author...",
+    "booksCount": "{{ count }} book(s) found",
+    "noBooks": "No books available",
+    "noBooksDescription": "We will add more recommended books on feminism soon.",
+    "noResults": "No books found matching your search criteria.",
+    "author": "Author",
+    "year": "Year",
+    "editions": "Editions",
+    "easyRead": "Easy read"
+  },
   "blog": {
     "title": "Blog",
     "description": "Articles and reflections on feminism, equality and women's rights",
