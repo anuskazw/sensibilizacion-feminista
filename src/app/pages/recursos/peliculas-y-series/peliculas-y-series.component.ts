@@ -35,7 +35,7 @@ export class PeliculasYSeriesComponent implements OnInit {
   private analyticsService = inject(AnalyticsService);
 
   // Estados de carga y error
-  isLoading = signal(true);
+  isLoading = signal(false);
   hasError = signal(false);
   errorMessage = signal<string>('');
 
@@ -44,17 +44,17 @@ export class PeliculasYSeriesComponent implements OnInit {
 
   // Películas y series filtradas y visibles
   peliculasSeries = signal<RecursoContent[]>([]);
-  
+
   // Películas y series filtradas (por búsqueda, director, año, hashtags)
   filteredPeliculasSeries = computed(() => {
     const allPeliculasSeries = this.peliculasSeries().filter(item => item.activo && item.estado === 'publicado');
     const search = this.searchText().trim();
-    
+
     // Si no hay texto de búsqueda, devolver todas las películas y series
     if (!search) {
       return allPeliculasSeries;
     }
-    
+
     // Usar el servicio de recursos para filtrar por búsqueda
     const lang = this.languageService.getCurrentLanguage();
     return this.resourceService.filterRecursos(
@@ -166,24 +166,24 @@ export class PeliculasYSeriesComponent implements OnInit {
 
   ngOnInit(): void {
     // Simular carga de datos
-    this.isLoading.set(true);
+    // this.isLoading.set(true);
     this.hasError.set(false);
-    
+
     setTimeout(() => {
       try {
         if (this.offlineService.isOffline()) {
           throw new Error('offline');
         }
-        
+
         // Cargar películas y series en el servicio
         this.resourceService.loadRecursos(this.samplePeliculasSeries);
-        
+
         // Obtener películas y series del servicio
         this.peliculasSeries.set(this.resourceService.peliculasSeries());
-        
+
         // Trackear vista de página de películas y series
         this.analyticsService.trackContentView('peliculas-y-series-page', 'recurso', []);
-        
+
         this.isLoading.set(false);
       } catch (error: any) {
         this.hasError.set(true);
@@ -194,7 +194,7 @@ export class PeliculasYSeriesComponent implements OnInit {
           this.errorMessage.set('error.generic');
         }
       }
-    }, 800);
+    }, 0);
   }
 
   retryLoad(): void {

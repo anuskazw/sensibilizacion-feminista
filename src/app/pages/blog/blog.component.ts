@@ -37,7 +37,7 @@ export class BlogComponent implements OnInit {
   private route = inject(ActivatedRoute);
 
   // Estados de carga y error
-  isLoading = signal(true);
+  isLoading = signal(false);
   hasError = signal(false);
   errorMessage = signal<string>('');
 
@@ -140,7 +140,7 @@ export class BlogComponent implements OnInit {
 
   // Artículos filtrados y visibles
   articles = signal<BlogArticle[]>([]);
-  
+
   // Artículos filtrados (por búsqueda, categoría, etc.)
   filteredArticles = computed(() => {
     return this.articles().filter(article => article.activo && article.estado === 'publicado');
@@ -168,21 +168,21 @@ export class BlogComponent implements OnInit {
     });
 
     // Simular carga de datos
-    this.isLoading.set(true);
+    // this.isLoading.set(true);
     this.hasError.set(false);
-    
+
     setTimeout(() => {
       try {
         if (this.offlineService.isOffline()) {
           throw new Error('offline');
         }
-        
+
         // Cargar artículos
         this.articles.set(this.sampleArticles);
-        
+
         // Trackear vista de página de blog
         this.analyticsService.trackContentView('blog-page', 'blog', []);
-        
+
         this.isLoading.set(false);
       } catch (error: any) {
         this.hasError.set(true);
@@ -193,7 +193,7 @@ export class BlogComponent implements OnInit {
           this.errorMessage.set('error.generic');
         }
       }
-    }, 800);
+    }, 0);
   }
 
   retryLoad(): void {
@@ -218,10 +218,10 @@ export class BlogComponent implements OnInit {
   selectArticle(article: BlogArticle): void {
     this.selectedArticle.set(article);
     this.showArticleDetail.set(true);
-    
+
     // Cargar comentarios aprobados del artículo
     this.loadArticleComments(article.id);
-    
+
     // Trackear vista de artículo
     this.analyticsService.trackContentView(`blog-article-${article.id}`, 'blog-article', article.etiquetas.map(t => t.slug));
   }
@@ -257,7 +257,7 @@ export class BlogComponent implements OnInit {
         fecha_aprobacion: new Date('2024-01-22')
       }
     ];
-    
+
     this.articleComments.set(comments);
   }
 
@@ -268,7 +268,7 @@ export class BlogComponent implements OnInit {
     }
 
     this.isSubmittingComment.set(true);
-    
+
     // Simular envío de comentario (en producción, esto iría a un servicio)
     setTimeout(() => {
       const newComment: BlogComment = {
@@ -286,7 +286,7 @@ export class BlogComponent implements OnInit {
       // Por ahora, solo mostramos un mensaje de éxito
       this.newComment.set({ nombre: '', email: '', contenido: '' });
       this.isSubmittingComment.set(false);
-      
+
       // Mostrar mensaje de éxito (en producción, usar un servicio de notificaciones)
       alert(this.translateService.instant('blog.comment.submitted'));
     }, 1000);

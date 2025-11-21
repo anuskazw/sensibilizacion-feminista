@@ -9,10 +9,10 @@ import { SkeletonScreenComponent } from '../../shared/components/skeleton-screen
 import { ErrorStateComponent } from '../../shared/components/error-state/error-state.component';
 import { OfflineService } from '../../core/services/offline.service';
 import { AnalyticsService } from '../../core/services/analytics.service';
-import { 
-  ViolenciaContent, 
-  Hashtag, 
-  MultilingualText 
+import {
+  ViolenciaContent,
+  Hashtag,
+  MultilingualText
 } from '../../core/models/content.model';
 import { ContentFilters } from '../../core/models/filter.model';
 
@@ -35,7 +35,7 @@ export class ViolenciaComponent implements OnInit {
   private analyticsService = inject(AnalyticsService);
 
   // Estados de carga y error
-  isLoading = signal(true);
+  isLoading = signal(false);
   hasError = signal(false);
   errorMessage = signal<string>('');
 
@@ -155,14 +155,14 @@ export class ViolenciaComponent implements OnInit {
 
   // Señales reactivas
   currentFilters = signal<ContentFilters>({});
-  
+
   // Resultados filtrados
   filteredContents = computed(() => {
     const filters = {
       ...this.currentFilters(),
       currentLanguage: this.languageService.getCurrentLanguage()
     };
-    
+
     const result = this.searchFilterService.search(filters);
     return result.items as ViolenciaContent[];
   });
@@ -187,9 +187,9 @@ export class ViolenciaComponent implements OnInit {
 
   ngOnInit(): void {
     // Simular carga de datos
-    this.isLoading.set(true);
+    // this.isLoading.set(true);
     this.hasError.set(false);
-    
+
     // Simular carga asíncrona
     setTimeout(() => {
       try {
@@ -210,7 +210,7 @@ export class ViolenciaComponent implements OnInit {
           this.errorMessage.set('error.generic');
         }
       }
-    }, 800); // Simular delay de carga
+    }, 0); // Simular delay de carga
   }
 
   retryLoad(): void {
@@ -243,14 +243,14 @@ export class ViolenciaComponent implements OnInit {
 
   getDescription(content: ViolenciaContent): string {
     const lang = this.languageService.getCurrentLanguage();
-    return content.descripcion_lectura_facil[lang as keyof MultilingualText] || 
+    return content.descripcion_lectura_facil[lang as keyof MultilingualText] ||
            content.descripcion_lectura_facil.es;
   }
 
   getAlertSigns(content: ViolenciaContent): string {
     const lang = this.languageService.getCurrentLanguage();
     if (!content.senales_alerta) return '';
-    return content.senales_alerta[lang as keyof MultilingualText] || 
+    return content.senales_alerta[lang as keyof MultilingualText] ||
            content.senales_alerta.es || '';
   }
 

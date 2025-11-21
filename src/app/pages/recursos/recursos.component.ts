@@ -23,14 +23,14 @@ export class RecursosComponent implements OnInit {
   private translateService = inject(TranslateService);
 
   // Estados de carga y error
-  isLoading = signal(true);
+  isLoading = signal(false);
   hasError = signal(false);
   errorMessage = signal<string>('');
   ngOnInit(): void {
     // Simular carga de datos
-    this.isLoading.set(true);
+    // this.isLoading.set(true);
     this.hasError.set(false);
-    
+
     // Simular carga asíncrona
     setTimeout(() => {
       try {
@@ -47,7 +47,7 @@ export class RecursosComponent implements OnInit {
           this.errorMessage.set('error.generic');
         }
       }
-    }, 600);
+    }, 0);
   }
 
   retryLoad(): void {

@@ -35,7 +35,7 @@ export class DocumentalesComponent implements OnInit {
   private analyticsService = inject(AnalyticsService);
 
   // Estados de carga y error
-  isLoading = signal(true);
+  isLoading = signal(false);
   hasError = signal(false);
   errorMessage = signal<string>('');
 
@@ -44,17 +44,17 @@ export class DocumentalesComponent implements OnInit {
 
   // Documentales filtrados y visibles
   documentales = signal<RecursoContent[]>([]);
-  
+
   // Documentales filtrados (por búsqueda, director, año, hashtags)
   filteredDocumentales = computed(() => {
     const allDocumentales = this.documentales().filter(doc => doc.activo && doc.estado === 'publicado');
     const search = this.searchText().trim();
-    
+
     // Si no hay texto de búsqueda, devolver todos los documentales
     if (!search) {
       return allDocumentales;
     }
-    
+
     // Usar el servicio de recursos para filtrar por búsqueda
     const lang = this.languageService.getCurrentLanguage();
     return this.resourceService.filterRecursos(
@@ -164,24 +164,24 @@ export class DocumentalesComponent implements OnInit {
 
   ngOnInit(): void {
     // Simular carga de datos
-    this.isLoading.set(true);
+    // this.isLoading.set(true);
     this.hasError.set(false);
-    
+
     setTimeout(() => {
       try {
         if (this.offlineService.isOffline()) {
           throw new Error('offline');
         }
-        
+
         // Cargar documentales en el servicio
         this.resourceService.loadRecursos(this.sampleDocumentales);
-        
+
         // Obtener documentales del servicio
         this.documentales.set(this.resourceService.documentales());
-        
+
         // Trackear vista de página de documentales
         this.analyticsService.trackContentView('documentales-page', 'recurso', []);
-        
+
         this.isLoading.set(false);
       } catch (error: any) {
         this.hasError.set(true);
@@ -192,7 +192,7 @@ export class DocumentalesComponent implements OnInit {
           this.errorMessage.set('error.generic');
         }
       }
-    }, 800);
+    }, 0);
   }
 
   retryLoad(): void {

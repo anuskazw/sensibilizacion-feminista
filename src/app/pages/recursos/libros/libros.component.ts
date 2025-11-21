@@ -35,7 +35,7 @@ export class LibrosComponent implements OnInit {
   private analyticsService = inject(AnalyticsService);
 
   // Estados de carga y error
-  isLoading = signal(true);
+  isLoading = signal(false);
   hasError = signal(false);
   errorMessage = signal<string>('');
 
@@ -44,17 +44,17 @@ export class LibrosComponent implements OnInit {
 
   // Libros filtrados y visibles
   libros = signal<RecursoContent[]>([]);
-  
+
   // Libros filtrados (por búsqueda, autor, año, hashtags)
   filteredLibros = computed(() => {
     const allLibros = this.libros().filter(libro => libro.activo && libro.estado === 'publicado');
     const search = this.searchText().trim();
-    
+
     // Si no hay texto de búsqueda, devolver todos los libros
     if (!search) {
       return allLibros;
     }
-    
+
     // Usar el servicio de recursos para filtrar por búsqueda
     const lang = this.languageService.getCurrentLanguage();
     return this.resourceService.filterRecursos(
@@ -141,24 +141,24 @@ export class LibrosComponent implements OnInit {
 
   ngOnInit(): void {
     // Simular carga de datos
-    this.isLoading.set(true);
+    // this.isLoading.set(true);
     this.hasError.set(false);
-    
+
     setTimeout(() => {
       try {
         if (this.offlineService.isOffline()) {
           throw new Error('offline');
         }
-        
+
         // Cargar libros en el servicio
         this.resourceService.loadRecursos(this.sampleLibros);
-        
+
         // Obtener libros del servicio
         this.libros.set(this.resourceService.libros());
-        
+
         // Trackear vista de página de libros
         this.analyticsService.trackContentView('libros-page', 'recurso', []);
-        
+
         this.isLoading.set(false);
       } catch (error: any) {
         this.hasError.set(true);
@@ -169,7 +169,7 @@ export class LibrosComponent implements OnInit {
           this.errorMessage.set('error.generic');
         }
       }
-    }, 800);
+    }, 0);
   }
 
   retryLoad(): void {

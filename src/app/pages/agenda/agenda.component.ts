@@ -32,7 +32,7 @@ export class AgendaComponent implements OnInit {
   private analyticsService = inject(AnalyticsService);
 
   // Estados de carga y error
-  isLoading = signal(true);
+  isLoading = signal(false);
   hasError = signal(false);
   errorMessage = signal<string>('');
 
@@ -106,12 +106,12 @@ export class AgendaComponent implements OnInit {
 
   // Eventos filtrados por mes/año actual
   events = signal<AgendaEvent[]>([]);
-  
+
   // Eventos filtrados y agrupados por fecha
   eventsByDate = computed(() => {
     const events = this.events().filter(e => e.activo);
     const grouped = new Map<string, AgendaEvent[]>();
-    
+
     events.forEach(event => {
       const dateKey = this.getDateKey(event.fecha);
       if (!grouped.has(dateKey)) {
@@ -119,7 +119,7 @@ export class AgendaComponent implements OnInit {
       }
       grouped.get(dateKey)!.push(event);
     });
-    
+
     // Ordenar eventos dentro de cada fecha por hora
     grouped.forEach((eventList, dateKey) => {
       eventList.sort((a, b) => {
@@ -129,7 +129,7 @@ export class AgendaComponent implements OnInit {
         return 0;
       });
     });
-    
+
     return grouped;
   });
 
@@ -147,15 +147,15 @@ export class AgendaComponent implements OnInit {
 
   ngOnInit(): void {
     // Simular carga de datos
-    this.isLoading.set(true);
+    // this.isLoading.set(true);
     this.hasError.set(false);
-    
+
     setTimeout(() => {
       try {
         if (this.offlineService.isOffline()) {
           throw new Error('offline');
         }
-        
+
         // Filtrar eventos del mes/año actual y futuros
         const now = new Date();
         const filteredEvents = this.sampleEvents.filter(event => {
@@ -165,12 +165,12 @@ export class AgendaComponent implements OnInit {
           today.setHours(0, 0, 0, 0);
           return eventDate >= today;
         });
-        
+
         this.events.set(filteredEvents);
-        
+
         // Trackear vista de página de agenda
         this.analyticsService.trackContentView('agenda-page', 'blog', []);
-        
+
         this.isLoading.set(false);
       } catch (error: any) {
         this.hasError.set(true);
@@ -181,7 +181,7 @@ export class AgendaComponent implements OnInit {
           this.errorMessage.set('error.generic');
         }
       }
-    }, 800);
+    }, 0);
   }
 
   retryLoad(): void {
