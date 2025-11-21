@@ -1,0 +1,151 @@
+<div class="peliculas-y-series-page">
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'peliculasYSeries.title' | translate }}</h1>
+      <p class="content-description">
+        {{ 'peliculasYSeries.description' | translate }}
+      </p>
+    </div>
+
+    <!-- Estados de carga y error -->
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="card-grid"
+        [count]="3"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showHashtags]="true"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <!-- Barra de búsqueda -->
+      <div class="search-section">
+        <app-search-bar
+          [placeholder]="'peliculasYSeries.searchPlaceholder'"
+          (searchChange)="onSearchChange($event)">
+        </app-search-bar>
+      </div>
+
+      <!-- Vista de listado de películas y series -->
+      <div class="results-info">
+        @if (filteredPeliculasSeries().length > 0) {
+          <p class="results-count">
+            {{ 'peliculasYSeries.itemsCount' | translate: { count: filteredPeliculasSeries().length } }}
+          </p>
+        } @else if (searchText().trim()) {
+          <p class="no-results-message">
+            {{ 'peliculasYSeries.noResults' | translate }}
+          </p>
+        }
+      </div>
+
+      <!-- Grid de películas y series -->
+      <div class="peliculas-series-grid">
+        @for (peliculaSerie of filteredPeliculasSeries(); track peliculaSerie.id) {
+          <article class="pelicula-serie-card">
+            <!-- Imagen de la película/serie (placeholder) -->
+            <div class="pelicula-serie-image-placeholder">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M10 4v16M14 4v16"></path>
+              </svg>
+            </div>
+            
+            <div class="pelicula-serie-content">
+              <!-- Título -->
+              <h2 class="pelicula-serie-title">{{ getTitle(peliculaSerie) }}</h2>
+
+              <!-- Información de la película/serie -->
+              <div class="pelicula-serie-meta">
+                @if (peliculaSerie.direccion) {
+                  <div class="pelicula-serie-director">
+                    <span class="meta-label">{{ 'peliculasYSeries.director' | translate }}:</span>
+                    <span class="meta-value">{{ peliculaSerie.direccion }}</span>
+                  </div>
+                }
+                
+                @if (peliculaSerie.anio) {
+                  <div class="pelicula-serie-year">
+                    <span class="meta-label">{{ 'peliculasYSeries.year' | translate }}:</span>
+                    <span class="meta-value">{{ peliculaSerie.anio }}</span>
+                  </div>
+                }
+                
+                @if (peliculaSerie.num_temporadas) {
+                  <div class="pelicula-serie-seasons">
+                    <span class="meta-label">{{ 'peliculasYSeries.seasons' | translate }}:</span>
+                    <span class="meta-value">{{ peliculaSerie.num_temporadas }}</span>
+                  </div>
+                }
+                
+                @if (peliculaSerie.duracion) {
+                  <div class="pelicula-serie-duration">
+                    <span class="meta-label">{{ 'peliculasYSeries.duration' | translate }}:</span>
+                    <span class="meta-value">{{ peliculaSerie.duracion }} {{ 'peliculasYSeries.minutes' | translate }}</span>
+                  </div>
+                }
+              </div>
+
+              <!-- Sinopsis -->
+              <div class="pelicula-serie-description">
+                <p class="pelicula-serie-synopsis">{{ getDescription(peliculaSerie) }}</p>
+              </div>
+
+              <!-- Temática (Hashtags) -->
+              @if (peliculaSerie.hashtags && peliculaSerie.hashtags.length > 0) {
+                <div class="pelicula-serie-hashtags">
+                  @for (hashtag of peliculaSerie.hashtags; track hashtag.id) {
+                    <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                  }
+                </div>
+              }
+
+              <!-- Descripción en lectura fácil (expandible) -->
+              @if (peliculaSerie.descripcion_lectura_facil) {
+                <details class="easy-read-section">
+                  <summary>{{ 'peliculasYSeries.easyRead' | translate }}</summary>
+                  <div class="easy-read-content">
+                    {{ getEasyReadDescription(peliculaSerie) }}
+                  </div>
+                </details>
+              }
+            </div>
+          </article>
+        }
+      </div>
+
+      @if (filteredPeliculasSeries().length === 0 && !searchText().trim()) {
+        <div class="no-results">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2"
+            class="no-results-icon"
+            aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="M10 4v16M14 4v16"></path>
+          </svg>
+          <h2>{{ 'peliculasYSeries.noItems' | translate }}</h2>
+          <p>{{ 'peliculasYSeries.noItemsDescription' | translate }}</p>
+        </div>
+      }
+    }
+  </main>
+</div>
+

@@ -27,6 +27,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/recursos/libros/libros.component').then(m => m.LibrosComponent)
   },
   {
+    path: 'recursos/peliculas-y-series',
+    loadComponent: () => import('./pages/recursos/peliculas-y-series/peliculas-y-series.component').then(m => m.PeliculasYSeriesComponent)
+  },
+  {
     path: 'recursos-ayuda',
     loadComponent: () => import('./pages/recursos-ayuda/recursos-ayuda.component').then(m => m.RecursosAyudaComponent)
   },

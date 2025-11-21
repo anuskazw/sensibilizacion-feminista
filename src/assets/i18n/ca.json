@@ -239,6 +239,21 @@
     "editions": "Edicions",
     "easyRead": "Lectura fàcil"
   },
+  "peliculasYSeries": {
+    "title": "Pel·lícules i sèries",
+    "description": "Explora pel·lícules i sèries que aborden temes feministes i d'igualtat",
+    "searchPlaceholder": "Cercar per títol o director...",
+    "itemsCount": "{{ count }} pel·lícula(s)/sèrie(s) trobada(s)",
+    "noItems": "No hi ha pel·lícules ni sèries disponibles",
+    "noItemsDescription": "Pròximament afegirem més pel·lícules i sèries recomanades sobre feminisme.",
+    "noResults": "No s'han trobat pel·lícules o sèries amb aquest criteri de cerca.",
+    "director": "Director",
+    "year": "Any",
+    "seasons": "Temporades",
+    "duration": "Durada",
+    "minutes": "minuts",
+    "easyRead": "Lectura fàcil"
+  },
   "blog": {
     "title": "Blog",
     "description": "Articles i reflexions sobre feminisme, igualtat i drets de les dones",

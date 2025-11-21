@@ -239,6 +239,21 @@
     "editions": "Edicións",
     "easyRead": "Lectura doada"
   },
+  "peliculasYSeries": {
+    "title": "Películas e series",
+    "description": "Explora películas e series que abordan temas feministas e de igualdade",
+    "searchPlaceholder": "Buscar por título ou director...",
+    "itemsCount": "{{ count }} película(s)/serie(s) atopada(s)",
+    "noItems": "Non hai películas nin series dispoñibles",
+    "noItemsDescription": "Próximamente engadiremos máis películas e series recomendadas sobre feminismo.",
+    "noResults": "Non se atoparon películas ou series con ese criterio de busca.",
+    "director": "Director",
+    "year": "Ano",
+    "seasons": "Tempadas",
+    "duration": "Duración",
+    "minutes": "minutos",
+    "easyRead": "Lectura doada"
+  },
   "blog": {
     "title": "Blog",
     "description": "Artigos e reflexións sobre feminismo, igualdade e dereitos das mulleres",

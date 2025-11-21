@@ -239,6 +239,21 @@
     "editions": "Editions",
     "easyRead": "Easy read"
   },
+  "peliculasYSeries": {
+    "title": "Movies and series",
+    "description": "Explore movies and series that address feminist and equality themes",
+    "searchPlaceholder": "Search by title or director...",
+    "itemsCount": "{{ count }} movie(s)/series found",
+    "noItems": "No movies or series available",
+    "noItemsDescription": "We will add more recommended movies and series on feminism soon.",
+    "noResults": "No movies or series found matching your search criteria.",
+    "director": "Director",
+    "year": "Year",
+    "seasons": "Seasons",
+    "duration": "Duration",
+    "minutes": "minutes",
+    "easyRead": "Easy read"
+  },
   "blog": {
     "title": "Blog",
     "description": "Articles and reflections on feminism, equality and women's rights",

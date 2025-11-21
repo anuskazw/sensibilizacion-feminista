@@ -239,6 +239,21 @@
     "editions": "Edizioak",
     "easyRead": "Irakurketa erraza"
   },
+  "peliculasYSeries": {
+    "title": "Filmak eta telesailak",
+    "description": "Arakatu feminismoari eta berdintasunari buruzko filmak eta telesailak",
+    "searchPlaceholder": "Bilatu titulu edo zuzendariaren arabera...",
+    "itemsCount": "{{ count }} film/serie aurkitu dira",
+    "noItems": "Ez daude filmik ez telesailik eskuragarri",
+    "noItemsDescription": "Laster feminismoari buruzko film eta telesail gomendatu gehiago gehituko ditugu.",
+    "noResults": "Ez da filmik ez telesailik aurkitu bilaketa irizpide horrekin.",
+    "director": "Zuzendaria",
+    "year": "Urtea",
+    "seasons": "Denboraldiak",
+    "duration": "Iraupena",
+    "minutes": "minutu",
+    "easyRead": "Irakurketa erraza"
+  },
   "blog": {
     "title": "Bloga",
     "description": "Feminismoari, berdintasunari eta emakumeen eskubideei buruzko artikuluak eta hausnarketak",
