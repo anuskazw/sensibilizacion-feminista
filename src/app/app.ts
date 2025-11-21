@@ -1,13 +1,11 @@
-import { Component, OnInit, effect, computed } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
-import { NavigationSidebarComponent } from './shared/components/navigation-sidebar/navigation-sidebar.component';
 import { FooterComponent } from './shared/components/footer/footer';
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
 import { ScrollToTopComponent } from './shared/components/scroll-to-top/scroll-to-top.component';
 import { OfflineNotificationComponent } from './shared/components/offline-notification/offline-notification.component';
 import { LanguageService } from './core/services/language.service';
-import { SidebarService } from './core/services/sidebar.service';
 import { SeoService } from './core/services/seo.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
@@ -15,7 +13,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, NavigationSidebarComponent, FooterComponent, CookieBannerComponent, ScrollToTopComponent, OfflineNotificationComponent, TranslateModule, CommonModule],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, CookieBannerComponent, ScrollToTopComponent, OfflineNotificationComponent, TranslateModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -24,19 +22,9 @@ export class App implements OnInit {
 
   constructor(
     private languageService: LanguageService,
-    public sidebarService: SidebarService,
     private seoService: SeoService,
     private router: Router
   ) {
-    // Efecto para añadir/quitar clase en el body cuando el sidebar cambia de estado
-    effect(() => {
-      const isCollapsed = this.sidebarService.isCollapsed();
-      if (isCollapsed) {
-        document.body.classList.add('sidebar-collapsed');
-      } else {
-        document.body.classList.remove('sidebar-collapsed');
-      }
-    });
 
     // Detectar cambios de ruta para ocultar header/sidebar en admin
     this.router.events

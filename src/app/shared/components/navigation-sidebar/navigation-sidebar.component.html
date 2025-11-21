@@ -1,22 +1,22 @@
-<aside 
+<aside
   class="navigation-sidebar"
   [class.sidebar-collapsed]="sidebarService.isCollapsed()"
   [class.sidebar-open]="isOpen"
-  role="navigation"
+  role="complementary"
   [attr.aria-label]="'navigationSidebar.title' | translate">
-  
+
   <!-- Botón para colapsar/expandir -->
-  <button 
+  <button
     class="sidebar-toggle"
     (click)="toggleCollapse()"
     [attr.aria-label]="sidebarService.isCollapsed() ? ('navigationSidebar.expand' | translate) : ('navigationSidebar.collapse' | translate)"
     [attr.aria-expanded]="!sidebarService.isCollapsed()"
     type="button">
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
       stroke-width="2"
       [class.rotated]="sidebarService.isCollapsed()"
       aria-hidden="true">
@@ -39,8 +39,8 @@
     <ul class="nav-list">
       @for (link of navigationLinks; track link.id) {
         <li class="nav-item">
-          <a 
-            [routerLink]="link.route" 
+          <a
+            [routerLink]="link.route"
             [routerLinkActive]="'active'"
             [routerLinkActiveOptions]="link.exact ? {exact: true} : {exact: false}"
             class="nav-link"

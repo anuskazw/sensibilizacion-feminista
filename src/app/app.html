@@ -8,12 +8,7 @@
   <app-header></app-header>
 }
 
-<!-- Sidebar de navegación lateral izquierdo reutilizable -->
-@if (!isAdminRoute) {
-  <app-navigation-sidebar></app-navigation-sidebar>
-}
-
-<!-- Contenido principal - con margen para la cabecera fija y el sidebar -->
+<!-- Contenido principal - con margen para la cabecera fija -->
 <main id="main-content" [class.main-content]="!isAdminRoute" [class.admin-fullscreen]="isAdminRoute" role="main" tabindex="-1">
   <router-outlet></router-outlet>
 </main>

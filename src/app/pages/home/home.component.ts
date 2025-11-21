@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -10,7 +10,9 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
+  @ViewChild('homeContainer', { static: false }) homeContainer!: ElementRef<HTMLElement>;
+  
   // Índice de la sección activa (0-3)
   activeSection = signal(0);
 
@@ -48,11 +50,25 @@ export class HomeComponent {
     }
   ];
 
+  ngAfterViewInit(): void {
+    // Configurar listener de scroll en el contenedor
+    const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
+    if (container) {
+      container.addEventListener('scroll', () => this.onScroll());
+      // Verificar sección inicial
+      this.onScroll();
+    }
+  }
+
   // Detecta cambios en el scroll para actualizar la sección activa
-  @HostListener('window:scroll')
   onScroll(): void {
+    const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
+    if (!container) return;
+
     const sections = document.querySelectorAll('.home-section');
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    const scrollTop = container.scrollTop;
+    const containerHeight = container.clientHeight;
+    const scrollPosition = scrollTop + containerHeight / 2;
 
     sections.forEach((section, index) => {
       const element = section as HTMLElement;
@@ -67,9 +83,12 @@ export class HomeComponent {
 
   // Navega a una sección específica
   scrollToSection(index: number): void {
+    const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
     const sections = document.querySelectorAll('.home-section');
-    if (sections[index]) {
-      sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (sections[index] && container) {
+      const section = sections[index] as HTMLElement;
+      const sectionTop = section.offsetTop;
+      container.scrollTo({ top: sectionTop, behavior: 'smooth' });
     }
   }
 

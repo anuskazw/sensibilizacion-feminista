@@ -1,15 +1,15 @@
-<div class="home-container" role="main">
-  
+<div class="home-container" role="main" #homeContainer>
+
   <!-- Sección 1: Objetivo de la web -->
-  <section class="home-section section-welcome" id="section-1" 
+  <section class="home-section section-welcome" id="section-1"
            [attr.aria-label]="'home.section1.title' | translate">
     <div class="section-content">
       <h1 class="section-title">{{ 'home.section1.title' | translate }}</h1>
       <p class="section-description">{{ 'home.section1.description' | translate }}</p>
       <p class="section-purpose">{{ 'home.section1.purpose' | translate }}</p>
-      
+
       <div class="video-buttons">
-        <button class="btn-primary" 
+        <button class="btn-primary"
                 (click)="scrollToSection(1)"
                 [attr.aria-label]="'home.section1.readInSign' | translate">
           {{ 'home.section1.readInSign' | translate }} (LSE/LSC)
@@ -29,7 +29,7 @@
     <div class="section-content">
       <h2 class="section-title">{{ 'home.section2.title' | translate }}</h2>
       <p class="section-description">{{ 'home.section2.description' | translate }}</p>
-      
+
       <div class="navigation-features">
         <div class="feature-item">
           <span class="feature-icon" aria-hidden="true">🗂️</span>
@@ -60,7 +60,7 @@
            [attr.aria-label]="'home.section3.title' | translate">
     <div class="section-content">
       <h2 class="section-title">{{ 'home.section3.title' | translate }}</h2>
-      
+
       <div class="accessibility-grid">
         <div class="accessibility-card">
           <h3>{{ 'home.section3.languageTitle' | translate }}</h3>
@@ -96,9 +96,9 @@
     <div class="section-content">
       <h2 class="section-title">{{ 'home.section4.title' | translate }}</h2>
       <p class="section-description">{{ 'home.section4.description' | translate }}</p>
-      
+
       <nav class="navigation-grid" aria-label="Navegación principal de contenidos">
-        <a *ngFor="let card of navigationCards" 
+        <a *ngFor="let card of navigationCards"
            [routerLink]="card.route"
            class="navigation-card"
            [attr.aria-label]="card.ariaLabel">
