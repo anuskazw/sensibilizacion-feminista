@@ -1,0 +1,146 @@
+<div class="documentales-page">
+  <!-- Contenido principal -->
+  <main class="main-content" role="main">
+    <div class="content-header">
+      <h1>{{ 'documentales.title' | translate }}</h1>
+      <p class="content-description">
+        {{ 'documentales.description' | translate }}
+      </p>
+    </div>
+
+    <!-- Estados de carga y error -->
+    @if (isLoading()) {
+      <app-skeleton-screen
+        type="card-grid"
+        [count]="3"
+        [showTitle]="true"
+        [showDescription]="true"
+        [showHashtags]="true"
+        [showButton]="false">
+      </app-skeleton-screen>
+    } @else if (hasError()) {
+      <app-error-state
+        [message]="errorMessage()"
+        [showRetry]="true"
+        [suggestions]="getErrorSuggestions()"
+        (retry)="retryLoad()">
+      </app-error-state>
+    } @else {
+      <!-- Barra de búsqueda -->
+      <div class="search-section">
+        <app-search-bar
+          [placeholder]="'documentales.searchPlaceholder'"
+          (searchChange)="onSearchChange($event)">
+        </app-search-bar>
+      </div>
+
+      <!-- Vista de listado de documentales -->
+      <div class="results-info">
+        @if (filteredDocumentales().length > 0) {
+          <p class="results-count">
+            {{ 'documentales.documentariesCount' | translate: { count: filteredDocumentales().length } }}
+          </p>
+        } @else if (searchText().trim()) {
+          <p class="no-results-message">
+            {{ 'documentales.noResults' | translate }}
+          </p>
+        }
+      </div>
+
+      <!-- Grid de documentales -->
+      <div class="documentales-grid">
+        @for (documental of filteredDocumentales(); track documental.id) {
+          <article class="documental-card">
+            <!-- Imagen del documental (placeholder) -->
+            <div class="documental-image-placeholder">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <circle cx="8" cy="10" r="2"></circle>
+                <path d="M18 14l-4-4-4 4"></path>
+              </svg>
+            </div>
+            
+            <div class="documental-content">
+              <!-- Título -->
+              <h2 class="documental-title">{{ getTitle(documental) }}</h2>
+
+              <!-- Información del documental -->
+              <div class="documental-meta">
+                @if (documental.direccion) {
+                  <div class="documental-director">
+                    <span class="meta-label">{{ 'documentales.director' | translate }}:</span>
+                    <span class="meta-value">{{ documental.direccion }}</span>
+                  </div>
+                }
+                
+                @if (documental.anio) {
+                  <div class="documental-year">
+                    <span class="meta-label">{{ 'documentales.year' | translate }}:</span>
+                    <span class="meta-value">{{ documental.anio }}</span>
+                  </div>
+                }
+                
+                @if (documental.duracion) {
+                  <div class="documental-duration">
+                    <span class="meta-label">{{ 'documentales.duration' | translate }}:</span>
+                    <span class="meta-value">{{ documental.duracion }} {{ 'documentales.minutes' | translate }}</span>
+                  </div>
+                }
+              </div>
+
+              <!-- Sinopsis -->
+              <div class="documental-description">
+                <p class="documental-synopsis">{{ getDescription(documental) }}</p>
+              </div>
+
+              <!-- Temática (Hashtags) -->
+              @if (documental.hashtags && documental.hashtags.length > 0) {
+                <div class="documental-hashtags">
+                  @for (hashtag of documental.hashtags; track hashtag.id) {
+                    <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                  }
+                </div>
+              }
+
+              <!-- Descripción en lectura fácil (expandible) -->
+              @if (documental.descripcion_lectura_facil) {
+                <details class="easy-read-section">
+                  <summary>{{ 'documentales.easyRead' | translate }}</summary>
+                  <div class="easy-read-content">
+                    {{ getEasyReadDescription(documental) }}
+                  </div>
+                </details>
+              }
+            </div>
+          </article>
+        }
+      </div>
+
+      @if (filteredDocumentales().length === 0 && !searchText().trim()) {
+        <div class="no-results">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2"
+            class="no-results-icon"
+            aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <circle cx="8" cy="10" r="2"></circle>
+            <path d="M18 14l-4-4-4 4"></path>
+          </svg>
+          <h2>{{ 'documentales.noDocumentaries' | translate }}</h2>
+          <p>{{ 'documentales.noDocumentariesDescription' | translate }}</p>
+        </div>
+      }
+    }
+  </main>
+</div>
+

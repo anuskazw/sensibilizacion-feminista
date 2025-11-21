@@ -254,6 +254,20 @@
     "minutes": "minutos",
     "easyRead": "Lectura fácil"
   },
+  "documentales": {
+    "title": "Documentales",
+    "description": "Accede a documentales sobre movimientos feministas y luchas por la igualdad",
+    "searchPlaceholder": "Buscar por título o director...",
+    "documentariesCount": "{{ count }} documental(es) encontrado(s)",
+    "noDocumentaries": "No hay documentales disponibles",
+    "noDocumentariesDescription": "Próximamente añadiremos más documentales recomendados sobre feminismo.",
+    "noResults": "No se encontraron documentales con ese criterio de búsqueda.",
+    "director": "Director",
+    "year": "Año",
+    "duration": "Duración",
+    "minutes": "minutos",
+    "easyRead": "Lectura fácil"
+  },
   "blog": {
     "title": "Blog",
     "description": "Artículos y reflexiones sobre feminismo, igualdad y derechos de las mujeres",

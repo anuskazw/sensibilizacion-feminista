@@ -254,6 +254,20 @@
     "minutes": "minuts",
     "easyRead": "Lectura fàcil"
   },
+  "documentales": {
+    "title": "Documentals",
+    "description": "Accedeix a documentals sobre moviments feministes i lluites per la igualtat",
+    "searchPlaceholder": "Cercar per títol o director...",
+    "documentariesCount": "{{ count }} documental(s) trobat(s)",
+    "noDocumentaries": "No hi ha documentals disponibles",
+    "noDocumentariesDescription": "Pròximament afegirem més documentals recomanats sobre feminisme.",
+    "noResults": "No s'han trobat documentals amb aquest criteri de cerca.",
+    "director": "Director",
+    "year": "Any",
+    "duration": "Durada",
+    "minutes": "minuts",
+    "easyRead": "Lectura fàcil"
+  },
   "blog": {
     "title": "Blog",
     "description": "Articles i reflexions sobre feminisme, igualtat i drets de les dones",

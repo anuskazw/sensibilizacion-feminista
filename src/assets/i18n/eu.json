@@ -254,6 +254,20 @@
     "minutes": "minutu",
     "easyRead": "Irakurketa erraza"
   },
+  "documentales": {
+    "title": "Dokumentalak",
+    "description": "Sartu feminismo mugimenduei eta berdintasun borrokei buruzko dokumentaletan",
+    "searchPlaceholder": "Bilatu titulu edo zuzendariaren arabera...",
+    "documentariesCount": "{{ count }} dokumental aurkitu dira",
+    "noDocumentaries": "Ez daude dokumentalik eskuragarri",
+    "noDocumentariesDescription": "Laster feminismoari buruzko dokumental gomendatu gehiago gehituko ditugu.",
+    "noResults": "Ez da dokumentalik aurkitu bilaketa irizpide horrekin.",
+    "director": "Zuzendaria",
+    "year": "Urtea",
+    "duration": "Iraupena",
+    "minutes": "minutu",
+    "easyRead": "Irakurketa erraza"
+  },
   "blog": {
     "title": "Bloga",
     "description": "Feminismoari, berdintasunari eta emakumeen eskubideei buruzko artikuluak eta hausnarketak",
