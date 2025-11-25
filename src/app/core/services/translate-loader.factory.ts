@@ -11,15 +11,9 @@ export class CustomTranslateLoader implements TranslateLoader {
   constructor(private http: HttpClient) {}
 
   getTranslation(lang: string): Observable<any> {
-    // Obtener el baseHref del tag <base> o usar '/' por defecto
-    // Esto funciona tanto en desarrollo como en producción con baseHref configurado
-    const baseElement = document.querySelector('base');
-    const baseHref = baseElement?.getAttribute('href') || '/';
-    
-    // Construir la ruta relativa al baseHref, eliminando barras duplicadas
-    const path = `${baseHref}assets/i18n/${lang}.json`.replace(/([^:]\/)\/+/g, '$1');
-    
-    return this.http.get(path);
+    // Usar ruta relativa: Angular HttpClient maneja automáticamente el baseHref
+    // Esto funciona tanto en desarrollo (baseHref="/") como en producción (baseHref="/sensibilizacion-feminista/")
+    return this.http.get(`assets/i18n/${lang}.json`);
   }
 }
 
