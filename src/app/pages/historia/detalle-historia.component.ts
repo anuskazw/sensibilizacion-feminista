@@ -226,12 +226,29 @@ export class DetalleHistoriaComponent implements OnInit {
       // Formato: https://www.youtube.com/watch?v=VIDEO_ID
       videoId = url.split('v=')[1]?.split('&')[0] || '';
     } else if (url.includes('youtube.com/embed/')) {
-      // Ya es formato embed
-      return url.split('?')[0]; // Remover parámetros adicionales
+      // Ya es formato embed, extraer videoId y reconstruir con parámetros
+      const match = url.match(/embed\/([^?]+)/);
+      if (match) {
+        videoId = match[1];
+      } else {
+        return url.split('?')[0]; // Remover parámetros adicionales si no hay videoId
+      }
     }
     
     if (videoId) {
-      return `https://www.youtube.com/embed/${videoId}`;
+      // Parámetros para reducir tracking y recursos innecesarios:
+      // - modestbranding=1: Reduce branding de YouTube
+      // - rel=0: No muestra videos relacionados al final
+      // - enablejsapi=0: Desactiva JavaScript API (reduce solicitudes)
+      // - origin: Especifica el origen para seguridad
+      const params = new URLSearchParams({
+        'modestbranding': '1',
+        'rel': '0',
+        'enablejsapi': '0',
+        'origin': typeof window !== 'undefined' ? window.location.origin : ''
+      });
+      
+      return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
     }
     
     return url;

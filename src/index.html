@@ -16,13 +16,14 @@
   <!-- Content Security Policy (CSP) -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://youtube.com https://www.google.com;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' data: blob:;
+    img-src 'self' data: blob: https://www.youtube.com https://youtube.com https://i.ytimg.com https://www.google.com;
     font-src 'self' data:;
     connect-src 'self' https:;
     media-src 'self' blob:;
     frame-src 'self' https://www.youtube.com https://youtube.com;
+    child-src 'self' https://www.youtube.com https://youtube.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
