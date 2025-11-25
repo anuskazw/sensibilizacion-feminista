@@ -11,6 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/historia/historia.component').then(m => m.HistoriaComponent)
   },
   {
+    path: 'historia/:slug',
+    loadComponent: () => import('./pages/historia/detalle-historia.component').then(m => m.DetalleHistoriaComponent)
+  },
+  {
     path: 'conceptos',
     loadComponent: () => import('./pages/conceptos/conceptos.component').then(m => m.ConceptosComponent)
   },

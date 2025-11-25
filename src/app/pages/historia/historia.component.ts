@@ -1,5 +1,6 @@
 import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContentSidebarComponent } from '../../shared/components/content-sidebar/content-sidebar.component';
 import { SocialShareComponent } from '../../shared/components/social-share/social-share.component';
@@ -20,7 +21,7 @@ import { sampleContents } from './data';
 @Component({
   selector: 'app-historia',
   standalone: true,
-  imports: [CommonModule, TranslateModule, ContentSidebarComponent, SocialShareComponent],
+  imports: [CommonModule, TranslateModule, RouterLink, ContentSidebarComponent, SocialShareComponent],
   templateUrl: './historia.component.html',
   styleUrl: './historia.component.css'
 })

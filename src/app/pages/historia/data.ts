@@ -46,6 +46,8 @@ export const sampleContents: HistoriaContent[] = [
     estado: 'publicado',
     fecha_creacion: new Date('2024-01-10'),
     fecha_modificacion: new Date('2024-01-15'),
+    video_lse_url: 'https://example.com/videos/sufragio-femenino-lse.mp4',
+    video_transcription: createMultilingualText('En este vídeo se explica la historia del sufragio femenino en España, un logro histórico conseguido en 1931 durante la Segunda República.'),
     referencias: [
       { titulo: 'Historia del sufragismo en España', autor: 'María Martínez', anio: 2010 }
     ]
@@ -63,7 +65,9 @@ export const sampleContents: HistoriaContent[] = [
     fecha_publicacion: new Date('2024-01-20'),
     estado: 'publicado',
     fecha_creacion: new Date('2024-01-15'),
-    fecha_modificacion: new Date('2024-01-20')
+    fecha_modificacion: new Date('2024-01-20'),
+    video_lse_url: 'https://example.com/videos/clara-campoamor-lse.mp4',
+    video_transcription: createMultilingualText('Este vídeo cuenta la vida y obra de Clara Campoamor, una de las principales defensoras del sufragio femenino en España.')
   },
   {
     id: '3',
@@ -78,7 +82,9 @@ export const sampleContents: HistoriaContent[] = [
     fecha_publicacion: new Date('2024-02-01'),
     estado: 'publicado',
     fecha_creacion: new Date('2024-01-25'),
-    fecha_modificacion: new Date('2024-02-01')
+    fecha_modificacion: new Date('2024-02-01'),
+    video_lse_url: 'https://example.com/videos/olympe-de-gouges-lse.mp4',
+    video_transcription: createMultilingualText('Vídeo sobre Olympe de Gouges y su Declaración de los Derechos de la Mujer y la Ciudadana, un documento histórico fundamental para el feminismo.')
   },
   {
     id: '4',
@@ -93,7 +99,9 @@ export const sampleContents: HistoriaContent[] = [
     fecha_publicacion: new Date('2024-02-10'),
     estado: 'publicado',
     fecha_creacion: new Date('2024-02-05'),
-    fecha_modificacion: new Date('2024-02-10')
+    fecha_modificacion: new Date('2024-02-10'),
+    video_lse_url: 'https://example.com/videos/dia-internacional-mujer-lse.mp4',
+    video_transcription: createMultilingualText('Vídeo explicativo sobre el Día Internacional de la Mujer, su historia y su importancia en la lucha por la igualdad de género.')
   },
   {
     id: '5',
@@ -108,7 +116,9 @@ export const sampleContents: HistoriaContent[] = [
     fecha_publicacion: new Date('2024-03-01'),
     estado: 'publicado',
     fecha_creacion: new Date('2024-02-25'),
-    fecha_modificacion: new Date('2024-03-01')
+    fecha_modificacion: new Date('2024-03-01'),
+    video_lse_url: 'https://example.com/videos/movimiento-me-too-lse.mp4',
+    video_transcription: createMultilingualText('Vídeo sobre el movimiento #MeToo, su origen, impacto y significado en la lucha contra el acoso y la violencia sexual.')
   }
 ];
 

@@ -30,7 +30,7 @@
     <div class="contents-grid">
       @if (filteredContents().length > 0) {
         @for (content of filteredContents(); track content.id) {
-          <article class="content-card">
+          <article class="content-card" [routerLink]="['/historia', content.slug]" [attr.aria-label]="'Ver detalles de ' + getTitle(content)">
             <div class="card-header">
               <span class="card-year">{{ content.anio }}</span>
               <h2 class="card-title">{{ getTitle(content) }}</h2>
@@ -48,13 +48,13 @@
               </div>
             </div>
 
-            <div class="card-share">
+            <div class="card-share" (click)="$event.stopPropagation()">
               <app-social-share [content]="content"></app-social-share>
             </div>
 
             @if (content.video_lse_url) {
               <div class="card-actions">
-                <button class="video-button" type="button">
+                <span class="video-indicator">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -64,8 +64,8 @@
                     aria-hidden="true">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
-                  Ver vídeo en LSE
-                </button>
+                  Vídeo disponible
+                </span>
               </div>
             }
           </article>
