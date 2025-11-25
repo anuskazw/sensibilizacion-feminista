@@ -196,34 +196,19 @@
   box-shadow: 0 0 0 3px rgba(92, 45, 145, 0.3);
 }
 
-/* Tablet: mantener relative pero con anchura más pequeña */
+/* Tablet: ocultar sidebar y mostrar botón de embudo (641px - 1024px) */
 @media (max-width: 1024px) {
   .content-sidebar {
-    max-width: 280px; /* Anchura más pequeña en tablet */
+    display: none; /* Ocultar sidebar en tablet */
   }
 
-  .sidebar-content {
-    padding: 1.5rem 1rem;
-  }
-
-  .section-title {
-    font-size: 1.25rem;
-  }
-}
-
-/* Móvil: ocultar sidebar, mostrar botón de embudo */
-@media (max-width: 640px) {
-  .content-sidebar {
-    display: none; /* Ocultar sidebar en móvil */
-  }
-
-  /* Botón de embudo visible en móvil */
+  /* Botón de embudo visible en tablet */
   .filter-button-mobile {
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 75px; /* Debajo del header */
+    top: 135px; /* Debajo del header */
     right: 1rem;
     width: 3rem;
     height: 3rem;
@@ -252,6 +237,11 @@
     height: 1.5rem;
     color: #ffffff;
   }
+}
+
+/* Móvil: ajustes específicos si es necesario */
+@media (max-width: 640px) {
+  /* El sidebar ya está oculto y el botón ya está visible desde el media query de 1024px */
 }
 
 /* Móvil pequeño */
