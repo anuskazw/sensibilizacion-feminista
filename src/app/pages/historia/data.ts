@@ -46,7 +46,7 @@ export const sampleContents: HistoriaContent[] = [
     estado: 'publicado',
     fecha_creacion: new Date('2024-01-10'),
     fecha_modificacion: new Date('2024-01-15'),
-    video_lse_url: 'https://example.com/videos/sufragio-femenino-lse.mp4',
+    video_lse_url: 'https://youtu.be/BcX2-sbMtqI?si=55FrsjEWERYPvlxf',
     video_transcription: createMultilingualText('En este vídeo se explica la historia del sufragio femenino en España, un logro histórico conseguido en 1931 durante la Segunda República.'),
     referencias: [
       { titulo: 'Historia del sufragismo en España', autor: 'María Martínez', anio: 2010 }

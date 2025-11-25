@@ -2,6 +2,7 @@ import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SocialShareComponent } from '../../shared/components/social-share/social-share.component';
 import { SignLanguageVideoPlayerComponent } from '../../shared/components/sign-language-video-player/sign-language-video-player.component';
 import { SearchFilterService } from '../../core/services/search-filter.service';
@@ -37,6 +38,7 @@ export class DetalleHistoriaComponent implements OnInit {
   private languageService = inject(LanguageService);
   private translateService = inject(TranslateService);
   private analyticsService = inject(AnalyticsService);
+  private sanitizer = inject(DomSanitizer);
 
   // Contenido actual
   content = signal<HistoriaContent | null>(null);
@@ -204,6 +206,46 @@ export class DetalleHistoriaComponent implements OnInit {
         : undefined,
       subtitlesUrl: content.video_subtitles_url
     };
+  }
+
+  isYouTubeUrl(url?: string): boolean {
+    if (!url) return false;
+    return url.includes('youtube.com') || url.includes('youtu.be');
+  }
+
+  getYouTubeEmbedUrl(url: string): string {
+    if (!url) return '';
+    
+    // Convertir diferentes formatos de URL de YouTube a embed
+    let videoId = '';
+    
+    if (url.includes('youtu.be/')) {
+      // Formato: https://youtu.be/VIDEO_ID
+      videoId = url.split('youtu.be/')[1]?.split('?')[0] || '';
+    } else if (url.includes('youtube.com/watch?v=')) {
+      // Formato: https://www.youtube.com/watch?v=VIDEO_ID
+      videoId = url.split('v=')[1]?.split('&')[0] || '';
+    } else if (url.includes('youtube.com/embed/')) {
+      // Ya es formato embed
+      return url.split('?')[0]; // Remover parámetros adicionales
+    }
+    
+    if (videoId) {
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+    
+    return url;
+  }
+
+  getSafeYouTubeUrl(url: string): SafeResourceUrl {
+    const embedUrl = this.getYouTubeEmbedUrl(url);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+  }
+
+  getVideoUrl(): string | null {
+    const content = this.content();
+    if (!content) return null;
+    return content.video_lse_url || content.video_lsc_url || null;
   }
 
   getShareUrl(): string {
