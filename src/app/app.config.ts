@@ -4,6 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideServiceWorker } from '@angular/service-worker';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { routes } from './app.routes';
 import { createTranslateLoader } from './core/services/translate-loader.factory';
@@ -22,7 +23,7 @@ export const appConfig: ApplicationConfig = {
         loader: {
           provide: TranslateLoader,
           useFactory: createTranslateLoader,
-          deps: [HttpClient]
+          deps: [HttpClient, APP_BASE_HREF]
         },
         defaultLanguage: 'es'
       })
