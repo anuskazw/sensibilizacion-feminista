@@ -38,7 +38,6 @@
       <!-- Video signado -->
       @if (content()!.video_lse_url || content()!.video_lsc_url) {
         <section class="video-section">
-          <h2 class="section-title">Vídeo en Lengua de Signos</h2>
           <app-sign-language-video-player
             [video]="getVideoData()!"
             [inline]="true"
@@ -51,7 +50,6 @@
       <!-- Contenido extendido del artículo -->
       <article class="article-content">
         <div class="article-body">
-          <h2 class="section-title">Artículo completo</h2>
           <div class="article-text">
             @for (paragraph of getExtendedContentParagraphs(); track $index) {
               <p>{{ paragraph }}</p>
