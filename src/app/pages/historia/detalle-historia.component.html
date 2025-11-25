@@ -87,7 +87,7 @@
       <!-- Compartir en redes sociales -->
       <section class="share-section">
         <h2 class="section-title">Compartir</h2>
-        <app-social-share [content]="content()!"></app-social-share>
+        <app-social-share [content]="content()!" [url]="getShareUrl()"></app-social-share>
       </section>
     </main>
   }

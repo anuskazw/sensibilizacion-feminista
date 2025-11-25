@@ -47,7 +47,8 @@ export class DetalleHistoriaComponent implements OnInit {
   contenidoExtendido = signal<MultilingualText | null>(null);
 
   ngOnInit(): void {
-    // Inicializar el servicio con datos de ejemplo si no están cargados
+    // Asegurar que los datos estén cargados antes de buscar el contenido
+    // Esto es importante cuando se accede directamente a la URL compartida
     const currentContents = this.searchFilterService.getContents();
     if (currentContents.length === 0) {
       this.searchFilterService.setContents(sampleContents);
@@ -57,6 +58,11 @@ export class DetalleHistoriaComponent implements OnInit {
     this.route.params.subscribe(params => {
       const slug = params['slug'];
       if (slug) {
+        // Asegurar que los datos estén cargados antes de buscar
+        const contents = this.searchFilterService.getContents();
+        if (contents.length === 0) {
+          this.searchFilterService.setContents(sampleContents);
+        }
         this.loadContent(slug);
       } else {
         this.notFound.set(true);
@@ -66,7 +72,13 @@ export class DetalleHistoriaComponent implements OnInit {
   }
 
   private loadContent(slug: string): void {
-    const contents = this.searchFilterService.getContents() as HistoriaContent[];
+    // Asegurar que los datos estén cargados
+    let contents = this.searchFilterService.getContents() as HistoriaContent[];
+    if (contents.length === 0) {
+      this.searchFilterService.setContents(sampleContents);
+      contents = this.searchFilterService.getContents() as HistoriaContent[];
+    }
+
     const foundContent = contents.find(c => c.slug === slug && c.tipo === 'historia');
 
     if (foundContent) {
@@ -192,6 +204,12 @@ export class DetalleHistoriaComponent implements OnInit {
         : undefined,
       subtitlesUrl: content.video_subtitles_url
     };
+  }
+
+  getShareUrl(): string {
+    const content = this.content();
+    if (!content) return '';
+    return `/historia/${content.slug}`;
   }
 
   goBack(): void {
