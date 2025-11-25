@@ -38,11 +38,11 @@
       <!-- Video signado -->
       @if (content()!.video_lse_url || content()!.video_lsc_url) {
         <section class="video-section">
-          @if (isYouTubeUrl(getVideoUrl() || undefined)) {
+          @if (safeYouTubeUrl()) {
             <!-- Video de YouTube embebido -->
             <div class="youtube-video-container">
               <iframe
-                [src]="getSafeYouTubeUrl(getVideoUrl()!)"
+                [src]="safeYouTubeUrl()!"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen

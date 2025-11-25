@@ -48,6 +48,17 @@ export class DetalleHistoriaComponent implements OnInit {
   // Contenido extendido para el artículo largo
   contenidoExtendido = signal<MultilingualText | null>(null);
 
+  // URL segura del video de YouTube cacheada para evitar recargas
+  safeYouTubeUrl = computed(() => {
+    const currentContent = this.content();
+    if (!currentContent) return null;
+    
+    const videoUrl = currentContent.video_lse_url || currentContent.video_lsc_url || null;
+    if (!videoUrl || !this.isYouTubeUrl(videoUrl)) return null;
+    
+    return this.getSafeYouTubeUrl(videoUrl);
+  });
+
   ngOnInit(): void {
     // Asegurar que los datos estén cargados antes de buscar el contenido
     // Esto es importante cuando se accede directamente a la URL compartida
