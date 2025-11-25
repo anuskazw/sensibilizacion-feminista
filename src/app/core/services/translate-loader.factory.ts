@@ -31,12 +31,12 @@ export class CustomTranslateLoader implements TranslateLoader {
     if (normalizedBaseHref !== '/' && !normalizedBaseHref.endsWith('/')) {
       normalizedBaseHref += '/';
     }
-    
+
     // Construir la ruta completa con el baseHref
-    const path = normalizedBaseHref === '/' 
+    const path = normalizedBaseHref === '/'
       ? `/assets/i18n/${lang}.json`
       : `${normalizedBaseHref}assets/i18n/${lang}.json`;
-    
+
     return this.http.get(path);
   }
 }
