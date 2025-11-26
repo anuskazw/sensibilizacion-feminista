@@ -51,18 +51,14 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit(): void {
-    // Solo configurar scroll en dispositivos de escritorio (no móviles ni tablets)
-    if (this.isMobileOrTablet()) {
-      return;
-    }
-
     // Configurar listener de scroll en el contenedor
     const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
-    if (container) {
+    if (container && !this.isMobileOrTablet()) {
       container.addEventListener('scroll', () => this.onScroll());
       // Verificar sección inicial
       this.onScroll();
     }
+
   }
 
   // Detecta si el dispositivo es móvil o tablet
@@ -80,6 +76,11 @@ export class HomeComponent implements AfterViewInit {
 
   // Detecta cambios en el scroll para actualizar la sección activa
   onScroll(): void {
+    // Solo procesar scroll en escritorio
+    if (this.isMobileOrTablet()) {
+      return;
+    }
+
     const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
     if (!container) return;
 
@@ -101,6 +102,11 @@ export class HomeComponent implements AfterViewInit {
 
   // Navega a una sección específica
   scrollToSection(index: number): void {
+    // Solo permitir scroll programático en escritorio
+    if (this.isMobileOrTablet()) {
+      return;
+    }
+
     const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
     const sections = document.querySelectorAll('.home-section');
     if (sections[index] && container) {
@@ -113,6 +119,11 @@ export class HomeComponent implements AfterViewInit {
   // Manejo de teclado para accesibilidad
   @HostListener('window:keydown', ['$event'])
   handleKeyboardNavigation(event: KeyboardEvent): void {
+    // Solo permitir navegación por teclado en escritorio
+    if (this.isMobileOrTablet()) {
+      return;
+    }
+
     if (event.key === 'ArrowDown' && event.ctrlKey) {
       event.preventDefault();
       const nextSection = Math.min(this.activeSection() + 1, 3);
