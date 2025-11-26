@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class HomeComponent implements AfterViewInit {
   @ViewChild('homeContainer', { static: false }) homeContainer!: ElementRef<HTMLElement>;
-  
+
   // Índice de la sección activa (0-3)
   activeSection = signal(0);
 
@@ -51,6 +51,11 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit(): void {
+    // Solo configurar scroll en dispositivos de escritorio (no móviles ni tablets)
+    if (this.isMobileOrTablet()) {
+      return;
+    }
+
     // Configurar listener de scroll en el contenedor
     const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
     if (container) {
@@ -58,6 +63,19 @@ export class HomeComponent implements AfterViewInit {
       // Verificar sección inicial
       this.onScroll();
     }
+  }
+
+  // Detecta si el dispositivo es móvil o tablet
+  private isMobileOrTablet(): boolean {
+    // Verificar por ancho de pantalla (tablets generalmente < 1024px)
+    if (window.innerWidth < 1024) {
+      return true;
+    }
+
+    // Verificar por user agent para mayor precisión
+    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+    return mobileRegex.test(userAgent);
   }
 
   // Detecta cambios en el scroll para actualizar la sección activa
