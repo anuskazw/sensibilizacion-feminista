@@ -1,4 +1,4 @@
-<div class="home-container" role="main" #homeContainer>
+<div class="home-container" role="main">
 
   <!-- Sección 1: Objetivo de la web -->
   <section class="home-section section-welcome" id="section-1"
@@ -10,7 +10,6 @@
 
       <div class="video-buttons">
         <button class="btn-primary"
-                (click)="scrollToSection(1, $event)"
                 [attr.aria-label]="'home.section1.readInSign' | translate">
           {{ 'home.section1.readInSign' | translate }} (LSE/LSC)
         </button>
@@ -110,15 +109,5 @@
     </div>
   </section>
 
-  <!-- Indicadores de sección (dots) -->
-  <nav class="section-indicators" aria-label="Navegación entre secciones">
-    <button *ngFor="let i of [0, 1, 2, 3]"
-            class="indicator-dot"
-            [class.active]="activeSection() === i"
-            (click)="scrollToSection(i, $event)"
-            [attr.aria-label]="'home.navigation.section' | translate: {number: i + 1}"
-            [attr.aria-current]="activeSection() === i ? 'true' : 'false'">
-    </button>
-  </nav>
 </div>
 

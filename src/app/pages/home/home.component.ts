@@ -1,4 +1,4 @@
-import { Component, HostListener, signal, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -10,12 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements AfterViewInit {
-  @ViewChild('homeContainer', { static: false }) homeContainer!: ElementRef<HTMLElement>;
-
-  // Índice de la sección activa (0-3)
-  activeSection = signal(0);
-
+export class HomeComponent {
   // Tarjetas de la sección 4 (grid de navegación)
   navigationCards = [
     {
@@ -49,98 +44,5 @@ export class HomeComponent implements AfterViewInit {
       ariaLabel: 'Ir a la sección de Ayuda'
     }
   ];
-
-  ngAfterViewInit(): void {
-    // Configurar listener de scroll en el contenedor
-    const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
-    if (container && !this.isMobileOrTablet()) {
-      container.addEventListener('scroll', () => this.onScroll());
-      // Verificar sección inicial
-      this.onScroll();
-    }
-
-  }
-
-  // Detecta si el dispositivo es móvil o tablet
-  private isMobileOrTablet(): boolean {
-    // Verificar por ancho de pantalla (tablets generalmente < 1024px)
-    if (window.innerWidth < 1024) {
-      return true;
-    }
-
-    // Verificar por user agent para mayor precisión
-    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-
-    // Verificar también por touch support (dispositivos táctiles)
-    const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-    return mobileRegex.test(userAgent) || (hasTouchScreen && window.innerWidth < 1024);
-  }
-
-  // Detecta cambios en el scroll para actualizar la sección activa
-  onScroll(): void {
-    // Solo procesar scroll en escritorio
-    if (this.isMobileOrTablet()) {
-      return;
-    }
-
-    const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
-    if (!container) return;
-
-    const sections = document.querySelectorAll('.home-section');
-    const scrollTop = container.scrollTop;
-    const containerHeight = container.clientHeight;
-    const scrollPosition = scrollTop + containerHeight / 2;
-
-    sections.forEach((section, index) => {
-      const element = section as HTMLElement;
-      const offsetTop = element.offsetTop;
-      const offsetBottom = offsetTop + element.offsetHeight;
-
-      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-        this.activeSection.set(index);
-      }
-    });
-  }
-
-  // Navega a una sección específica
-  scrollToSection(index: number, event?: Event): void {
-    // Solo permitir scroll programático en escritorio
-    if (this.isMobileOrTablet()) {
-      if (event) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      return;
-    }
-
-    const container = this.homeContainer?.nativeElement || document.querySelector('.home-container') as HTMLElement;
-    const sections = document.querySelectorAll('.home-section');
-    if (sections[index] && container) {
-      const section = sections[index] as HTMLElement;
-      const sectionTop = section.offsetTop;
-      container.scrollTo({ top: sectionTop, behavior: 'smooth' });
-    }
-  }
-
-  // Manejo de teclado para accesibilidad
-  @HostListener('window:keydown', ['$event'])
-  handleKeyboardNavigation(event: KeyboardEvent): void {
-    // Solo permitir navegación por teclado en escritorio
-    if (this.isMobileOrTablet()) {
-      return;
-    }
-
-    if (event.key === 'ArrowDown' && event.ctrlKey) {
-      event.preventDefault();
-      const nextSection = Math.min(this.activeSection() + 1, 3);
-      this.scrollToSection(nextSection);
-    } else if (event.key === 'ArrowUp' && event.ctrlKey) {
-      event.preventDefault();
-      const prevSection = Math.max(this.activeSection() - 1, 0);
-      this.scrollToSection(prevSection);
-    }
-  }
 }
 
