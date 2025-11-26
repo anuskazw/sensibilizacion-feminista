@@ -71,7 +71,11 @@ export class HomeComponent implements AfterViewInit {
     // Verificar por user agent para mayor precisión
     const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
     const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-    return mobileRegex.test(userAgent);
+
+    // Verificar también por touch support (dispositivos táctiles)
+    const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    return mobileRegex.test(userAgent) || (hasTouchScreen && window.innerWidth < 1024);
   }
 
   // Detecta cambios en el scroll para actualizar la sección activa
@@ -101,9 +105,13 @@ export class HomeComponent implements AfterViewInit {
   }
 
   // Navega a una sección específica
-  scrollToSection(index: number): void {
+  scrollToSection(index: number, event?: Event): void {
     // Solo permitir scroll programático en escritorio
     if (this.isMobileOrTablet()) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
       return;
     }
 

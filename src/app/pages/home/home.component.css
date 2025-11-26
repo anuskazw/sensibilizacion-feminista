@@ -318,6 +318,8 @@
   .home-container {
     height: calc(100vh - 85px); /* Altura ajustada para tablets con cabecera reducida */
     margin-top: 85px;
+    scroll-snap-type: none; /* Deshabilitar scroll snap en tablets */
+    scroll-behavior: auto; /* Deshabilitar scroll suave en tablets */
   }
 
   .home-section {
@@ -389,6 +391,8 @@
   .home-container {
     height: calc(100vh - 75px);
     margin-top: 75px;
+    scroll-snap-type: none; /* Deshabilitar scroll snap en móvil */
+    scroll-behavior: auto; /* Deshabilitar scroll suave en móvil */
   }
 
   .home-section {
@@ -528,6 +532,8 @@
   .home-container {
     height: calc(100vh - 65px);
     margin-top: 50px;
+    scroll-snap-type: none; /* Deshabilitar scroll snap en móvil */
+    scroll-behavior: auto; /* Deshabilitar scroll suave en móvil */
   }
 
   .home-section {
