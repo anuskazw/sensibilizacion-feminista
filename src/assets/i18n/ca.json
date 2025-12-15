@@ -88,7 +88,7 @@
     "transcriptionContent": "Contingut de la transcripció"
   },
   "search": {
-    "placeholder": "Cercar contingut...",
+    "placeholder": "Cercar paraula...",
     "clear": "Netejar cerca",
     "noResults": "No s'han trobat resultats",
     "resultsCount": "{{ count }} resultat(s) trobat(s)"

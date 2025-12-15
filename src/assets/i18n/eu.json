@@ -88,7 +88,7 @@
     "transcriptionContent": "Transkripzioaren edukia"
   },
   "search": {
-    "placeholder": "Edukia bilatu...",
+    "placeholder": "Hitza bilatu...",
     "clear": "Bilaketa garbitu",
     "noResults": "Ez da emaitzarik aurkitu",
     "resultsCount": "{{ count }} emaitza aurkitu d(ir)a"

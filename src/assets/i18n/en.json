@@ -88,7 +88,7 @@
     "transcriptionContent": "Transcription content"
   },
   "search": {
-    "placeholder": "Search content...",
+    "placeholder": "Search word...",
     "clear": "Clear search",
     "noResults": "No results found",
     "resultsCount": "{{ count }} result(s) found"

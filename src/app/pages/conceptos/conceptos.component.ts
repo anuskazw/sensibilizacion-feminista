@@ -13,7 +13,8 @@ import { AnalyticsService } from '../../core/services/analytics.service';
 import {
   ConceptoContent,
   Hashtag,
-  MultilingualText
+  MultilingualText,
+  ContentType
 } from '../../core/models/content.model';
 import { ContentFilters } from '../../core/models/filter.model';
 import { sampleContents } from './data';
@@ -46,8 +47,9 @@ export class ConceptosComponent implements OnInit {
 
   // Resultados filtrados
   filteredContents = computed(() => {
-    const filters = {
+    const filters: ContentFilters = {
       ...this.currentFilters(),
+      tipos: ['concepto' as ContentType], // Solo filtrar conceptos
       currentLanguage: this.languageService.getCurrentLanguage()
     };
 

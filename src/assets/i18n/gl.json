@@ -88,7 +88,7 @@
     "transcriptionContent": "Contido da transcrición"
   },
   "search": {
-    "placeholder": "Buscar contido...",
+    "placeholder": "Buscar palabra...",
     "clear": "Limpar busca",
     "noResults": "Non se atoparon resultados",
     "resultsCount": "{{ count }} resultado(s) atopado(s)"
