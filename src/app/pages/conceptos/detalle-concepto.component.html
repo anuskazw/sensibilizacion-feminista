@@ -1,0 +1,113 @@
+<div class="detalle-concepto-page">
+  @if (isLoading()) {
+    <div class="loading-container">
+      <p>Cargando...</p>
+    </div>
+  } @else if (notFound()) {
+    <div class="not-found-container">
+      <h1>Contenido no encontrado</h1>
+      <p>El concepto que buscas no existe o ha sido eliminado.</p>
+      <a routerLink="/conceptos" class="back-link">Volver a Conceptos</a>
+    </div>
+  } @else if (content()) {
+    <main class="main-content" role="main">
+      <!-- Botón de volver -->
+      <div class="back-button-container">
+        <button (click)="goBack()" class="back-button" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Volver a Conceptos
+        </button>
+      </div>
+
+      <!-- Encabezado del concepto -->
+      <header class="article-header">
+        <h1 class="article-title">{{ getTitle() }}</h1>
+        <p class="article-description">{{ getDescription() }}</p>
+
+        <!-- Hashtags -->
+        <div class="article-hashtags">
+          @for (hashtag of content()!.hashtags; track hashtag.id) {
+            <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+          }
+        </div>
+      </header>
+
+      <!-- Descripción en lectura fácil -->
+      <section class="lectura-facil-section">
+        <h2 class="section-title">En lectura fácil</h2>
+        <div class="lectura-facil-content">
+          <p>{{ getDescriptionLecturaFacil() }}</p>
+        </div>
+      </section>
+
+      <!-- Video signado -->
+      <section class="video-section">
+        <h2 class="section-title">Vídeo en lengua de signos</h2>
+        @if (hasVideo()) {
+          @if (safeYouTubeUrl()) {
+            <!-- Video de YouTube embebido -->
+            <div class="youtube-video-container">
+              <iframe
+                [src]="safeYouTubeUrl()!"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                [attr.aria-label]="getTitle() + ' - Vídeo en YouTube'"
+                class="youtube-iframe">
+              </iframe>
+            </div>
+          } @else {
+            <!-- Reproductor de video personalizado -->
+            <app-sign-language-video-player
+              [video]="getVideoData()!"
+              [inline]="true"
+              [contentId]="content()!.id"
+              contentType="concepto">
+            </app-sign-language-video-player>
+          }
+        } @else {
+          <div class="no-video-message">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <p>No hay video signado disponible</p>
+          </div>
+        }
+      </section>
+
+      <!-- Referencias -->
+      @if (content()!.referencias && content()!.referencias!.length > 0) {
+        <section class="references-section">
+          <h2 class="section-title">Referencias</h2>
+          <ul class="references-list">
+            @for (ref of content()!.referencias!; track ref.titulo) {
+              <li class="reference-item">
+                @if (ref.url) {
+                  <a [href]="ref.url" target="_blank" rel="noopener noreferrer" class="reference-link">
+                    {{ ref.titulo }}
+                  </a>
+                } @else {
+                  <span class="reference-text">{{ ref.titulo }}</span>
+                }
+                @if (ref.autor) {
+                  <span class="reference-author"> - {{ ref.autor }}</span>
+                }
+                @if (ref.anio) {
+                  <span class="reference-year"> ({{ ref.anio }})</span>
+                }
+              </li>
+            }
+          </ul>
+        </section>
+      }
+
+      <!-- Compartir en redes sociales -->
+      <section class="share-section">
+        <h2 class="section-title">Compartir</h2>
+        <app-social-share [content]="content()!" [url]="getShareUrl()"></app-social-share>
+      </section>
+    </main>
+  }
+</div>

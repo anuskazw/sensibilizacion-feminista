@@ -19,6 +19,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/conceptos/conceptos.component').then(m => m.ConceptosComponent)
   },
   {
+    path: 'conceptos/:slug',
+    loadComponent: () => import('./pages/conceptos/detalle-concepto.component').then(m => m.DetalleConceptoComponent)
+  },
+  {
     path: 'violencia',
     loadComponent: () => import('./pages/violencia/violencia.component').then(m => m.ViolenciaComponent)
   },

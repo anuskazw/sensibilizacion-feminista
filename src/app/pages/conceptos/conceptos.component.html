@@ -52,14 +52,14 @@
         @for (group of alphabeticalIndex(); track group.letter) {
           <section class="letter-section" [id]="'letter-' + group.letter">
             <h2 class="letter-heading">{{ group.letter }}</h2>
-            
+
             <div class="contents-grid">
               @for (content of group.items; track content.id) {
-                <article class="content-card">
+                <article class="content-card" [routerLink]="['/conceptos', content.slug]" [attr.aria-label]="'Ver detalles de ' + getTitle(content)">
                   <div class="card-header">
                     <h3 class="card-title">{{ getTitle(content) }}</h3>
                   </div>
-                  
+
                   <div class="card-body">
                     <p class="card-description">{{ getDescription(content) }}</p>
                   </div>
@@ -72,24 +72,24 @@
                     </div>
                   </div>
 
-                  <div class="card-share">
+                  <div class="card-share" (click)="$event.stopPropagation()">
                     <app-social-share [content]="content"></app-social-share>
                   </div>
 
                   @if (content.video_lse_url) {
                     <div class="card-actions">
-                      <button class="video-button" type="button">
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
+                      <span class="video-indicator">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
                           stroke-width="2"
                           aria-hidden="true">
                           <polygon points="5 3 19 12 5 21 5 3"></polygon>
                         </svg>
-                        Ver vídeo en LSE
-                      </button>
+                        Vídeo disponible
+                      </span>
                     </div>
                   }
                 </article>
@@ -99,11 +99,11 @@
         }
       } @else {
         <div class="no-results">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
             stroke-width="2"
             class="no-results-icon"
             aria-hidden="true">
