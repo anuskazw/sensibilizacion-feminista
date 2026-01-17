@@ -16,7 +16,7 @@ import { sampleContents } from './data';
 
 /**
  * Página de historia con búsqueda y filtrado
- * Demuestra la funcionalidad implementada en US-003
+ * Implementa la funcionalidad de US-007
  */
 @Component({
   selector: 'app-historia',

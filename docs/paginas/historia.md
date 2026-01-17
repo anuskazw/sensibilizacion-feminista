@@ -4,7 +4,7 @@
 
 **Ruta**: `/historia`  
 **Componente**: `HistoriaComponent`  
-**Historia de Usuario**: US-003  
+**Historia de Usuario**: US-007  
 **Estado**: ✅ Completada
 
 ## 🎯 Objetivo
