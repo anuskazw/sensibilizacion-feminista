@@ -217,7 +217,7 @@ interface ViolenciaContent extends Content {
 ### Colores
 - **Fondo tarjetas**: Blanco con sombra suave
 - **Señales de alerta**: Fondo amarillo claro (#fff3cd)
-- **Recursos de ayuda**: Fondo verde claro (#d1e7dd) con texto destacado
+- **Recursos de ayuda**: Fondo rojo claro (#f8d7da) con texto destacado
 - **Hashtags**: Gris claro con texto morado
 - **Hover**: Elevación y borde morado
 
