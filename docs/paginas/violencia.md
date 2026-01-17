@@ -9,7 +9,7 @@
 
 ## 🎯 Objetivo
 
-Página educativa sobre tipos de violencia de género con búsqueda, filtrado por hashtags e índice alfabético de términos. Incluye señales de alerta, recursos de ayuda y soporte multiidioma.
+Página informativa sobre tipos de violencia de género, señales de alerta y recursos de ayuda inmediata. Incluye sistema de búsqueda, filtrado por hashtags e índice de términos para facilitar la navegación. Proporciona información en lectura fácil y acceso directo a recursos de ayuda como el 016.
 
 ## 🏗️ Estructura
 
@@ -18,14 +18,12 @@ Página educativa sobre tipos de violencia de género con búsqueda, filtrado po
 ┌─────────────────────────────────────┐
 │  Sidebar  │  Contenido Principal    │
 │           │                         │
-│  Índice   │  Fichas de Violencia    │
-│  A-Z      │                         │
-│           │  [Tipo 1]               │
-│  Filtros  │  - Definición           │
-│  Hashtags │  - Señales de alerta    │
-│           │  - Recursos             │
-│  Buscar   │                         │
-│           │  [Tipo 2]               │
+│  Filtros  │  Índice de Términos     │
+│  Hashtags │                         │
+│           │  [Violencia física]     │
+│  Buscar   │  [Violencia psicológica]│
+│           │  [Violencia sexual]     │
+│           │  [Violencia económica]  │
 │           │  ...                    │
 └─────────────────────────────────────┘
 ```
@@ -35,9 +33,9 @@ Página educativa sobre tipos de violencia de género con búsqueda, filtrado po
 ### 1. Sistema de Filtrado (ContentSidebarComponent)
 - **Búsqueda por texto**: En títulos y descripciones
 - **Filtrado por hashtags**: Selección múltiple
-- **Índice alfabético**: Navegación rápida por letra
+- **Sin filtro por año**: No aplica para este contenido
 - **Combinación de filtros**: Búsqueda + hashtags
-- **Contador de resultados**: Muestra número de tipos encontrados
+- **Contador de resultados**: Muestra número de tipos de violencia encontrados
 
 ```typescript
 currentFilters = signal<ContentFilters>({});
@@ -54,15 +52,14 @@ filteredContents = computed(() => {
 ```
 
 ### 2. Índice de Términos
-Lista alfabética de todos los tipos de violencia:
-- **Ordenación alfabética**: A-Z
-- **Scroll suave**: Al hacer click en término
-- **Actualización dinámica**: Según filtros activos
+Lista alfabética de todos los tipos de violencia con navegación rápida:
+- **Ordenamiento alfabético**: Términos ordenados A-Z
+- **Navegación por scroll**: Click en término desplaza a la tarjeta correspondiente
+- **Accesibilidad**: Botones con aria-labels descriptivos
 
 ```typescript
 termsIndex = computed(() => {
   const contents = this.filteredContents();
-  const lang = this.languageService.getCurrentLanguage();
   const terms: string[] = [];
   
   contents.forEach(content => {
@@ -70,7 +67,6 @@ termsIndex = computed(() => {
     terms.push(title);
   });
   
-  // Ordenar alfabéticamente
   return terms.sort((a, b) => a.localeCompare(b));
 });
 
@@ -85,41 +81,79 @@ scrollToTerm(term: string): void {
 }
 ```
 
-### 3. Fichas de Tipos de Violencia
-Cada ficha muestra:
-- **Título**: Nombre del tipo de violencia
-- **Descripción en lectura fácil**: Versión simplificada
-- **Señales de alerta**: Lista de indicadores
+### 3. Tarjetas de Tipos de Violencia
+Cada tarjeta muestra:
+- **Título**: Tipo de violencia traducido según idioma activo
+- **Descripción en lectura fácil**: Versión simplificada y comprensible
+- **Señales de alerta**: Indicadores específicos de cada tipo
+- **Recursos de ayuda**: Teléfonos y servicios disponibles (016, 112, 017)
 - **Hashtags**: Etiquetas temáticas
-- **Recursos de ayuda**: Enlaces a ayuda
-- **Compartir**: Botón de compartir (SocialShareComponent)
+- **Vídeo LSE**: Indicador si tiene vídeo en lengua de signos
+- **Compartir**: Botón de compartir en redes (SocialShareComponent)
 
 ```html
-@for (content of filteredContents(); track content.id) {
-  <article [id]="'content-' + content.id" class="violence-card">
+<article class="content-card" [id]="'content-' + content.id">
+  <div class="card-header">
     <h2 class="card-title">{{ getTitle(content) }}</h2>
-    
-    <div class="card-description">
-      <p>{{ getDescription(content) }}</p>
-    </div>
+  </div>
+  
+  <div class="card-body">
+    <p class="card-description">{{ getDescription(content) }}</p>
     
     @if (getAlertSigns(content)) {
       <div class="alert-signs">
-        <h3>⚠️ Señales de alerta</h3>
-        <p>{{ getAlertSigns(content) }}</p>
+        <h3 class="alert-signs-title">Señales de alerta</h3>
+        <p class="alert-signs-content">{{ getAlertSigns(content) }}</p>
       </div>
     }
-    
+  </div>
+  
+  <div class="card-footer">
     <div class="card-hashtags">
       @for (hashtag of content.hashtags; track hashtag.id) {
         <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
       }
     </div>
-    
-    <div class="card-share">
-      <app-social-share [content]="content"></app-social-share>
+  </div>
+  
+  @if (content.recursos_ayuda && content.recursos_ayuda.length > 0) {
+    <div class="card-help-resources">
+      <h3>Recursos de ayuda</h3>
+      <div class="help-resources-list">
+        @for (resource of content.recursos_ayuda; track resource) {
+          <div class="help-resource-item">
+            <strong>{{ resource }}</strong>
+            <!-- Descripción del recurso -->
+          </div>
+        }
+      </div>
     </div>
-  </article>
+  }
+</article>
+```
+
+### 4. Estados de Carga y Error
+- **Skeleton Screen**: Mientras carga el contenido
+- **Estado de error**: Con mensaje y botón "Reintentar"
+- **Estado offline**: Detección automática con sugerencias específicas
+- **Sin resultados**: Mensaje cuando no hay coincidencias con los filtros
+
+```html
+@if (isLoading()) {
+  <app-skeleton-screen
+    type="list"
+    [count]="4"
+    [showTitle]="true"
+    [showDescription]="true"
+    [showHashtags]="true">
+  </app-skeleton-screen>
+} @else if (hasError()) {
+  <app-error-state
+    [message]="errorMessage()"
+    [showRetry]="true"
+    [suggestions]="getErrorSuggestions()"
+    (retry)="retryLoad()">
+  </app-error-state>
 }
 ```
 
@@ -136,16 +170,18 @@ interface ViolenciaContent extends Content {
   descripcion_lectura_facil: MultilingualText;
   senales_alerta?: MultilingualText;  // Señales de alerta específicas
   hashtags: Hashtag[];
+  recursos_ayuda?: string[];  // Teléfonos y recursos (016, 112, 017)
   activo: boolean;
   fecha_publicacion: Date;
   estado: ContentStatus;
   fecha_creacion: Date;
   fecha_modificacion: Date;
   video_lse_url?: string;
-  recursos_ayuda?: Array<{
-    nombre: string;
-    telefono?: string;
+  video_transcription?: MultilingualText;
+  referencias?: Array<{
+    titulo: string;
     url?: string;
+    anio: number;
   }>;
 }
 ```
@@ -172,167 +208,168 @@ interface ViolenciaContent extends Content {
 - **Desktop (>768px)**: Layout de 2 columnas (sidebar + contenido)
 - **Tablet/Mobile (<768px)**: Layout de 1 columna, sidebar colapsable
 
-### Fichas de Violencia
-- **Diseño vertical**: Información apilada
-- **Secciones diferenciadas**: Bordes y fondos
-- **Señales de alerta**: Destacadas con color de advertencia
-- **Espaciado generoso**: Legibilidad mejorada
+### Tarjetas de Violencia
+- **Layout vertical**: Cada tarjeta ocupa el ancho completo
+- **Secciones diferenciadas**: Título, descripción, señales, recursos
+- **Destacado de recursos**: Teléfonos de ayuda en color destacado
+- **Accesibilidad**: aria-labels, roles semánticos, navegación por teclado
 
 ### Colores
-- **Fondo fichas**: Blanco con sombra suave
-- **Señales de alerta**: Fondo amarillo claro (#fef3c7), borde amarillo (#f59e0b)
+- **Fondo tarjetas**: Blanco con sombra suave
+- **Señales de alerta**: Fondo amarillo claro (#fff3cd)
+- **Recursos de ayuda**: Fondo verde claro (#d1e7dd) con texto destacado
 - **Hashtags**: Gris claro con texto morado
-- **Títulos**: Negro (#111827)
-- **Texto**: Gris oscuro (#374151)
+- **Hover**: Elevación y borde morado
 
 ### Índice de Términos
-- **Lista vertical**: Términos uno debajo de otro
-- **Hover**: Fondo morado claro
-- **Click**: Scroll suave al término
-- **Separadores**: Líneas sutiles
+- **Layout horizontal**: Botones en línea con wrap
+- **Botones interactivos**: Efecto hover y focus visible
+- **Scroll suave**: Animación al navegar a término
 
 ## ♿ Accesibilidad
 
 ### WCAG 2.2 AA
-- ✅ **Navegación por teclado**: Tab, Enter
+- ✅ **Navegación por teclado**: Tab, Enter, Escape
 - ✅ **Lectores de pantalla**: aria-labels descriptivos
 - ✅ **Contraste de color**: Mínimo 4.5:1
-- ✅ **Roles semánticos**: article, section, nav
+- ✅ **Roles semánticos**: article, main, nav, button
 - ✅ **Focus visible**: Indicadores claros
-- ✅ **Scroll suave**: Animación reducida respetada
+- ✅ **ARIA live regions**: Para anunciar cambios de estado
 
 ### Características Específicas
-- **Lectura fácil**: Descripciones simplificadas
-- **Señales de alerta**: Claramente destacadas
-- **Recursos de ayuda**: Fácilmente accesibles
+- **Recursos de ayuda destacados**: Teléfonos visibles y accesibles
+- **Lectura fácil**: Descripciones simplificadas en todas las tarjetas
 - **Multiidioma**: 6 idiomas disponibles
+- **Navegación alternativa**: Índice de términos + búsqueda + filtros
 
 ## 🌐 Internacionalización
 
 ### Textos Traducibles
 ```json
 {
-  "violencia.title": "Tipos de Violencia",
-  "violencia.alertSigns": "Señales de alerta",
-  "violencia.resources": "Recursos de ayuda",
-  "search.resultsCount": "{count} tipos encontrados",
-  "search.noResults": "No se encontraron tipos de violencia"
+  "header.violence": "Violencia",
+  "violence.termsIndex": "Índice de términos",
+  "violence.scrollToTerm": "Ir a {term}",
+  "violence.alertSigns": "Señales de alerta",
+  "violence.helpResources": "Recursos de ayuda",
+  "violence.phone016": "Teléfono contra la violencia de género (24h, gratuito)",
+  "violence.phone112": "Emergencias",
+  "violence.phone017": "Atención a víctimas de violencia sexual",
+  "violence.noResultsMessage": "Prueba con otros términos de búsqueda o cambia los filtros",
+  "search.resultsCount": "{count} resultados encontrados",
+  "search.noResults": "No se encontraron resultados"
 }
 ```
 
 ### Contenido Multilingüe
-Todos los títulos, descripciones y señales de alerta están disponibles en 6 idiomas.
+Todos los títulos, descripciones, señales de alerta y transcripciones están disponibles en:
+- 🇪🇸 Español
+- 🇬🇧 English
+- 🇪🇸 Català
+- 🇪🇸 Valencià
+- 🇪🇸 Galego
+- 🇪🇸 Euskara
 
 ## 📱 Funcionalidades Móviles
 
 - **Sidebar colapsable**: Botón hamburguesa para filtros
-- **Scroll suave**: Navegación fluida entre términos
-- **Touch gestures**: Swipe para navegar
-- **Optimización**: Lazy loading de contenido
+- **Índice responsive**: Botones adaptan tamaño en móvil
+- **Touch gestures**: Scroll suave optimizado para táctil
+- **Recursos destacados**: Teléfonos con enlaces directos (tel:)
 
 ## 🔗 Navegación
 
 ### Desde esta página
-- Click en término del índice → Scroll a ese tipo
+- Click en término del índice → Scroll a tarjeta específica
 - Click en hashtag → Filtra por ese hashtag
-- Click en recurso de ayuda → Abre enlace externo
 - Compartir → Abre modal de compartir en redes
 
 ### Hacia esta página
 - Menú superior → "Violencia"
 - Home → Tarjeta "Violencia"
-- Breadcrumbs desde otras secciones
+- Enlaces desde otras secciones
 
 ## 📈 Datos de Ejemplo
 
-La página incluye varios tipos de violencia de ejemplo:
-- Violencia física
-- Violencia psicológica
-- Violencia económica
-- Violencia sexual
-- Violencia digital
+La página incluye 6 tipos de violencia de ejemplo:
 
-Cada tipo incluye:
-- Definición clara
-- Señales de alerta específicas
-- Hashtags relacionados
-- Recursos de ayuda
+1. **Violencia física**
+   - Señales: golpes, empujones, heridas, moretones, fracturas
+   - Recursos: 016, 112
 
-## 🔄 Estados de la Página
+2. **Violencia psicológica**
+   - Señales: insultos, amenazas, humillaciones, aislamiento, control excesivo
+   - Recursos: 016, 112
 
-### Estado de Carga
-- Muestra skeleton screens para fichas
-- Componente: `SkeletonScreenComponent`
+3. **Violencia sexual**
+   - Señales: agresiones sexuales, acoso sexual, coacción sexual
+   - Recursos: 016, 112
 
-### Estado de Error
-- Muestra mensaje de error si falla la carga
-- Botón de reintentar
-- Componente: `ErrorStateComponent`
-- Sugerencias según tipo de error
+4. **Violencia económica**
+   - Señales: control del dinero, prohibición de trabajar, limitación de recursos básicos
+   - Recursos: 016
 
-```typescript
-ngOnInit(): void {
-  this.hasError.set(false);
-  
-  setTimeout(() => {
-    try {
-      if (this.offlineService.isOffline()) {
-        throw new Error('offline');
-      }
-      this.searchFilterService.setContents(sampleContents);
-      this.analyticsService.trackContentView('violencia-page', 'violencia', []);
-      this.isLoading.set(false);
-    } catch (error: any) {
-      this.hasError.set(true);
-      this.isLoading.set(false);
-      if (error.message === 'offline') {
-        this.errorMessage.set('error.offline');
-      } else {
-        this.errorMessage.set('error.generic');
-      }
-    }
-  }, 0);
-}
-```
+5. **Violencia digital**
+   - Señales: acoso online, amenazas por redes sociales, control de dispositivos, difusión de imágenes sin consentimiento
+   - Recursos: 016, 017
 
-### Estado Sin Resultados
-- Mensaje cuando no hay tipos que coincidan con filtros
-- Sugerencia para cambiar filtros
+6. **Violencia institucional**
+   - Señales: falta de respuesta institucional, revictimización, falta de recursos
+   - Recursos: 016
 
-## 🛡️ Consideraciones de Seguridad
+## 🆘 Recursos de Ayuda Destacados
 
-### Contenido Sensible
-- **Advertencia inicial**: Aviso sobre contenido sensible
-- **Recursos de ayuda**: Siempre visibles
-- **Teléfonos de emergencia**: Destacados
-- **Privacidad**: No se guarda historial de búsqueda
+### Teléfonos de Emergencia
+- **016**: Teléfono contra la violencia de género (24h, gratuito, no deja rastro en factura)
+- **112**: Emergencias generales
+- **017**: Atención a víctimas de violencia sexual (24h)
 
-### Enlaces de Ayuda
-- **Verificados**: Solo enlaces oficiales
-- **Actualizados**: Revisión periódica
-- **Disponibles 24/7**: Teléfonos de emergencia
+### Características de los Recursos
+- **Visibilidad destacada**: Aparecen en cada tarjeta relevante
+- **Descripciones claras**: Explicación de cada servicio
+- **Enlaces directos**: En móvil, click para llamar directamente
+- **Multiidioma**: Descripciones traducidas
 
 ## 🧪 Testing
 
 ### Casos de Prueba
 - ✅ Filtrado por texto funciona correctamente
 - ✅ Filtrado por hashtags múltiples
-- ✅ Índice alfabético navega correctamente
-- ✅ Señales de alerta se muestran
-- ✅ Recursos de ayuda son accesibles
+- ✅ Combinación de filtros
+- ✅ Navegación por índice de términos con scroll suave
 - ✅ Cambio de idioma actualiza contenido
+- ✅ Recursos de ayuda visibles y accesibles
+- ✅ Estados de carga y error funcionan
+- ✅ Detección offline correcta
 - ✅ Compartir en redes funciona
 - ✅ Responsive en diferentes dispositivos
 
 ## 🚀 Mejoras Futuras
 
-- [ ] Test de autoevaluación de riesgo
-- [ ] Chat anónimo con especialistas
-- [ ] Mapa de recursos locales
-- [ ] Historias de supervivientes (anónimas)
-- [ ] Guías descargables en PDF
-- [ ] Vídeos educativos
-- [ ] Integración con servicios de emergencia
-- [ ] Modo de salida rápida (botón de pánico)
-- [ ] Estadísticas de violencia de género
-- [ ] Recursos específicos por comunidad autónoma
+- [ ] Página de detalle individual por tipo de violencia
+- [ ] Filtro por gravedad o urgencia
+- [ ] Testimonios anónimos (con consentimiento RGPD)
+- [ ] Mapa de recursos de ayuda por ubicación geográfica
+- [ ] Chat de ayuda en tiempo real
+- [ ] Guía de actuación paso a paso
+- [ ] Exportar información a PDF
+- [ ] Modo de navegación privada/incógnito
+
+## ⚠️ Consideraciones Especiales
+
+### Contenido Sensible
+- **Tratamiento respetuoso**: Lenguaje claro y no revictimizante
+- **Información verificada**: Basada en fuentes oficiales
+- **Recursos actualizados**: Teléfonos y servicios vigentes
+- **Privacidad**: No se registra navegación en esta sección
+
+### Seguridad
+- **Sin tracking**: No se registran métricas identificables en esta página
+- **Navegación segura**: No deja rastro en historial (modo incógnito recomendado)
+- **Salida rápida**: Botón de salida rápida (mejora futura)
+
+## 📚 Referencias
+
+- Ley Orgánica 1/2004, de Medidas de Protección Integral contra la Violencia de Género
+- Ministerio de Igualdad - Delegación del Gobierno contra la Violencia de Género
+- ONU Mujeres - Poner fin a la violencia contra las mujeres

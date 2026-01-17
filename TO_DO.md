@@ -52,12 +52,10 @@
 - [x] Implementar fichas con señales de alerta
 - [x] Añadir enlaces destacados a recursos de ayuda inmediata (016, etc.)
 - [x] Integrar filtrado y búsqueda (SearchFilterService)
-- [x] Añadir datos de ejemplo de tipos de violencia
+- [x] Añadir datos de ejemplo de tipos de violencia (6 tipos)
 - [x] Implementar estados de carga y error (SkeletonScreen, ErrorState)
 - [x] Integrar soporte offline
-
-**Pendiente**:
-- [ ] Crear documentación en `docs/paginas/violencia.md`
+- [x] Crear documentación en `docs/paginas/violencia.md`
 
 ---
 
