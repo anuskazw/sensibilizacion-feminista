@@ -74,9 +74,7 @@
 - [x] Añadir datos de ejemplo de recursos
 - [x] Implementar estados de carga y error
 - [x] Integrar barra de búsqueda (SearchBarComponent)
-
-**Pendiente**:
-- [ ] Crear documentación en `docs/paginas/recursos.md`
+- [x] Crear documentación en `docs/paginas/recursos.md`
 
 ---
 

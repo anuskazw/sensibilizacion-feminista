@@ -93,10 +93,10 @@ Cada tarjeta incluye:
      [attr.aria-label]="card.ariaLabel">
     <div class="card-icon">{{ card.icon }}</div>
     <h2 class="card-title">
-      {{ 'recursos.' + card.id + '.title' | translate }}
+      {{ 'recursos.cards.' + card.id + '.title' | translate }}
     </h2>
     <p class="card-description">
-      {{ 'recursos.' + card.id + '.description' | translate }}
+      {{ 'recursos.cards.' + card.id + '.description' | translate }}
     </p>
   </a>
 }
@@ -162,13 +162,14 @@ Cada tarjeta incluye:
 ```json
 {
   "recursos.title": "Recursos",
-  "recursos.description": "Explora nuestra colección de recursos educativos",
-  "recursos.libros.title": "Libros",
-  "recursos.libros.description": "Colección de libros sobre feminismo",
-  "recursos.peliculas-series.title": "Películas y Series",
-  "recursos.peliculas-series.description": "Películas y series con perspectiva feminista",
-  "recursos.documentales.title": "Documentales",
-  "recursos.documentales.description": "Documentales sobre feminismo y género"
+  "recursos.description": "Explora nuestra colección de libros, películas y documentales recomendados sobre feminismo",
+  "recursos.gridLabel": "Navegación de recursos",
+  "recursos.cards.libros.title": "Libros",
+  "recursos.cards.libros.description": "Descubre libros recomendados sobre feminismo, historia y teoría feminista",
+  "recursos.cards.peliculas-series.title": "Películas y series",
+  "recursos.cards.peliculas-series.description": "Explora películas y series que abordan temas feministas y de igualdad",
+  "recursos.cards.documentales.title": "Documentales",
+  "recursos.cards.documentales.description": "Accede a documentales sobre movimientos feministas y luchas por la igualdad"
 }
 ```
 
