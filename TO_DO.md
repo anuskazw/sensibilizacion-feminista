@@ -90,13 +90,28 @@
 - [x] Implementar listado de entidades de accesibilidad
 - [x] Implementar listado de entidades de feminismo
 - [x] Integrar datos de ayuda (ayuda.data.ts)
+- [x] Crear documentación en `docs/paginas/recursos-ayuda.md`
+- [x] Crear documentación en `docs/paginas/ayuda.md`
 
 **Pendiente**:
 - [ ] Crear subpágina /ayuda/testimonios-mujeres-sordas
+  - [ ] Crear componente TestimoniosComponent
+  - [ ] Configurar ruta en app.routes.ts
+  - [ ] Implementar fichas de testimonios (anonimizados, con consentimiento RGPD)
+  - [ ] Añadir aviso de tratamiento respetuoso de contenido sensible
+  - [ ] Implementar filtrado por temática
+  - [ ] Añadir vídeos en LSE con transcripciones
+  - [ ] Integrar estados de carga y error
+  - [ ] Crear datos de ejemplo (mínimo 3 testimonios)
 - [ ] Crear subpágina /ayuda/instituciones-aplicaciones-ayuda
-- [ ] Implementar fichas de testimonios (anonimizados, con consentimiento RGPD)
-- [ ] Añadir aviso de tratamiento respetuoso de contenido sensible
-- [ ] Crear documentación en `docs/paginas/recursos-ayuda.md`
+  - [ ] Crear componente InstitucionesComponent
+  - [ ] Configurar ruta en app.routes.ts
+  - [ ] Implementar listado de instituciones con filtros
+  - [ ] Implementar catálogo de aplicaciones de ayuda
+  - [ ] Añadir información de contacto (teléfono, email, web)
+  - [ ] Implementar filtrado por tipo y ubicación
+  - [ ] Integrar estados de carga y error
+  - [ ] Crear datos de ejemplo (mínimo 5 instituciones, 3 apps)
 
 ---
 
@@ -351,10 +366,10 @@
 - [x] Implementar lectura fácil en artículos
 
 **Pendiente**:
-- [ ] Crear documentación en `docs/paginas/blog.md`
+- [ ] Crear documentación en `docs/paginas/blog.md` (NO REQUERIDA - excluida por el usuario)
 
 ### ✅ US-027: Agenda de eventos
-**Estado**: ✅ **IMPLEMENTADA**  
+**Estado**: ✅ **COMPLETADA**  
 **Descripción**: Sección de agenda/calendario con eventos y talleres.
 
 **Tareas completadas**:
@@ -366,9 +381,7 @@
 - [x] Integrar vídeos signados
 - [x] Implementar estados de carga y error
 - [x] Implementar filtrado de eventos futuros
-
-**Pendiente**:
-- [ ] Crear documentación en `docs/paginas/agenda.md`
+- [x] Crear documentación en `docs/paginas/agenda.md`
 
 ---
 
@@ -421,15 +434,19 @@
 **Historias pendientes**: 11/28 (39%)
 
 ### Páginas principales implementadas:
-- ✅ Home (US-006)
-- ✅ Historia (US-007)
-- ✅ Conceptos (US-008)
-- ✅ Violencia (US-009)
-- ✅ Recursos (US-010) + subpáginas (libros, películas, documentales)
-- ✅ Recursos de Ayuda (US-011)
-- ✅ Blog (US-026)
-- ✅ Agenda (US-027)
-- 🔄 Admin (US-019) - parcial
+- ✅ Home (US-006) - Documentada en `docs/paginas/home.md`
+- ✅ Historia (US-007) - Documentada en `docs/paginas/historia.md`
+- ✅ Conceptos (US-008) - Documentada en `docs/paginas/conceptos.md`
+- ✅ Violencia (US-009) - Documentada en `docs/paginas/violencia.md`
+- ✅ Recursos (US-010) - Documentada en `docs/paginas/recursos.md`
+  - ✅ Subpágina /recursos/libros (US-029)
+  - ✅ Subpágina /recursos/peliculas-y-series (US-030)
+  - ✅ Subpágina /recursos/documentales (US-031)
+- ✅ Recursos de Ayuda (US-011) - Documentada en `docs/paginas/recursos-ayuda.md`
+- ✅ Ayuda (US-032) - Documentada en `docs/paginas/ayuda.md`
+- ✅ Blog (US-026) - Documentación NO requerida
+- ✅ Agenda (US-027) - Documentada en `docs/paginas/agenda.md`
+- 🔄 Admin (US-019) - Parcial, documentación NO requerida
 
 ### Componentes compartidos implementados:
 - ✅ ContentSidebarComponent (filtrado y búsqueda)
@@ -447,4 +464,49 @@
 
 ---
 
-**Última actualización**: 2026-01-17
+---
+
+## 📝 Resumen de Documentación de Páginas
+
+### ✅ Páginas Documentadas (9/11)
+1. ✅ **Home** (`docs/paginas/home.md`) - Página principal con 4 secciones y snap scroll
+2. ✅ **Historia** (`docs/paginas/historia.md`) - Eventos históricos del feminismo con filtrado
+3. ✅ **Conceptos** (`docs/paginas/conceptos.md`) - Glosario alfabético de conceptos feministas
+4. ✅ **Violencia** (`docs/paginas/violencia.md`) - Tipos de violencia con recursos de ayuda
+5. ✅ **Recursos** (`docs/paginas/recursos.md`) - Hub de navegación a libros, películas y documentales
+6. ✅ **Recursos de Ayuda** (`docs/paginas/recursos-ayuda.md`) - Índice de testimonios e instituciones
+7. ✅ **Ayuda** (`docs/paginas/ayuda.md`) - Teléfonos y entidades de ayuda
+8. ✅ **Agenda** (`docs/paginas/agenda.md`) - Calendario de eventos feministas
+9. ✅ **README** (`docs/paginas/README.md`) - Índice general de documentación
+
+### ⚠️ Páginas NO Documentadas (2/11) - Excluidas por el usuario
+10. ❌ **Blog** - Documentación NO requerida según instrucciones del usuario
+11. ❌ **Admin** - Documentación NO requerida según instrucciones del usuario
+
+### 📊 Estado de Subpáginas
+
+#### ✅ Subpáginas de Recursos (3/3 implementadas)
+- ✅ `/recursos/libros` - Implementada (US-029)
+  - Componente: `LibrosComponent`
+  - Búsqueda y filtrado funcional
+  - 5 libros de ejemplo
+- ✅ `/recursos/peliculas-y-series` - Implementada (US-030)
+  - Componente: `PeliculasYSeriesComponent`
+  - Búsqueda y filtrado funcional
+  - 5 películas/series de ejemplo
+- ✅ `/recursos/documentales` - Implementada (US-031)
+  - Componente: `DocumentalesComponent`
+  - Búsqueda y filtrado funcional
+  - 5 documentales de ejemplo
+
+#### ⏳ Subpáginas de Ayuda (0/2 implementadas)
+- ❌ `/ayuda/testimonios-mujeres-sordas` - **NO IMPLEMENTADA**
+  - Estado: Ruta definida en RecursosAyudaComponent pero sin componente
+  - Falta: Componente, ruta en app.routes.ts, lógica y datos
+- ❌ `/ayuda/instituciones-aplicaciones-ayuda` - **NO IMPLEMENTADA**
+  - Estado: Ruta definida en RecursosAyudaComponent pero sin componente
+  - Falta: Componente, ruta en app.routes.ts, lógica y datos
+
+---
+
+**Última actualización**: 2026-01-18
