@@ -1,5 +1,224 @@
 # Tareas Pendientes de Desarrollo
 
+## 📋 TO DO PENDIENTES DE DESARROLLAR
+
+### 🔴 Alta Prioridad
+
+#### US-011: Subpáginas de /recursos-ayuda (PENDIENTES)
+**Descripción**: Completar las dos subpáginas faltantes de la sección /recursos-ayuda.
+
+**Tareas pendientes**:
+- [ ] Crear subpágina /ayuda/testimonios-mujeres-sordas
+  - [ ] Crear componente TestimoniosComponent
+  - [ ] Configurar ruta en app.routes.ts
+  - [ ] Implementar fichas de testimonios (anonimizados, con consentimiento RGPD)
+  - [ ] Añadir aviso de tratamiento respetuoso de contenido sensible
+  - [ ] Implementar filtrado por temática
+  - [ ] Añadir vídeos en LSE con transcripciones
+  - [ ] Integrar estados de carga y error
+  - [ ] Crear datos de ejemplo (mínimo 3 testimonios)
+- [ ] Crear subpágina /ayuda/instituciones-aplicaciones-ayuda
+  - [ ] Crear componente InstitucionesComponent
+  - [ ] Configurar ruta en app.routes.ts
+  - [ ] Implementar listado de instituciones con filtros
+  - [ ] Implementar catálogo de aplicaciones de ayuda
+  - [ ] Añadir información de contacto (teléfono, email, web)
+  - [ ] Implementar filtrado por tipo y ubicación
+  - [ ] Integrar estados de carga y error
+  - [ ] Crear datos de ejemplo (mínimo 5 instituciones, 3 apps)
+
+#### US-012: Cabecera fija y lateral izquierdo reutilizable
+**Prioridad**: Alta  
+**Descripción**: Mejorar componente de cabecera fija y lateral izquierdo reutilizable.
+
+**Tareas**:
+- [ ] Revisar HeaderComponent existente
+- [ ] Implementar menú hamburguesa en móvil (<768px)
+- [ ] Mejorar responsive del sidebar (ya existe ContentSidebarComponent)
+- [ ] Añadir botón claro para plegar/desplegar sidebar en móvil
+- [ ] Verificar navegación por teclado completa
+- [ ] Verificar landmarks ARIA correctos
+- [ ] Actualizar documentación en `docs/componentes/header-sidebar.md`
+
+#### US-014: Accesibilidad WCAG 2.2 AA y validación automática
+**Prioridad**: Alta  
+**Descripción**: Asegurar cumplimiento completo WCAG 2.2 AA e integrar herramientas automáticas de testing.
+
+**Tareas**:
+- [ ] Auditoría completa con Lighthouse
+- [ ] Auditoría completa con axe DevTools
+- [ ] Auditoría completa con WAVE
+- [ ] Testing con lectores de pantalla (NVDA, JAWS, VoiceOver)
+- [ ] Integrar axe-core en tests automatizados
+- [ ] Configurar CI/CD con validación de accesibilidad
+- [ ] Documentar resultados de auditoría
+- [ ] Corregir issues encontrados
+
+#### US-017: Cookies, consentimiento y métricas de uso
+**Prioridad**: Alta  
+**Descripción**: Mejorar banner de consentimiento de cookies y sistema de analítica (parcialmente implementado).
+
+**Tareas**:
+- [ ] Revisar CookieService existente
+- [ ] Implementar banner de cookies visual (componente UI)
+- [ ] Implementar opción de configurar preferencias
+- [ ] Crear página /politica-cookies detallada
+- [ ] Verificar que no se ejecuta tracking sin consentimiento
+- [ ] Testing de flujo completo de consentimiento
+- [ ] Documentar en `docs/tecnico/cookies.md`
+
+#### US-018: Seguridad y cabeceras HTTPS/CSP
+**Prioridad**: Alta  
+**Descripción**: Implementar configuración de seguridad con HTTPS, CSP, HSTS, SRI.
+
+**Tareas**:
+- [ ] Configurar HTTPS en producción
+- [ ] Configurar header HSTS
+- [ ] Configurar header CSP (Content Security Policy)
+- [ ] Configurar X-Content-Type-Options: nosniff
+- [ ] Configurar X-Frame-Options: DENY/SAMEORIGIN
+- [ ] Configurar Referrer-Policy
+- [ ] Implementar SRI en scripts externos
+- [ ] Implementar sanitización de entradas
+- [ ] Documentar en SECURITY.md (ya existe, revisar)
+
+#### US-022: Principios de lectura fácil
+**Prioridad**: Alta  
+**Descripción**: Revisar y asegurar que toda la web sigue principios de lectura fácil.
+
+**Tareas**:
+- [ ] Auditoría de textos de interfaz (frases cortas, vocabulario claro)
+- [ ] Auditoría de contenidos (párrafos breves, sin tecnicismos)
+- [ ] Revisar tipografía (sans-serif, tamaño apropiado)
+- [ ] Revisar espaciado entre elementos
+- [ ] Revisar iconos (claros y representativos)
+- [ ] Revisar diseños (limpios, sin sobrecarga visual)
+- [ ] Crear guía de estilo de lectura fácil
+- [ ] Documentar en `docs/accesibilidad/lectura-facil.md`
+
+---
+
+### 🟡 Media Prioridad
+
+#### US-013: Pie de página y políticas legales
+**Prioridad**: Media  
+**Descripción**: Implementar componente de pie de página con licencias, contacto, RRSS y políticas legales.
+
+**Tareas**:
+- [ ] Crear componente FooterComponent
+- [ ] Añadir información de licencias (Creative Commons)
+- [ ] Añadir información de contacto
+- [ ] Añadir enlaces a RRSS (opcional)
+- [ ] Crear página /aviso-legal
+- [ ] Crear página /politica-privacidad
+- [ ] Crear página /politica-cookies
+- [ ] Integrar footer en todas las páginas
+- [ ] Crear documentación en `docs/componentes/footer.md`
+
+#### US-015: SEO, sitemap y URLs legibles
+**Prioridad**: Media  
+**Descripción**: Implementar etiquetas meta SEO, Open Graph, JSON-LD, sitemap.xml y robots.txt.
+
+**Tareas**:
+- [ ] Implementar meta tags por idioma en todas las páginas
+- [ ] Implementar Open Graph tags
+- [ ] Implementar JSON-LD schema.org (Article, CreativeWork)
+- [ ] Implementar hreflang para idiomas alternativos
+- [ ] Generar sitemap.xml dinámico
+- [ ] Crear robots.txt apropiado
+- [ ] Verificar canonical URLs
+- [ ] Integrar con SeoService (ya existe)
+- [ ] Crear documentación en `docs/tecnico/seo.md`
+
+#### US-016: Optimización de rendimiento (imágenes y vídeos)
+**Prioridad**: Media  
+**Descripción**: Implementar optimizaciones de rendimiento: imágenes responsivas, lazy-load, compresión, cacheo.
+
+**Tareas**:
+- [ ] Implementar srcset en imágenes
+- [ ] Implementar lazy-load en imágenes y vídeos
+- [ ] Configurar compresión HTTP (gzip/brotli)
+- [ ] Configurar headers de cacheo
+- [ ] Optimizar CSS crítico (inline)
+- [ ] Optimizar JS crítico (async/defer)
+- [ ] Medir LCP, FID, CLS (Core Web Vitals)
+- [ ] Optimizar para LCP < 2.5s
+- [ ] Crear documentación en `docs/tecnico/rendimiento.md`
+
+#### US-019: Panel de administración de contenidos
+**Prioridad**: Media  
+**Estado**: 🔄 **EN PROGRESO** (parcialmente implementado)  
+**Descripción**: Implementar panel de administración con roles, flujo de publicación y editor multiidioma.
+
+**Tareas pendientes**:
+- [ ] Implementar sistema de autenticación completo
+- [ ] Implementar roles (editor, revisor)
+- [ ] Implementar flujo de estados (Borrador -> Revisado -> Publicado)
+- [ ] Crear editor multiidioma con pestañas por idioma
+- [ ] Implementar soporte de markdown con preview
+- [ ] Implementar subida/vinculación de vídeos
+- [ ] Implementar gestión de hashtags (autocompletado)
+- [ ] Implementar gestión de referencias
+- [ ] Crear documentación en `docs/paginas/admin.md`
+
+#### US-020: Estados de carga, errores y offline
+**Prioridad**: Media  
+**Estado**: 🔄 **EN PROGRESO** (parcialmente implementado)  
+**Descripción**: Implementar estados de carga con skeleton screens y mensajes de error claros.
+
+**Tareas pendientes**:
+- [ ] Implementar skeleton screens para cada tipo de contenido específico
+- [ ] Implementar ARIA live regions para anunciar estados
+- [ ] Extender a todas las páginas restantes
+- [ ] Crear documentación en `docs/componentes/estados.md`
+
+#### US-021: Botón volver arriba y atajos de teclado
+**Prioridad**: Media  
+**Descripción**: Implementar botón 'Volver arriba' y atajos de teclado documentados.
+
+**Tareas**:
+- [ ] Crear componente BackToTopComponent
+- [ ] Implementar lógica de visibilidad al hacer scroll
+- [ ] Implementar atajo "Skip to main content"
+- [ ] Implementar atajo para abrir/cerrar lateral
+- [ ] Implementar atajo para acceder al selector de idioma
+- [ ] Implementar atajo para acceder al buscador
+- [ ] Crear página /atajos-teclado con documentación
+- [ ] Añadir enlace a atajos en footer
+- [ ] Actualizar `docs/accesibilidad/guia.md` con atajos
+
+---
+
+### 🟢 Baja Prioridad
+
+#### US-028: Compartir en redes sociales
+**Prioridad**: Baja  
+**Estado**: 🔄 **EN PROGRESO** (parcialmente implementado)  
+**Descripción**: Implementar botones de compartir en fichas de contenido.
+
+**Tareas pendientes**:
+- [ ] Implementar botón compartir Twitter/X
+- [ ] Implementar botón compartir Facebook
+- [ ] Implementar botón compartir WhatsApp
+- [ ] Implementar botón compartir Telegram
+- [ ] Implementar botón copiar enlace
+- [ ] Verificar Open Graph tags (US-015)
+- [ ] Hacer accesible por teclado
+- [ ] Extender a todas las páginas de contenido
+- [ ] Crear documentación en `docs/componentes/share-buttons.md`
+
+---
+
+## 🔮 RECOMENDACIONES POR DESARROLLAR (Funcionalidades Futuras)
+
+### US-024: Búsqueda avanzada con sinónimos (futuro)
+**Descripción**: Ampliar búsqueda con diccionario de sinónimos avanzado y búsqueda semántica.
+
+### US-025: PWA básica y acceso offline (futuro)
+**Descripción**: Implementar Progressive Web App con service worker y caché offline.
+
+---
+
 ## 📊 Estado del Proyecto
 
 ### ✅ Historias de Usuario Implementadas (14/28)
