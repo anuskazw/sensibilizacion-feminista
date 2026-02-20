@@ -463,6 +463,18 @@
     "shareOnWhatsApp": "Compartir en WhatsApp",
     "shareOnTelegram": "Compartir en Telegram"
   },
+  "historia": {
+    "subtitle": "Descobre eventos, persoas e movementos históricos do feminismo.",
+    "videoAvailable": "Vídeo dispoñible",
+    "viewDetails": "Ver detalles de",
+    "backToHistory": "Volver a Historia",
+    "notFound": {
+      "title": "Contido non atopado",
+      "description": "A historia que buscas non existe ou foi eliminada."
+    },
+    "references": "Referencias",
+    "youtubeLabel": "Vídeo en YouTube"
+  },
   "ayuda": {
     "title": "Axuda e Referencias",
     "description": "Atopa teléfonos de axuda e entidades que poden darte apoio en temas de accesibilidade e feminismo",

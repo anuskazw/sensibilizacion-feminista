@@ -463,6 +463,18 @@
     "shareOnWhatsApp": "WhatsApp-en partekatu",
     "shareOnTelegram": "Telegram-en partekatu"
   },
+  "historia": {
+    "subtitle": "Aurkitu feminismoaren gertaera, pertsona eta mugimendu historikoak.",
+    "videoAvailable": "Bideoa erabilgarri",
+    "viewDetails": "Ikusi xehetasunak",
+    "backToHistory": "Historia-ra itzuli",
+    "notFound": {
+      "title": "Edukia ez da aurkitu",
+      "description": "Bilatzen ari zaren historia ez da existitzen edo ezabatu egin da."
+    },
+    "references": "Erreferentziak",
+    "youtubeLabel": "Bideoa YouTube-n"
+  },
   "ayuda": {
     "title": "Laguntza eta Erreferentziak",
     "description": "Aurkitu laguntza telefonoak eta entitateak, eta gaiak eskuragarritasuna eta feminismoa dituzten gaietan laguntza ditzakete",

@@ -36,9 +36,30 @@ export const sampleContents: HistoriaContent[] = [
     id: '1',
     slug: 'sufragio-femenino-espana',
     tipo: 'historia',
-    titulo: createMultilingualText('Sufragio femenino en España (1931)'),
-    descripcion: createMultilingualText('El derecho al voto de las mujeres en España se aprobó en 1931 durante la Segunda República.'),
-    descripcion_lectura_facil: createMultilingualText('En 1931 las mujeres españolas consiguieron el derecho a votar. Fue un logro muy importante.'),
+    titulo: {
+      es: 'Sufragio femenino en España (1931)',
+      en: 'Women\'s suffrage in Spain (1931)',
+      ca: 'Sufragi femení a Espanya (1931)',
+      val: 'Sufragi femení a Espanya (1931)',
+      gl: 'Sufraxio feminino en España (1931)',
+      eu: 'Emakumeen sufragioa Espainian (1931)'
+    },
+    descripcion: {
+      es: 'El derecho al voto de las mujeres en España se aprobó en 1931 durante la Segunda República.',
+      en: 'Women\'s right to vote in Spain was approved in 1931 during the Second Republic.',
+      ca: 'El dret al vot de les dones a Espanya es va aprovar el 1931 durant la Segona República.',
+      val: 'El dret al vot de les dones a Espanya es va aprovar el 1931 durant la Segona República.',
+      gl: 'O dereito ao voto das mulleres en España aprobouse en 1931 durante a Segunda República.',
+      eu: 'Emakumeen botoa Espainian 1931n onartu zen Bigarren Errepublikaren garaian.'
+    },
+    descripcion_lectura_facil: {
+      es: 'En 1931 las mujeres españolas consiguieron el derecho a votar. Fue un logro muy importante.',
+      en: 'In 1931, Spanish women gained the right to vote. It was a very important achievement.',
+      ca: 'El 1931 les dones espanyoles van aconseguir el dret a votar. Va ser un assoliment molt important.',
+      val: 'El 1931 les dones espanyoles van aconseguir el dret a votar. Va ser un assoliment molt important.',
+      gl: 'En 1931 as mulleres españolas conseguiron o dereito a votar. Foi un logro moi importante.',
+      eu: '1931n emakume espainiarrek bozkatzeko eskubidea lortu zuten. Lorpen oso garrantzitsua zen.'
+    },
     hashtags: [sampleHashtags[0], sampleHashtags[3], sampleHashtags[5]],
     anio: 1931,
     activo: true,
@@ -56,9 +77,30 @@ export const sampleContents: HistoriaContent[] = [
     id: '2',
     slug: 'clara-campoamor',
     tipo: 'historia',
-    titulo: createMultilingualText('Clara Campoamor'),
-    descripcion: createMultilingualText('Clara Campoamor fue una política y activista española que luchó por el derecho al voto femenino.'),
-    descripcion_lectura_facil: createMultilingualText('Clara Campoamor luchó para que las mujeres pudieran votar. Gracias a ella conseguimos este derecho.'),
+    titulo: {
+      es: 'Clara Campoamor',
+      en: 'Clara Campoamor',
+      ca: 'Clara Campoamor',
+      val: 'Clara Campoamor',
+      gl: 'Clara Campoamor',
+      eu: 'Clara Campoamor'
+    },
+    descripcion: {
+      es: 'Clara Campoamor fue una política y activista española que luchó por el derecho al voto femenino.',
+      en: 'Clara Campoamor was a Spanish politician and activist who fought for women\'s right to vote.',
+      ca: 'Clara Campoamor va ser una política i activista espanyola que va lluitar pel dret al vot femení.',
+      val: 'Clara Campoamor va ser una política i activista espanyola que va lluitar pel dret al vot femení.',
+      gl: 'Clara Campoamor foi unha política e activista española que loitou polo dereito ao voto feminino.',
+      eu: 'Clara Campoamor emakumeen botoa eskuratzearen alde borrokatu zen politikari eta aktibista espainiarra zen.'
+    },
+    descripcion_lectura_facil: {
+      es: 'Clara Campoamor luchó para que las mujeres pudieran votar. Gracias a ella conseguimos este derecho.',
+      en: 'Clara Campoamor fought for women to be able to vote. Thanks to her we gained this right.',
+      ca: 'Clara Campoamor va lluitar perquè les dones poguessin votar. Gràcies a ella vam aconseguir aquest dret.',
+      val: 'Clara Campoamor va lluitar perquè les dones poguessen votar. Gràcies a ella vam aconseguir aquest dret.',
+      gl: 'Clara Campoamor loitou para que as mulleres puidesen votar. Grazas a ela conseguimos este dereito.',
+      eu: 'Clara Campoamor emakumeek bozka eman ahal izateko borrokatu zen. Berari esker eskubide hau lortu genuen.'
+    },
     hashtags: [sampleHashtags[0], sampleHashtags[6], sampleHashtags[4]],
     anio: 1931,
     activo: true,
@@ -73,9 +115,30 @@ export const sampleContents: HistoriaContent[] = [
     id: '3',
     slug: 'olympe-de-gouges',
     tipo: 'historia',
-    titulo: createMultilingualText('Olympe de Gouges'),
-    descripcion: createMultilingualText('Olympe de Gouges escribió la Declaración de los Derechos de la Mujer y la Ciudadana en 1791.'),
-    descripcion_lectura_facil: createMultilingualText('En 1791, Olympe de Gouges escribió sobre los derechos de las mujeres. Fue muy valiente.'),
+    titulo: {
+      es: 'Olympe de Gouges',
+      en: 'Olympe de Gouges',
+      ca: 'Olympe de Gouges',
+      val: 'Olympe de Gouges',
+      gl: 'Olympe de Gouges',
+      eu: 'Olympe de Gouges'
+    },
+    descripcion: {
+      es: 'Olympe de Gouges escribió la Declaración de los Derechos de la Mujer y la Ciudadana en 1791.',
+      en: 'Olympe de Gouges wrote the Declaration of the Rights of Woman and the Female Citizen in 1791.',
+      ca: 'Olympe de Gouges va escriure la Declaració dels Drets de la Dona i la Ciutadana el 1791.',
+      val: 'Olympe de Gouges va escriure la Declaració dels Drets de la Dona i la Ciutadana el 1791.',
+      gl: 'Olympe de Gouges escribiu a Declaración dos Dereitos da Muller e da Cidadá en 1791.',
+      eu: 'Olympe de Gouges-ek 1791n Emakumearen eta Herritarraren Eskubideen Aldarrikapena idatzi zuen.'
+    },
+    descripcion_lectura_facil: {
+      es: 'En 1791, Olympe de Gouges escribió sobre los derechos de las mujeres. Fue muy valiente.',
+      en: 'In 1791, Olympe de Gouges wrote about women\'s rights. She was very brave.',
+      ca: 'El 1791, Olympe de Gouges va escriure sobre els drets de les dones. Va ser molt valenta.',
+      val: 'El 1791, Olympe de Gouges va escriure sobre els drets de les dones. Va ser molt valenta.',
+      gl: 'En 1791, Olympe de Gouges escribiu sobre os dereitos das mulleres. Foi moi valente.',
+      eu: '1791n Olympe de Gouges-ek emakumeen eskubideei buruz idatzi zuen. Oso ausarta izan zen.'
+    },
     hashtags: [sampleHashtags[3], sampleHashtags[6], sampleHashtags[5]],
     anio: 1791,
     activo: true,
@@ -90,9 +153,30 @@ export const sampleContents: HistoriaContent[] = [
     id: '4',
     slug: 'dia-internacional-mujer',
     tipo: 'historia',
-    titulo: createMultilingualText('Día Internacional de la Mujer (1975)'),
-    descripcion: createMultilingualText('En 1975 la ONU estableció el 8 de marzo como Día Internacional de la Mujer.'),
-    descripcion_lectura_facil: createMultilingualText('El 8 de marzo es el Día de la Mujer. Se celebra desde 1975 en todo el mundo.'),
+    titulo: {
+      es: 'Día Internacional de la Mujer (1975)',
+      en: 'International Women\'s Day (1975)',
+      ca: 'Dia Internacional de la Dona (1975)',
+      val: 'Dia Internacional de la Dona (1975)',
+      gl: 'Día Internacional da Muller (1975)',
+      eu: 'Emakumeen Nazioarteko Eguna (1975)'
+    },
+    descripcion: {
+      es: 'En 1975 la ONU estableció el 8 de marzo como Día Internacional de la Mujer.',
+      en: 'In 1975 the UN established March 8 as International Women\'s Day.',
+      ca: 'El 1975 l\'ONU va establir el 8 de març com a Dia Internacional de la Dona.',
+      val: 'El 1975 l\'ONU va establir el 8 de març com a Dia Internacional de la Dona.',
+      gl: 'En 1975 a ONU estableceu o 8 de marzo como Día Internacional da Muller.',
+      eu: '1975ean NBEk martxoak 8 Emakumeen Nazioarteko Egun gisa ezarri zuen.'
+    },
+    descripcion_lectura_facil: {
+      es: 'El 8 de marzo es el Día de la Mujer. Se celebra desde 1975 en todo el mundo.',
+      en: 'March 8 is Women\'s Day. It has been celebrated worldwide since 1975.',
+      ca: 'El 8 de març és el Dia de la Dona. Es celebra des de 1975 a tot el món.',
+      val: 'El 8 de març és el Dia de la Dona. Es celebra des de 1975 a tot el món.',
+      gl: 'O 8 de marzo é o Día da Muller. Celébrase desde 1975 en todo o mundo.',
+      eu: 'Martxoak 8 Emakumeen Eguna da. 1975az geroztik ospatzen da mundu osoan.'
+    },
     hashtags: [sampleHashtags[2], sampleHashtags[1], sampleHashtags[7]],
     anio: 1975,
     activo: true,
@@ -107,9 +191,30 @@ export const sampleContents: HistoriaContent[] = [
     id: '5',
     slug: 'movimiento-me-too',
     tipo: 'historia',
-    titulo: createMultilingualText('Movimiento #MeToo (2017)'),
-    descripcion: createMultilingualText('El movimiento #MeToo surgió en 2017 para denunciar el acoso y la violencia sexual.'),
-    descripcion_lectura_facil: createMultilingualText('En 2017 muchas mujeres compartieron sus experiencias de acoso. Esto se llamó movimiento MeToo.'),
+    titulo: {
+      es: 'Movimiento #MeToo (2017)',
+      en: '#MeToo Movement (2017)',
+      ca: 'Moviment #MeToo (2017)',
+      val: 'Moviment #MeToo (2017)',
+      gl: 'Movemento #MeToo (2017)',
+      eu: '#MeToo Mugimendua (2017)'
+    },
+    descripcion: {
+      es: 'El movimiento #MeToo surgió en 2017 para denunciar el acoso y la violencia sexual.',
+      en: 'The #MeToo movement emerged in 2017 to denounce harassment and sexual violence.',
+      ca: 'El moviment #MeToo va sorgir el 2017 per denunciar l\'assetjament i la violència sexual.',
+      val: 'El moviment #MeToo va sorgir el 2017 per denunciar l\'assetjament i la violència sexual.',
+      gl: 'O movemento #MeToo xurdiu en 2017 para denunciar o acoso e a violencia sexual.',
+      eu: '#MeToo mugimendua 2017an sortu zen jazarpena eta sexu-indarkeria salatzeko.'
+    },
+    descripcion_lectura_facil: {
+      es: 'En 2017 muchas mujeres compartieron sus experiencias de acoso. Esto se llamó movimiento MeToo.',
+      en: 'In 2017 many women shared their experiences of harassment. This was called the MeToo movement.',
+      ca: 'El 2017 moltes dones van compartir les seves experiències d\'assetjament. Això es va anomenar moviment MeToo.',
+      val: 'El 2017 moltes dones van compartir les seues experiències d\'assetjament. Açò es va dir moviment MeToo.',
+      gl: 'En 2017 moitas mulleres comparteron as súas experiencias de acoso. Isto chamouse movemento MeToo.',
+      eu: '2017an emakume askok jazarpen-esperientziak partekatu zituzten. Hori MeToo mugimendua deitu zen.'
+    },
     hashtags: [sampleHashtags[4], sampleHashtags[7], sampleHashtags[2]],
     anio: 2017,
     activo: true,

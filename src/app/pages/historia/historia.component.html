@@ -13,7 +13,7 @@
     <div class="content-header">
       <h1>{{ 'header.history' | translate }}</h1>
       <p class="content-description">
-        Descubre eventos, personas y movimientos históricos del feminismo.
+        {{ 'historia.subtitle' | translate }}
       </p>
     </div>
 
@@ -30,7 +30,7 @@
     <div class="contents-grid">
       @if (filteredContents().length > 0) {
         @for (content of filteredContents(); track content.id) {
-          <article class="content-card" [routerLink]="['/historia', content.slug]" [attr.aria-label]="'Ver detalles de ' + getTitle(content)">
+          <article class="content-card" [routerLink]="['/historia', content.slug]" [attr.aria-label]="('historia.viewDetails' | translate) + ' ' + getTitle(content)">
             <div class="card-header">
               <span class="card-year">{{ content.anio }}</span>
               <h2 class="card-title">{{ getTitle(content) }}</h2>
@@ -64,7 +64,7 @@
                     aria-hidden="true">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
-                  Vídeo disponible
+                  {{ 'historia.videoAvailable' | translate }}
                 </span>
               </div>
             }
@@ -84,7 +84,7 @@
             <path d="m21 21-4.35-4.35"></path>
           </svg>
           <h2>{{ 'search.noResults' | translate }}</h2>
-          <p>Intenta cambiar los filtros o buscar con otros términos.</p>
+          <p>{{ 'violence.noResultsMessage' | translate }}</p>
         </div>
       }
     </div>

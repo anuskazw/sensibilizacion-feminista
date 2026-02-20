@@ -1,13 +1,13 @@
 <div class="detalle-historia-page">
   @if (isLoading()) {
     <div class="loading-container">
-      <p>Cargando...</p>
+      <p>{{ 'common.loading' | translate }}</p>
     </div>
   } @else if (notFound()) {
     <div class="not-found-container">
-      <h1>Contenido no encontrado</h1>
-      <p>La historia que buscas no existe o ha sido eliminada.</p>
-      <a routerLink="/historia" class="back-link">Volver a Historia</a>
+      <h1>{{ 'historia.notFound.title' | translate }}</h1>
+      <p>{{ 'historia.notFound.description' | translate }}</p>
+      <a routerLink="/historia" class="back-link">{{ 'historia.backToHistory' | translate }}</a>
     </div>
   } @else if (content()) {
     <main class="main-content" role="main">
@@ -17,7 +17,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
-          Volver a Historia
+          {{ 'historia.backToHistory' | translate }}
         </button>
       </div>
 
@@ -46,7 +46,7 @@
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
-                [attr.aria-label]="getTitle() + ' - Vídeo en YouTube'"
+                [attr.aria-label]="getTitle() + ' - ' + ('historia.youtubeLabel' | translate)"
                 class="youtube-iframe">
               </iframe>
             </div>
@@ -76,7 +76,7 @@
       <!-- Referencias -->
       @if (content()!.referencias && content()!.referencias!.length > 0) {
         <section class="references-section">
-          <h2 class="section-title">Referencias</h2>
+          <h2 class="section-title">{{ 'historia.references' | translate }}</h2>
           <ul class="references-list">
             @for (ref of content()!.referencias!; track ref.titulo) {
               <li class="reference-item">
@@ -101,7 +101,7 @@
 
       <!-- Compartir en redes sociales -->
       <section class="share-section">
-        <h2 class="section-title">Compartir</h2>
+        <h2 class="section-title">{{ 'socialShare.share' | translate }}</h2>
         <app-social-share [content]="content()!" [url]="getShareUrl()"></app-social-share>
       </section>
     </main>
