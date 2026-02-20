@@ -473,8 +473,8 @@
     "visitWebsite": "Visitar sitio web de {{name}}",
     "sendEmail": "Enviar correo a {{name}}",
     "telephones": {
-      "title": "Teléfonos de Axuda",
-      "description": "Teléfonos gratuítos dispoñibles as 24 horas para situacións de emerxencia ou necesidade de axuda"
+      "title": "Contactos de Axuda",
+      "description": "Recursos gratuítos para situacións de emerxencia ou cando necesites axuda"
     },
     "accessibility": {
       "title": "Entidades de Axuda en Accesibilidade",

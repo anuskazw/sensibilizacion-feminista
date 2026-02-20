@@ -11,6 +11,9 @@ export interface Telephone {
   description: string;
   available: string;
   free: boolean;
+  email?: string;
+  whatsapp?: string;
+  chat?: string;
 }
 
 export interface Entity {
@@ -30,6 +33,16 @@ export const telephones: Telephone[] = [
     number: '016',
     description: 'Teléfono contra la violencia de género',
     available: '24 horas, todos los días',
+    free: true,
+    email: '016-online@igualdad.gob.es',
+    whatsapp: '600 000 016'
+  },
+  {
+    id: '024',
+    name: '024',
+    number: '024',
+    description: 'Línea de atención a la conducta suicida',
+    available: '24 horas, todos los días',
     free: true
   },
   {
@@ -39,6 +52,33 @@ export const telephones: Telephone[] = [
     description: 'Emergencias',
     available: '24 horas, todos los días',
     free: true
+  },
+  {
+    id: '017',
+    name: '017',
+    number: '017',
+    description: 'Línea de ayuda en ciberseguridad (INCIBE)',
+    available: '9:00 - 21:00, todos los días',
+    free: true,
+    chat: 'https://www.incibe.es/linea-de-ayuda-en-ciberseguridad'
+  },
+  {
+    id: '116111',
+    name: '116 111',
+    number: '116111',
+    description: 'Teléfono de ayuda a la infancia y la adolescencia (ANAR)',
+    available: '24 horas, todos los días',
+    free: true,
+    chat: 'https://anar.svisual.org/'
+  },
+  {
+    id: '900202010',
+    name: '900 20 20 10',
+    number: '900202010',
+    description: 'Teléfono de la esperanza (crisis emocionales y soledad)',
+    available: '24 horas, todos los días',
+    free: true,
+    chat: 'https://www.telefonodelaesperanza.org/chat'
   }
 ];
 

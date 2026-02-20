@@ -203,6 +203,57 @@
   flex-shrink: 0;
 }
 
+/* Contactos adicionales (email, whatsapp, chat) */
+.item-extra-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.extra-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.extra-contact-link:hover {
+  opacity: 0.8;
+}
+
+.extra-contact-link svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.extra-contact-phone {
+  background-color: #ede7f6;
+  color: #6b2d5c;
+  font-weight: 700;
+}
+
+.extra-contact-email {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+}
+
+.extra-contact-whatsapp {
+  background-color: #e7f5e9;
+  color: #25d366;
+}
+
+.extra-contact-chat {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
 .item-info {
   display: flex;
   flex-direction: column;

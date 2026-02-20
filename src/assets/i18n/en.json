@@ -473,8 +473,8 @@
     "visitWebsite": "Visit {{name}} website",
     "sendEmail": "Send email to {{name}}",
     "telephones": {
-      "title": "Help Phone Numbers",
-      "description": "Free phone numbers available 24 hours for emergency situations or when you need help"
+      "title": "Help Contacts",
+      "description": "Free resources for emergency situations or when you need help"
     },
     "accessibility": {
       "title": "Accessibility Support Organizations",
