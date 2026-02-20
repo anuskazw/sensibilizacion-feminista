@@ -1,16 +1,18 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
-import { 
-  Content, 
-  BaseContent, 
+import {
+  Content,
+  BaseContent,
   Hashtag,
-  ContentType 
+  ContentType,
+  MultilingualText
 } from '../models/content.model';
-import { 
-  ContentFilters, 
-  SearchResult, 
-  SortOption 
+import {
+  ContentFilters,
+  SearchResult,
+  SortOption
 } from '../models/filter.model';
 import { AnalyticsService } from './analytics.service';
+import { LanguageService } from './language.service';
 
 /**
  * Servicio de búsqueda y filtrado de contenidos
@@ -27,6 +29,7 @@ import { AnalyticsService } from './analytics.service';
 })
 export class SearchFilterService {
   private analyticsService = inject(AnalyticsService);
+  private languageService = inject(LanguageService);
   
   // Señales reactivas para el estado del filtro
   private currentFilters = signal<ContentFilters>({});
@@ -272,7 +275,10 @@ export class SearchFilterService {
                               content.descripcion_lectura_facil.es || '').toLowerCase();
     
     // Incluir hashtags en la búsqueda para mejorar resultados semánticos
-    const hashtagsText = content.hashtags.map(h => h.nombre.toLowerCase()).join(' ');
+    const hashtagsText = content.hashtags.map(h => {
+      const lang = this.languageService.getCurrentLanguage();
+      return (h.nombre[lang as keyof MultilingualText] || h.nombre.es).toLowerCase();
+    }).join(' ');
     
     const searchableText = `${titulo} ${descripcion} ${descripcionFacil} ${hashtagsText}`;
     
@@ -436,8 +442,11 @@ export class SearchFilterService {
       });
     });
     
-    return Array.from(hashtagMap.values()).sort((a, b) => 
-      a.nombre.localeCompare(b.nombre)
+    const lang = this.languageService.getCurrentLanguage();
+    return Array.from(hashtagMap.values()).sort((a, b) =>
+      (a.nombre[lang as keyof MultilingualText] || a.nombre.es).localeCompare(
+        b.nombre[lang as keyof MultilingualText] || b.nombre.es
+      )
     );
   }
 
@@ -514,7 +523,8 @@ export class SearchFilterService {
       contents.forEach(content => {
         // Agregar hashtags
         content.hashtags.forEach(tag => {
-          const tagName = tag.nombre.toLowerCase();
+          const lang = this.languageService.getCurrentLanguage();
+          const tagName = (tag.nombre[lang as keyof MultilingualText] || tag.nombre.es).toLowerCase();
           termFrequency[tagName] = (termFrequency[tagName] || 0) + 1;
         });
 

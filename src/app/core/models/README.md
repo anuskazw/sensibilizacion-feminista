@@ -82,7 +82,7 @@ Instituciones y aplicaciones de ayuda.
 ```typescript
 interface Hashtag {
   id: string;
-  nombre: string;
+  nombre: MultilingualText;
   slug: string;
   descripcion?: string;
 }

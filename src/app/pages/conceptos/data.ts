@@ -18,14 +18,14 @@ function createMultilingualText(text: string): MultilingualText {
  * Hashtags de ejemplo para conceptos feministas
  */
 export const sampleHashtags: Hashtag[] = [
-  { id: '1', nombre: 'Igualdad', slug: 'igualdad', descripcion: 'Igualdad de género' },
-  { id: '2', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Movimiento feminista' },
-  { id: '3', nombre: 'Derechos', slug: 'derechos', descripcion: 'Derechos de las mujeres' },
-  { id: '4', nombre: 'Género', slug: 'genero', descripcion: 'Género y sexualidad' },
-  { id: '5', nombre: 'Sociedad', slug: 'sociedad', descripcion: 'Sociedad y cultura' },
-  { id: '6', nombre: 'Política', slug: 'politica', descripcion: 'Política y feminismo' },
-  { id: '7', nombre: 'Economía', slug: 'economia', descripcion: 'Economía feminista' },
-  { id: '8', nombre: 'Teoría', slug: 'teoria', descripcion: 'Teoría feminista' },
+  { id: '1', nombre: { es: 'Igualdad', en: 'Equality', ca: 'Igualtat', val: 'Igualtat', gl: 'Igualdade', eu: 'Berdintasuna' }, slug: 'igualdad', descripcion: 'Igualdad de género' },
+  { id: '2', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Movimiento feminista' },
+  { id: '3', nombre: { es: 'Derechos', en: 'Rights', ca: 'Drets', val: 'Drets', gl: 'Dereitos', eu: 'Eskubideak' }, slug: 'derechos', descripcion: 'Derechos de las mujeres' },
+  { id: '4', nombre: { es: 'Género', en: 'Gender', ca: 'Gènere', val: 'Gènere', gl: 'Xénero', eu: 'Generoa' }, slug: 'genero', descripcion: 'Género y sexualidad' },
+  { id: '5', nombre: { es: 'Sociedad', en: 'Society', ca: 'Societat', val: 'Societat', gl: 'Sociedade', eu: 'Gizartea' }, slug: 'sociedad', descripcion: 'Sociedad y cultura' },
+  { id: '6', nombre: { es: 'Política', en: 'Politics', ca: 'Política', val: 'Política', gl: 'Política', eu: 'Politika' }, slug: 'politica', descripcion: 'Política y feminismo' },
+  { id: '7', nombre: { es: 'Economía', en: 'Economy', ca: 'Economia', val: 'Economia', gl: 'Economía', eu: 'Ekonomia' }, slug: 'economia', descripcion: 'Economía feminista' },
+  { id: '8', nombre: { es: 'Teoría', en: 'Theory', ca: 'Teoria', val: 'Teoria', gl: 'Teoría', eu: 'Teoria' }, slug: 'teoria', descripcion: 'Teoría feminista' },
 ];
 
 /**

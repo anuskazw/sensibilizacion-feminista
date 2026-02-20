@@ -71,5 +71,10 @@ export class HistoriaComponent implements OnInit {
     return content.descripcion_lectura_facil[lang as keyof MultilingualText] ||
            content.descripcion_lectura_facil.es;
   }
+
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
+  }
 }
 

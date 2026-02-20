@@ -31,8 +31,8 @@ export const sampleLibros: RecursoContent[] = [
     num_ediciones: 15,
     isbn: '978-84-376-0494-7',
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '2', nombre: 'Teoría', slug: 'teoria', descripcion: 'Teoría feminista' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '2', nombre: { es: 'Teoría', en: 'Theory', ca: 'Teoria', val: 'Teoria', gl: 'Teoría', eu: 'Teoria' }, slug: 'teoria', descripcion: 'Teoría feminista' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-01-01'),
@@ -54,8 +54,8 @@ export const sampleLibros: RecursoContent[] = [
     num_ediciones: 8,
     isbn: '978-84-376-2345-0',
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '3', nombre: 'Educación', slug: 'educacion', descripcion: 'Educación' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '3', nombre: { es: 'Educación', en: 'Education', ca: 'Educació', val: 'Educació', gl: 'Educación', eu: 'Hezkuntza' }, slug: 'educacion', descripcion: 'Educación' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-01-15'),
@@ -77,8 +77,8 @@ export const sampleLibros: RecursoContent[] = [
     num_ediciones: 12,
     isbn: '978-84-376-1234-5',
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '4', nombre: 'Psicología', slug: 'psicologia', descripcion: 'Psicología' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '4', nombre: { es: 'Psicología', en: 'Psychology', ca: 'Psicologia', val: 'Psicologia', gl: 'Psicoloxía', eu: 'Psikologia' }, slug: 'psicologia', descripcion: 'Psicología' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-02-01'),

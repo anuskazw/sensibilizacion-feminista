@@ -18,14 +18,14 @@ function createMultilingualText(text: string): MultilingualText {
  * Hashtags de ejemplo para la página de historia
  */
 export const sampleHashtags: Hashtag[] = [
-  { id: '1', nombre: 'Sufragismo', slug: 'sufragismo', descripcion: 'Movimiento por el voto femenino' },
-  { id: '2', nombre: 'Igualdad', slug: 'igualdad' },
-  { id: '3', nombre: 'Feminismo', slug: 'feminismo' },
-  { id: '4', nombre: 'Derechos', slug: 'derechos' },
-  { id: '5', nombre: 'Activismo', slug: 'activismo' },
-  { id: '6', nombre: 'Historia', slug: 'historia' },
-  { id: '7', nombre: 'Pioneras', slug: 'pioneras' },
-  { id: '8', nombre: 'Movimiento', slug: 'movimiento' },
+  { id: '1', nombre: { es: 'Sufragismo', en: 'Suffragism', ca: 'Sufragisme', val: 'Sufragisme', gl: 'Sufraxismo', eu: 'Sufragismoa' }, slug: 'sufragismo', descripcion: 'Movimiento por el voto femenino' },
+  { id: '2', nombre: { es: 'Igualdad', en: 'Equality', ca: 'Igualtat', val: 'Igualtat', gl: 'Igualdade', eu: 'Berdintasuna' }, slug: 'igualdad' },
+  { id: '3', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo' },
+  { id: '4', nombre: { es: 'Derechos', en: 'Rights', ca: 'Drets', val: 'Drets', gl: 'Dereitos', eu: 'Eskubideak' }, slug: 'derechos' },
+  { id: '5', nombre: { es: 'Activismo', en: 'Activism', ca: 'Activisme', val: 'Activisme', gl: 'Activismo', eu: 'Aktibismoa' }, slug: 'activismo' },
+  { id: '6', nombre: { es: 'Historia', en: 'History', ca: 'Història', val: 'Història', gl: 'Historia', eu: 'Historia' }, slug: 'historia' },
+  { id: '7', nombre: { es: 'Pioneras', en: 'Pioneers', ca: 'Pioneres', val: 'Pioneres', gl: 'Pioneiras', eu: 'Aitzindariak' }, slug: 'pioneras' },
+  { id: '8', nombre: { es: 'Movimiento', en: 'Movement', ca: 'Moviment', val: 'Moviment', gl: 'Movemento', eu: 'Mugimendua' }, slug: 'movimiento' },
 ];
 
 /**

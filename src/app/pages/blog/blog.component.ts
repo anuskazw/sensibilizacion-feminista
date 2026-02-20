@@ -59,12 +59,12 @@ export class BlogComponent implements OnInit {
       imagen_destacada: '/assets/images/blog/feminismo-interseccional.jpg',
       imagen_alt: this.createMultilingualText('Ilustración sobre feminismo interseccional'),
       categorias: [
-        { id: '1', nombre: 'Teoría', slug: 'teoria', descripcion: 'Teoría feminista' },
-        { id: '2', nombre: 'Interseccionalidad', slug: 'interseccionalidad', descripcion: 'Interseccionalidad' }
+        { id: '1', nombre: { es: 'Teoría', en: 'Theory', ca: 'Teoria', val: 'Teoria', gl: 'Teoría', eu: 'Teoria' }, slug: 'teoria', descripcion: 'Teoría feminista' },
+        { id: '2', nombre: { es: 'Interseccionalidad', en: 'Intersectionality', ca: 'Interseccionalitat', val: 'Interseccionalitat', gl: 'Interseccionalidade', eu: 'Intersekzionalitatea' }, slug: 'interseccionalidad', descripcion: 'Interseccionalidad' }
       ],
       etiquetas: [
-        { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-        { id: '2', nombre: 'Igualdad', slug: 'igualdad', descripcion: 'Igualdad' }
+        { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+        { id: '2', nombre: { es: 'Igualdad', en: 'Equality', ca: 'Igualtat', val: 'Igualtat', gl: 'Igualdade', eu: 'Berdintasuna' }, slug: 'igualdad', descripcion: 'Igualdad' }
       ],
       comentarios_habilitados: true,
       comentarios: [],
@@ -89,11 +89,11 @@ export class BlogComponent implements OnInit {
       imagen_destacada: '/assets/images/blog/historia-feminismo.jpg',
       imagen_alt: this.createMultilingualText('Manifestación feminista histórica'),
       categorias: [
-        { id: '3', nombre: 'Historia', slug: 'historia', descripcion: 'Historia del feminismo' }
+        { id: '3', nombre: { es: 'Historia', en: 'History', ca: 'Història', val: 'Història', gl: 'Historia', eu: 'Historia' }, slug: 'historia', descripcion: 'Historia del feminismo' }
       ],
       etiquetas: [
-        { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-        { id: '3', nombre: 'Historia', slug: 'historia', descripcion: 'Historia' }
+        { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+        { id: '3', nombre: { es: 'Historia', en: 'History', ca: 'Història', val: 'Història', gl: 'Historia', eu: 'Historia' }, slug: 'historia', descripcion: 'Historia' }
       ],
       comentarios_habilitados: true,
       comentarios: [],
@@ -118,12 +118,12 @@ export class BlogComponent implements OnInit {
       imagen_destacada: '/assets/images/blog/violencia-prevencion.jpg',
       imagen_alt: this.createMultilingualText('Recursos de prevención de violencia'),
       categorias: [
-        { id: '4', nombre: 'Violencia', slug: 'violencia', descripcion: 'Violencia de género' },
-        { id: '5', nombre: 'Recursos', slug: 'recursos', descripcion: 'Recursos de ayuda' }
+        { id: '4', nombre: { es: 'Violencia', en: 'Violence', ca: 'Violència', val: 'Violència', gl: 'Violencia', eu: 'Indarkeria' }, slug: 'violencia', descripcion: 'Violencia de género' },
+        { id: '5', nombre: { es: 'Recursos', en: 'Resources', ca: 'Recursos', val: 'Recursos', gl: 'Recursos', eu: 'Baliabideak' }, slug: 'recursos', descripcion: 'Recursos de ayuda' }
       ],
       etiquetas: [
-        { id: '4', nombre: 'Violencia', slug: 'violencia', descripcion: 'Violencia' },
-        { id: '5', nombre: 'Prevención', slug: 'prevencion', descripcion: 'Prevención' }
+        { id: '4', nombre: { es: 'Violencia', en: 'Violence', ca: 'Violència', val: 'Violència', gl: 'Violencia', eu: 'Indarkeria' }, slug: 'violencia', descripcion: 'Violencia' },
+        { id: '5', nombre: { es: 'Prevención', en: 'Prevention', ca: 'Prevenció', val: 'Prevenció', gl: 'Prevención', eu: 'Prebentzioa' }, slug: 'prevencion', descripcion: 'Prevención' }
       ],
       comentarios_habilitados: true,
       comentarios: [],
@@ -290,6 +290,11 @@ export class BlogComponent implements OnInit {
       // Mostrar mensaje de éxito (en producción, usar un servicio de notificaciones)
       alert(this.translateService.instant('blog.comment.submitted'));
     }, 1000);
+  }
+
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
   }
 
   getTitle(article: BlogArticle): string {

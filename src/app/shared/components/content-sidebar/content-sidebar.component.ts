@@ -1,10 +1,11 @@
-import { Component, Input, Output, EventEmitter, signal, computed, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, signal, computed, ViewChild, ElementRef, AfterViewInit, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
-import { Hashtag } from '../../../core/models/content.model';
+import { Hashtag, MultilingualText } from '../../../core/models/content.model';
 import { ContentFilters } from '../../../core/models/filter.model';
+import { LanguageService } from '../../../core/services/language.service';
 
 /**
  * Componente de sidebar con búsqueda y filtros
@@ -18,6 +19,8 @@ import { ContentFilters } from '../../../core/models/filter.model';
   styleUrl: './content-sidebar.component.css'
 })
 export class ContentSidebarComponent implements AfterViewInit, OnDestroy {
+  private languageService = inject(LanguageService);
+
   @Input() sectionTitle: string = '';
   @Input() hashtags: Hashtag[] = [];
   @Input() yearRange: { min: number; max: number } | null = null;
@@ -45,7 +48,7 @@ export class ContentSidebarComponent implements AfterViewInit, OnDestroy {
     const groups = new Map<string, Hashtag[]>();
     
     this.hashtags.forEach(tag => {
-      const firstLetter = tag.nombre.charAt(0).toUpperCase();
+      const firstLetter = this.getHashtagName(tag).charAt(0).toUpperCase();
       if (!groups.has(firstLetter)) {
         groups.set(firstLetter, []);
       }
@@ -57,9 +60,14 @@ export class ContentSidebarComponent implements AfterViewInit, OnDestroy {
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([letter, tags]) => ({
         letter,
-        tags: tags.sort((a, b) => a.nombre.localeCompare(b.nombre))
+        tags: tags.sort((a, b) => this.getHashtagName(a).localeCompare(this.getHashtagName(b)))
       }));
   });
+
+  getHashtagName(tag: Hashtag): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return tag.nombre[lang as keyof MultilingualText] || tag.nombre.es;
+  }
 
   onSearchChange(text: string): void {
     this.searchText.set(text);

@@ -130,6 +130,11 @@ export class LibrosComponent implements OnInit {
     return libro.descripcion[lang as keyof MultilingualText] || libro.descripcion.es;
   }
 
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
+  }
+
   getEasyReadDescription(libro: RecursoContent): string {
     if (!libro.descripcion_lectura_facil) {
       return this.getDescription(libro);

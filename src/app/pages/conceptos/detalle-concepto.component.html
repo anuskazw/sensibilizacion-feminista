@@ -29,7 +29,7 @@
         <!-- Hashtags -->
         <div class="article-hashtags">
           @for (hashtag of content()!.hashtags; track hashtag.id) {
-            <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+            <span class="hashtag-badge">#{{ getHashtagName(hashtag) }}</span>
           }
         </div>
       </header>

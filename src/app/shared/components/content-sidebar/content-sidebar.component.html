@@ -50,10 +50,10 @@
                     type="checkbox"
                     [checked]="isHashtagSelected(tag.id)"
                     (change)="toggleHashtag(tag.id)"
-                    [attr.aria-label]="tag.nombre"
+                    [attr.aria-label]="getHashtagName(tag)"
                   />
                   <span class="hashtag-label">
-                    #{{ tag.nombre }}
+                    #{{ getHashtagName(tag) }}
                   </span>
                   @if (tag.descripcion) {
                     <span class="hashtag-description">{{ tag.descripcion }}</span>
@@ -192,10 +192,10 @@
                       type="checkbox"
                       [checked]="isHashtagSelected(tag.id)"
                       (change)="toggleHashtag(tag.id)"
-                      [attr.aria-label]="tag.nombre"
+                      [attr.aria-label]="getHashtagName(tag)"
                     />
                     <span class="hashtag-label">
-                      #{{ tag.nombre }}
+                      #{{ getHashtagName(tag) }}
                     </span>
                     @if (tag.descripcion) {
                       <span class="hashtag-description">{{ tag.descripcion }}</span>

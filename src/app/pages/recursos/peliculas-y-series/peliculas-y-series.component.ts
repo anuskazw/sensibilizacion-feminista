@@ -130,6 +130,11 @@ export class PeliculasYSeriesComponent implements OnInit {
     return peliculaSerie.descripcion[lang as keyof MultilingualText] || peliculaSerie.descripcion.es;
   }
 
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
+  }
+
   getEasyReadDescription(peliculaSerie: RecursoContent): string {
     if (!peliculaSerie.descripcion_lectura_facil) {
       return this.getDescription(peliculaSerie);

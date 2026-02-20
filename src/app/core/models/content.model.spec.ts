@@ -71,13 +71,13 @@ describe('Content Models', () => {
     it('debería crear un hashtag válido', () => {
       const hashtag: Hashtag = {
         id: 'ht-001',
-        nombre: 'Feminismo',
+        nombre: { es: 'Feminismo', en: 'Feminism' },
         slug: 'feminismo',
         descripcion: 'Movimiento por la igualdad de género'
       };
-      
+
       expect(hashtag.id).toBe('ht-001');
-      expect(hashtag.nombre).toBe('Feminismo');
+      expect(hashtag.nombre.es).toBe('Feminismo');
       expect(hashtag.slug).toBe('feminismo');
       expect(hashtag.descripcion).toBeDefined();
     });
@@ -85,7 +85,7 @@ describe('Content Models', () => {
     it('debería permitir hashtag sin descripción', () => {
       const hashtag: Hashtag = {
         id: 'ht-002',
-        nombre: 'Igualdad',
+        nombre: { es: 'Igualdad', en: 'Equality' },
         slug: 'igualdad'
       };
       

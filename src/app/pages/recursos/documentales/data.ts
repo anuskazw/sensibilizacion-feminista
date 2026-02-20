@@ -31,8 +31,8 @@ export const sampleDocumentales: RecursoContent[] = [
     anio: 2011,
     duracion: 90,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '9', nombre: 'Medios de comunicación', slug: 'medios-comunicacion', descripcion: 'Medios de comunicación' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '9', nombre: { es: 'Medios de comunicación', en: 'Media', ca: 'Mitjans de comunicació', val: 'Mitjans de comunicació', gl: 'Medios de comunicación', eu: 'Komunikabideak' }, slug: 'medios-comunicacion', descripcion: 'Medios de comunicación' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-01-01'),
@@ -54,8 +54,8 @@ export const sampleDocumentales: RecursoContent[] = [
     anio: 2015,
     duracion: 97,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '10', nombre: 'Masculinidad', slug: 'masculinidad', descripcion: 'Masculinidad' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '10', nombre: { es: 'Masculinidad', en: 'Masculinity', ca: 'Masculinitat', val: 'Masculinitat', gl: 'Masculinidade', eu: 'Maskulinitatea' }, slug: 'masculinidad', descripcion: 'Masculinidad' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-01-15'),
@@ -77,8 +77,8 @@ export const sampleDocumentales: RecursoContent[] = [
     anio: 2014,
     duracion: 92,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '8', nombre: 'Historia feminista', slug: 'historia-feminista', descripcion: 'Historia feminista' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '8', nombre: { es: 'Historia feminista', en: 'Feminist history', ca: 'Història feminista', val: 'Història feminista', gl: 'Historia feminista', eu: 'Historia feminista' }, slug: 'historia-feminista', descripcion: 'Historia feminista' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-02-01'),
@@ -100,8 +100,8 @@ export const sampleDocumentales: RecursoContent[] = [
     anio: 2018,
     duracion: 86,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '8', nombre: 'Historia feminista', slug: 'historia-feminista', descripcion: 'Historia feminista' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '8', nombre: { es: 'Historia feminista', en: 'Feminist history', ca: 'Història feminista', val: 'Història feminista', gl: 'Historia feminista', eu: 'Historia feminista' }, slug: 'historia-feminista', descripcion: 'Historia feminista' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-02-15'),

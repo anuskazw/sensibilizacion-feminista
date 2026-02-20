@@ -3,20 +3,23 @@
  * Implementa la gestión centralizada de hashtags según US-004
  */
 
-import { Injectable, signal, computed } from '@angular/core';
-import { Hashtag } from '../models/content.model';
+import { Injectable, signal, computed, inject } from '@angular/core';
+import { Hashtag, MultilingualText } from '../models/content.model';
+import { LanguageService } from './language.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HashtagService {
+  private languageService = inject(LanguageService);
+
   // Colección centralizada de hashtags
   private hashtags = signal<Hashtag[]>([]);
 
   // Hashtags ordenados alfabéticamente (computed)
   public sortedHashtags = computed(() => {
     return [...this.hashtags()].sort((a, b) =>
-      a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' })
+      this.getLocalizedName(a).localeCompare(this.getLocalizedName(b), 'es', { sensitivity: 'base' })
     );
   });
 
@@ -37,6 +40,14 @@ export class HashtagService {
   constructor() {
     // Inicializar con datos de ejemplo/demo
     this.loadInitialHashtags();
+  }
+
+  /**
+   * Obtiene el nombre localizado de un hashtag
+   */
+  getLocalizedName(hashtag: Hashtag): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
   }
 
   /**
@@ -70,7 +81,7 @@ export class HashtagService {
 
     const search = searchText.toLowerCase().trim();
     return this.sortedHashtags().filter(tag =>
-      tag.nombre.toLowerCase().includes(search) ||
+      this.getLocalizedName(tag).toLowerCase().includes(search) ||
       (tag.descripcion && tag.descripcion.toLowerCase().includes(search))
     );
   }
@@ -151,7 +162,7 @@ export class HashtagService {
     const groups = new Map<string, Hashtag[]>();
 
     this.sortedHashtags().forEach(tag => {
-      const firstLetter = tag.nombre.charAt(0).toUpperCase();
+      const firstLetter = this.getLocalizedName(tag).charAt(0).toUpperCase();
       if (!groups.has(firstLetter)) {
         groups.set(firstLetter, []);
       }
@@ -173,8 +184,9 @@ export class HashtagService {
   /**
    * Genera un slug a partir de un nombre
    */
-  generateSlug(nombre: string): string {
-    return nombre
+  generateSlug(nombre: string | MultilingualText): string {
+    const text = typeof nombre === 'string' ? nombre : nombre.es;
+    return text
       .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '') // Eliminar acentos
@@ -199,61 +211,61 @@ export class HashtagService {
     const initialHashtags: Hashtag[] = [
       {
         id: 'ht-001',
-        nombre: 'Feminismo',
+        nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' },
         slug: 'feminismo',
         descripcion: 'Movimiento social y político por la igualdad de género'
       },
       {
         id: 'ht-002',
-        nombre: 'Igualdad',
+        nombre: { es: 'Igualdad', en: 'Equality', ca: 'Igualtat', val: 'Igualtat', gl: 'Igualdade', eu: 'Berdintasuna' },
         slug: 'igualdad',
         descripcion: 'Igualdad de derechos y oportunidades'
       },
       {
         id: 'ht-003',
-        nombre: 'Violencia de Género',
+        nombre: { es: 'Violencia de Género', en: 'Gender Violence', ca: 'Violència de Gènere', val: 'Violència de Gènere', gl: 'Violencia de Xénero', eu: 'Genero Indarkeria' },
         slug: 'violencia-de-genero',
         descripcion: 'Violencia ejercida contra las mujeres por razón de género'
       },
       {
         id: 'ht-004',
-        nombre: 'Accesibilidad',
+        nombre: { es: 'Accesibilidad', en: 'Accessibility', ca: 'Accessibilitat', val: 'Accessibilitat', gl: 'Accesibilidade', eu: 'Irisgarritasuna' },
         slug: 'accesibilidad',
         descripcion: 'Accesibilidad para personas con discapacidad'
       },
       {
         id: 'ht-005',
-        nombre: 'Lengua de Signos',
+        nombre: { es: 'Lengua de Signos', en: 'Sign Language', ca: 'Llengua de Signes', val: 'Llengua de Signes', gl: 'Lingua de Signos', eu: 'Zeinu Hizkuntza' },
         slug: 'lengua-de-signos',
         descripcion: 'Comunicación en lengua de signos'
       },
       {
         id: 'ht-006',
-        nombre: 'Educación',
+        nombre: { es: 'Educación', en: 'Education', ca: 'Educació', val: 'Educació', gl: 'Educación', eu: 'Hezkuntza' },
         slug: 'educacion',
         descripcion: 'Educación y sensibilización'
       },
       {
         id: 'ht-007',
-        nombre: 'Derechos Humanos',
+        nombre: { es: 'Derechos Humanos', en: 'Human Rights', ca: 'Drets Humans', val: 'Drets Humans', gl: 'Dereitos Humanos', eu: 'Giza Eskubideak' },
         slug: 'derechos-humanos',
         descripcion: 'Derechos fundamentales de las personas'
       },
       {
         id: 'ht-008',
-        nombre: 'Empoderamiento',
+        nombre: { es: 'Empoderamiento', en: 'Empowerment', ca: 'Empoderament', val: 'Empoderament', gl: 'Empoderamento', eu: 'Ahalduntzea' },
         slug: 'empoderamiento',
         descripcion: 'Empoderamiento de la mujer'
       },
       {
         id: 'ht-009',
-        nombre: 'Discriminación',
+        nombre: { es: 'Discriminación', en: 'Discrimination', ca: 'Discriminació', val: 'Discriminació', gl: 'Discriminación', eu: 'Diskriminazioa' },
         slug: 'discriminacion',
         descripcion: 'Discriminación por razón de género o discapacidad'
       },
       {
         id: 'ht-010',
-        nombre: 'Sororidad',
+        nombre: { es: 'Sororidad', en: 'Sisterhood', ca: 'Sororitat', val: 'Sororitat', gl: 'Sororidade', eu: 'Ahizpatasuna' },
         slug: 'sororidad',
         descripcion: 'Solidaridad entre mujeres'
       }
@@ -270,7 +282,7 @@ export class HashtagService {
     // Validar que todos los hashtags tengan datos correctos
     const validHashtags = hashtags.filter(tag =>
       tag.id &&
-      tag.nombre &&
+      tag.nombre?.es &&
       tag.slug &&
       this.isValidSlug(tag.slug)
     );

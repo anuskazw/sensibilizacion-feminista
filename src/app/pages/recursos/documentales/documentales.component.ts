@@ -130,6 +130,11 @@ export class DocumentalesComponent implements OnInit {
     return documental.descripcion[lang as keyof MultilingualText] || documental.descripcion.es;
   }
 
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
+  }
+
   getEasyReadDescription(documental: RecursoContent): string {
     if (!documental.descripcion_lectura_facil) {
       return this.getDescription(documental);

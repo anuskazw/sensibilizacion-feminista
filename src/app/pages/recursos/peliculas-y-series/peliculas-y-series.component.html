@@ -109,7 +109,7 @@
               @if (peliculaSerie.hashtags && peliculaSerie.hashtags.length > 0) {
                 <div class="pelicula-serie-hashtags">
                   @for (hashtag of peliculaSerie.hashtags; track hashtag.id) {
-                    <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                    <span class="hashtag-badge">#{{ getHashtagName(hashtag) }}</span>
                   }
                 </div>
               }

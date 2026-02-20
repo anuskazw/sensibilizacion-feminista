@@ -154,6 +154,11 @@ export class ConceptosComponent implements OnInit {
            content.descripcion_lectura_facil.es;
   }
 
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
+  }
+
   scrollToLetter(letter: string): void {
     const element = document.getElementById(`letter-${letter}`);
     if (element) {

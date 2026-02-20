@@ -103,7 +103,7 @@
               @if (documental.hashtags && documental.hashtags.length > 0) {
                 <div class="documental-hashtags">
                   @for (hashtag of documental.hashtags; track hashtag.id) {
-                    <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                    <span class="hashtag-badge">#{{ getHashtagName(hashtag) }}</span>
                   }
                 </div>
               }

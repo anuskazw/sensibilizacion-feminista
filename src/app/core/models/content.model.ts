@@ -28,7 +28,7 @@ export interface Reference {
 
 export interface Hashtag {
   id: string;
-  nombre: string;
+  nombre: MultilingualText;
   slug: string;
   descripcion?: string;
 }

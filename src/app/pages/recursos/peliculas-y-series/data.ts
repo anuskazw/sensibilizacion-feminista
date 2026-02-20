@@ -32,8 +32,8 @@ export const samplePeliculasSeries: RecursoContent[] = [
     num_temporadas: 5,
     duracion: 60,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '5', nombre: 'Derechos reproductivos', slug: 'derechos-reproductivos', descripcion: 'Derechos reproductivos' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '5', nombre: { es: 'Derechos reproductivos', en: 'Reproductive rights', ca: 'Drets reproductius', val: 'Drets reproductius', gl: 'Dereitos reprodutivos', eu: 'Ugalketa eskubideak' }, slug: 'derechos-reproductivos', descripcion: 'Derechos reproductivos' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-01-01'),
@@ -56,8 +56,8 @@ export const samplePeliculasSeries: RecursoContent[] = [
     num_temporadas: 2,
     duracion: 55,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '6', nombre: 'Violencia de género', slug: 'violencia-genero', descripcion: 'Violencia de género' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '6', nombre: { es: 'Violencia de género', en: 'Gender violence', ca: 'Violència de gènere', val: 'Violència de gènere', gl: 'Violencia de xénero', eu: 'Genero indarkeria' }, slug: 'violencia-genero', descripcion: 'Violencia de género' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-01-15'),
@@ -79,8 +79,8 @@ export const samplePeliculasSeries: RecursoContent[] = [
     anio: 2016,
     duracion: 127,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '7', nombre: 'Mujeres en la ciencia', slug: 'mujeres-ciencia', descripcion: 'Mujeres en la ciencia' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '7', nombre: { es: 'Mujeres en la ciencia', en: 'Women in science', ca: 'Dones a la ciència', val: 'Dones a la ciència', gl: 'Mulleres na ciencia', eu: 'Emakumeak zientzian' }, slug: 'mujeres-ciencia', descripcion: 'Mujeres en la ciencia' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-02-01'),
@@ -102,8 +102,8 @@ export const samplePeliculasSeries: RecursoContent[] = [
     anio: 2015,
     duracion: 106,
     hashtags: [
-      { id: '1', nombre: 'Feminismo', slug: 'feminismo', descripcion: 'Feminismo' },
-      { id: '8', nombre: 'Historia feminista', slug: 'historia-feminista', descripcion: 'Historia feminista' }
+      { id: '1', nombre: { es: 'Feminismo', en: 'Feminism', ca: 'Feminisme', val: 'Feminisme', gl: 'Feminismo', eu: 'Feminismoa' }, slug: 'feminismo', descripcion: 'Feminismo' },
+      { id: '8', nombre: { es: 'Historia feminista', en: 'Feminist history', ca: 'Història feminista', val: 'Història feminista', gl: 'Historia feminista', eu: 'Historia feminista' }, slug: 'historia-feminista', descripcion: 'Historia feminista' }
     ],
     activo: true,
     fecha_publicacion: new Date('2024-02-15'),

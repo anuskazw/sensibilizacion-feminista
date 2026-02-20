@@ -98,7 +98,7 @@ export class DetalleConceptoComponent implements OnInit {
       this.analyticsService.trackContentView(
         `concepto-${foundContent.id}`,
         'concepto',
-        foundContent.hashtags.map(h => h.nombre)
+        foundContent.hashtags.map(h => this.getHashtagName(h))
       );
 
       this.isLoading.set(false);
@@ -120,6 +120,11 @@ export class DetalleConceptoComponent implements OnInit {
     if (!content) return '';
     const lang = this.languageService.getCurrentLanguage();
     return content.descripcion[lang as keyof MultilingualText] || content.descripcion.es;
+  }
+
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
   }
 
   getDescriptionLecturaFacil(): string {

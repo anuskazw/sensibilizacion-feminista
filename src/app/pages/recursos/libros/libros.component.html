@@ -102,7 +102,7 @@
               @if (libro.hashtags && libro.hashtags.length > 0) {
                 <div class="libro-hashtags">
                   @for (hashtag of libro.hashtags; track hashtag.id) {
-                    <span class="hashtag-badge">#{{ hashtag.nombre }}</span>
+                    <span class="hashtag-badge">#{{ getHashtagName(hashtag) }}</span>
                   }
                 </div>
               }

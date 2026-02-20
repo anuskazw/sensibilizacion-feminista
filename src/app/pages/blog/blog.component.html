@@ -52,7 +52,7 @@
                 <div class="article-header">
                   <div class="article-categories">
                     @for (categoria of article.categorias; track categoria.id) {
-                      <span class="category-badge">{{ categoria.nombre }}</span>
+                      <span class="category-badge">{{ getHashtagName(categoria) }}</span>
                     }
                   </div>
                   <time class="article-date" [attr.datetime]="article.fecha_publicacion.toISOString()">
@@ -83,7 +83,7 @@
                   
                   <div class="article-tags">
                     @for (etiqueta of article.etiquetas; track etiqueta.id) {
-                      <span class="tag-badge">#{{ etiqueta.nombre }}</span>
+                      <span class="tag-badge">#{{ getHashtagName(etiqueta) }}</span>
                     }
                   </div>
                 </div>
@@ -166,7 +166,7 @@
                 <div class="article-header-full">
                   <div class="article-categories">
                     @for (categoria of article.categorias; track categoria.id) {
-                      <span class="category-badge">{{ categoria.nombre }}</span>
+                      <span class="category-badge">{{ getHashtagName(categoria) }}</span>
                     }
                   </div>
                   <time class="article-date" [attr.datetime]="article.fecha_publicacion.toISOString()">
@@ -212,7 +212,7 @@
 
                 <div class="article-tags-full">
                   @for (etiqueta of article.etiquetas; track etiqueta.id) {
-                    <span class="tag-badge">#{{ etiqueta.nombre }}</span>
+                    <span class="tag-badge">#{{ getHashtagName(etiqueta) }}</span>
                   }
                 </div>
 

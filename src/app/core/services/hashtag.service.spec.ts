@@ -70,7 +70,7 @@ describe('HashtagService', () => {
     it('debería añadir un nuevo hashtag', () => {
       const newHashtag: Hashtag = {
         id: 'test-new-1',
-        nombre: 'Nuevo Tag',
+        nombre: { es: 'Nuevo Tag', en: 'New Tag' },
         slug: 'nuevo-tag',
         descripcion: 'Descripción de prueba'
       };
@@ -89,7 +89,7 @@ describe('HashtagService', () => {
       const targetId = hashtags[0].id;
       
       const updated = service.updateHashtag(targetId, {
-        nombre: 'Nombre Actualizado'
+        nombre: { es: 'Nombre Actualizado', en: 'Updated Name' }
       });
 
       expect(updated).toBe(true);

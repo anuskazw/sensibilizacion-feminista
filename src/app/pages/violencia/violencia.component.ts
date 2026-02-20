@@ -140,6 +140,11 @@ export class ViolenciaComponent implements OnInit {
            content.senales_alerta.es || '';
   }
 
+  getHashtagName(hashtag: any): string {
+    const lang = this.languageService.getCurrentLanguage();
+    return hashtag.nombre[lang as keyof MultilingualText] || hashtag.nombre.es;
+  }
+
   scrollToTerm(term: string): void {
     // Buscar el contenido que corresponde al término
     const content = this.filteredContents().find(c => this.getTitle(c) === term);
